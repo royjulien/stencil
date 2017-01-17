@@ -1,0 +1,35 @@
+---
+category:
+    shop_by_price: true
+    products:
+        limit: {{theme_settings.categorypage_products_per_page}}
+---
+{{inject "categoryProductsPerPage" theme_settings.categorypage_products_per_page}}
+{{#partial "head"}}
+    {{#if pagination.category.previous}}
+        <link rel="prev" href="{{pagination.category.previous}}">
+    {{/if}}
+    {{#if pagination.category.next}}
+        <link rel="next" href="{{pagination.category.next}}">
+    {{/if}}
+{{/partial}}
+
+{{#partial "page"}}
+
+{{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+
+<h1 class="page-heading">{{category.name}}</h1>
+{{{category.description}}}
+{{{snippet 'categories'}}}
+<div class="page">
+    <main class="page-content" id="product-listing-container">
+        {{> components/category/main}}
+
+        {{#if category.products}}
+            {{> components/category/product-listing}}
+        {{/if}}
+    </main>
+</div>
+
+{{/partial}}
+{{> layout/base}}

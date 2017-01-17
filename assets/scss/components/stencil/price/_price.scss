@@ -1,0 +1,20 @@
+// =============================================================================
+// PRICE (CSS)
+// =============================================================================
+
+.price--rrp,
+.price--discounted {
+    text-decoration: line-through;
+}
+
+.price-section--minor {
+    color: color("greys", "light");
+}
+
+.price-section--saving {
+  color: stencilColor("color-aql-green");;
+}
+
+.price--withoutTax {
+  color: stencilColor("color-aql-green");;
+}

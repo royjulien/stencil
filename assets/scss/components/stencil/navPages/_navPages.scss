@@ -1,0 +1,702 @@
+// Page Navigation
+// -----------------------------------------------------------------------------
+//
+// Purpose: Contains the styles for the page navigation, deals with 2 viewsdue to
+// responsive layout of that navigation
+//
+// 1. It's not exactly a grid row, as it's a little further down the DOM tree, but
+// I use it here to grab the max width centering.
+// 2. Prevent document scrolling by clipping its body
+// 3. Prevent inertia scrolling of document
+//
+// -----------------------------------------------------------------------------
+
+
+//
+// Shared styles for sub page navigation
+// -----------------------------------------------------------------------------
+
+%navPage-childList {
+    border-left: 1px solid $navPage-childList-borderColor;
+    margin: spacing("quarter") spacing("half");
+    padding-left: spacing("half");
+}
+
+//
+// When navPages is open
+// -----------------------------------------------------------------------------
+
+.has-activeNavPages {
+    // scss-lint:disable VendorPrefix
+    overflow: hidden; // 2
+    -webkit-overflow-scrolling: auto; // 3
+}
+
+//
+// Top level Pages navigation container
+// -----------------------------------------------------------------------------
+
+.navPages-container {
+    // scss-lint:disable VendorPrefix
+    bottom: 0;
+    display: none;
+    height: 100%;
+    left: 0;
+    -webkit-overflow-scrolling: touch;
+    position: absolute;
+    right: 0;
+    z-index: zIndex("lower");
+
+    @include breakpoint("medium") {
+        background: transparent;
+        display: block;
+        height: auto;
+        padding: 0;
+        position: relative;
+    }
+
+    &.is-open {
+        display: block;
+        top: 50px;
+        z-index: 20;
+    }
+}
+
+//
+// Top level Pages navigation list styles
+// -----------------------------------------------------------------------------
+
+.navPages {
+    background-color: #343434;
+    height: 100%;
+    overflow-y: auto;
+    padding: spacing("single");
+
+    @include breakpoint("medium") {
+        @include grid-row(); // 1
+        @include nav($style: "navBar", $wrapper: "nav");
+        background: none;
+        font-size: 0; // 1
+        overflow-y: visible;
+        padding: 0;
+        text-align: center;
+    }
+
+    ul {
+        list-style: none;
+    }
+
+    .navPage-subMenu-list {
+        @extend %navPage-childList;
+
+        @include breakpoint("medium") {
+            @include grid-row();
+            border-left: 0;
+            margin: auto;
+            padding-left: 0;
+        }
+    }
+}
+
+.navPages-list {
+    margin: 0;
+
+    @include breakpoint("medium") {
+        display: inline-block;
+        float: none;
+    }
+
+    + .navPages-list {
+        border-top: 1px solid $navPages-list--user-borderColor;
+        margin-top: spacing("half");
+        padding-top: spacing("half");
+    }
+}
+
+.navPages-action {
+    color: stencilColor("navPages-color");
+    display: block;
+    font-size: fontSize("smaller");
+    font-weight: fontWeight("bold");
+    padding: spacing("half") 0;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+
+    @include breakpoint("medium") {
+        display: inline-block;
+        padding: spacing("half") (spacing("half") + spacing("quarter")) (spacing("half") + spacing("quarter"));
+
+        &.is-open {
+            background-color: stencilColor("navPages-subMenu-backgroundColor");
+
+            // scss-lint:disable NestingDepth
+            svg {
+                fill: stencilColor("navPages-color-hover");
+                stroke: stencilColor("navPages-color-hover");
+            }
+        }
+    }
+
+    &:hover {
+        color: stencilColor("navPages-color-hover");
+
+        // scss-lint:disable NestingDepth
+        svg {
+            fill: stencilColor("navPages-color-hover");
+            stroke: stencilColor("navPages-color-hover");
+        }
+    }
+
+    svg {
+        fill: stencilColor("navPages-color");
+        stroke: stencilColor("navPages-color");
+        transition: all 0.15s ease;
+    }
+}
+
+.navPages-action--storeCredit {
+    color: stencilColor("color-textSecondary");
+}
+
+.navPages-action--compare {
+    display: none;
+
+    &.show {
+        display: block;
+    }
+}
+
+.navPages-action-moreIcon {
+    @include square(8px);
+    margin-left: spacing("quarter");
+    transform: rotate(-90deg);
+
+    @include breakpoint("medium") {
+        transform: none;
+    }
+
+    .has-subMenu.is-open & {
+        transform: rotate(0);
+    }
+}
+
+
+// Sub page navigation and children of sub pages
+// -----------------------------------------------------------------------------
+
+.navPage-childList {
+    @extend %navPage-childList;
+    display: none;
+
+    @include breakpoint("medium") {
+        border: 0;
+    }
+
+    &.is-open {
+        display: block;
+    }
+}
+
+
+// Sub menu, first level down from top level categories
+// -----------------------------------------------------------------------------
+//
+// 1. navBar mixin has lots of decendant child selectors to deal with
+//
+// -----------------------------------------------------------------------------
+
+.navPage-subMenu {
+    display: none;
+    outline: 0;
+
+    @include breakpoint("medium") {
+        // scss-lint:disable ImportantRule
+        background-color: stencilColor("navPages-subMenu-backgroundColor");
+        padding: spacing("single") spacing("single") (spacing("single") + spacing("half")) !important;
+        position: absolute;
+        text-align: left;
+
+        &.is-open {
+            display: block;
+            left: 0;
+            width: 100%;
+        }
+
+        .navPages-action-moreIcon {
+            display: none;
+        }
+    }
+
+    &.is-open {
+        display: block;
+    }
+}
+
+.navPage-subMenu-item {
+    @include breakpoint("medium") {
+        // scss-lint:disable ImportantRule
+        @include grid-column(3);
+        padding: 0 0.75rem !important; // 1
+
+        .navPages-action {
+            text-transform: none;
+            width: 100%;
+        }
+
+        > .navPage-subMenu-action {
+            border-bottom: 1px solid stencilColor("navPages-subMenu-separatorColor");
+            margin-bottom: spacing("half") + spacing("quarter");
+        }
+    }
+}
+
+.navPage-subMenu-action {
+    padding: spacing("half") 0;
+
+    @include breakpoint("medium") {
+        padding: spacing("half") 0 (spacing("half") + spacing("quarter"));
+    }
+}
+
+
+//
+// Child pages of sub pages navigation lists
+// -----------------------------------------------------------------------------
+
+.navPage-childList-item {
+    @include breakpoint("medium") {
+    }
+}
+
+.navPage-childList-action {
+    font-weight: fontWeight("normal");
+    padding: 0 0 spacing("quarter");
+}
+
+
+//
+// Quick search inside the mobile nav
+// -----------------------------------------------------------------------------
+
+.navPages-quickSearch {
+    border-bottom: container("border");
+    margin-bottom: spacing("half");
+
+    @include breakpoint("medium") {
+        display: none;
+    }
+
+    > .container {
+        padding: 0;
+    }
+
+    .form {
+        margin: 0;
+    }
+
+    .form-field {
+        margin-bottom: 0;
+    }
+}
+
+
+//
+// NavPages user section for mobile nav panel
+// -----------------------------------------------------------------------------
+
+.navPages-list--user {
+    @include breakpoint("medium") {
+        display: none;
+    }
+
+    // scss-lint:disable SelectorDepth, NestingDepth, IdSelector
+    #currencySelection2 {
+        background-color: color("whites", "bright");
+        border: container("border");
+
+        .dropdown-menu-item {
+            padding: 0;
+
+            // scss-lint:disable NestingDepth
+            &:not(:last-child) {
+                border-bottom: container("border");
+            }
+        }
+
+        a {
+            padding: spacing("half") spacing("single");
+        }
+    }
+}
+
+
+@media screen and (max-width: 767px) {
+  #hamburger {
+    display: block;
+    z-index: 11;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 105px;
+    padding: 10px 15px;
+    border-bottom-right-radius: 2px;
+    background-color: rgba(0, 0, 0, .7);
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 600;
+    text-align: right;
+    text-decoration: none;
+    cursor: pointer;
+  }#hamburger:before,
+  #hamburger:after {
+    content: '';
+    display: block;
+    position: relative;
+    top: 7px;
+    width: 20px;
+    height: 2px;
+    background-color: white;
+  }
+  #hamburger:after {
+    top: -7px;
+  }
+
+  #main-menu {
+    position: fixed;
+    top: 50px;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background-color: #2165D1;
+    -webkit-transition: all 610ms cubic-bezier(0,.85,.55,1);
+       -moz-transition: all 610ms cubic-bezier(0,.85,.55,1);
+        -ms-transition: all 610ms cubic-bezier(0,.85,.55,1);
+         -o-transition: all 610ms cubic-bezier(0,.85,.55,1);
+            transition: all 610ms cubic-bezier(0,.85,.55,1);
+    overflow: scroll;
+  }
+  #main-menu.active {
+    -webkit-transform: translateX(100%);
+       -moz-transform: translateX(100%);
+        -ms-transform: translateX(100%);
+         -o-transform: translateX(100%);
+            transform: translateX(100%);
+  }
+  #main-menu a {
+    color: #fff;
+  }
+  #main-menu > ul {
+    margin: 0;
+  }
+  #main-menu ul {
+    text-indent: 15px;
+  }
+  #main-menu li {
+    margin: 0;
+    border-bottom: 5px solid rgba(255, 255, 255, 0.05);
+    list-style-type: none;
+  }
+  .main-menu-cat {
+    margin: 0;
+  }
+  .main-menu-cat a {
+    display: block;
+    padding: 13px 0;
+    font-size: 18px;
+    font-weight: 400;
+    text-decoration: none;
+    text-transform: capitalize;
+  }
+  .main-menu-sub-cat-container {
+    padding-left: 0;
+  }
+  .main-menu-cat h3 {
+    padding-left: 10px;
+    font-size: 16px;
+    font-weight: 600;
+  }
+  .main-menu-cat h4 {
+    padding: 20px 10px 0;
+    color: rgba(255, 255, 255, .3);
+    font-size: 14px;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+  }
+
+  .main-menu-cat > ul,
+  .main-menu-sub-cat-container {
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    margin: 0;
+    background-color: #1E5CBE;
+    -webkit-transform: translateX(-100%);
+    -moz-transform: translateX(-100%);
+    transform: translateX(-100%);
+    -webkit-transition: -webkit-transform 610ms cubic-bezier(0,0.88,0.55,1);
+    -moz-transition: -webkit-transform 610ms cubic-bezier(0,0.88,0.55,1);
+    transition: -webkit-transform 610ms cubic-bezier(0,0.88,0.55,1);
+  }
+
+  .main-menu-cat > ul.active,
+  .main-menu-sub-cat-container.active {
+    -webkit-transform: translateX(0%);
+    -moz-transform: translateX(0%);
+    transform: translateX(0%);
+    box-shadow: 0 0 20px rgba(0,0,0,0.8);
+  }
+
+  .main-menu-cat-bracket {
+    float: left;
+    width: 45px;
+    height: 44px;
+    margin: 5px;
+    border-radius: 35px;
+    background-color: rgba(0,0,0,0.1);
+    color: rgba(255, 255, 255, 1);
+    font-size: 30px;
+    font-weight: 100;
+    line-height: 43px;
+    cursor: pointer;
+  }
+
+  .main-menu-cat-back {
+    padding: 20px;
+    background-color: rgba(0,0,0,.2);
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+    cursor: pointer;
+  }
+
+  .main-menu-sub-cat-container-column ul {
+    text-indent: 0 !important;
+  }
+}
+@media screen and (min-width: 768px) {
+  .home-page-td {
+    width: 25%;
+  }
+  #main-menu {
+    display: block;
+    position: relative;
+    width: 920px;
+    height: 35px;
+    margin: 0 auto;
+    text-shadow: 1px 1px 1px rgba(255,255,255,.5);
+  }
+  #main-menu > ul,
+  #main-menu > li {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+  .main-menu-cat {
+    float: left;
+    position: relative;
+  }
+  .main-menu-cat:hover,
+  .main-menu-cat > a:hover {
+    background: #eeeeee;
+  }
+  .main-menu-cat a {
+    z-index: 2;
+  }
+  .main-menu-cat > a:hover {
+    position: relative;
+    color: black;
+  }
+  .main-menu-sub-cat > a:hover {
+    color: black;
+  }
+  .main-menu-cat a {
+    display: block;
+    height: 100%;
+    padding: 0 17px;
+    color: #555555;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    font-size: 22px;
+    font-weight: 300;
+    line-height: 35px;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+  .main-menu-cat:nth-child(3) > a {
+    color: #f9401f;
+  }
+  .main-menu-cat-vertical,
+  .main-menu-cat-vertical-left,
+  .main-menu-sub-cat-container {
+    display: none;
+    z-index: 10;
+    position: absolute;
+    top: 34px;
+    padding: 0;
+    margin: 0;
+    border: 1px solid #e2e2e2;
+    box-shadow: 0 5px 20px -5px #555555;
+    background: #f2f2f2;
+    list-style: none;
+  }
+  .main-menu-cat-vertical-left {
+    left: 0;
+  }
+  .main-menu-cat:last-child > ul {
+    margin-left: -99px;
+  }
+  .main-menu-cat-horizontal {
+    display: none;
+    z-index: 10;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+  .main-menu-sub-cat {
+    width: 250px;
+    margin: 0;
+    border-bottom: 1px dashed #ffffff;
+    background: #f2f2f2;
+  }
+  .main-menu-sub-cat:hover {
+    background: #f8f8f8;
+  }
+  .main-menu-sub-cat a {
+    color: #3f3e37;
+    font-family: arial;
+    font-size: 13px;
+    line-height: 35px;
+    text-transform: capitalize;
+  }
+  .main-menu-cat-vertical-left .main-menu-sub-cat > a:after {
+    content: '';
+    position: absolute;
+    right: 15px;
+    width: 0;
+    height: 0;
+    margin-top: 15px;
+    border-width: 3px 0 3px 3px;
+    border-style: solid;
+    border-color: transparent #aaaaaa;
+  }
+  .main-menu-sub-cat-container {
+    top: -1px;
+    left: 250px;
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+    width: 550px;
+    height: 500px;
+    padding: 0 20px;
+    border-bottom-right-radius: 5px;
+    -webkit-box-shadow: 5px 5px 20px -10px;
+            box-shadow: 5px 5px 20px -10px;
+    background: white;
+    font-weight: 300;
+    overflow: hidden;
+
+        -ms-box-sizing: border-box;
+  }
+  .main-menu-sub-cat-container-column {
+    display: inline-block;
+    float: left;
+    width: 230px;
+    margin-right: 8px;
+  }
+  .main-menu-sub-cat-container-column-img {
+    max-width: 100%;
+  }
+  .main-menu-sub-cat-container-column-first-h3,
+  .main-menu-sub-cat-container-column-first-p {
+    color: #3f3e37;
+    text-align: center;
+  }
+  .main-menu-sub-cat-container-column h3,
+  .main-menu-sub-cat-container-column h4,
+  .main-menu-sub-cat-container-column ul {
+    padding: 0;
+    margin: 0;
+    font-weight: 300;
+  }
+  .main-menu-sub-cat-container-column h3 a,
+  .main-menu-sub-cat-container-footer h3 {
+    height: 40px;
+    color: #3f3e37;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    font-size: 24px;
+    line-height: 50px;
+  }
+  .main-menu-sub-cat-container-column h4 {
+    height: 35px;
+    margin-bottom: 10px;
+    border-bottom: 1px dashed #f2f2f2;
+    font-size: 12px;
+    font-weight: 100;
+    line-height: 45px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  .main-menu-sub-cat-container-column h4 a {
+    display: block;
+    height: 40px;
+    margin: 0;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 40px;
+  }
+  .main-menu-sub-cat-container-column li {
+    height: 20px;
+    margin-left: 0;
+    line-height: 20px;
+    list-style: none;
+  }
+  .main-menu-sub-cat-container-column a {
+    position: relative;
+    height: 20px;
+    padding: 0;
+    margin-left: 0;
+    font-size: 12px;
+    line-height: 20px;
+  }
+  .main-menu-sub-cat-container-column h3 a:hover,
+  .main-menu-sub-cat-container-column a:hover {
+    color: orange;
+    text-decoration: underline;
+  }
+  .main-menu-sub-cat-container-column p {
+    color: #ff0000;
+    font-size: 15px;
+  }
+  .main-menu-sub-cat-container-footer {
+    position: absolute;
+    bottom: 15px;
+    width: 100%;
+  }
+  .main-menu-sub-cat-container-footer h3 {
+    padding: 0;
+    margin: 0;
+    margin-left: 20px;
+    color: black;
+    font-size: 24px;
+    font-weight: 300;
+  }
+  .main-menu-sub-cat-container-footer ul {
+    padding: 0;
+    margin: 0;
+    margin-left: 20px;
+  }
+  .main-menu-sub-cat-container-footer li {
+    float: left;
+    width: 33%;
+    height: 30px;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 30px;
+  }
+}

@@ -1,0 +1,9 @@
+<h2 class="page-heading">{{lang 'products.featured' }}</h2>
+
+<ul class="productGrid productGrid--maxCol{{ columns }}" data-product-type="featured">
+    {{#each products}}
+        <li class="product">
+            {{>components/products/card theme_settings=../theme_settings}}
+        </li>
+    {{/each}}
+</ul>

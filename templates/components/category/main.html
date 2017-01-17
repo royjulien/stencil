@@ -1,0 +1,14 @@
+{{#if category.subcategories}}
+<div class="sidebarBlock">
+    <ul class="categoryContainer">
+        {{#each category.subcategories}}
+        <li class="categoryCard">
+            <a class="categoryLink" href="{{url}}" alt="{{name}}" title="{{name}}">
+                <img class="categoryImage" src="{{getImage image 'zoom_size'}}">
+                <span class="categoryName">{{name}}</span>
+            </a>
+        </li>
+        {{/each}}
+    </ul>
+</div>
+{{/if}}
