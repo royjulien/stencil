@@ -21,11 +21,6 @@
         <li class="navUser-item">
             <a class="navUser-action navUser-action--quickSearch" href="#" data-search="quickSearch" aria-controls="quickSearch" aria-expanded="false">{{lang 'common.search'}}</a>
         </li>
-        {{#if settings.gift_certificates_enabled}}
-            <li class="navUser-item">
-                <a class="navUser-action" href="{{urls.gift_certificate.purchase}}">{{lang 'common.gift_cert'}}</a>
-            </li>
-        {{/if}}
         {{#if settings.account_creation_enabled}}
             <li class="navUser-item navUser-item--account">
                 {{#if customer}}

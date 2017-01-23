@@ -30,8 +30,9 @@
 
     .dropdown-menu {
         background-color: stencilColor("navUser-dropdown-backgroundColor");
-        border: 1px solid stencilColor("navUser-dropdown-borderColor");
+        border: 1px solid color("greys", "light");
         box-shadow: container("dropShadow");
+        border-radius: 3px;
         position: absolute;
 
         // scss-lint:disable NestingDepth
@@ -40,7 +41,7 @@
                 @include css-triangle(
                     $triangle-direction: "bottom",
                     $triangle-size: 10px,
-                    $triangle-color: stencilColor("navUser-dropdown-borderColor")
+                    $triangle-color: color("greys", "light")
                 );
                 bottom: 100%;
                 left: spacing("half");
@@ -51,7 +52,7 @@
                 @include css-triangle(
                     $triangle-direction: "bottom",
                     $triangle-size: 8px,
-                    $triangle-color: stencilColor("navUser-dropdown-backgroundColor")
+                    $triangle-color: white
                 );
                 bottom: 100%;
                 left: spacing("half") + remCalc(2px);
@@ -62,11 +63,9 @@
 }
 
 .navUser-action {
-    color: stencilColor("navUser-color");
-    font-weight: fontWeight("bold");
+    color: color("greys", "light");
     padding: spacing("base") spacing("half");
     text-decoration: none;
-    text-transform: uppercase;
 
     &:hover,
     &.is-open {
@@ -109,7 +108,7 @@
 
 .navUser-action-divider {
     border-right: container("border");
-    color: stencilColor("color-textSecondary");
+    color: stencilColor("color-aql");
     display: inline-block;
     padding: 0 remCalc(20) 0 0;
     text-decoration: none;
@@ -127,7 +126,7 @@
     display: block;
 
     .navUser-action {
-        color: stencilColor("navUser-color");
+        color: color("greys", "light");
 
         // scss-lint:disable NestingDepth
         &:hover,
@@ -274,6 +273,9 @@
 // -----------------------------------------------------------------------------
 
 .countPill {
+    position: relative;
+    top: -1px;
+    left: 2px;
     background-color: stencilColor("navUser-indicator-backgroundColor");
     border-radius: 50%;
     color: color("whites", "bright");

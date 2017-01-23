@@ -7,24 +7,7 @@
             <span>{{cart.sub_total.formatted}}</span>
         </div>
     </li>
-    {{#if cart.gift_wrapping_cost.amount}}
-        <li class="cart-total">
-            <div class="cart-total-label">
-                <strong>{{lang 'cart.checkout.gift_wrapping'}}:</strong>
-            </div>
-            <div class="cart-total-value">
-                <span>{{cart.gift_wrapping_cost.formatted}}</span>
-            </div>
-        </li>
-    {{/if}}
-    {{#if cart.shipping_handling.show_estimator}}
-        <li class="cart-total">
-            <div class="cart-total-label">
-                <strong>{{lang 'cart.checkout.shipping'}}:</strong>
-            </div>
-            {{> components/cart/shipping-estimator cart.shipping_handling}}
-        </li>
-    {{/if}}
+
     {{#each cart.taxes}}
         <li class="cart-total">
             <div class="cart-total-label">
@@ -67,25 +50,6 @@
             {{> components/cart/coupon-input}}
         </li>
     {{/if}}
-    {{#each cart.gift_certificates}}
-        <li class="cart-total">
-            <div class="cart-total-label">
-                <strong>{{lang 'cart.gift_certificates.code_label' code=code}}</strong>
-                <span>
-                    {{remaining.formatted}} | <a href="{{remove_url}}">{{lang 'cart.gift_certificates.remove'}}</a>
-                </span>
-            </div>
-            <div class="cart-total-value">
-                {{used.formatted}}
-            </div>
-        </li>
-    {{/each}}
-    <li class="cart-total">
-        <div class="cart-total-label">
-            <strong>{{lang 'cart.gift_certificates.gift_certificate'}}:</strong>
-        </div>
-        {{> components/cart/gift-certificate-input}}
-    </li>
     <li class="cart-total">
         <div class="cart-total-label">
             <strong>{{lang 'cart.checkout.grand_total'}}:</strong>

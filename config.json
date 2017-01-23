@@ -280,10 +280,10 @@
       },
       "images": {},
       "settings": {
-        "navUser-dropdown-borderColor": "#333333",
+        "navUser-dropdown-borderColor": "#ffffff",
         "button--disabled-borderColor": "#2175fc",
         "button--primary-backgroundColorHover": "#4188f9",
-        "navUser-dropdown-backgroundColor": "#333333",
+        "navUser-dropdown-backgroundColor": "#ffffff",
         "navUser-color": "#ffffff",
         "button--disabled-backgroundColor": "#2d7cfa",
         "hide_content_navigation": true,
@@ -294,7 +294,7 @@
         "button--primary-backgroundColorActive": "#2476f7",
         "button--default-borderColorActive": "#2d7cfa",
         "storeName-color": "#ffffff",
-        "body-bg": "#f8f8f8",
+        "body-bg": "#ffffff",
         "show_accept_mastercard": true,
         "show_accept_visa": true,
         "navPages-color": "#ffffff",
@@ -303,7 +303,7 @@
         "color-primary": "#333333",
         "show_accept_amex": true,
         "header-backgroundColor": "#2d7cfa",
-        "navPages-subMenu-backgroundColor": "#333333"
+        "navPages-subMenu-backgroundColor": "#ffffff"
       }
     },
     {
