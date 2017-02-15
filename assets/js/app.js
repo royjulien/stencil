@@ -59,6 +59,7 @@ const PageClasses = {
         'pages/gift-certificate/redeem': giftCertificate,
         // eslint-disable-next-line
         'global': global,
+        'pages/header': header,
         'pages/home': home,
         'pages/order-complete': orderComplete,
         'pages/page': page,
