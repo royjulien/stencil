@@ -45,8 +45,12 @@
             </div>
             {{product.detail_messages}}
             <dl class="productView-info">
+               
+               {{#if product.brand.name}}
+				<dt class="productView-info-name" data-product-brand-name>{{lang 'BRAND:'}} {{product.brand.name}}</dt>
+               {{/if}}
                 {{#if product.sku}}
-                    <dt class="productView-info-name" data-product-sku>{{lang 'products.sku'}} {{product.sku}}</dd></dt>
+                    <dt class="productView-info-name" data-product-sku>{{lang 'products.sku'}} {{product.sku}}</dt>
                 {{/if}}
                 {{#if product.upc}}
                     <dt class="productView-info-name">{{lang 'products.upc'}}</dt>
