@@ -11,7 +11,8 @@
 {{/if}}
 
 {{#if price.without_tax}}
-    <div class="price-section price-section--withoutTax {{#if price.with_tax}}price-section--minor{{/if}}"  {{#if schema_org}}itemprop="offers" itemscope itemtype="http://schema.org/Offer"{{/if}}>
+<div class="price-section price-section--wit
+houtTax {{#if price.with_tax}}price-section--minor{{/if}}"  {{#if schema_org}}itemprop="offers" itemscope itemtype="http://schema.org/Offer"{{/if}}>
         {{#if price.rrp_without_tax}}
             <span data-product-rrp-without-tax class="price price--rrp">{{price.rrp_without_tax.formatted}}</span>
         {{/if}}
@@ -19,7 +20,7 @@
             <meta itemprop="price" content="{{price.without_tax.value}}">
             <meta itemprop="priceCurrency" content="{{currency_selector.active_currency_code}}">
         {{/if}}
-        <span data-product-price-without-tax class="price price--withoutTax">{{price.without_tax.formatted}}</span>
+        <span id="productSalePrice" data-product-price-without-tax class="price price--withoutTax">{{price.without_tax.formatted}}</span>
         {{#if price.with_tax}}
             <abbr title="{{lang 'products.excluding_tax'}}">{{lang 'products.price_without_tax' tax_label=price.tax_label}}</abbr>
         {{/if}}

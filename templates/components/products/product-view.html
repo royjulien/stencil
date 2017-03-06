@@ -1,4 +1,4 @@
-<div class="productView">
+	<div class="productView">
 {{#each product.reviews.messages}}
 {{#if error}}
 {{>components/common/alert-error error}}
@@ -30,18 +30,18 @@
 				<meta itemprop="ratingCount" content="{{product.num_reviews}}">
 				<meta itemprop="reviewCount" content="{{product.num_reviews}}">
 			{{/if}}
-		{{/if}}
+	{{/if}}
 		{{> components/products/ratings rating=product.rating}}
 		<span class="productView-reviewLink">
 			{{#if product.num_reviews '>' 0}}
 				<a href="{{product.url}}#product-reviews">
 					{{lang 'products.reviews.link_to_review' total=product.num_reviews}}
-				</a>
+			</a>
 		{{else}}
 				{{lang 'products.reviews.link_to_review' total=product.num_reviews}}
 			{{/if}}
 		</span>
-	{{/if}}
+{{/if}}
 </div>
 {{product.detail_messages}}
 <dl class="productView-info">
@@ -50,10 +50,10 @@
 <dt class="productView-info-name" data-product-brand-name>{{lang 'BRAND:'}} <span class="productBrandName">{{product.brand.name}}</span></dt>
    {{/if}}
 	{{#if product.sku}}
-<dt class="productView-info-name" data-product-sku>{{lang 'products.sku'}} <span class="productSKU">{{product.sku}}</span></dt>
+<dt class="productView-info-name" data-product-sku>{{lang 'products.sku'}} <span id="productSKU">{{product.sku}}</span></dt>
 	{{/if}}
 	{{#if product.upc}}
-		<dt class="productView-info-name">{{lang 'products.upc'}}</dt>
+	<dt class="productView-info-name">{{lang 'products.upc'}}</dt>
 		<dd class="productView-info-value" data-product-upc>{{product.upc}}</dd>
 	{{/if}}
 	{{#if product.condition}}
@@ -295,23 +295,13 @@
 </section>
 
 <article class="productView-description"{{#if schema}} itemprop="description"{{/if}}>
-<ul class="tabs" data-tab>
-<li class="tab is-active">
-	<a class="tab-title" href="#tab-description">{{lang 'products.description'}}</a>
-</li>
-{{#if product.warranty}}
-	<li class="tab">
-		<a class="tab-title" href="#tab-warranty">{{lang 'products.warranty'}}</a>
-	</li>
-{{/if}}
-</ul>
-<div class="tabs-contents">
+
+
 
 	{{{product.description}}}
 	{{{snippet 'product_description'}}}
+	</article>
 
-</div>
-</article>
 </div>
 
 <div id="previewModal" class="modal modal--large" data-reveal>

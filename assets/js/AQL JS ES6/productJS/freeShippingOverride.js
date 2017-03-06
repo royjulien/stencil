@@ -1,11 +1,14 @@
 // Free Shipping Override - Product Page
 () => {
-	let productPrice = $('.ProductPrice');
-	let brandName = $('.brand-name').text().toLowerCase();
+	let productPrice = document.getElementById("productSalePrice").innerText.trim();
+	let brandName = document.getElementById("productSKU").trim();
 
 	if (productPrice.length && brandName !== 'spod' && brandName !== 'maximus-3' && brandName !== 'warrior products') {
+		
 		let parsedPrice = productPrice.text().replace("$", '');
-		let quantityInput = $('.quantityInput').val();
+		
+		let quantityInput = document.getElementById("qty[]").value;
+		
 		let freeShipping = '<span class="free-shipping-container">Qualifies for Free Shipping</span>';
 
 		$('#free-shipping-under-button').show();
@@ -14,7 +17,7 @@
 			productPrice.append(freeShipping);
 		}
 
-		$('.ProductAddToCart, ' + quantityInput).on('change', () => {
+	$('#form-action-addToCart' + quantityInput).on('change', () => {
 			"use strict";
 			setTimeout( () => {
 				parsedPrice = productPrice.text().replace("$", '');
