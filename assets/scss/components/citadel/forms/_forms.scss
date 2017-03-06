@@ -204,12 +204,6 @@
         width: 100%;
     }
 
-    .form-input {
-        @include breakpoint("large") {
-            width: auto;
-        }
-    }
-
     .button {
         @include breakpoint("medium") {
             width: auto;

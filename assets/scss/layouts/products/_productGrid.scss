@@ -11,30 +11,35 @@
 // -----------------------------------------------------------------------------
 
 .productGrid {
-    background-color: white;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: white;
 
-    @include u-listBullets("none");
-    @include grid-row($behavior: "nest");
+  @include u-listBullets("none");
+  @include grid-row($behavior: "nest");
     font-size: 0; // 1
     margin-bottom: spacing("single");
 
     .product {
-        @include grid-column(6, $float: none);
-        display: inline-block;
-        font-size: fontSize("base"); // 1
-        vertical-align: top;
-        border-top: 1px solid #ccc;
-        border-left: 1px solid #ccc;
+      @include grid-column(6, $float: none);
+      display: inline-block;
+      width: calc(50% - 20px);
+      margin: 10px;
+      border-radius: 3px;
+      box-shadow: 0 0 0 1px rgba(0,0,0,0.2), 0 3px 6px rgba(0,0,0,0.08), 0 8px 12px rgba(0,0,0,0.08);
+      vertical-align: top;
+      font-size: fontSize("base");
+      overflow: hidden;
 
-        @include breakpoint("small") {
-            width: grid-calc(4, $total-columns);
-        }
+      @include breakpoint("small") {
+        width: calc(33% - 20px);
+      }
 
-        @include breakpoint("medium") {
-            width: grid-calc(3, $total-columns);
-        }
+      @include breakpoint("medium") {
+        width: calc(25% - 20px);
+      }
     }
-}
+  }
 
 
 // Product when sidebar is present
@@ -46,16 +51,16 @@
 
 .page-sidebar + .page-content {
 
-    .productGrid {
+  .productGrid {
         // scss-lint:disable SelectorDepth, NestingDepth
         .product { // 1
-            @include breakpoint("small") {
-                width: grid-calc(4, $total-columns);
-            }
+          @include breakpoint("small") {
+            width: grid-calc(4, $total-columns);
+          }
         }
-    }
+      }
 
-}
+    }
 
 
 //
@@ -68,91 +73,91 @@
 // -----------------------------------------------------------------------------
 
 .productMasonry {
-    column-count: 2;
-    column-fill: auto;
-    column-gap: remCalc(20px);
-    margin: 0 0 spacing("single");
-    overflow: hidden;
+  column-count: 2;
+  column-fill: auto;
+  column-gap: remCalc(20px);
+  margin: 0 0 spacing("single");
+  overflow: hidden;
 
-    @include breakpoint("small") {
-        column-count: 3;
-    }
+  @include breakpoint("small") {
+    column-count: 3;
+  }
 
-    @include breakpoint("medium") {
-        column-count: 4;
-    }
+  @include breakpoint("medium") {
+    column-count: 4;
+  }
 
-    .product {
-        break-inside: avoid;
-        display: block;
-        margin-bottom: spacing("double");
-        padding: 0;
-        width: 100%;
-        box-shadow: 0 0 0 1px #ccc;
-    }
+  .product {
+    break-inside: avoid;
+    display: block;
+    margin-bottom: spacing("double");
+    padding: 0;
+    width: 100%;
+    box-shadow: 0 0 0 1px #ccc;
+  }
 
-    .card {
-        margin: 0;
-    }
+  .card {
+    margin: 0;
+  }
 
     .no-csscolumns & { // 1
-        @include u-listBullets("none");
-        @include grid-row($behavior: "nest");
-        font-size: 0;
+      @include u-listBullets("none");
+      @include grid-row($behavior: "nest");
+      font-size: 0;
 
         // scss-lint:disable SelectorDepth, NestingDepth
         .product {
-            @include grid-column(3, $float: none);
-            display: inline-block;
+          @include grid-column(3, $float: none);
+          display: inline-block;
             font-size: fontSize("base"); // 1
             vertical-align: top;
-        }
+          }
 
-        .card {
+          .card {
             margin: 0;
+          }
         }
-    }
-}
+      }
 
 
 // Product grid view variation
 // -----------------------------------------------------------------------------
 
 .productGrid--maxCol6 {
-    .no-csscolumns & {
+  .no-csscolumns & {
         // scss-lint:disable SelectorDepth, NestingDepth
         .product {
-            @include breakpoint("medium") {
-                width: grid-calc(2, $total-columns);
-            }
+          @include breakpoint("medium") {
+            width: grid-calc(2, $total-columns);
+          }
         }
-    }
+      }
 
-    .csscolumns & {
+      .csscolumns & {
         @include breakpoint("medium") {
-            column-count: 6;
+          column-count: 6;
         }
+      }
     }
-}
 
-.productGrid--maxCol3 {
-    .no-csscolumns & {
+    .productGrid--maxCol3 {
+      .no-csscolumns & {
         // scss-lint:disable SelectorDepth, NestingDepth
         .product {
-            @include breakpoint("medium") {
-                width: grid-calc(4, $total-columns);
-            }
+          @include breakpoint("medium") {
+            width: grid-calc(4, $total-columns);
+          }
         }
-    }
+      }
 
-    .csscolumns & {
+      .csscolumns & {
         @include breakpoint("medium") {
-            @include grid-column(12);
+          @include grid-column(12);
 
             // scss-lint:disable SelectorDepth, NestingDepth
             .product {
-                @include grid-column(4);
+              @include grid-column(4);
             }
+          }
         }
-    }
-}
+      }
