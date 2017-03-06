@@ -47,13 +47,13 @@
 <dl class="productView-info">
 
    {{#if product.brand.name}}
-<dt class="productView-info-name" data-product-brand-name>{{lang 'BRAND:'}} <span class="productBrandName">{{product.brand.name}}</span></dt>
+	<dt class="productView-info-name" data-product-brand-name>{{lang 'BRAND:'}} <span id="productBrandName">{{product.brand.name}}</span></dt>
    {{/if}}
 	{{#if product.sku}}
-<dt class="productView-info-name" data-product-sku>{{lang 'products.sku'}} <span id="productSKU">{{product.sku}}</span></dt>
+		<dt class="productView-info-name" data-product-sku>{{lang 'products.sku'}} <span id="productSKU">{{product.sku}}</span></dt>
 	{{/if}}
 	{{#if product.upc}}
-	<dt class="productView-info-name">{{lang 'products.upc'}}</dt>
+		<dt class="productView-info-name">{{lang 'products.upc'}}</dt>
 		<dd class="productView-info-value" data-product-upc>{{product.upc}}</dd>
 	{{/if}}
 	{{#if product.condition}}
@@ -183,7 +183,7 @@
 	<div data-product-option-change style="display:none;">
 		{{#each product.options}}
 			{{{dynamicComponent 'components/products/options'}}}
-		{{/each}}
+	{{/each}}
 	</div>
 
 	{{#if product.event_date}}
