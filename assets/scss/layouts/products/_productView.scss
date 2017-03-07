@@ -47,6 +47,7 @@
 
 .productView-description {
     @include grid-column(12);
+    padding-top: 40px;
     padding-left: spacing("base");
     padding-right: spacing("base");
 }
