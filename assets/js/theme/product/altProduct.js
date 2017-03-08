@@ -15,16 +15,11 @@ if (isInStock === false) {
                     altContainer.innerText = data[i].name;
                     altContainer.style.display = 'block';
                     altContainer.style.cursor = 'pointer';
-
                     const altProductImg = document.createElement('img');
                     altProductImg.setAttribute('src', data[i].imagePath);
                     altContainer.append(altProductImg);
-
                     const destinationURL = data[i].url;
-                    console.log(destinationURL);
-
-                    altContainer.addEventListener('click', function() {
-                        console.log(destinationURL);
+                    altContainer.addEventListener('click', () => {
                         window.location.href = destinationURL;
                     }, true);
                 }

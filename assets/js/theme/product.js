@@ -9,6 +9,7 @@ import ProductDetails from './common/product-details';
 import videoGallery from './product/video-gallery';
 import { classifyForm } from './common/form-utils';
 import altProduct from "./product/altProduct";
+import productTabs from "./product/productTabs";
 
 export default class Product extends PageManager {
     constructor() {
@@ -63,6 +64,7 @@ export default class Product extends PageManager {
 
         next();
         altProduct;
+        productTabs;
     }
 
     productReviewHandler() {
