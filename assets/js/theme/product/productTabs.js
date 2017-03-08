@@ -18,9 +18,6 @@ const clickTabs = document.querySelectorAll('.tabNavigation a');
 
 for (var i = 0; i < clickTabs.length; i++) {
     console.log(clickTabs[i].hash);
-    clickTabs[i].addEventListener('click', () => {
-        console.log(this);
-    }
 }
 
 const overviewTab = document.querySelector('a[href="#Overview"]');
@@ -50,3 +47,10 @@ installTab.addEventListener('click', () => {
     hideAllContainers();
     document.querySelector('#Install').style.display = 'block';
 });
+/*
+const reviewTab = document.querySelector('a[href="#Reviews"]');
+reviewTab.addEventListener('click', () => {
+   hideAllContainers();
+   document.querySelector('#Reviews').style.display = 'block'; 
+});
+*/

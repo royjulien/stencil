@@ -56,7 +56,6 @@ export default class Product extends PageManager {
         });
 
         next();
-
     }
 
     after(next) {
