@@ -8,6 +8,7 @@ import collapsibleFactory from './common/collapsible';
 import ProductDetails from './common/product-details';
 import videoGallery from './product/video-gallery';
 import { classifyForm } from './common/form-utils';
+import altProduct from "./product/altProduct";
 
 export default class Product extends PageManager {
     constructor() {
@@ -54,12 +55,14 @@ export default class Product extends PageManager {
         });
 
         next();
+
     }
 
     after(next) {
         this.productReviewHandler();
 
         next();
+        altProduct;
     }
 
     productReviewHandler() {
