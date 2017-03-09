@@ -8,6 +8,7 @@ import collapsibleFactory from './common/collapsible';
 import ProductDetails from './common/product-details';
 import videoGallery from './product/video-gallery';
 import { classifyForm } from './common/form-utils';
+import freeShipWindow from './freeShippingOverride';
 import altProduct from "./product/altProduct";
 import productTabs from "./product/productTabs";
 
@@ -62,6 +63,7 @@ export default class Product extends PageManager {
         this.productReviewHandler();
 
         next();
+        freeShipWindow;
         altProduct;
         productTabs;
     }
