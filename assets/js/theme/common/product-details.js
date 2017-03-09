@@ -342,7 +342,7 @@ export default class Product {
 
         // If SKU is available
         if (data.sku) {
-            viewModel.$sku.text(data.sku);
+            viewModel.$sku.text('SKU: ' + data.sku);
         }
 
         // if stock view is on (CP settings)

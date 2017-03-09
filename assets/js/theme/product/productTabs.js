@@ -1,56 +1,42 @@
 // Product Tab - ES6 Version
-let tabContainers = document.querySelectorAll('.product-overview');
+let tabAnchors = document.querySelectorAll('.tabNavigation a');
+let tabContents = document.querySelectorAll('.product-overview');
 
-let initHide = () => {
-    for (let i = 1; i < tabContainers.length; i++) {
-        tabContainers[i].style.display = "none";
+// activate the first tab by default
+if (location.hash) {
+    let tabAnchor = document.querySelector('[href="' + location.hash + '"]');
+    let tabContent = document.querySelector(location.hash);
+
+    tabAnchor.classList.add('active');
+    tabContent.classList.add('active');
+} else {
+    tabAnchors[0].classList.add('active');
+    tabContents[0].classList.add('active');
+}
+
+// check for a has change and activate the relevant tab
+window.addEventListener('hashchange', () => {
+    let tabName = location.hash.split('#')[1];
+
+    let tabAnchor = document.querySelector('[href="#' + tabName + '"]');
+    let tabContent = document.querySelector('#' + tabName);
+    
+    // loop through all activated tab and hide them
+    for (var i = tabContents.length - 1; i >= 0; i--) {
+        tabContents[i].classList.remove('active');
     }
-}
-let hideAllContainers = () => {
-    for (let i = 0; i < tabContainers.length; i++) {
-        tabContainers[i].style.display = 'none';
+    for (var i = tabAnchors.length - 1; i >= 0; i--) {
+        tabAnchors[i].classList.remove('active');
     }
+
+    // activate the selected tab
+    tabAnchor.classList.add('active');
+    tabContent.classList.add('active');
+});
+
+let things = document.querySelector('#Things');
+
+if (things.innerText === '%%Panel.OutdoorAccessories%%') {
+    things.innerText = '';
+    things.appendChild(document.querySelector('.accessory-container'));
 }
-initHide();
-
-
-const clickTabs = document.querySelectorAll('.tabNavigation a');
-
-for (var i = 0; i < clickTabs.length; i++) {
-    console.log(clickTabs[i].hash);
-}
-
-const overviewTab = document.querySelector('a[href="#Overview"]');
-overviewTab.addEventListener('click', () => {
-    console.log('clicked on overview tab');
-    hideAllContainers();
-    document.querySelector('#Overview').style.display = 'block';
-});
-
-const specTab = document.querySelector('a[href="#Specs"]');
-specTab.addEventListener('click', () => {
-    console.log('clicked on specs tab');
-    hideAllContainers();
-    document.querySelector('#Specs').style.display = 'block';
-});
-
-const accessoryTab = document.querySelector('a[href="#Accessory"]');
-accessoryTab.addEventListener('click', () => {
-    console.log('clicked on accessory tab');
-    hideAllContainers();
-    document.querySelector('#Accessory').style.display = 'block';
-});
-
-const installTab = document.querySelector('a[href="#Install"]');
-installTab.addEventListener('click', () => {
-    console.log('clicked on specs tab');
-    hideAllContainers();
-    document.querySelector('#Install').style.display = 'block';
-});
-/*
-const reviewTab = document.querySelector('a[href="#Reviews"]');
-reviewTab.addEventListener('click', () => {
-   hideAllContainers();
-   document.querySelector('#Reviews').style.display = 'block'; 
-});
-*/

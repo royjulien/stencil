@@ -15,31 +15,26 @@
   flex-wrap: wrap;
   background-color: white;
 
-  @include u-listBullets("none");
-  @include grid-row($behavior: "nest");
-    font-size: 0; // 1
-    margin-bottom: spacing("single");
+  .product {
+    @include grid-column(6, $float: none);
+    display: inline-block;
+    width: calc(50% - 20px);
+    margin: 10px;
+    border-radius: 3px;
+    box-shadow: 0 0 0 1px rgba(0,0,0,0.2), 0 3px 6px rgba(0,0,0,0.08), 0 8px 12px rgba(0,0,0,0.08);
+    vertical-align: top;
+    font-size: fontSize("base");
+    overflow: hidden;
 
-    .product {
-      @include grid-column(6, $float: none);
-      display: inline-block;
-      width: calc(50% - 20px);
-      margin: 10px;
-      border-radius: 3px;
-      box-shadow: 0 0 0 1px rgba(0,0,0,0.2), 0 3px 6px rgba(0,0,0,0.08), 0 8px 12px rgba(0,0,0,0.08);
-      vertical-align: top;
-      font-size: fontSize("base");
-      overflow: hidden;
+    @include breakpoint("small") {
+      width: calc(33% - 20px);
+    }
 
-      @include breakpoint("small") {
-        width: calc(33% - 20px);
-      }
-
-      @include breakpoint("medium") {
-        width: calc(25% - 20px);
-      }
+    @include breakpoint("medium") {
+      width: calc(25% - 20px);
     }
   }
+}
 
 
 // Product when sidebar is present
