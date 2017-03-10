@@ -1,5 +1,6 @@
 // Alternate Product Suggestion for Out of Stock Items
-const productSKU = BCData.product_attributes.sku;
+const productSKU = document.querySelector('#productSKU');
+//const productSKU = BCData.product_attributes.sku;
 const isInStock = BCData.product_attributes.instock;
 
 if (isInStock === false) {

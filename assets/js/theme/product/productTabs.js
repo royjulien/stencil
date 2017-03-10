@@ -35,7 +35,6 @@ window.addEventListener('hashchange', () => {
 });
 
 let things = document.querySelector('#Things');
-
 if (things.innerText === '%%Panel.OutdoorAccessories%%') {
     things.innerText = '';
     things.appendChild(document.querySelector('.accessory-container'));

@@ -8,7 +8,7 @@ import collapsibleFactory from './common/collapsible';
 import ProductDetails from './common/product-details';
 import videoGallery from './product/video-gallery';
 import { classifyForm } from './common/form-utils';
-import freeShipWindow from './freeShippingOverride';
+import freeShipWindow from './product/freeShippingOverride';
 import altProduct from "./product/altProduct";
 import productTabs from "./product/productTabs";
 

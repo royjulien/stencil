@@ -1,32 +1,46 @@
 // Free Shipping Override - Product Page
-() => {
-	let productPrice = document.getElementById("productSalePrice").innerText.trim();
-	let brandName = document.getElementById("productSKU").trim();
+// let productPrice = document.querySelector("#productSalePrice").innerText.trim();
+// productPrice = productPrice.split('$')[1];
+// productPrice = parseFloat(productPrice);
+// console.log(productPrice);
 
-	if (productPrice.length && brandName !== 'spod' && brandName !== 'maximus-3' && brandName !== 'warrior products') {
-		
-		let parsedPrice = productPrice.text().replace("$", '');
-		
-		let quantityInput = document.getElementById("qty[]").value;
-		
-		let freeShipping = '<span class="free-shipping-container">Qualifies for Free Shipping</span>';
+// let brandName = document.querySelector('#productBrandName').innerText.trim().toLowerCase();
+// console.log(brandName);
 
-		$('#free-shipping-under-button').show();
+// let quantityInput = document.querySelector('.form-input--incrementTotal').value;
+// quantityInput = parseInt(quantityInput);
+// console.log(quantityInput);
 
-		if (parsedPrice * quantityInput >= 249) {
-			productPrice.append(freeShipping);
-		}
 
-	$('#form-action-addToCart' + quantityInput).on('change', () => {
-			"use strict";
-			setTimeout( () => {
-				parsedPrice = productPrice.text().replace("$", '');
-				quantityInput = $('.quantityInput').val();
+// let quantityCount = document.querySelector('.form-input--incrementTotal').value;
 
-				if (parsedPrice * quantityInput >= 249) {
-					productPrice.append(freeShipping);
-				}
-			}, 2000);
-		});
-	}
-}
+// let decreaseQty = document.querySelector('button[data-action=dec]');
+// decreaseQty.addEventListener('click', () => {
+//     console.log('changed the quantity: -1');
+//     if (quantityInput > 1) {
+//         quantityInput -= 1;
+//     }
+//     console.log(quantityInput);
+// });
+
+// let increaseQty = document.querySelector('button[data-action=inc]');
+// increaseQty.addEventListener('click', () => {
+//     console.log('changed the quantity: +1');
+//     quantityInput += 1;
+//     console.log(quantityInput);
+// });
+
+/*
+setInterval(() => {
+    if (productPrice.length && brandName !== 'spod' && brandName !== 'maximus-3' && brandName !== 'warrior products') {
+    	console.log(productPrice * quantityInput);
+
+        if (productPrice * quantityInput >= 249) {
+            let freeShipping = '<span class="free-shipping-container">Qualifies for Free Shipping</span>';
+            document.querySelector('#productSalePrice').append(freeShipping);
+            freeShipping.style.display = 'block';
+        }
+    }
+
+}, 20);
+*/

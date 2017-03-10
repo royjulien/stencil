@@ -10,6 +10,9 @@ import modalFactory from '../global/modal';
 import _ from 'lodash';
 
 // We want to ensure that the events are bound to a single instance of the product details component
+let quantityInput = document.querySelector('.form-input--incrementTotal').value;
+quantityInput = parseInt(quantityInput);
+
 let previewModal = null;
 let productSingleton = null;
 
@@ -28,6 +31,8 @@ utils.hooks.on('product-option-change', (event, changedOption) => {
 export default class Product {
     constructor($scope, context) {
         const productAttributesData = window.BCData.product_attributes || {};
+
+
 
         this.$scope = $scope;
         this.context = context;
@@ -66,11 +71,20 @@ export default class Product {
      *
      * @param $scope
      */
+    initQty(price) {
+        console.log('changed the quantity: +1');
+        console.log(quantityInput);
+        this.updateQualifyForShipping();
+        console.log($productQuantity.val());
+        this.calculatePrice(price, $productQuantity.val);
+    }
+
     getViewModel($scope) {
         return {
             $priceWithTax: $('[data-product-price-with-tax]', $scope),
             $rrpWithTax: $('[data-product-rrp-with-tax]', $scope),
             $priceWithoutTax: $('[data-product-price-without-tax]', $scope),
+            $productQuantity: $('[id="#qty[]"]', $scope),
             $rrpWithoutTax: $('[data-product-rrp-without-tax]', $scope),
             $weight: $('.productView-info [data-product-weight]', $scope),
             $increments: $('.form-field--increments :input', $scope),
@@ -175,7 +189,18 @@ export default class Product {
             viewModel.quantity.$input.val(qty);
             // update text
             viewModel.quantity.$text.text(qty);
+            console.log('changing qty values');
+            let currentPrice = document.querySelector('#productSalePrice');
+            currentPrice = currentPrice.innerText;
+            currentPrice = currentPrice.split('$')[1];
+            currentPrice = parseFloat(currentPrice);
+            console.log(currentPrice);
+
+            //console.log(this.getViewModel());
+            this.calculatePrice(currentPrice, qty);
         });
+
+
     }
 
     /**
@@ -300,6 +325,29 @@ export default class Product {
      * Update the view of price, messages, SKU and stock options when a product option changes
      * @param  {Object} data Product attribute data
      */
+    calculatePrice(price, qty) {
+        console.log(price);
+        console.log(qty);
+        console.log(price * qty);
+        if (price * qty >= 249) {
+            console.log('you getting free shipping');
+        }
+    }
+
+    updateQualifyForShipping(price) {
+        console.log(price.without_tax.formatted);
+        let currentPrice = price.without_tax.formatted.split('$')[1];
+        currentPrice = parseFloat(currentPrice);
+        console.log(currentPrice);
+
+        let brandName = document.querySelector('#productBrandName').innerText.trim().toLowerCase();
+        console.log(brandName);
+
+        console.log(quantityInput);
+
+        this.calculatePrice(currentPrice, quantityInput);
+    }
+
     updatePriceView(viewModel, price) {
         if (price.with_tax) {
             viewModel.$priceWithTax.html(price.with_tax.formatted);
@@ -307,6 +355,7 @@ export default class Product {
 
         if (price.without_tax) {
             viewModel.$priceWithoutTax.html(price.without_tax.formatted);
+            this.updateQualifyForShipping(price);
         }
 
         if (price.rrp_with_tax) {
@@ -318,12 +367,14 @@ export default class Product {
         }
     }
 
+
     /**
      * Update the view of price, messages, SKU and stock options when a product option changes
      * @param  {Object} data Product attribute data
      */
     updateView(data) {
         const viewModel = this.getViewModel(this.$scope);
+        console.log('test');
 
         this.showMessageBox(data.stock_message || data.purchasing_message);
 
