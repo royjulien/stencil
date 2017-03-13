@@ -63,6 +63,10 @@ export default class Product {
 
         previewModal = modalFactory('#previewModal')[0];
         productSingleton = this;
+
+        let startingPrice = document.querySelector('#productSalePrice').innerText.split('$')[1];
+        startingPrice = parseFloat(startingPrice);
+        this.updateQualifyForShipping();
     }
 
     /**
@@ -197,7 +201,8 @@ export default class Product {
             console.log(currentPrice);
 
             //console.log(this.getViewModel());
-            this.calculatePrice(currentPrice, qty);
+            this.updateQualifyForShipping();
+            return qty;
         });
 
 
@@ -325,27 +330,38 @@ export default class Product {
      * Update the view of price, messages, SKU and stock options when a product option changes
      * @param  {Object} data Product attribute data
      */
-    calculatePrice(price, qty) {
-        console.log(price);
-        console.log(qty);
-        console.log(price * qty);
-        if (price * qty >= 249) {
-            console.log('you getting free shipping');
+    calculatePrice(price, qty, brand) {
+        let freeShippingMinAmount = 249;
+
+        //Console Log Tracking - Pre Function
+        console.log('Brand: ' + brand);
+        console.log('Individual Price: ' + price);
+        console.log('Quantity Total: ' + qty);
+        console.log('Price Total: ' + (qty*price));
+        
+        //
+        if (price * qty >= freeShippingMinAmount) {
+            if (brand !== 'spod' &&  brand !== 'maximus-3' && brand !== 'warrior products') {
+                console.log('you getting free shipping');
+            }
+        } else {
+            console.log('not qualified for free shipping.');
         }
     }
 
-    updateQualifyForShipping(price) {
-        console.log(price.without_tax.formatted);
-        let currentPrice = price.without_tax.formatted.split('$')[1];
+    updateQualifyForShipping() {
+        //Scrape for Website Price
+        let currentPrice = document.querySelector('#productSalePrice');
+        currentPrice = currentPrice.innerText.split('$')[1];
         currentPrice = parseFloat(currentPrice);
-        console.log(currentPrice);
 
-        let brandName = document.querySelector('#productBrandName').innerText.trim().toLowerCase();
-        console.log(brandName);
+        let brandName = document.querySelector('#productBrandName');
+        brandName = brandName.innerText.trim('').toLowerCase();
 
+        let quantityInput = document.querySelector('.form-input--incrementTotal').value;
         console.log(quantityInput);
 
-        this.calculatePrice(currentPrice, quantityInput);
+        this.calculatePrice(currentPrice, quantityInput, brandName);
     }
 
     updatePriceView(viewModel, price) {
@@ -355,7 +371,6 @@ export default class Product {
 
         if (price.without_tax) {
             viewModel.$priceWithoutTax.html(price.without_tax.formatted);
-            this.updateQualifyForShipping(price);
         }
 
         if (price.rrp_with_tax) {
@@ -365,6 +380,8 @@ export default class Product {
         if (price.rrp_without_tax) {
             viewModel.$rrpWithoutTax.html(price.rrp_without_tax.formatted);
         }
+        console.log('something changed the price');
+        this.updateQualifyForShipping();
     }
 
 
@@ -374,7 +391,6 @@ export default class Product {
      */
     updateView(data) {
         const viewModel = this.getViewModel(this.$scope);
-        console.log('test');
 
         this.showMessageBox(data.stock_message || data.purchasing_message);
 
