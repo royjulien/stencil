@@ -342,6 +342,7 @@ export default class Product {
         //
         if (price * qty >= freeShippingMinAmount) {
             if (brand !== 'spod' &&  brand !== 'maximus-3' && brand !== 'warrior products') {
+                //Create Free Shipping Notification
                 console.log('you getting free shipping');
             }
         } else {
