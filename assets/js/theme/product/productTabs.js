@@ -33,9 +33,10 @@ window.addEventListener('hashchange', () => {
     tabAnchor.classList.add('active');
     tabContent.classList.add('active');
 });
-
+/*
 let things = document.querySelector('#Things');
 if (things.innerText === '%%Panel.OutdoorAccessories%%') {
     things.innerText = '';
     things.appendChild(document.querySelector('.accessory-container'));
 }
+*/
