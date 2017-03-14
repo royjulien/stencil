@@ -68,7 +68,7 @@ if (productVoltage.includes('voltage')) {
 
     //create title for main section
     let mainTitle = document.createElement('h2');
-    mainTitle.innerText = 'Cables & Transformers';
+    mainTitle.innerText = 'Transformer Required for 12V';
     section.append(mainTitle);
 
     //create ul list for upsell ribbon
