@@ -12,6 +12,7 @@ import { classifyForm } from './common/form-utils';
 import altProduct from "./product/altProduct";
 import productTabs from "./product/productTabs";
 import ropeMountingRibbon from './product/ropeMountingRibbon';
+import transformerRibbon from './product/transformerRibbon';
 
 export default class Product extends PageManager {
     constructor() {
@@ -66,6 +67,7 @@ export default class Product extends PageManager {
         next();
         productTabs;
         ropeMountingRibbon;
+        transformerRibbon;
         //freeShipWindow;
         altProduct;
         
