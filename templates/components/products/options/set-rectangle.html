@@ -19,7 +19,7 @@
             {{#if ../required}}required{{/if}}>
 
         <label class="form-option" for="attribute_{{id}}" data-product-attribute-value="{{id}}">
-            <span class="form-option-variant">{{this.label}}</span>
+            <span class="form-option-variant" data-option-variant="{{this.label}}">{{this.label}}</span>
         </label>
     {{/each}}
 </div>
