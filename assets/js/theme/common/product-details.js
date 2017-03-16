@@ -10,6 +10,9 @@ import modalFactory from '../global/modal';
 import _ from 'lodash';
 
 // We want to ensure that the events are bound to a single instance of the product details component
+let quantityInput = document.querySelector('.form-input--incrementTotal').value;
+quantityInput = parseInt(quantityInput);
+
 let previewModal = null;
 let productSingleton = null;
 
@@ -28,6 +31,8 @@ utils.hooks.on('product-option-change', (event, changedOption) => {
 export default class Product {
     constructor($scope, context) {
         const productAttributesData = window.BCData.product_attributes || {};
+
+
 
         this.$scope = $scope;
         this.context = context;
@@ -58,6 +63,10 @@ export default class Product {
 
         previewModal = modalFactory('#previewModal')[0];
         productSingleton = this;
+
+        let startingPrice = document.querySelector('#productSalePrice').innerText.split('$')[1];
+        startingPrice = parseFloat(startingPrice);
+        this.updateQualifyForShipping();
     }
 
     /**
@@ -66,11 +75,20 @@ export default class Product {
      *
      * @param $scope
      */
+    initQty(price) {
+        console.log('changed the quantity: +1');
+        console.log(quantityInput);
+        this.updateQualifyForShipping();
+        console.log($productQuantity.val());
+        this.calculatePrice(price, $productQuantity.val);
+    }
+
     getViewModel($scope) {
         return {
             $priceWithTax: $('[data-product-price-with-tax]', $scope),
             $rrpWithTax: $('[data-product-rrp-with-tax]', $scope),
             $priceWithoutTax: $('[data-product-price-without-tax]', $scope),
+            $productQuantity: $('[id="#qty[]"]', $scope),
             $rrpWithoutTax: $('[data-product-rrp-without-tax]', $scope),
             $weight: $('.productView-info [data-product-weight]', $scope),
             $increments: $('.form-field--increments :input', $scope),
@@ -175,7 +193,19 @@ export default class Product {
             viewModel.quantity.$input.val(qty);
             // update text
             viewModel.quantity.$text.text(qty);
+            console.log('changing qty values');
+            let currentPrice = document.querySelector('#productSalePrice');
+            currentPrice = currentPrice.innerText;
+            currentPrice = currentPrice.split('$')[1];
+            currentPrice = parseFloat(currentPrice);
+            console.log(currentPrice);
+
+            //console.log(this.getViewModel());
+            this.updateQualifyForShipping();
+            return qty;
         });
+
+
     }
 
     /**
@@ -300,6 +330,41 @@ export default class Product {
      * Update the view of price, messages, SKU and stock options when a product option changes
      * @param  {Object} data Product attribute data
      */
+    calculatePrice(price, qty, brand) {
+        let freeShippingMinAmount = 249;
+
+        //Console Log Tracking - Pre Function
+        console.log('Brand: ' + brand);
+        console.log('Individual Price: ' + price);
+        console.log('Quantity Total: ' + qty);
+        console.log('Price Total: ' + (qty*price));
+        
+        //
+        if (price * qty >= freeShippingMinAmount) {
+            if (brand !== 'spod' &&  brand !== 'maximus-3' && brand !== 'warrior products') {
+                //Create Free Shipping Notification
+                console.log('you getting free shipping');
+            }
+        } else {
+            console.log('not qualified for free shipping.');
+        }
+    }
+
+    updateQualifyForShipping() {
+        //Scrape for Website Price
+        let currentPrice = document.querySelector('#productSalePrice');
+        currentPrice = currentPrice.innerText.split('$')[1];
+        currentPrice = parseFloat(currentPrice);
+
+        let brandName = document.querySelector('#productBrandName');
+        brandName = brandName.innerText.trim('').toLowerCase();
+
+        let quantityInput = document.querySelector('.form-input--incrementTotal').value;
+        console.log(quantityInput);
+
+        this.calculatePrice(currentPrice, quantityInput, brandName);
+    }
+
     updatePriceView(viewModel, price) {
         if (price.with_tax) {
             viewModel.$priceWithTax.html(price.with_tax.formatted);
@@ -316,7 +381,10 @@ export default class Product {
         if (price.rrp_without_tax) {
             viewModel.$rrpWithoutTax.html(price.rrp_without_tax.formatted);
         }
+        console.log('something changed the price');
+        this.updateQualifyForShipping();
     }
+
 
     /**
      * Update the view of price, messages, SKU and stock options when a product option changes
@@ -342,7 +410,7 @@ export default class Product {
 
         // If SKU is available
         if (data.sku) {
-            viewModel.$sku.text(data.sku);
+            viewModel.$sku.text('SKU: ' + data.sku);
         }
 
         // if stock view is on (CP settings)

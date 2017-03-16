@@ -8,6 +8,11 @@ import collapsibleFactory from './common/collapsible';
 import ProductDetails from './common/product-details';
 import videoGallery from './product/video-gallery';
 import { classifyForm } from './common/form-utils';
+//import freeShipWindow from './product/freeShippingOverride';
+import altProduct from "./product/altProduct";
+import productTabs from "./product/productTabs";
+import ropeMountingRibbon from './product/ropeMountingRibbon';
+import transformerRibbon from './product/transformerRibbon';
 
 export default class Product extends PageManager {
     constructor() {
@@ -60,6 +65,12 @@ export default class Product extends PageManager {
         this.productReviewHandler();
 
         next();
+        productTabs;
+        ropeMountingRibbon;
+        transformerRibbon;
+        //freeShipWindow;
+        altProduct;
+        
     }
 
     productReviewHandler() {
