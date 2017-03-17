@@ -10,9 +10,10 @@ import modalFactory from '../global/modal';
 import _ from 'lodash';
 
 // We want to ensure that the events are bound to a single instance of the product details component
+/*
 let quantityInput = document.querySelector('.form-input--incrementTotal').value;
 quantityInput = parseInt(quantityInput);
-
+*/
 let previewModal = null;
 let productSingleton = null;
 
@@ -31,9 +32,6 @@ utils.hooks.on('product-option-change', (event, changedOption) => {
 export default class Product {
     constructor($scope, context) {
         const productAttributesData = window.BCData.product_attributes || {};
-
-
-
         this.$scope = $scope;
         this.context = context;
         this.imageGallery = new ImageGallery($('[data-image-gallery]', this.$scope));
@@ -75,13 +73,15 @@ export default class Product {
      *
      * @param $scope
      */
+     /*
     initQty(price) {
-        console.log('changed the quantity: +1');
-        console.log(quantityInput);
+        // console.log('changed the quantity: +1');
+        // console.log(quantityInput);
         this.updateQualifyForShipping();
-        console.log($productQuantity.val());
-        this.calculatePrice(price, $productQuantity.val);
+        // console.log($productQuantity.val());
+        // this.calculatePrice(price, $productQuantity.val);
     }
+    */
 
     getViewModel($scope) {
         return {
@@ -193,26 +193,20 @@ export default class Product {
             viewModel.quantity.$input.val(qty);
             // update text
             viewModel.quantity.$text.text(qty);
-            console.log('changing qty values');
+            // console.log('changing qty values');
             let currentPrice = document.querySelector('#productSalePrice');
             currentPrice = currentPrice.innerText;
             currentPrice = currentPrice.split('$')[1];
             currentPrice = parseFloat(currentPrice);
-            console.log(currentPrice);
+            // console.log(currentPrice);
 
-            //console.log(this.getViewModel());
+            // console.log(this.getViewModel());
             this.updateQualifyForShipping();
             return qty;
         });
-
-
     }
 
-    /**
-     *
-     * Add a product to cart
-     *
-     */
+    // Add a product to Cart
     addProductToCart(event, form) {
         const $addToCartBtn = $('#form-action-addToCart', $(event.target));
         const originalBtnVal = $addToCartBtn.val();
@@ -331,18 +325,17 @@ export default class Product {
      * @param  {Object} data Product attribute data
      */
     calculatePrice(price, qty, brand) {
-        let freeShippingMinAmount = 249;
+        const freeShippingMinAmount = 249;
 
-        //Console Log Tracking - Pre Function
-        console.log('Brand: ' + brand);
-        console.log('Individual Price: ' + price);
-        console.log('Quantity Total: ' + qty);
-        console.log('Price Total: ' + (qty*price));
-        
-        //
+        // Console Log Tracking - Pre Function
+        // console.log('Brand: ' + brand);
+        // console.log('Individual Price: ' + price);
+        // console.log('Quantity Total: ' + qty);
+        // console.log('Price Total: ' + (qty*price));
+
         if (price * qty >= freeShippingMinAmount) {
-            if (brand !== 'spod' &&  brand !== 'maximus-3' && brand !== 'warrior products') {
-                //Create Free Shipping Notification
+            if (brand !== 'spod' && brand !== 'maximus-3' && brand !== 'warrior products') {
+                // Create Free Shipping Notification
                 console.log('you getting free shipping');
             }
         } else {
@@ -351,7 +344,7 @@ export default class Product {
     }
 
     updateQualifyForShipping() {
-        //Scrape for Website Price
+        // Scrape for Website Price
         let currentPrice = document.querySelector('#productSalePrice');
         currentPrice = currentPrice.innerText.split('$')[1];
         currentPrice = parseFloat(currentPrice);
@@ -359,8 +352,15 @@ export default class Product {
         let brandName = document.querySelector('#productBrandName');
         brandName = brandName.innerText.trim('').toLowerCase();
 
-        let quantityInput = document.querySelector('.form-input--incrementTotal').value;
-        console.log(quantityInput);
+        const quantityCheck = document.querySelector('.form-input--incrementTotal');
+        let quantityInput = 0;
+        // console.log(quantityCheck);
+        if (quantityCheck !== null) {
+            quantityInput = document.querySelector('.form-input--incrementTotal').value;
+        } else {
+            quantityInput = 0;
+        }
+        // console.log(quantityInput);
 
         this.calculatePrice(currentPrice, quantityInput, brandName);
     }
@@ -381,7 +381,7 @@ export default class Product {
         if (price.rrp_without_tax) {
             viewModel.$rrpWithoutTax.html(price.rrp_without_tax.formatted);
         }
-        console.log('something changed the price');
+        // console.log('something changed the price');
         this.updateQualifyForShipping();
     }
 
@@ -410,7 +410,8 @@ export default class Product {
 
         // If SKU is available
         if (data.sku) {
-            viewModel.$sku.text('SKU: ' + data.sku);
+            // viewModel.$sku.text('SKU: ' + data.sku);
+            viewModel.$sku.text(`SKU: ${data.sku}`);
         }
 
         // if stock view is on (CP settings)
