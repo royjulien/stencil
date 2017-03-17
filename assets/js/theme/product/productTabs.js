@@ -1,11 +1,11 @@
 // Product Tab - ES6 Version
-let tabAnchors = document.querySelectorAll('.tabNavigation a');
-let tabContents = document.querySelectorAll('.product-overview');
+const tabAnchors = document.querySelectorAll('.tabNavigation a');
+const tabContents = document.querySelectorAll('.product-overview');
 
 // activate the first tab by default
 if (location.hash) {
-    let tabAnchor = document.querySelector('[href="' + location.hash + '"]');
-    let tabContent = document.querySelector(location.hash);
+    const tabAnchor = document.querySelector(`[href="${location.hash}"]`);
+    const tabContent = document.querySelector(location.hash);
 
     tabAnchor.classList.add('active');
     tabContent.classList.add('active');
@@ -16,16 +16,15 @@ if (location.hash) {
 
 // check for a has change and activate the relevant tab
 window.addEventListener('hashchange', () => {
-    let tabName = location.hash.split('#')[1];
+    const tabName = location.hash.split('#')[1];
+    const tabAnchor = document.querySelector(`[href="#${tabName}"]`);
+    const tabContent = document.querySelector(`#${tabName}`);
 
-    let tabAnchor = document.querySelector('[href="#' + tabName + '"]');
-    let tabContent = document.querySelector('#' + tabName);
-    
     // loop through all activated tab and hide them
-    for (var i = tabContents.length - 1; i >= 0; i--) {
+    for (let i = tabContents.length - 1; i >= 0; i--) {
         tabContents[i].classList.remove('active');
     }
-    for (var i = tabAnchors.length - 1; i >= 0; i--) {
+    for (let i = tabAnchors.length - 1; i >= 0; i--) {
         tabAnchors[i].classList.remove('active');
     }
 
@@ -34,9 +33,8 @@ window.addEventListener('hashchange', () => {
     tabContent.classList.add('active');
 });
 /*
-let things = document.querySelector('#Things');
+const things = document.querySelector('#Things');
 if (things.innerText === '%%Panel.OutdoorAccessories%%') {
     things.innerText = '';
     things.appendChild(document.querySelector('.accessory-container'));
-}
-*/
+}*/
