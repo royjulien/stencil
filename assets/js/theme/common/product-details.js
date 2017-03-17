@@ -360,7 +360,13 @@ export default class Product {
         let brandName = document.querySelector('#productBrandName');
         brandName = brandName.innerText.trim('').toLowerCase();
 
-        let quantityInput = document.querySelector('.form-input--incrementTotal').value;
+        let quantityInput = document.querySelector('.form-input--incrementTotal');
+        if(quantityInput !== null){
+        let quantityInput = quantityInput.value;
+    }
+    else{
+        quantityInput = 0;
+    }
         console.log(quantityInput);
 
         this.calculatePrice(currentPrice, quantityInput, brandName);

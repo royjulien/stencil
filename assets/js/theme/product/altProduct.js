@@ -1,34 +1,4 @@
 // Alternate Product Suggestion for Out of Stock Items
-const productSKU = document.querySelector('#productSKU') || '';
-//const productSKU = BCData.product_attributes.sku;
-const isInStock = BCData.product_attributes.instock || true;
-
-if (isInStock === false) {
-    const altContainer = document.querySelector('.alt-container');
-    const requestURL = "http://www.affordablequalitylighting.com/template/alt-products.json";
-
-    getJSON(requestURL, (error, data) => {
-        if (error) {
-            console.log("Error has occured.");
-        } else {
-            for (let i = data.length - 1; i >= 0; i--) {
-                if (data[i].sku === productSKU) {
-                    altContainer.innerText = data[i].name;
-                    altContainer.style.display = 'block';
-                    altContainer.style.cursor = 'pointer';
-                    const altProductImg = document.createElement('img');
-                    altProductImg.setAttribute('src', data[i].imagePath);
-                    altContainer.append(altProductImg);
-                    const destinationURL = data[i].url;
-                    altContainer.addEventListener('click', () => {
-                        window.location.href = destinationURL;
-                    }, true);
-                }
-            }
-        }
-    });
-}
-
 function getJSON(url, callback) {
     const xhr = new XMLHttpRequest();
     xhr.open('GET', url, true);
@@ -42,4 +12,34 @@ function getJSON(url, callback) {
         }
     };
     xhr.send(null);
+}
+const productSKU = document.querySelector('#productSKU') || '';
+if (document.querySelector('#form-action-addToCart')) {
+    const isInStock = window.BCData.product_attributes.instock || true;
+
+    if (isInStock === false) {
+        const altContainer = document.querySelector('.alt-container');
+        const requestURL = 'http://www.affordablequalitylighting.com/template/alt-products.json';
+
+        getJSON(requestURL, (error, data) => {
+            if (error) {
+                // console.log("Error has occured.");
+            } else {
+                for (let i = data.length - 1; i >= 0; i--) {
+                    if (data[i].sku === productSKU) {
+                        altContainer.innerText = data[i].name;
+                        altContainer.style.display = 'block';
+                        altContainer.style.cursor = 'pointer';
+                        const altProductImg = document.createElement('img');
+                        altProductImg.setAttribute('src', data[i].imagePath);
+                        altContainer.append(altProductImg);
+                        const destinationURL = data[i].url;
+                        altContainer.addEventListener('click', () => {
+                            window.location.href = destinationURL;
+                        }, true);
+                    }
+                }
+            }
+        });
+    }
 }
