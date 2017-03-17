@@ -352,7 +352,7 @@ export default class Product {
     }
 
     updateQualifyForShipping() {
-        //Scrape for Website Price
+        // Scrape for Website Price
         let currentPrice = document.querySelector('#productSalePrice');
         currentPrice = currentPrice.innerText.split('$')[1];
         currentPrice = parseFloat(currentPrice);
@@ -360,14 +360,13 @@ export default class Product {
         let brandName = document.querySelector('#productBrandName');
         brandName = brandName.innerText.trim('').toLowerCase();
 
-        let quantityInput = document.querySelector('.form-input--incrementTotal');
-        if(quantityInput !== null){
-        let quantityInput = quantityInput.value;
+        let quantityCheck = document.querySelector('.form-input--incrementTotal');
+        let quantityInput = 0;
+        // console.log(quantityCheck);
+        if(quantityCheck !== null){
+        quantityInput = document.querySelector('.form-input--incrementTotal').value;
     }
-    else{
-        quantityInput = 0;
-    }
-        console.log(quantityInput);
+        // console.log(quantityInput);
 
         this.calculatePrice(currentPrice, quantityInput, brandName);
     }
