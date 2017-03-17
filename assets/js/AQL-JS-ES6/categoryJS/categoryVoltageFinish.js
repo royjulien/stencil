@@ -1,4 +1,5 @@
 // Category Page Enhance - Finish & Voltage
+/*
 () => {
     let solidBrassConstruction = 'Solid Brass Construction',
         b = 'Black',
@@ -42,3 +43,4 @@
         );
     }
 }
+*/

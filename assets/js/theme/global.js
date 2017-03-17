@@ -15,6 +15,7 @@ import maintenanceMode from './global/maintenanceMode';
 import carousel from './common/carousel';
 import loadingProgressBar from './global/loading-progress-bar';
 import FastClick from 'fastclick';
+import googleAnalytics from './global/googleAnalytics';
 
 function fastClick(element) {
     return new FastClick(element);
@@ -40,6 +41,7 @@ export default class Global extends PageManager {
         privacyCookieNotification();
         maintenanceMode(this.context.maintenanceMode);
         loadingProgressBar();
+        googleAnalytics;
         next();
     }
 }

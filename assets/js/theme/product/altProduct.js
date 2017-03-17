@@ -1,7 +1,7 @@
 // Alternate Product Suggestion for Out of Stock Items
-const productSKU = document.querySelector('#productSKU');
+const productSKU = document.querySelector('#productSKU') || '';
 //const productSKU = BCData.product_attributes.sku;
-const isInStock = BCData.product_attributes.instock;
+const isInStock = BCData.product_attributes.instock || true;
 
 if (isInStock === false) {
     const altContainer = document.querySelector('.alt-container');

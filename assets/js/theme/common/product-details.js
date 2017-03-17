@@ -10,9 +10,10 @@ import modalFactory from '../global/modal';
 import _ from 'lodash';
 
 // We want to ensure that the events are bound to a single instance of the product details component
+/*
 let quantityInput = document.querySelector('.form-input--incrementTotal').value;
 quantityInput = parseInt(quantityInput);
-
+*/
 let previewModal = null;
 let productSingleton = null;
 
