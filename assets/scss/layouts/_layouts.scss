@@ -45,3 +45,109 @@
 
 // Account
 @import "account/account";
+
+//colors
+$black_20: rgba(0, 0, 0, .2);
+$white: rgba(255, 255, 255, 1);
+$black_50: rgba(0, 0, 0, .5);
+$black: rgba(0, 0, 0, 1);
+$color_geyser_approx: rgba(211, 220, 235, 1);
+$color_dodger_blue_approx: rgba(45, 124, 250, 1);
+
+//urls
+$url_0: url('https://cdn1.bigcommerce.com/server1000/tc515/product_images/uploaded_images/aql-american-lighting.jpg?t=1415586819');
+
+.box-bg {
+	width: 100%;
+	margin-top: 20px;
+	border-bottom: 1px solid $black_20;
+	//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+	border-radius: 5px;
+	background-color: $white;
+	overflow: hidden;
+}
+.home-hero {
+	height: 220px;
+	padding-top: 65px;
+	background-image: linear-gradient($black_50, rgba(0, 0, 0, 0)), $url_0;
+	background-repeat: repeat, no-repeat;
+	background-position: 0 0, 50% 58%;
+	background-size: auto, cover;
+	text-align: center;
+}
+.w-row {
+	&:before {
+		content: ' ';
+		display: table;
+	}
+	&:after {
+		content: ' ';
+		display: table;
+		clear: both;
+	}
+	.w-row {
+		margin-right: 0;
+		margin-left: 0;
+	}
+}
+.w-col {
+	float: left;
+	position: relative;
+	width: 100%;
+	min-height: 1px;
+	padding-right: 10px;
+	padding-left: 10px;
+	.w-col {
+		padding-right: 0;
+		padding-left: 0;
+	}
+}
+.w-col-6 {
+	width: 100%;
+}
+.h1-hero {
+	color: $white;
+	font-size: 36px;
+	font-weight: 300;
+	line-height: 60px;
+	//Instead of the line below you could use @include text-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+	text-shadow: $black 0 0 6px;
+}
+.hero-icon {
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	margin-right: 8px;
+}
+.america {
+	border-right-width: 0;
+	border-right-style: none;
+	border-bottom: 1px solid $color_geyser_approx;
+}
+.p-hero-sub {
+	display: inline-block;
+	color: $color_dodger_blue_approx;
+	font-size: 16px;
+	font-weight: 400;
+	letter-spacing: .5px;
+}
+.p-hero-caption {
+	font-size: 12px;
+}
+.environment {
+	padding: 15px 10px 10px;
+	text-align: center;
+}
+.w-clearfix {
+	&:before {
+		content: ' ';
+		display: table;
+	}
+	&:after {
+		clear: both;
+	}
+}
+.aql .w-clearfix:after {
+	content: ' ';
+	display: table;
+}
