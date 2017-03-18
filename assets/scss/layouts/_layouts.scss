@@ -58,96 +58,376 @@ $color_dodger_blue_approx: rgba(45, 124, 250, 1);
 $url_0: url('https://cdn1.bigcommerce.com/server1000/tc515/product_images/uploaded_images/aql-american-lighting.jpg?t=1415586819');
 
 .box-bg {
-	width: 100%;
-	margin-top: 20px;
-	border-bottom: 1px solid $black_20;
-	//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
-	border-radius: 5px;
-	background-color: $white;
-	overflow: hidden;
+  width: 100%;
+  margin-top: 20px;
+  border-bottom: 1px solid $black_20;
+  border-radius: 5px;
+  background-color: $white;
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.1), 0 3px 6px rgba(0,0,0,0.08), 0 8px 12px rgba(0,0,0,0.08);
+  overflow: hidden;
 }
 .home-hero {
-	height: 220px;
-	padding-top: 65px;
-	background-image: linear-gradient($black_50, rgba(0, 0, 0, 0)), $url_0;
-	background-repeat: repeat, no-repeat;
-	background-position: 0 0, 50% 58%;
-	background-size: auto, cover;
-	text-align: center;
+  height: 220px;
+  padding-top: 65px;
+  background-image: linear-gradient($black_50, rgba(0, 0, 0, 0)), $url_0;
+  background-repeat: repeat, no-repeat;
+  background-position: 0 0, 50% 58%;
+  background-size: auto, cover;
+  text-align: center;
 }
 .w-row {
-	&:before {
-		content: ' ';
-		display: table;
-	}
-	&:after {
-		content: ' ';
-		display: table;
-		clear: both;
-	}
-	.w-row {
-		margin-right: 0;
-		margin-left: 0;
-	}
+  &:before {
+    content: ' ';
+    display: table;
+  }
+  &:after {
+    content: ' ';
+    display: table;
+    clear: both;
+  }
+  .w-row {
+    margin-right: 0;
+    margin-left: 0;
+  }
+  .col-box-right {
+    padding-right: 0;
+  }
+  .col-box-left {
+    padding-left: 0;
+  }
 }
 .w-col {
-	float: left;
-	position: relative;
-	width: 100%;
-	min-height: 1px;
-	padding-right: 10px;
-	padding-left: 10px;
-	.w-col {
-		padding-right: 0;
-		padding-left: 0;
-	}
+  float: left;
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding: 0 10px;
+
+  .w-col {
+    padding-right: 0;
+    padding-left: 0;
+  }
 }
 .w-col-6 {
-	width: 100%;
+  width: 100%;
+  text-align: center;
+  border-bottom: 1px solid rgba(0,0,0,0.2);
+
+  @include breakpoint('medium') {
+    width: 50%;
+    border-bottom: none;
+  }
+
+  &.double {
+    border: none;
+
+    @include breakpoint('medium') {
+      border-left: 1px solid rgba(0,0,0,0.2);
+    }
+  }
 }
 .h1-hero {
-	color: $white;
-	font-size: 36px;
-	font-weight: 300;
-	line-height: 60px;
-	//Instead of the line below you could use @include text-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
-	text-shadow: $black 0 0 6px;
+  color: $white;
+  font-size: 36px;
+  font-weight: 300;
+  line-height: 60px;
+  text-shadow: $black 0 0 6px;
 }
 .hero-icon {
-	display: inline-block;
-	width: 20px;
-	height: 20px;
-	margin-right: 8px;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+}
+.america,
+.environment {
+  padding: 15px 10px 10px;
+  text-align: center;
 }
 .america {
-	border-right-width: 0;
-	border-right-style: none;
-	border-bottom: 1px solid $color_geyser_approx;
+  border-bottom: 1px solid rgba(0,0,0,0.2);
+
+  @include breakpoint('medium') {
+    border-right: 1px solid rgba(0,0,0,0.2);
+  }
 }
 .p-hero-sub {
-	display: inline-block;
-	color: $color_dodger_blue_approx;
-	font-size: 16px;
-	font-weight: 400;
-	letter-spacing: .5px;
+  display: inline-block;
+  margin: 0;
+  color: $color_dodger_blue_approx;
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: .5px;
 }
 .p-hero-caption {
-	font-size: 12px;
-}
-.environment {
-	padding: 15px 10px 10px;
-	text-align: center;
+  font-size: 12px;
+  margin: 0;
 }
 .w-clearfix {
-	&:before {
-		content: ' ';
-		display: table;
-	}
-	&:after {
-		clear: both;
-	}
+  &:before {
+    content: ' ';
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
 }
-.aql .w-clearfix:after {
-	content: ' ';
-	display: table;
+.w-clearfix:after {
+  content: ' ';
+  display: table;
+}
+
+.home-box-header {
+  border-bottom: 1px solid rgba(0,0,0,0.2);
+  text-align: center;
+}
+
+.h2-categories {
+  display: inline-block;
+  padding: 10px 0;
+  margin: 0;
+  color: rgba(0,0,0,0.8);
+  font-size: 26px;
+  font-weight: 100;
+  text-transform: capitalize;
+  text-shadow: none;
+
+  &.big {
+    border-bottom: none;
+    font-size: 36px;
+    line-height: 46px;
+    text-shadow: none;
+  }
+}
+
+.p-home {
+  font-size: 12px;
+}
+
+.btn1 {
+  display: block;
+  width: 250px;
+  margin: 10px auto;
+  border: 1px solid #1f68de;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .09);
+  background-color: #2d7cfa;
+  color: white;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+
+  @include breakpoint('medium') {
+    display: inline-block;
+  }
+}
+
+.home-row {
+  border-top: 1px solid rgba(0,0,0,0.2);
+}
+
+.h2-categories.single {
+  margin-right: 10px;
+  margin-left: 10px;
+  font-size: 20px;
+  font-weight: 300;
+  line-height: 27px;
+  text-shadow: none;
+}
+.h2-categories.two {
+  float: left;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 30px;
+  text-shadow: none;
+}
+.h2-categories.block {
+  display: block;
+  text-shadow: none;
+}
+.h2-categories.small {
+  display: block;
+  font-size: 18px;
+  text-shadow: none;
+}
+.home-img {
+  width: 140px;
+  margin: 10px;
+}
+.home-img.huge {
+  width: auto;
+  height: 410px;
+}
+.home-img.huge.cut {
+  height: 410px;
+  margin-top: 72px;
+  margin-bottom: -25px;
+}
+.home-col {
+  padding-right: 0;
+  padding-left: 0;
+  text-align: center;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+.home-col.right {
+  height: 340px;
+  border-left: 1px solid #d3dceb;
+}
+.home-col.height-fix {
+  height: 340px;
+  padding-top: 40px;
+}
+.home-col.height-fix.sale {
+  padding-top: 0;
+  padding-right: 0;
+  padding-left: 0;
+}
+.home-col.middle {
+  border-right: 1px solid #d3dceb;
+  border-left: 1px solid #d3dceb;
+}
+.home-col.double {
+  padding-right: 0;
+  padding-bottom: 0;
+  padding-left: 0;
+  border-left: 1px solid #d3dceb;
+}
+.home-col.double:hover {
+  box-shadow: none;
+}
+.home-col.two {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.home-col.left.two {
+  border-right: 1px solid #d3dceb;
+}
+
+.product-image-cut-top {
+  width: 366px;
+  margin-top: -20px;
+  margin-bottom: -40px;
+}
+.home-image-sale {
+  border-top-left-radius: 8px;
+}
+.ProductThumbImage a > .zoomPad {
+  z-index: 1 !important;
+}
+.product-left, .product-right {
+  min-height: 265px;
+  padding: 40px 0;
+  margin: 25px 0;
+}
+.product-left img, .product-right img {
+  float: left;
+  margin-right: 35px;
+}
+ul.accessorytab {
+  overflow: hidden;
+}
+ul.accessorytab img {
+  display: block;
+}
+.product-right img {
+  float: right;
+  margin-right: 0;
+  margin-left: 35px;
+}
+.home-box-header {
+  position: relative;
+  width: 100%;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #d3dceb;
+  background-color: white;
+  text-align: center;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+.home-box-header p {
+  padding: 20px;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: left;
+}
+.box-content {
+  padding: 15px 0;
+  text-align: center;
+}
+.popular-list {
+  list-style-type: none;
+  border-top-width: 1px;
+  border-top-color: #d3dceb;
+  line-height: 28px;
+  text-align: center;
+  letter-spacing: .3px;
+
+  a {
+    color: #2169db;
+    font-size: 13px;
+    text-decoration: none;
+  }
+}
+.popular-list.first-child {
+  border-top: 0 none transparent;
+}
+.popular-ul {
+  margin-top: -6px;
+  margin-bottom: 0;
+}
+.partner {
+  float: left;
+  width: 31.5%;
+  height: 80px;
+  padding: 10px 20px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #d3dceb;
+  border-radius: 3px;
+  overflow: hidden;
+}
+.partner-name {
+  display: inline-block;
+  color: #2d7cfa;
+  text-decoration: none;
+}
+.partner-name:hover {
+  text-decoration: underline;
+}
+.partner-type {
+  color: #5c6778;
+  font-size: 10px;
+  line-height: 16px;
+  letter-spacing: .2px;
+  text-transform: none;
+}
+.home-page-td {
+  float: left;
+  width: 100%;
+  padding: 20px;
+
+  @include breakpoint('small') {
+    width: 50%;
+  }
+
+  @include breakpoint('medium') {
+    width: 25%;
+  }
+}
+.home-h3 {
+  display: block;
+  color: #464646;
+  font-size: 14px;
+  text-align: center;
+  text-decoration: none;
+}
+.home-span {
+  display: block;
+  height: 40px;
+  margin-top: 10px;
+  background: #fafafa;
+  color: #333333;
+  line-height: 40px;
 }
