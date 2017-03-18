@@ -301,7 +301,7 @@ $font_2: arial;
         border-bottom: 1px solid #d3dceb;
 
         td {
-            padding: 20px 0;
+            padding: 20px;
             vertical-align: inherit;
 
             &:last-child {
@@ -356,4 +356,18 @@ $font_2: arial;
 .compare-table-AQL {
     background-color: #4af75d;
     font-weight: 900;
+}
+
+.spectable {
+    border-collapse: collapse;
+
+    tr:nth-child(2n) {
+        background-color: #f1f1f1;
+    }
+
+    td {
+        min-width: 180px;
+        padding-top: 2px;
+        padding-bottom: 2px;
+    }
 }
