@@ -505,13 +505,16 @@
     position: relative;
   }
   .main-menu-cat:hover,
-  .main-menu-cat > a:hover {
+  .main-menu-cat:active,
+  .main-menu-cat > a:hover,
+  .main-menu-cat > a:active {
     background: #eeeeee;
   }
   .main-menu-cat a {
     z-index: 2;
   }
-  .main-menu-cat > a:hover {
+  .main-menu-cat > a:hover,
+  .main-menu-cat > a:active {
     position: relative;
     color: black;
   }
@@ -524,7 +527,8 @@
     display: block;
   }
 
-  .main-menu-sub-cat > a:hover {
+  .main-menu-sub-cat > a:hover,
+  .main-menu-sub-cat > a:active {
     color: black;
   }
   .main-menu-cat a {
@@ -578,7 +582,8 @@
     border-bottom: 1px dashed #ffffff;
     background: #f2f2f2;
   }
-  .main-menu-sub-cat:hover {
+  .main-menu-sub-cat:hover,
+  .main-menu-sub-cat:active {
     background: #f8f8f8;
   }
   .main-menu-sub-cat a {
@@ -679,7 +684,9 @@
     line-height: 20px;
   }
   .main-menu-sub-cat-container-column h3 a:hover,
-  .main-menu-sub-cat-container-column a:hover {
+  .main-menu-sub-cat-container-column a:hover,
+  .main-menu-sub-cat-container-column h3 a:active,
+  .main-menu-sub-cat-container-column a:active {
     color: orange;
     text-decoration: underline;
   }
