@@ -225,7 +225,7 @@
 }
 
 .dropdown--quickSearch {
-    background-color: $dropdown--quickSearch-backgroundColor;
+    background-color: rgba(255,255,255,0.97);
     padding: spacing("single") 0;
 
     @include breakpoint("small") {

@@ -322,12 +322,18 @@ export default class Product {
      */
     calculatePrice(price, qty, brand) {
         const freeShippingMinAmount = 249;
+        const freeShippingElement = document.querySelector('.free-shipping-container');
 
         if (price * qty >= freeShippingMinAmount) {
             if (brand !== 'spod' && brand !== 'maximus-3' && brand !== 'warrior products') {
-                // Create Free Shipping Notification
+                if (freeShippingElement) {
+                    freeShippingElement.classList.add('active');
+                }
             }
         } else {
+            if (freeShippingElement) {
+                freeShippingElement.classList.remove('active');
+            }
         }
     }
 

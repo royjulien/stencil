@@ -1,4 +1,8 @@
 <nav class="navUser">
+    {{#if settings.store_logo.image}}
+        <img class="header-logo-image" src="{{getImage settings.store_logo.image 'logo_size'}}" alt="{{settings.store_logo.title}}" title="{{settings.store_logo.title}}">
+    {{/if}}
+
     {{> components/common/currency-selector}}
 
     <ul class="navUser-section navUser-section--alt">
