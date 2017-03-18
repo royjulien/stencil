@@ -3,11 +3,8 @@ const productSKUElement = document.querySelector('#productSKU');
 
 if (productSKUElement) {
     const productSKU = productSKUElement.innerText.trim().toLowerCase();
-    addProducts(productSKU);
-}
 
-const addProducts = (sku) => {
-    if (sku.includes('rope') || sku.includes('ez-led') || sku.includes('cc-led')) {
+    if (productSKU.includes('rope') || productSKU.includes('ez-led') || productSKU.includes('cc-led')) {
         const ropeMountingAccessories = [{
             title: '50ft 1/2" 2ft Sections',
             anchorLink: '/rope-light/ropelight-accessories/mounting/50ft-1-2-rope-light-clear-channel-mounting-pack-2ft-sections/',
@@ -96,4 +93,4 @@ const addProducts = (sku) => {
         }
         prependElement.prepend(section);
     }
-};
+}

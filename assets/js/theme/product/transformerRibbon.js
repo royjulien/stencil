@@ -2,16 +2,11 @@
 const productVoltageElement = document.querySelector('.form-label--inlineSmall');
 
 if (productVoltageElement) {
-    console.log(productVoltageElement)
     let productVoltage = productVoltageElement.innerText.trim();
 
     productVoltage = productVoltage.split(':')[0].toLowerCase();
 
-    addProducts(productVoltage);
-}
-
-const addProducts = (voltage) => {
-    if (voltage.includes('voltage')) {
+    if (productVoltage.includes('voltage')) {
         const transformers = [{
             title: '12V 60W Outdoor Mini PTX60',
             anchorLink: '/outdoor-lighting/low-voltage-transformers/12v-60w-outdoor-mini-transformer-ptx60/',
