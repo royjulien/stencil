@@ -37,11 +37,12 @@
 }
 
 .card-image {
-    border: 0;
     display: flex;
-    margin: auto;
     width: auto;
-    padding: 2.5vw;
+    height: 250px;
+    padding: 10px;
+    margin: auto;
+    border: 0;
 }
 
 .card-title {
