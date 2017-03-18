@@ -74,10 +74,11 @@
     border-bottom: none;
     margin: 0;
     display: flex;
+    flex-wrap: wrap;
 
     li {
         display: block;
-        width: 100%;
+        width: 48%;
         margin: 1%;
         list-style: none;
 

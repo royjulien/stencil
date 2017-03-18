@@ -198,7 +198,7 @@
     "spinner-borderColor-dark": "#989898",
     "spinner-borderColor-light": "#ffffff",
     "hide_content_navigation": false,
-    "optimizedCheckout-header-backgroundColor": "#2d7cfa",
+    "optimizedCheckout-header-backgroundColor": "white",
     "optimizedCheckout-show-backgroundImage": false,
     "optimizedCheckout-backgroundImage": "",
     "optimizedCheckout-backgroundImage-size": "1000x400",
