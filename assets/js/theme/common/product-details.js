@@ -75,10 +75,7 @@ export default class Product {
      */
      /*
     initQty(price) {
-        // console.log('changed the quantity: +1');
-        // console.log(quantityInput);
         this.updateQualifyForShipping();
-        // console.log($productQuantity.val());
         // this.calculatePrice(price, $productQuantity.val);
     }
     */
@@ -193,14 +190,13 @@ export default class Product {
             viewModel.quantity.$input.val(qty);
             // update text
             viewModel.quantity.$text.text(qty);
-            // console.log('changing qty values');
+
             let currentPrice = document.querySelector('#productSalePrice');
+
             currentPrice = currentPrice.innerText;
             currentPrice = currentPrice.split('$')[1];
             currentPrice = parseFloat(currentPrice);
-            // console.log(currentPrice);
 
-            // console.log(this.getViewModel());
             this.updateQualifyForShipping();
             return qty;
         });
@@ -327,19 +323,11 @@ export default class Product {
     calculatePrice(price, qty, brand) {
         const freeShippingMinAmount = 249;
 
-        // Console Log Tracking - Pre Function
-        // console.log('Brand: ' + brand);
-        // console.log('Individual Price: ' + price);
-        // console.log('Quantity Total: ' + qty);
-        // console.log('Price Total: ' + (qty*price));
-
         if (price * qty >= freeShippingMinAmount) {
             if (brand !== 'spod' && brand !== 'maximus-3' && brand !== 'warrior products') {
                 // Create Free Shipping Notification
-                console.log('you getting free shipping');
             }
         } else {
-            console.log('not qualified for free shipping.');
         }
     }
 
@@ -354,13 +342,11 @@ export default class Product {
 
         const quantityCheck = document.querySelector('.form-input--incrementTotal');
         let quantityInput = 0;
-        // console.log(quantityCheck);
         if (quantityCheck !== null) {
             quantityInput = document.querySelector('.form-input--incrementTotal').value;
         } else {
             quantityInput = 0;
         }
-        // console.log(quantityInput);
 
         this.calculatePrice(currentPrice, quantityInput, brandName);
     }
@@ -381,7 +367,6 @@ export default class Product {
         if (price.rrp_without_tax) {
             viewModel.$rrpWithoutTax.html(price.rrp_without_tax.formatted);
         }
-        // console.log('something changed the price');
         this.updateQualifyForShipping();
     }
 

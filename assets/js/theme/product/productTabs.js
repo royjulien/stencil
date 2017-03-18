@@ -10,8 +10,10 @@ if (location.hash) {
     tabAnchor.classList.add('active');
     tabContent.classList.add('active');
 } else {
-    tabAnchors[0].classList.add('active');
-    tabContents[0].classList.add('active');
+    if (tabAnchors[0]) {
+        tabAnchors[0].classList.add('active');
+        tabContents[0].classList.add('active');
+    }
 }
 
 // check for a has change and activate the relevant tab

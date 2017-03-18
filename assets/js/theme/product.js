@@ -1,6 +1,4 @@
-/*
- Import all product specific js
- */
+/* Import all product specific js */
 import $ from 'jquery';
 import PageManager from '../page-manager';
 import Review from './product/reviews';
@@ -62,7 +60,7 @@ export default class Product extends PageManager {
 
     after(next) {
         this.productReviewHandler();
-        productTabs();
+        // productTabs();
         ropeMountingRibbon();
         transformerRibbon();
         altProduct();
