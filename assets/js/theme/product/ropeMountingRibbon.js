@@ -83,6 +83,7 @@ if (productSKUElement) {
 
             const cardPrice = document.createElement('em');
             cardPrice.setAttribute('class', 'catalog-product-price');
+            cardPrice.innerText = ropeMountingAccessories[i].price;
             listItem.append(cardPrice);
 
             const cartLink = document.createElement('a');

@@ -8,7 +8,7 @@ if (productVoltageElement) {
 
     if (productVoltage.includes('voltage')) {
         const transformers = [{
-            title: '12V 60W Outdoor Mini PTX60',
+            title: '12V 60W Outdoor Mini Transformer PTX60',
             anchorLink: '/outdoor-lighting/low-voltage-transformers/12v-60w-outdoor-mini-transformer-ptx60/',
             imgSource: '/product_images/uploaded_images/PTX60/PTX60-UL-Listed-Outdoor-Rated-Transformer-with-photocell-and-hour-timer.jpg',
             imgAlt: '12V 60w Mini Outdoor Rated Transformer PTX60',
@@ -29,7 +29,7 @@ if (productVoltageElement) {
             price: '$289.95',
             anchorAddToCart: '/cart.php?action=add&product_id=1680',
         }, {
-            title: '',
+            title: '600w Outdoor Rated Multi-Tap PTXKM22-600',
             anchorLink: '/outdoor-lighting/low-voltage-transformers/600w-outdoor-rated-multi-tap-transformer-ptxkm22-600/',
             imgSource: '/product_images/uploaded_images/PTXKM22/PTXKM22-300-300w-Stainless-Steel-Outdoor-Rated-Low-Voltage-Magnetic-Multi-Tap-Transformer.jpg',
             imgAlt: '600w Outdoor Rated Multi-Tap Transformer PTXKM22-600',
@@ -94,6 +94,7 @@ if (productVoltageElement) {
 
             const cardPrice = document.createElement('em');
             cardPrice.setAttribute('class', 'catalog-product-price');
+            cardPrice.innerText = transformers[i].price;
             listItem.append(cardPrice);
 
             const cartLink = document.createElement('a');

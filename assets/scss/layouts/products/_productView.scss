@@ -88,6 +88,8 @@ $font_2: arial;
     }
 
     li {
+        position: relative;
+        display: block;
         width: 50%;
         box-sizing: border-box;
         padding: 10px 20px;
@@ -99,16 +101,8 @@ $font_2: arial;
         &:last-child {
             border-right: 1px solid $color_gallery_approx;
         }
+    }
 
-        @include breakpoint('medium') {
-            width: auto;
-        }
-    }
-    > a {
-        display: block;
-        position: relative;
-        text-decoration: none;
-    }
     h3 {
         margin: 0;
         color: $color_storm_dust_approx;
@@ -124,9 +118,6 @@ $font_2: arial;
     }
     em {
         display: block;
-        position: absolute;
-        bottom: 15px;
-        height: 25px;
         color: $color_japanese_laurel_approx;
         font-size: 16px;
         line-height: 25px;
@@ -300,4 +291,69 @@ $font_2: arial;
      100% {
     -webkit-transform: translateY(0)
     }
+}
+
+.product-overview table {
+    border-collapse: collapse;
+
+    tr {
+        border-top: 1px solid #d3dceb;
+        border-bottom: 1px solid #d3dceb;
+
+        td {
+            padding: 20px 0;
+            vertical-align: inherit;
+
+            &:last-child {
+                text-align: center;
+            }
+
+            .product-title {
+                display: inline;
+                margin-top: 20px;
+                color: #2d7cfa;
+                font-size: 16px;
+                font-weight: bold;
+                text-shadow: none;
+            }
+        }
+    }
+}
+
+.head-table {
+    float: center;
+    width: 940px;
+    margin: auto;
+
+    td {
+        width: 220px;
+        padding: 8px;
+        color: #514730;
+        font-size: 12px;
+        font-weight: bold;
+        text-align: center;
+    }
+}
+.compare-table {
+    text-align: center;
+
+    td {
+        padding: 5px;
+        border: 1px solid #dcdcdc;
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    th {
+        border: 1px solid #dcdcdc;
+    }
+}
+
+.explaination-why {
+    font-weight: bold;
+    text-align: left;
+}
+.compare-table-AQL {
+    background-color: #4af75d;
+    font-weight: 900;
 }
