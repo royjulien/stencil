@@ -10,6 +10,7 @@ import altProduct from './product/altProduct';
 import productTabs from './product/productTabs';
 import ropeMountingRibbon from './product/ropeMountingRibbon';
 import transformerRibbon from './product/transformerRibbon';
+import accessoryTab from './product/accessoryTabContent.js';
 
 export default class Product extends PageManager {
     constructor() {
@@ -60,10 +61,11 @@ export default class Product extends PageManager {
 
     after(next) {
         this.productReviewHandler();
-        altProduct();
-        productTabs();
-        ropeMountingRibbon();
-        transformerRibbon();
+        altProduct;
+        productTabs;
+        ropeMountingRibbon;
+        transformerRibbon;
+        accessoryTab;
         next();
     }
 
