@@ -82,6 +82,11 @@
         margin: 1%;
         list-style: none;
 
+        @include breakpoint('medium') {
+            width: 23%;
+            margin: 1%;
+        }
+
         a {
             display: block;
             height: 50px;

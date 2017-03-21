@@ -60,6 +60,10 @@ export default class Product extends PageManager {
 
     after(next) {
         this.productReviewHandler();
+        altProduct();
+        productTabs();
+        ropeMountingRibbon();
+        transformerRibbon();
         next();
     }
 
