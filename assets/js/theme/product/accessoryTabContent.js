@@ -53,19 +53,22 @@ function createHTML(data) {
 	return container;
 }
 
-const accessoryTabContent = document.querySelector('#Things') || document.querySelector('#Accessories');
+const accessoryTabContent = document.querySelector('#Things') || document.querySelector('#Accessories') || document.querySelector('#Housing');
 
 if(accessoryTabContent){
 	let tabContent = accessoryTabContent.innerText;
 	tabContent = tabContent.split('.')[1];
 	tabContent = tabContent.split('%%')[0];
 	console.log(tabContent);
-
+	let requestURL = '';
 	switch(tabContent) {
 		case 'LEDRopeLightAccessories':
 			console.log('rope light accessories');
-			const requestURL = 'http://www.affordablequalitylighting.com/template/LEDRopeLightAccessories.json';
+			requestURL = 'http://www.affordablequalitylighting.com/template/LEDRopeLightAccessories.json';
 			getJSON(requestURL, (error, data) => {
+				if (error) {
+					console.log(error);
+				}
 				clearTabContent(accessoryTabContent);
 				console.log(data);
 				const newContent = createHTML(data);
@@ -74,7 +77,7 @@ if(accessoryTabContent){
 			break;
 		case 'OutdoorAccessories':
 			console.log('outdoor accessories');
-			const requestURL = 'http://www.affordablequalitylighting.com/template/outdoorAccessories.json';
+			requestURL = 'http://www.affordablequalitylighting.com/template/outdoorAccessories.json';
 			getJSON(requestURL, (error, data) => {
 				clearTabContent(accessoryTabContent);
 				console.log(data);
@@ -89,6 +92,49 @@ if(accessoryTabContent){
 			break;
 		case '12VRopeLightAccessories':
 			console.log('low voltage rope light accessories');
+			break;
+		case '120V4FluorescentHousings':
+			requestURL = 'https://www.affordablequalitylighting.com/dav/template/120V4FluorescentHousings.json';
+			getJSON(requestURL, (error, data) => {
+				clearTabContent(accessoryTabContent);
+				console.log(data);
+				const newContent = createHTML(data);
+				console.log(newContent);
+				accessoryTabContent.append(newContent);
+			});
+			break;
+		case '120V4FluorescentTrim':
+			requestURL = 'http://www.affordablequalitylighting.com/template/120V4FluorescentTrims.json';
+			getJSON(requestURL, (error, data) => {
+				clearTabContent(accessoryTabContent);
+				const newContent = createHTML(data);
+				accessoryTabContent.append(newContent);
+			});
+			break;
+		case '120V4Housing':
+			console.log('120V 4 Housing');
+			requestURL = 'http://www.affordablequalitylighting.com/template/120V4Housing.json';
+			getJSON(requestURL, (error, data) => {
+				clearTabContent(accessoryTabContent);
+				const newContent = createHTML(data);
+				accessoryTabContent.append(newContent);
+			});
+			break;
+		case '120V5Housing':
+			requestURL = 'http://www.affordablequalitylighting.com/template/120V5Housing.json';
+			getJSON(requestURL, (error, data) => {
+				clearTabContent(accessoryTabContent);
+				const newContent = createHTML(data);
+				accessoryTabContent.append(newContent);
+			});
+			break;
+		case '120V6FluorescentHousing':
+			requestURL = 'http://www.affordablequalitylighting.com/template/120V6FluorescentHousing.json';
+			getJSON(requestURL, (error, data) => {
+				clearTabContent(accessoryTabContent);
+				const newContent = createHTML(data);
+				accessoryTabContent.append(newContent);
+			});
 			break;
 		default:
 			console.log('no accessories'); 
