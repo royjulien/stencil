@@ -400,3 +400,26 @@
     float: left;
     margin-right: 35px;
 }
+
+.accessorytab {
+
+    ul {
+        list-style-type: none;
+    }
+
+    li {
+        display: inline;
+        float: left;
+        width: 200px;
+        height: 250px;
+        text-align: center;
+        list-style: none;
+        overflow: hidden;
+    }
+    img {
+        display: block;
+        max-width: 175px;
+        max-height: 175px;
+        margin: auto;
+    }
+}
