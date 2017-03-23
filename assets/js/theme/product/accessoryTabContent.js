@@ -87,12 +87,6 @@ if(accessoryTabContent){
 				accessoryTabContent.append(newContent);
 			});
 			break;
-		case '':
-			console.log('underwater accessories');
-			break;
-		case '12VRopeLightAccessories':
-			console.log('low voltage rope light accessories');
-			break;
 		case '120V4FluorescentHousings':
 			requestURL = 'https://www.affordablequalitylighting.com/dav/template/120V4FluorescentHousings.json';
 			getJSON(requestURL, (error, data) => {
@@ -136,6 +130,47 @@ if(accessoryTabContent){
 				accessoryTabContent.append(newContent);
 			});
 			break;
+		case '120V6FluorescentTrim':
+			requestURL = 'http://www.affordablequalitylighting.com/template/120V6FluorescentTrim.json';
+			getJSON(requestURL, (error, data) => {
+				clearTabContent(accessoryTabContent);
+				const newContent = createHTML(data);
+				accessoryTabContent.append(newContent);
+			});			
+			break;
+		case '120V6Housing':
+			requestURL = 'http://www.affordablequalitylighting.com/template/120V6Housing.json';
+			getJSON(requestURL, (error, data) => {
+				clearTabContent(accessoryTabContent);
+				const newContent = createHTML(data);
+				accessoryTabContent.append(newContent);
+			});						
+			break;
+		case '120V6SlopedHousing':
+			requestURL = 'http://www.affordablequalitylighting.com/template/120V6SlopedHousing.json';
+			getJSON(requestURL, (error, data) => {
+				clearTabContent(accessoryTabContent);
+				const newContent = createHTML(data);
+				accessoryTabContent.append(newContent);
+			});									
+			break;
+		case '120V6SlopedTrim':
+			requestURL = 'http://www.affordablequalitylighting.com/template/120V6SlopedTrim.json';
+			getJSON(requestURL, (error, data) => {
+				clearTabContent(accessoryTabContent);
+				const newContent = createHTML(data);
+				accessoryTabContent.append(newContent);
+			});									
+			break;
+		case '120V6Trim':
+			requestURL = 'http://www.affordablequalitylighting.com/template/120V6Trim.json';
+			getJSON(requestURL, (error, data) => {
+				clearTabContent(accessoryTabContent);
+				const newContent = createHTML(data);
+				accessoryTabContent.append(newContent);
+			});									
+			break;
+			
 		default:
 			console.log('no accessories'); 
 	}
