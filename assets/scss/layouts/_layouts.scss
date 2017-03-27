@@ -128,10 +128,14 @@ $url_0: url('https://cdn1.bigcommerce.com/server1000/tc515/product_images/upload
 }
 .h1-hero {
   color: $white;
-  font-size: 36px;
+  font-size: 22px;
   font-weight: 300;
-  line-height: 60px;
+  line-height: 1.3;
   text-shadow: $black 0 0 6px;
+
+  @include breakpoint('medium') {
+    font-size: 36px;
+  }
 }
 .hero-icon {
   display: inline-block;
