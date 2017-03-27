@@ -25,6 +25,7 @@ product:
 
         {{#if settings.show_product_reviews}}
             {{> components/products/reviews reviews=product.reviews product=product urls=urls}}
+            {{> components/products/modals/writeReview}}
         {{/if}}
 
         {{> components/products/tabs}}
