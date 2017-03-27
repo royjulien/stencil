@@ -19,7 +19,7 @@ if (document.querySelector('#form-action-addToCart')) {
 
     if (isInStock === false) {
         const altContainer = document.querySelector('.alt-container');
-        const requestURL = 'http://www.affordablequalitylighting.com/template/alt-products.json';
+        const requestURL = 'http://www.affordablequalitylighting.com/content/alt-products.json';
 
         getJSON(requestURL, (error, data) => {
             if (error) {
