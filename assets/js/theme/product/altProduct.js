@@ -13,25 +13,25 @@ function getJSON(url, callback) {
     };
     xhr.send(null);
 }
-console.log('page loaded');
+// console.log('page loaded');
 if (window.BCData.product_attributes) {
-    console.log('landed on a product page');
-    const stockStatus = BCData.product_attributes.instock;
-    console.log(stockStatus);
+    // console.log('landed on a product page');
+    const stockStatus = window.BCData.product_attributes.instock;
+    // console.log(stockStatus);
 
     if (stockStatus === false) {
-        console.log('product is not in stock');
-        const productSKU = BCData.product_attributes.sku;
-        console.log(productSKU);
+        // console.log('product is not in stock');
+        const productSKU = window.BCData.product_attributes.sku;
+        // console.log(productSKU);
 
         const altContainer = document.querySelector('.alt-container');
         const requestURL = 'http://www.affordablequalitylighting.com/content/json/alt-products.json';
 
         getJSON(requestURL, (error, data) => {
             if (error) {
-                console.log(error);
+                // console.log(error);
             } else {
-                console.log(data);
+                // console.log(data);
                 for (let i = data.length - 1; i >= 0; i--) {
                     if (data[i].sku === productSKU) {
                         const containerHeader = document.createElement('h3');
