@@ -299,11 +299,6 @@
         // scss-lint:disable SelectorDepth, NestingDepth
         .button {
             width: 100%;
-
-            @include breakpoint("large") {
-                margin-right: spacing("half");
-                width: auto;
-            }
         }
     }
 }
@@ -421,5 +416,24 @@
         max-width: 175px;
         max-height: 175px;
         margin: auto;
+    }
+}
+
+.socialLinks-item {
+    &.socialLinks-item--pinterest svg {
+        width: 20px;
+    }
+
+    &.socialLinks-item--facebook_like {
+        display: none;
+    }
+
+    .google_plusone_iframe_widget {
+        width: auto !important;
+    }
+
+    .pin_it_iframe_widget {
+        display: inherit;
+        margin-left: 20px;
     }
 }
