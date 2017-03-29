@@ -318,7 +318,6 @@ $cart-item-label-offset:                $cart-thumbnail-maxWidth + $cart-item-sp
     .form-select {
         background-position: right remCalc(5px) top remCalc(7px);
         background-size: remCalc(20px) remCalc(20px);
-        height: remCalc(32px);
         margin-bottom: spacing("half");
         padding: spacing("third") spacing("half");
     }
@@ -440,10 +439,12 @@ $cart-item-label-offset:                $cart-thumbnail-maxWidth + $cart-item-sp
 }
 
 .estimator-form-label {
-    clear: both;
     float: left;
-    font-weight: fontWeight("normal");
+    clear: both;
+    max-width: 70%;
+    text-align: left;
     margin-bottom: 0;
+    font-weight: fontWeight("normal");
 
     .form-label {
         line-height: remCalc(32px);

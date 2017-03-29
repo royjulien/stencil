@@ -27,11 +27,6 @@
         min-height: 120px;
     }
 
-    @include breakpoint("medium") {
-        position: relative;
-        overflow: visible;
-    }
-
     &.is-open {
         height: 100%;
 
