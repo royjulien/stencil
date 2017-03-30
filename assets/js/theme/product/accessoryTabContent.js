@@ -79,7 +79,7 @@ if (accessoryTabContent) {
             break;
         case 'OutdoorAccessories':
             // console.log('outdoor accessories');
-            requestURL = 'http://www.affordablequalitylighting.com/template/outdoorAccessories.json';
+            requestURL = 'http://www.affordablequalitylighting.com/content/json/outdoorAccessories.json';
             getJSON(requestURL, (error, data) => {
                 clearTabContent(accessoryTabContent);
                 // console.log(data);
@@ -171,6 +171,14 @@ if (accessoryTabContent) {
                 const newContent = createHTML(data);
                 accessoryTabContent.append(newContent);
             });
+            break;
+        case '12VLEDTapeAccessories':
+            requestURL = 'http://www.affordablequalitylighting.com/content/json/12VLEDTapeAccessories.json';
+            getJSON(requestURL, (error, data) => {
+                clearTabContent(accessoryTabContent);
+                const newContent = createHTML(data);
+                accessoryTabContent.append(newContent);
+            })
             break;
         default:
             clearTabContent(accessoryTabContent);
