@@ -180,6 +180,22 @@ if (accessoryTabContent) {
                 accessoryTabContent.append(newContent);
             });
             break;
+        case '12VRGBLEDTapeAccessories':
+            requestURL = 'http://www.affordablequalitylighting.com/content/json/12VRGBLEDTapeAccessories.json';
+            getJSON(requestURL, (error, data) => {
+                clearTabContent(accessoryTabContent);
+                const newContent = createHTML(data);
+                accessoryTabContent.append(newContent);
+            });
+            break;
+        case '12VHOLEDTapeAccessories':
+            requestURL = 'http://www.affordablequalitylighting.com/content/json/12VHOLEDTapeAccessories.json';
+            getJSON(requestURL, (error, data) => {
+                clearTabContent(accessoryTabContent);
+                const newContent = createHTML(data);
+                accessoryTabContent.append(newContent);
+            });
+            break;
         default:
             clearTabContent(accessoryTabContent);
             accessoryTabContent.innerText = 'Coming Soon!';
