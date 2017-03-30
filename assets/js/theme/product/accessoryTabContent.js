@@ -178,7 +178,7 @@ if (accessoryTabContent) {
                 clearTabContent(accessoryTabContent);
                 const newContent = createHTML(data);
                 accessoryTabContent.append(newContent);
-            })
+            });
             break;
         default:
             clearTabContent(accessoryTabContent);
