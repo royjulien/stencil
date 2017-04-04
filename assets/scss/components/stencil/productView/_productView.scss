@@ -411,6 +411,7 @@
         list-style: none;
         overflow: hidden;
     }
+
     img {
         display: block;
         max-width: 175px;
@@ -436,4 +437,39 @@
         display: inherit;
         margin-left: 20px;
     }
+}
+
+.alt-container{
+    border-color: #f8f8f8;
+    height: 100%;
+    h3 {
+        margin: 20px;
+        color: #333;
+        font-weight: 600;
+        text-align: center;
+    }
+    a {
+        display: block;
+        margin-top: 20px;
+        background: #f8f8f8;
+        border: 2px solid #478b54;
+        border-radius: 5px;
+        text-decoration: none;
+        overflow: hidden;
+    }
+    p {
+        margin: 35px 0 0 160px;
+        font-size: 22px;
+        text-decoration: none;
+        text-indent: 0; 
+    }
+    img {
+        float: left;
+        display: inline-block;
+        height: 150px;
+        margin: 10px;
+        border-radius: 15px;
+
+    }
+
 }

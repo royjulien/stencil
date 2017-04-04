@@ -79,7 +79,7 @@ if (accessoryTabContent) {
             break;
         case 'OutdoorAccessories':
             // console.log('outdoor accessories');
-            requestURL = 'http://www.affordablequalitylighting.com/template/outdoorAccessories.json';
+            requestURL = 'http://www.affordablequalitylighting.com/content/json/outdoorAccessories.json';
             getJSON(requestURL, (error, data) => {
                 clearTabContent(accessoryTabContent);
                 // console.log(data);
@@ -166,6 +166,30 @@ if (accessoryTabContent) {
             break;
         case '120V6Trim':
             requestURL = 'http://www.affordablequalitylighting.com/template/120V6Trim.json';
+            getJSON(requestURL, (error, data) => {
+                clearTabContent(accessoryTabContent);
+                const newContent = createHTML(data);
+                accessoryTabContent.append(newContent);
+            });
+            break;
+        case '12VLEDTapeAccessories':
+            requestURL = 'http://www.affordablequalitylighting.com/content/json/12VLEDTapeAccessories.json';
+            getJSON(requestURL, (error, data) => {
+                clearTabContent(accessoryTabContent);
+                const newContent = createHTML(data);
+                accessoryTabContent.append(newContent);
+            });
+            break;
+        case '12VRGBLEDTapeAccessories':
+            requestURL = 'http://www.affordablequalitylighting.com/content/json/12VRGBLEDTapeAccessories.json';
+            getJSON(requestURL, (error, data) => {
+                clearTabContent(accessoryTabContent);
+                const newContent = createHTML(data);
+                accessoryTabContent.append(newContent);
+            });
+            break;
+        case '12VHOLEDTapeAccessories':
+            requestURL = 'http://www.affordablequalitylighting.com/content/json/12VHOLEDTapeAccessories.json';
             getJSON(requestURL, (error, data) => {
                 clearTabContent(accessoryTabContent);
                 const newContent = createHTML(data);
