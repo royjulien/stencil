@@ -439,7 +439,7 @@
     }
 }
 
-.alt-container{
+.alt-container {
     border-color: #f8f8f8;
     height: 100%;
     h3 {
@@ -472,4 +472,26 @@
 
     }
 
+}
+
+.pendantFinish {
+    img {
+        display: inline-block;
+        max-width: 22%;
+        height: auto;
+        margin: auto;
+        border: 2px solid #f1f4f9;
+        border-radius: 50%;
+    }
+}
+
+.capFinish {
+    img {
+        display: inline-block;
+        max-width: 17%;
+        height: auto;
+        margin: auto;
+        border: 3px solid #f1f4f9;
+        border-radius: 50%;
+    }
 }
