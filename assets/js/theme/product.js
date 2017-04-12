@@ -11,6 +11,7 @@ import productTabs from './product/productTabs';
 import ropeMountingRibbon from './product/ropeMountingRibbon';
 import transformerRibbon from './product/transformerRibbon';
 import accessoryTab from './product/accessoryTabContent.js';
+import videoTab from './product/videoTab';
 
 export default class Product extends PageManager {
     constructor() {
@@ -66,6 +67,7 @@ export default class Product extends PageManager {
         ropeMountingRibbon();
         transformerRibbon();
         accessoryTab();
+        videoTab();
         next();
     }
 
