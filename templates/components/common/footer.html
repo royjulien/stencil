@@ -7,6 +7,7 @@
 {{/if}}
 <footer class="footer" role="contentinfo">
     <div class="container">
+        <a href="/quickship/" alt="Click Here to View QuickShip Products" title="Click Here to View QuickShip Products"> <img class="footer-banner full-banner" src="/content/Banners/QuickShip-Banner-v3.jpg" alt="AQL QuickShip Products" title="AQL QuickShip Products" /> </a>
         <section class="footer-info">
             <article class="footer-info-col footer-info-col--small" data-section-type="footer-webPages">
                 <h5 class="footer-info-heading">{{lang 'footer.navigate'}}</h5>
@@ -21,46 +22,37 @@
                     </li>
                 </ul>
             </article>
-
             <article class="footer-info-col footer-info-col--small" data-section-type="footer-categories">
                 <h5 class="footer-info-heading">{{lang 'footer.categories'}}</h5>
                 <ul class="footer-info-list">
                     {{#each categories}}
-                        <li>
-                            <a href="{{url}}">{{name}}</a>
-                        </li>
+                    <li>
+                        <a href="{{url}}">{{name}}</a>
+                    </li>
                     {{/each}}
                 </ul>
             </article>
-
             <article class="footer-info-col footer-info-col--medium" data-section-type="storeInfo">
                 <h5 class="footer-info-heading">{{lang 'footer.info'}}</h5>
                 <address>{{nl2br settings.address}}</address>
                 {{#if settings.phone_number}}
-                    <strong>{{lang 'footer.call_us' phone_number=settings.phone_number}}</strong>
-                {{/if}}
+                <strong>{{lang 'footer.call_us' phone_number=settings.phone_number}}</strong> {{/if}}
             </article>
-
             <article class="footer-info-col" data-section-type="newsletterSubscription">
-                {{#if settings.show_newsletter_box}}
-                    {{> components/common/subscription-form}}
-                {{/if}}
-                {{> components/common/social-links}}
-                {{> components/common/payment-icons}}
+                {{#if settings.show_newsletter_box}} {{> components/common/subscription-form}} {{/if}} {{> components/common/social-links}} {{> components/common/payment-icons}}
             </article>
         </section>
         {{#if theme_settings.show_powered_by}}
-            <div class="footer-copyright">
-                <p class="powered-by">Powered by <a href="http://bigcommerce.com" rel="nofollow">BigCommerce</a></p>
-            </div>
-        {{/if}}
-        {{#if theme_settings.show_copyright_footer}}
-            <div class="footer-copyright">
-                <p class="powered-by">&copy; <span id="copyright_year"></span> {{settings.store_name}} </p>
-            </div>
-            <script type="text/javascript">
-                document.getElementById("copyright_year").innerHTML = new Date().getFullYear();
-            </script>
+        <div class="footer-copyright">
+            <p class="powered-by">Powered by <a href="http://bigcommerce.com" rel="nofollow">BigCommerce</a></p>
+        </div>
+        {{/if}} {{#if theme_settings.show_copyright_footer}}
+        <div class="footer-copyright">
+            <p class="powered-by">&copy; <span id="copyright_year"></span> {{settings.store_name}} </p>
+        </div>
+        <script type="text/javascript">
+        document.getElementById("copyright_year").innerHTML = new Date().getFullYear();
+        </script>
         {{/if}}
     </div>
 </footer>

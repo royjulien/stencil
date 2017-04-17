@@ -9,7 +9,7 @@
 
 .body {
     padding-top: 10px;
-    padding-bottom: spacing("double") * 2;
+    // padding-bottom: spacing("double") * 2;
 
     @include breakpoint("medium") {
         padding-top: 120px;

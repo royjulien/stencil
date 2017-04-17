@@ -15,7 +15,7 @@
 .footer {
     background-color: $footer-background;
     border-top: container("border");
-    padding: spacing("double") 0;
+    // padding: spacing("double") 0;
 }
 
 .footer-info {
@@ -127,4 +127,8 @@
     svg {
         fill: stencilColor("icon-color");
     }
+}
+
+.footer-banner {
+    padding-bottom: 25px;
 }
