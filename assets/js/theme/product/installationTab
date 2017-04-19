@@ -71,21 +71,18 @@ const installTab = document.querySelector('#Install');
 console.log(installTab);
 
 if (installTab) {
-    console.log('there is an installation tab');
     const installTabContent = stripTags(installTab);
-    console.log(installTabContent);
 
     switch (installTabContent) {
         case 'AQUCinstructions': {
-            console.log('AQUC Light Bar Install Instructions');
             const installGuide = installAQUC();
-            console.log(installGuide);
             clearTab(installTab);
             installTab.append(installGuide);
             break;
         }
         default: {
-            console.log('nothing to see here');
+            clearTab(installTab);
+            installTab.innerText = 'Coming Soon!';
         }
     }
 }

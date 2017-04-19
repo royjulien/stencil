@@ -54,7 +54,7 @@ function createHTML(data) {
     return container;
 }
 
-const accessoryTabContent = document.querySelector('#Things') || document.querySelector('#Accessories') || document.querySelector('#Housing');
+const accessoryTabContent = document.querySelector('#Things') || document.querySelector('#Accessories') || document.querySelector('#Housing') || document.querySelector('#Accessory');
 
 if (accessoryTabContent) {
     let tabContent = accessoryTabContent.innerText.split('.')[1];
@@ -196,10 +196,17 @@ if (accessoryTabContent) {
                 accessoryTabContent.append(newContent);
             });
             break;
+        case 'PuckLightJumpers':
+            requestURL = 'http://www.affordablequalitylighting.com/content/json/PuckLightJumpers.json';
+            getJSON(requestURL, (error, data) => {
+                clearTabContent(accessoryTabContent);
+                const newContent = createHTML(data);
+                accessoryTabContent.append(newContent);
+            });
+            break;
         default:
             clearTabContent(accessoryTabContent);
             accessoryTabContent.innerText = 'Coming Soon!';
-            // console.log('no accessories');
         }
     }
 }
