@@ -13,6 +13,7 @@ import transformerRibbon from './product/transformerRibbon';
 import accessoryTab from './product/accessoryTabContent.js';
 import videoTab from './product/videoTab';
 import videoAQUC from './product/videoAQUC';
+import installationTab from './product/installationTab';
 
 export default class Product extends PageManager {
     constructor() {
@@ -70,6 +71,7 @@ export default class Product extends PageManager {
         accessoryTab();
         videoTab();
         videoAQUC();
+        installationTab();
         next();
     }
 
