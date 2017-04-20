@@ -71,18 +71,24 @@ const installTab = document.querySelector('#Install');
 console.log(installTab);
 
 if (installTab) {
-    const installTabContent = stripTags(installTab);
+    const tabPanelCheck = installTab.innerText.includes('Panel');
+    console.log(tabPanelCheck);
 
-    switch (installTabContent) {
-        case 'AQUCinstructions': {
-            const installGuide = installAQUC();
-            clearTab(installTab);
-            installTab.append(installGuide);
-            break;
-        }
-        default: {
-            clearTab(installTab);
-            installTab.innerText = 'Coming Soon!';
+    if (tabPanelCheck) {
+
+        const installTabContent = stripTags(installTab);
+
+        switch (installTabContent) {
+            case 'AQUCinstructions': {
+                const installGuide = installAQUC();
+                clearTab(installTab);
+                installTab.append(installGuide);
+                break;
+            }
+            default: {
+                clearTab(installTab);
+                installTab.innerText = 'Coming Soon!';
+            }
         }
     }
 }
