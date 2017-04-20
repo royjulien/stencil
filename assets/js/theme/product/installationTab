@@ -10,7 +10,6 @@ function clearTab(tab) {
 }
 
 function installAQUC() {
-    console.log('insert HTML for AQUC install guide');
     let container = document.createElement('div');
 
     let title = document.createElement('span');
@@ -68,11 +67,9 @@ function installAQUC() {
 }
 
 const installTab = document.querySelector('#Install');
-console.log(installTab);
 
 if (installTab) {
     const tabPanelCheck = installTab.innerText.includes('Panel');
-    console.log(tabPanelCheck);
 
     if (tabPanelCheck) {
 

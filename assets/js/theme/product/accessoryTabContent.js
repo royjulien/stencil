@@ -66,7 +66,7 @@ if (accessoryTabContent) {
         switch (tabContent) {
         case 'LEDRopeLightAccessories':
             // console.log('rope light accessories');
-            requestURL = 'http://www.affordablequalitylighting.com/template/LEDRopeLightAccessories.json';
+            requestURL = '/template/LEDRopeLightAccessories.json';
             getJSON(requestURL, (error, data) => {
                 if (error) {
                     // console.log(error);
@@ -79,7 +79,7 @@ if (accessoryTabContent) {
             break;
         case 'OutdoorAccessories':
             // console.log('outdoor accessories');
-            requestURL = 'http://www.affordablequalitylighting.com/content/json/outdoorAccessories.json';
+            requestURL = '/content/json/outdoorAccessories.json';
             getJSON(requestURL, (error, data) => {
                 clearTabContent(accessoryTabContent);
                 // console.log(data);
@@ -100,7 +100,7 @@ if (accessoryTabContent) {
             });
             break;
         case '120V4FluorescentTrim':
-            requestURL = 'http://www.affordablequalitylighting.com/template/120V4FluorescentTrims.json';
+            requestURL = '/template/120V4FluorescentTrims.json';
             getJSON(requestURL, (error, data) => {
                 clearTabContent(accessoryTabContent);
                 const newContent = createHTML(data);
@@ -109,7 +109,7 @@ if (accessoryTabContent) {
             break;
         case '120V4Housing':
             // console.log('120V 4 Housing');
-            requestURL = 'http://www.affordablequalitylighting.com/template/120V4Housing.json';
+            requestURL = '/template/120V4Housing.json';
             getJSON(requestURL, (error, data) => {
                 clearTabContent(accessoryTabContent);
                 const newContent = createHTML(data);
@@ -117,7 +117,7 @@ if (accessoryTabContent) {
             });
             break;
         case '120V5Housing':
-            requestURL = 'http://www.affordablequalitylighting.com/template/120V5Housing.json';
+            requestURL = '/template/120V5Housing.json';
             getJSON(requestURL, (error, data) => {
                 clearTabContent(accessoryTabContent);
                 const newContent = createHTML(data);
@@ -125,7 +125,7 @@ if (accessoryTabContent) {
             });
             break;
         case '120V6FluorescentHousing':
-            requestURL = 'http://www.affordablequalitylighting.com/template/120V6FluorescentHousing.json';
+            requestURL = '/template/120V6FluorescentHousing.json';
             getJSON(requestURL, (error, data) => {
                 clearTabContent(accessoryTabContent);
                 const newContent = createHTML(data);
@@ -133,7 +133,7 @@ if (accessoryTabContent) {
             });
             break;
         case '120V6FluorescentTrim':
-            requestURL = 'http://www.affordablequalitylighting.com/template/120V6FluorescentTrim.json';
+            requestURL = '/template/120V6FluorescentTrim.json';
             getJSON(requestURL, (error, data) => {
                 clearTabContent(accessoryTabContent);
                 const newContent = createHTML(data);
@@ -141,7 +141,7 @@ if (accessoryTabContent) {
             });
             break;
         case '120V6Housing':
-            requestURL = 'http://www.affordablequalitylighting.com/template/120V6Housing.json';
+            requestURL = '/template/120V6Housing.json';
             getJSON(requestURL, (error, data) => {
                 clearTabContent(accessoryTabContent);
                 const newContent = createHTML(data);
@@ -149,7 +149,7 @@ if (accessoryTabContent) {
             });
             break;
         case '120V6SlopedHousing':
-            requestURL = 'http://www.affordablequalitylighting.com/template/120V6SlopedHousing.json';
+            requestURL = '/template/120V6SlopedHousing.json';
             getJSON(requestURL, (error, data) => {
                 clearTabContent(accessoryTabContent);
                 const newContent = createHTML(data);
@@ -157,7 +157,7 @@ if (accessoryTabContent) {
             });
             break;
         case '120V6SlopedTrim':
-            requestURL = 'http://www.affordablequalitylighting.com/template/120V6SlopedTrim.json';
+            requestURL = '/template/120V6SlopedTrim.json';
             getJSON(requestURL, (error, data) => {
                 clearTabContent(accessoryTabContent);
                 const newContent = createHTML(data);
@@ -165,7 +165,7 @@ if (accessoryTabContent) {
             });
             break;
         case '120V6Trim':
-            requestURL = 'http://www.affordablequalitylighting.com/template/120V6Trim.json';
+            requestURL = '/template/120V6Trim.json';
             getJSON(requestURL, (error, data) => {
                 clearTabContent(accessoryTabContent);
                 const newContent = createHTML(data);
@@ -173,7 +173,7 @@ if (accessoryTabContent) {
             });
             break;
         case '12VLEDTapeAccessories':
-            requestURL = 'http://www.affordablequalitylighting.com/content/json/12VLEDTapeAccessories.json';
+            requestURL = '/content/json/12VLEDTapeAccessories.json';
             getJSON(requestURL, (error, data) => {
                 clearTabContent(accessoryTabContent);
                 const newContent = createHTML(data);
@@ -181,7 +181,7 @@ if (accessoryTabContent) {
             });
             break;
         case '12VRGBLEDTapeAccessories':
-            requestURL = 'http://www.affordablequalitylighting.com/content/json/12VRGBLEDTapeAccessories.json';
+            requestURL = '/content/json/12VRGBLEDTapeAccessories.json';
             getJSON(requestURL, (error, data) => {
                 clearTabContent(accessoryTabContent);
                 const newContent = createHTML(data);
@@ -189,7 +189,15 @@ if (accessoryTabContent) {
             });
             break;
         case '12VHOLEDTapeAccessories':
-            requestURL = 'http://www.affordablequalitylighting.com/content/json/12VHOLEDTapeAccessories.json';
+            requestURL = '/content/json/12VHOLEDTapeAccessories.json';
+            getJSON(requestURL, (error, data) => {
+                clearTabContent(accessoryTabContent);
+                const newContent = createHTML(data);
+                accessoryTabContent.append(newContent);
+            });
+            break;
+        case 'AQUCaccessories':
+            requestURL = '/content/json/AQUCaccessories.json';
             getJSON(requestURL, (error, data) => {
                 clearTabContent(accessoryTabContent);
                 const newContent = createHTML(data);
@@ -197,7 +205,7 @@ if (accessoryTabContent) {
             });
             break;
         case 'PuckLightJumpers':
-            requestURL = 'http://www.affordablequalitylighting.com/content/json/PuckLightJumpers.json';
+            requestURL = '/content/json/PuckLightJumpers.json';
             getJSON(requestURL, (error, data) => {
                 clearTabContent(accessoryTabContent);
                 const newContent = createHTML(data);
