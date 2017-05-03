@@ -36,16 +36,16 @@ if (window.BCData.product_attributes) {
                     if (data[i].sku === productSKU) {
                         const containerHeader = document.createElement('h3');
                         containerHeader.innerText = 'Recommended Alternative:';
-                        altContainer.append(containerHeader);
+                        altContainer.appendChild(containerHeader);
 
                         const altProductImg = document.createElement('img');
                         altProductImg.setAttribute('src', data[i].imagePath);
-                        altContainer.append(altProductImg);
+                        altContainer.appendChild(altProductImg);
 
                         const containerText = document.createElement('p');
                         containerText.className = 'name';
                         containerText.innerText = data[i].name;
-                        altContainer.append(containerText);
+                        altContainer.appendChild(containerText);
 
                         altContainer.style.display = 'block';
                         altContainer.style.cursor = 'pointer';
@@ -79,7 +79,7 @@ altContainer.style.display = 'block';
 altContainer.style.cursor = 'pointer';
 const altProductImg = document.createElement('img');
 altProductImg.setAttribute('src', data[i].imagePath);
-altContainer.append(altProductImg);
+altContainer.appendChild(altProductImg);
 const destinationURL = data[i].url;
 altContainer.addEventListener('click', () => {
 window.location.href = destinationURL;
@@ -114,7 +114,7 @@ altContainer.style.display = 'block';
 altContainer.style.cursor = 'pointer';
 const altProductImg = document.createElement('img');
 altProductImg.setAttribute('src', data[i].imagePath);
-altContainer.append(altProductImg);
+altContainer.appendChild(altProductImg);
 const destinationURL = data[i].url;
 altContainer.addEventListener('click', () => {
 window.location.href = destinationURL;
