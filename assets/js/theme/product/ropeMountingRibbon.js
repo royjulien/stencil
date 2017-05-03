@@ -51,6 +51,7 @@ if (productSKUElement) {
 
         // get pointer for product view description
         const prependElement = document.querySelector('.productView-description');
+        const productDescripton = document.querySelector('.tabs');
 
         // create main section element for upsell ribbon
         const section = document.createElement('section');
@@ -59,39 +60,39 @@ if (productSKUElement) {
         // create title for main section
         const mainTitle = document.createElement('h2');
         mainTitle.innerText = 'Rope Light Mounting Options';
-        section.append(mainTitle);
+        section.appendChild(mainTitle);
 
         // create ul list for upsell ribbon
         const unorderedList = document.createElement('ul');
-        section.append(unorderedList);
+        section.appendChild(unorderedList);
 
         // start of loop through product array
         for (let i = ropeMountingAccessories.length - 1; i >= 0; i--) {
             const listItem = document.createElement('li');
-            unorderedList.append(listItem);
+            unorderedList.appendChild(listItem);
 
             const link = document.createElement('a');
             link.href = ropeMountingAccessories[i].anchorLink;
             link.setAttribute('data-transformers-link', '');
             link.innerHTML = `<h3>${ropeMountingAccessories[i].title}</h3>`;
-            listItem.append(link);
+            listItem.appendChild(link);
 
             const image = document.createElement('img');
             image.setAttribute('src', ropeMountingAccessories[i].imgSource);
             image.setAttribute('alt', ropeMountingAccessories[i].imgAlt);
-            listItem.append(image);
+            listItem.appendChild(image);
 
             const cardPrice = document.createElement('em');
             cardPrice.setAttribute('class', 'catalog-product-price');
             cardPrice.innerText = ropeMountingAccessories[i].price;
-            listItem.append(cardPrice);
+            listItem.appendChild(cardPrice);
 
             const cartLink = document.createElement('a');
             cartLink.href = ropeMountingAccessories[i].anchorAddToCart;
             cartLink.setAttribute('class', 'transformer-add-to-cart');
             cartLink.innerText = 'Add to Cart';
-            listItem.append(cartLink);
+            listItem.appendChild(cartLink);
         }
-        prependElement.prepend(section);
+        prependElement.insertBefore(section, productDescripton);
     }
 }
