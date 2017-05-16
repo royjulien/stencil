@@ -10,12 +10,12 @@ function insertVideo(title, videoLink) {
     const videoTitle = document.createElement('span');
     videoTitle.innerText = title;
     videoTitle.className = 'product-title';
-    container.append(videoTitle);
+    container.appendChild(videoTitle);
 
     const videoWindow = document.createElement('iframe');
     videoWindow.className = 'youtube';
     videoWindow.src = videoLink;
-    container.append(videoWindow);
+    container.appendChild(videoWindow);
 
     return container;
 }
@@ -31,7 +31,7 @@ if (videoTabContent) {
         case 'LEDRopeVideos': {
             clearTabContent(videoTabContent);
             const newContent = insertVideo('DIY Video Guide: LED Rope Light', 'https://www.youtube.com/embed/yf7B4UgraXg?list=PLNsL1D_GAczZ_0Ocddeic0uivx1u3lWPP');
-            videoTabContent.append(newContent);
+            videoTabContent.appendChild(newContent);
             break;
         }
         default: {

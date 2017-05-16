@@ -25,7 +25,7 @@ function createHTML(data) {
     const tabTitle = document.createElement('span');
     tabTitle.className = 'product-title';
     tabTitle.innerText = data.header;
-    container.append(tabTitle);
+    container.appendChild(tabTitle);
 
 
     const ulElement = document.createElement('ul');
@@ -42,15 +42,15 @@ function createHTML(data) {
 
         const liImage = document.createElement('img');
         liImage.src = data.items[i].itemImg;
-        liElement.append(liImage);
-        liElement.append(data.items[i].itemName);
+        liElement.appendChild(liImage);
+        liElement.appendChild(data.items[i].itemName);
 
-        cardLink.append(liElement);
-        ulElement.append(cardLink);
+        cardLink.appendChild(liElement);
+        ulElement.appendChild(cardLink);
     }
 // for loop end point
 
-    container.append(ulElement);
+    container.appendChild(ulElement);
     return container;
 }
 
@@ -74,7 +74,7 @@ if (accessoryTabContent) {
                 clearTabContent(accessoryTabContent);
                 // console.log(data);
                 const newContent = createHTML(data);
-                accessoryTabContent.append(newContent);
+                accessoryTabContent.appendChild(newContent);
             });
             break;
         case 'OutdoorAccessories':
@@ -86,7 +86,7 @@ if (accessoryTabContent) {
 
                 const newContent = createHTML(data);
                 // console.log(newContent);
-                accessoryTabContent.append(newContent);
+                accessoryTabContent.appendChild(newContent);
             });
             break;
         case '120V4FluorescentHousings':
@@ -96,7 +96,7 @@ if (accessoryTabContent) {
                 // console.log(data);
                 const newContent = createHTML(data);
                 // console.log(newContent);
-                accessoryTabContent.append(newContent);
+                accessoryTabContent.appendChild(newContent);
             });
             break;
         case '120V4FluorescentTrim':
@@ -104,7 +104,7 @@ if (accessoryTabContent) {
             getJSON(requestURL, (error, data) => {
                 clearTabContent(accessoryTabContent);
                 const newContent = createHTML(data);
-                accessoryTabContent.append(newContent);
+                accessoryTabContent.appendChild(newContent);
             });
             break;
         case '120V4Housing':
@@ -113,7 +113,7 @@ if (accessoryTabContent) {
             getJSON(requestURL, (error, data) => {
                 clearTabContent(accessoryTabContent);
                 const newContent = createHTML(data);
-                accessoryTabContent.append(newContent);
+                accessoryTabContent.appendChild(newContent);
             });
             break;
         case '120V5Housing':
@@ -121,7 +121,7 @@ if (accessoryTabContent) {
             getJSON(requestURL, (error, data) => {
                 clearTabContent(accessoryTabContent);
                 const newContent = createHTML(data);
-                accessoryTabContent.append(newContent);
+                accessoryTabContent.appendChild(newContent);
             });
             break;
         case '120V6FluorescentHousing':
@@ -129,7 +129,7 @@ if (accessoryTabContent) {
             getJSON(requestURL, (error, data) => {
                 clearTabContent(accessoryTabContent);
                 const newContent = createHTML(data);
-                accessoryTabContent.append(newContent);
+                accessoryTabContent.appendChild(newContent);
             });
             break;
         case '120V6FluorescentTrim':
@@ -137,7 +137,7 @@ if (accessoryTabContent) {
             getJSON(requestURL, (error, data) => {
                 clearTabContent(accessoryTabContent);
                 const newContent = createHTML(data);
-                accessoryTabContent.append(newContent);
+                accessoryTabContent.appendChild(newContent);
             });
             break;
         case '120V6Housing':
@@ -145,7 +145,7 @@ if (accessoryTabContent) {
             getJSON(requestURL, (error, data) => {
                 clearTabContent(accessoryTabContent);
                 const newContent = createHTML(data);
-                accessoryTabContent.append(newContent);
+                accessoryTabContent.appendChild(newContent);
             });
             break;
         case '120V6SlopedHousing':
@@ -153,7 +153,7 @@ if (accessoryTabContent) {
             getJSON(requestURL, (error, data) => {
                 clearTabContent(accessoryTabContent);
                 const newContent = createHTML(data);
-                accessoryTabContent.append(newContent);
+                accessoryTabContent.appendChild(newContent);
             });
             break;
         case '120V6SlopedTrim':
@@ -161,7 +161,7 @@ if (accessoryTabContent) {
             getJSON(requestURL, (error, data) => {
                 clearTabContent(accessoryTabContent);
                 const newContent = createHTML(data);
-                accessoryTabContent.append(newContent);
+                accessoryTabContent.appendChild(newContent);
             });
             break;
         case '120V6Trim':
@@ -169,7 +169,7 @@ if (accessoryTabContent) {
             getJSON(requestURL, (error, data) => {
                 clearTabContent(accessoryTabContent);
                 const newContent = createHTML(data);
-                accessoryTabContent.append(newContent);
+                accessoryTabContent.appendChild(newContent);
             });
             break;
         case '12VLEDTapeAccessories':
@@ -177,7 +177,7 @@ if (accessoryTabContent) {
             getJSON(requestURL, (error, data) => {
                 clearTabContent(accessoryTabContent);
                 const newContent = createHTML(data);
-                accessoryTabContent.append(newContent);
+                accessoryTabContent.appendChild(newContent);
             });
             break;
         case '12VRGBLEDTapeAccessories':
@@ -185,7 +185,7 @@ if (accessoryTabContent) {
             getJSON(requestURL, (error, data) => {
                 clearTabContent(accessoryTabContent);
                 const newContent = createHTML(data);
-                accessoryTabContent.append(newContent);
+                accessoryTabContent.appendChild(newContent);
             });
             break;
         case '12VHOLEDTapeAccessories':
@@ -193,7 +193,7 @@ if (accessoryTabContent) {
             getJSON(requestURL, (error, data) => {
                 clearTabContent(accessoryTabContent);
                 const newContent = createHTML(data);
-                accessoryTabContent.append(newContent);
+                accessoryTabContent.appendChild(newContent);
             });
             break;
         case 'AQUCaccessories':
@@ -201,7 +201,7 @@ if (accessoryTabContent) {
             getJSON(requestURL, (error, data) => {
                 clearTabContent(accessoryTabContent);
                 const newContent = createHTML(data);
-                accessoryTabContent.append(newContent);
+                accessoryTabContent.appendChild(newContent);
             });
             break;
         case 'PuckLightJumpers':
@@ -209,7 +209,7 @@ if (accessoryTabContent) {
             getJSON(requestURL, (error, data) => {
                 clearTabContent(accessoryTabContent);
                 const newContent = createHTML(data);
-                accessoryTabContent.append(newContent);
+                accessoryTabContent.appendChild(newContent);
             });
             break;
         default:
