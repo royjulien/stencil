@@ -321,7 +321,7 @@ export default class Product {
      * @param  {Object} data Product attribute data
      */
     calculatePrice(price, qty, brand) {
-        const freeShippingMinAmount = 249;
+        const freeShippingMinAmount = 150;
         const freeShippingElement = document.querySelector('.free-shipping-container');
 
         if (price * qty >= freeShippingMinAmount) {
