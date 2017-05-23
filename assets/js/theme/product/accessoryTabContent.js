@@ -27,29 +27,35 @@ function createHTML(data) {
     tabTitle.innerText = data.header;
     container.appendChild(tabTitle);
 
-
     const ulElement = document.createElement('ul');
     ulElement.className = 'accessorytab';
 
 // for loop start point
     for (let i = 0; i < data.items.length; i++) {
+        // create URL link to product
         const cardLink = document.createElement('a');
         cardLink.target = '_blank';
         cardLink.href = data.items[i].itemLink;
 
+        // create list item for image and text content
         const liElement = document.createElement('li');
         liElement.className = 'accessorytab';
 
+        // create image
         const liImage = document.createElement('img');
         liImage.src = data.items[i].itemImg;
-        liElement.appendChild(liImage);
-        liElement.appendChild(data.items[i].itemName);
+        cardLink.appendChild(liImage);
 
-        cardLink.appendChild(liElement);
-        ulElement.appendChild(cardLink);
+        // create text content
+        const liName = data.items[i].itemName;
+
+        cardLink.innerHTML += liName;
+        liElement.appendChild(cardLink);
+
+        // append all content to li element
+        ulElement.appendChild(liElement);
     }
 // for loop end point
-
     container.appendChild(ulElement);
     return container;
 }
@@ -65,14 +71,13 @@ if (accessoryTabContent) {
         let requestURL = '';
         switch (tabContent) {
         case 'LEDRopeLightAccessories':
-            // console.log('rope light accessories');
             requestURL = '/template/LEDRopeLightAccessories.json';
             getJSON(requestURL, (error, data) => {
                 if (error) {
-                    // console.log(error);
+                    console.log(error);
                 }
                 clearTabContent(accessoryTabContent);
-                // console.log(data);
+
                 const newContent = createHTML(data);
                 accessoryTabContent.appendChild(newContent);
             });

@@ -320,6 +320,12 @@ $font_2: arial;
     }
 }
 
+.product-title2 {
+    color: rgb(255, 0, 0);
+    font-size: medium;
+    font-weight: bold;
+}
+
 .head-table {
     td {
         width: 72rem;
@@ -330,6 +336,7 @@ $font_2: arial;
         text-align: center;
     }
 }
+
 .compare-table {
     text-align: center;
 
@@ -366,4 +373,11 @@ $font_2: arial;
         padding-top: 2px;
         padding-bottom: 2px;
     }
+}
+
+.RLwarning {
+    color: rgb(255, 0, 0);
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
 }
