@@ -25,7 +25,7 @@ if (window.BCData.product_attributes) {
         // console.log(productSKU);
 
         const altContainer = document.querySelector('.alt-container');
-        const requestURL = 'http://www.affordablequalitylighting.com/content/json/alt-products.json';
+        const requestURL = 'https://www.affordablequalitylighting.com/content/json/alt-products.json';
 
         getJSON(requestURL, (error, data) => {
             if (error) {
