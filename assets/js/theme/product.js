@@ -64,32 +64,14 @@ export default class Product extends PageManager {
 
     after(next) {
         this.productReviewHandler();
-
-        if (altProduct()) {
-            altProduct();
-        }
-        if (productTabs()) {
-            productTabs();
-        }
-        if (ropeMountingRibbon()) {
-            ropeMountingRibbon();
-        }
-        if (transformerRibbon()) {
-            transformerRibbon();
-        }
-        if (accessoryTab()) {
-            accessoryTab();
-        }
-        if (videoTab()) {
-            videoTab();
-        }
-        if (videoAQUC()) {
-            videoAQUC();
-        }
-        if (installationTab()) {
-            installationTab();
-        }
-
+        altProduct();
+        productTabs();
+        ropeMountingRibbon();
+        transformerRibbon();
+        accessoryTab();
+        videoTab();
+        videoAQUC();
+        installationTab();
         next();
     }
 
