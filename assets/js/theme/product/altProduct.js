@@ -25,7 +25,7 @@ if (window.BCData.product_attributes) {
         // console.log(productSKU);
 
         const altContainer = document.querySelector('.alt-container');
-        const requestURL = 'http://www.affordablequalitylighting.com/content/json/alt-products.json';
+        const requestURL = 'https://affordablequalitylighting.com/content/json/alt-products.json';
 
         getJSON(requestURL, (error, data) => {
             if (error) {
@@ -64,7 +64,7 @@ if (window.BCData.product_attributes) {
 if (isInStock === false) {
 console.log('is not in stock');
 const altContainer = document.querySelector('.alt-container');
-const requestURL = 'http://www.affordablequalitylighting.com/content/json/alt-products.json';
+const requestURL = 'https://www.affordablequalitylighting.com/content/json/alt-products.json';
 
 getJSON(requestURL, (error, data) => {
 if (error) {
@@ -99,7 +99,7 @@ const isInStock = window.BCData.product_attributes.instock;
 if (isInStock === false) {
 console.log('is not in stock');
 const altContainer = document.querySelector('.alt-container');
-const requestURL = 'http://www.affordablequalitylighting.com/content/json/alt-products.json';
+const requestURL = 'https://www.affordablequalitylighting.com/content/json/alt-products.json';
 
 getJSON(requestURL, (error, data) => {
 if (error) {
