@@ -1,10 +1,6 @@
 {
   "name": "aql",
-<<<<<<< HEAD
-  "version": "1.0.23",
-=======
-  "version": "1.0.22",
->>>>>>> 560017548f9738411f6c842985798e8a44be0f3c
+  "version": "1.0.24",
   "meta": {
     "price": 0,
     "documentation_url": "https://support.bigcommerce.com/articles/Public/Cornerstone-Theme-Manual",
