@@ -74,7 +74,7 @@ if (accessoryTabContent) {
             requestURL = '/template/LEDRopeLightAccessories.json';
             getJSON(requestURL, (error, data) => {
                 if (error) {
-                    console.log(error);
+                    // console.log(error);
                 }
                 clearTabContent(accessoryTabContent);
 

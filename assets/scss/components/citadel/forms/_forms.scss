@@ -133,14 +133,10 @@
 // -----------------------------------------------------------------------------
 
 .form-label--alternate {
+    padding: 10px 0;
     margin-bottom: 0;
     font-size: fontSize("smaller");
     font-family: fontFamily("headingSans");
-
-    @include breakpoint("large") {
-        float: left;
-        width: 110px;
-    }
 }
 
 .form-select--date {
