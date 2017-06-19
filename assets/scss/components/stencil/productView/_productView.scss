@@ -321,6 +321,7 @@
     padding: $productOptions-list-item-padding;
 
     + .productOptions-list-item {
+        position: relative;
         border-top: $productOptions-list-item-borderTop;
     }
 
