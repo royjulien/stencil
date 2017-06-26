@@ -459,3 +459,18 @@ ul.accessorytab img {
   -webkit-align-items: center;
   align-items: center;
 }
+.cat-bannerContainer {
+  width: 100%;
+  height: auto;
+  margin: auto;
+  padding: auto;
+}
+.cat-containerLeft, .cat-containerCenter, .cat-containerRight {
+  float: left;
+  display: block;
+  width: 33.3%;
+  height: auto;
+  margin: auto;
+  padding: auto;
+  max-height: 198px;
+}
