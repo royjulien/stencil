@@ -15,6 +15,15 @@
             margin-top: spacing("base") * 4;
         }
     }
+
+    [data-display-name] {
+        display: none;
+    }
+
+    [data-display-name="SMARTscape"] {
+        display: block;
+        max-width: 540px;
+    }
 }
 
 
