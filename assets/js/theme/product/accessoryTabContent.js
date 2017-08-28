@@ -71,7 +71,7 @@ if (accessoryTabContent) {
         let requestURL = '';
         switch (tabContent) {
         case 'LEDRopeLightAccessories':
-            requestURL = '/template/LEDRopeLightAccessories.json';
+            requestURL = '/content/json/LEDRopeLightAccessories.json';
             getJSON(requestURL, (error, data) => {
                 if (error) {
                     // console.log(error);
@@ -95,7 +95,7 @@ if (accessoryTabContent) {
             });
             break;
         case '120V4FluorescentHousings':
-            requestURL = 'https://www.affordablequalitylighting.com/dav/template/120V4FluorescentHousings.json';
+            requestURL = 'content/json/120V4FluorescentHousings.json';
             getJSON(requestURL, (error, data) => {
                 clearTabContent(accessoryTabContent);
                 // console.log(data);
@@ -105,7 +105,7 @@ if (accessoryTabContent) {
             });
             break;
         case '120V4FluorescentTrim':
-            requestURL = '/template/120V4FluorescentTrims.json';
+            requestURL = 'content/json/120V4FluorescentTrims.json';
             getJSON(requestURL, (error, data) => {
                 clearTabContent(accessoryTabContent);
                 const newContent = createHTML(data);
@@ -114,7 +114,7 @@ if (accessoryTabContent) {
             break;
         case '120V4Housing':
             // console.log('120V 4 Housing');
-            requestURL = '/template/120V4Housing.json';
+            requestURL = 'content/json/120V4Housing.json';
             getJSON(requestURL, (error, data) => {
                 clearTabContent(accessoryTabContent);
                 const newContent = createHTML(data);
@@ -122,7 +122,7 @@ if (accessoryTabContent) {
             });
             break;
         case '120V5Housing':
-            requestURL = '/template/120V5Housing.json';
+            requestURL = 'content/json/120V5Housing.json';
             getJSON(requestURL, (error, data) => {
                 clearTabContent(accessoryTabContent);
                 const newContent = createHTML(data);
@@ -130,7 +130,7 @@ if (accessoryTabContent) {
             });
             break;
         case '120V6FluorescentHousing':
-            requestURL = '/template/120V6FluorescentHousing.json';
+            requestURL = '/content/json/120V6FluorescentHousing.json';
             getJSON(requestURL, (error, data) => {
                 clearTabContent(accessoryTabContent);
                 const newContent = createHTML(data);
@@ -138,7 +138,7 @@ if (accessoryTabContent) {
             });
             break;
         case '120V6FluorescentTrim':
-            requestURL = '/template/120V6FluorescentTrim.json';
+            requestURL = '/content/json/120V6FluorescentTrim.json';
             getJSON(requestURL, (error, data) => {
                 clearTabContent(accessoryTabContent);
                 const newContent = createHTML(data);
@@ -146,7 +146,7 @@ if (accessoryTabContent) {
             });
             break;
         case '120V6Housing':
-            requestURL = '/template/120V6Housing.json';
+            requestURL = '/content/json/120V6Housing.json';
             getJSON(requestURL, (error, data) => {
                 clearTabContent(accessoryTabContent);
                 const newContent = createHTML(data);
@@ -154,7 +154,7 @@ if (accessoryTabContent) {
             });
             break;
         case '120V6SlopedHousing':
-            requestURL = '/template/120V6SlopedHousing.json';
+            requestURL = '/content/json/120V6SlopedHousing.json';
             getJSON(requestURL, (error, data) => {
                 clearTabContent(accessoryTabContent);
                 const newContent = createHTML(data);
@@ -162,7 +162,7 @@ if (accessoryTabContent) {
             });
             break;
         case '120V6SlopedTrim':
-            requestURL = '/template/120V6SlopedTrim.json';
+            requestURL = '/content/json/120V6SlopedTrim.json';
             getJSON(requestURL, (error, data) => {
                 clearTabContent(accessoryTabContent);
                 const newContent = createHTML(data);
@@ -170,7 +170,7 @@ if (accessoryTabContent) {
             });
             break;
         case '120V6Trim':
-            requestURL = '/template/120V6Trim.json';
+            requestURL = '/content/json/120V6Trim.json';
             getJSON(requestURL, (error, data) => {
                 clearTabContent(accessoryTabContent);
                 const newContent = createHTML(data);
