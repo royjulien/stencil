@@ -36,10 +36,11 @@
 
 .form-label--inlineSmall {
     small {
-        color: stencilColor("color-textSecondary");
+        color: red;
+        //color: stencilColor("color-textSecondary");
         float: none;
         font-size: inherit;
-        font-weight: fontWeight("normal");
+        font-weight: fontWeight("light");
         margin-left: spacing("quarter");
         text-transform: none;
 
