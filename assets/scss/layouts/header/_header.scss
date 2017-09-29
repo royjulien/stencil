@@ -13,22 +13,21 @@
 // -----------------------------------------------------------------------------
 
 .header {
-    position: fixed;
+    position: absolute;
     top: 0;
     width: 100%;
-    min-height: 55px;
+    min-height: 85px;
     padding-bottom: 5px;
     border-bottom: 2px solid stencilColor("color-aql");
-    background-color: white;
-    opacity: 0.97;
     z-index: zIndex("low");
 
-    @include breakpoint("small") {
+    @include breakpoint("medium") {
         min-height: 120px;
     }
 
     &.is-open {
-        height: 100%;
+        min-height: 100vh;
+        overflow: hidden;
 
         @include breakpoint("medium") {
             height: auto;
@@ -36,7 +35,7 @@
     }
 
     &__promo {
-        display: none;
+        width: 100%;
         background-color: stencilColor("color-aql");
         color: white;
 
@@ -51,11 +50,27 @@
 
         &__caption,
         &__shipping {
-            width: 50%;
+            width: 100%;
+            font-size: 11px;
+            text-align: center;
+
+            @include breakpoint("small") {
+                font-size: 13px;
+            }
+
+            @include breakpoint("medium") {
+                font-size: 16px;
+                width: 50%;
+                font-size: inherit;
+            }
         }
 
         &__shipping {
-            text-align: right;
+            display: none;
+
+            @include breakpoint("medium") {
+                display: block;
+            }
         }
 
         &__phone {

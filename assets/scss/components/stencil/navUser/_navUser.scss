@@ -15,11 +15,11 @@
     @include nav($style: "navBar", $wrapper: "nav");
     @include verticalPositionMiddle("absolute");
     right: 0;
-    top: 26px;
+    top: 50px;
     width: 100%;
     z-index: zIndex("lowest");
 
-    @include breakpoint("small") {
+    @include breakpoint("medium") {
         top: 85px;
     }
 
