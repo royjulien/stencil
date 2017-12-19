@@ -440,6 +440,23 @@ ul.accessorytab img {
   height: auto;
   text-align: center;
 }
+.banner-container {
+  display: flex;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  -webkit-flex-flow: row nowrap;
+  justify-content: space-around;
+}
+
+.half-banner {
+  width: 100%;
+  height: auto;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
 
 .swiper-container {
   width: 100%;
