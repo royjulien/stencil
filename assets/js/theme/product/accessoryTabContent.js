@@ -224,7 +224,7 @@ if (accessoryTabContent) {
                 const newContent = createHTML(data);
                 accessoryTabContent.appendChild(newContent);
             });
-        break;
+            break;
         default:
             clearTabContent(accessoryTabContent);
             accessoryTabContent.innerText = 'Coming Soon!';
