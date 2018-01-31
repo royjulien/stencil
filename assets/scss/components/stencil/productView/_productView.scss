@@ -107,7 +107,12 @@
     }
 }
 
+.productView-rating {
+    display: none;
+}
+
 .productView-title {
+    font-family: 'Yanone Kaffeesatz',sans-serif;
     font-size: fontSize("small");
     margin: 0 0 spacing("quarter");
 
@@ -204,6 +209,7 @@
 
     @include breakpoint("small") {
         float: none;
+        display: inline-block;
     }
 }
 

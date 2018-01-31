@@ -1,11 +1,13 @@
 <nav class="navUser">
     {{#if settings.store_logo.image}}
-        <a href='/'>
+        <a class='header-logo-container' href='/'>
             <img class="header-logo-image" src="{{getImage settings.store_logo.image 'logo_size'}}" alt="{{settings.store_logo.title}}" title="{{settings.store_logo.title}}">
         </a>
     {{/if}}
 
     {{> components/common/currency-selector}}
+
+    <a class="header-search-string" href="#" data-search="quickSearch" aria-controls="quickSearch" aria-expanded="false">{{lang 'common.search'}}</a>
 
     <ul class="navUser-section navUser-section--alt">
         {{#if customer.store_credit.value '>' 0}}

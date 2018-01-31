@@ -191,13 +191,74 @@
     }
 }
 
-.header-logo-image {
-    height: 50px;
-    padding: 10px;
-    margin: 5px 0 0 50px;
+.header-logo-container {
+    display: block;
+    position: absolute;
+    width: 30px;
+    left: 55px;
+    top: 6px;
+    overflow: hidden;
+
+    @include breakpoint('small') {
+        top: 22px;
+    }
 
     @include breakpoint('medium') {
-        margin-left: 0;
+        top: 0;
+        width: auto;
+        left: 30px;
+        overflow: visible;
+        width: auto;
+    }
+}
+
+.header-search-string {
+    position: absolute;
+    left: 0;
+    top: 9px;
+    right: 0;
+    margin: auto;
+    text-align: center;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 2px;
+
+    @include breakpoint('small') {
+        top: 24px;
+    }
+    @include breakpoint('medium') {
+        display: none
+    }
+}
+
+#igFlag {
+    top: 8px !important;
+    right: 15px !important;
+
+    @include breakpoint('small') {
+        right: 55px !important;
+        top: 22px !important;
+    }
+
+    @include breakpoint('medium') {
+        right: 325px !important;
+        top: 15px !important;
+    }
+}
+
+.header-logo-image {
+    max-width: none;
+    width: 125px;
+    height: 20px;
+    padding: 0;
+    margin: 0;
+
+    @include breakpoint('medium') {
+        width: auto;
+        height: 50px;
+        padding: 10px;
+        margin: 5px 0 0 0;
     }
 }
 

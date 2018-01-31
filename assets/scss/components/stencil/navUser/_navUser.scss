@@ -72,6 +72,15 @@
     color: color("greys", "light");
     padding: spacing("base") spacing("half");
     text-decoration: none;
+    position: relative;
+    top: 8px;
+
+    @include breakpoint('small') {
+        top: 8px;
+    }
+    @include breakpoint('medium') {
+        top: 0;
+    }
 
     &:hover,
     &.is-open {
@@ -231,8 +240,8 @@
 }
 
 .dropdown--quickSearch {
-    background-color: rgba(255,255,255,0.97);
     padding: spacing("single") 0;
+    background-color: rgba(255,255,255,0.97);
 
     @include breakpoint("small") {
         padding: spacing("double");

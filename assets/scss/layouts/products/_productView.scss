@@ -301,8 +301,13 @@ $font_2: arial;
         border-bottom: 1px solid #d3dceb;
 
         td {
+            display: none;
             padding: 20px;
             vertical-align: inherit;
+
+            @include breakpoint('medium') {
+                display: block;
+            }
 
             &:last-child {
                 text-align: center;
@@ -327,8 +332,20 @@ $font_2: arial;
 }
 
 .head-table {
+    display: flex;
+    width: 100%;
+
+    tbody {
+        width: 100%;
+    }
+
+    tr {
+        display: flex;
+        width: 100%;
+    }
+
     td {
-        width: 72rem;
+        width: 100%;
         padding: 8px;
         color: #514730;
         font-size: 12px;
