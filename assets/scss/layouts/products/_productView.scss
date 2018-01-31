@@ -301,12 +301,12 @@ $font_2: arial;
         border-bottom: 1px solid #d3dceb;
 
         td {
-            display: none;
+            display: inline-block;
             padding: 20px;
             vertical-align: inherit;
 
             @include breakpoint('medium') {
-                display: block;
+                display: inline-block;
             }
 
             &:last-child {
@@ -381,11 +381,13 @@ $font_2: arial;
 .spectable {
     border-collapse: collapse;
 
+
     tr:nth-child(2n) {
         background-color: #f1f1f1;
     }
 
     td {
+        display: inline-block;
         min-width: 180px;
         padding-top: 2px;
         padding-bottom: 2px;
