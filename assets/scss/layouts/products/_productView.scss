@@ -357,11 +357,12 @@ $font_2: arial;
 .compare-table {
     text-align: center;
 
-    td {
+    tr td {
         padding: 5px;
         border: 1px solid #dcdcdc;
         text-align: center;
         vertical-align: middle;
+        display: table-cell !important;
     }
 
     th {
