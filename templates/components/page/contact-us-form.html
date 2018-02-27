@@ -47,16 +47,8 @@
         {{/if}}
     </div>
 
-    {{#if forms.contact.captcha_url}}
-        <div class="form-field">
-            <label class="form-label" for="captcha">{{lang 'forms.contact_us.captcha'}}</label>
-            <img src="{{forms.contact.captcha_url}}" alt="Verification image" title="Verification image">
-            <p>{{lang 'forms.contact_us.captcha_desc'}}</p>
-            <input class="form-input" type="text" id="captcha" name="captcha">
-        </div>
-    {{else}}
-        <input class="form-input" type="hidden" id="captcha" name="captcha">
-    {{/if}}
+    <!-- Update to Captcha v2 -->
+    {{{forms.contact.recaptcha.markup}}}
 
     <div class="form-field">
         <label class="form-label" for="contact_question">{{lang 'forms.contact_us.question'}}
