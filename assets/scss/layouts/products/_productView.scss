@@ -1,11 +1,8 @@
 // =============================================================================
 // PRODUCT VIEW (CSS)
 // =============================================================================
-
-
 // Product view layout
 // -----------------------------------------------------------------------------
-
 .productView {
     @include grid-row($behavior: "nest");
     margin-left: -(spacing("base"));
@@ -146,6 +143,10 @@ $font_2: arial;
 
 .product-left,
 .product-right {
+    clear: both;
+    display: inline-block;
+    width: 100%;
+    height: auto;
     min-height: 265px;
     padding: 40px 0;
     margin: 25px 0;
@@ -171,6 +172,20 @@ $font_2: arial;
         float: right;
         margin-left: 35px;
     }
+}
+
+.product-sideimg {
+    /*
+    @include breakpoint("medium") {
+        clear: both;
+        display: block;
+        text-align: center;
+        width: 100%;
+        height: auto;
+        margin: auto;
+        padding: auto;
+    }
+    */
 }
 
 .RLkit {
@@ -211,6 +226,7 @@ $font_2: arial;
 .RL-STD {
     background-color: #def1ff;
 }
+
 .RL-DLX {
     background-color: #b3dfff;
 }
@@ -219,7 +235,7 @@ $font_2: arial;
     display: none;
     position: relative;
     padding: 10px;
-    border: 2px solid rgba(255,255,255,0.5);
+    border: 2px solid rgba(255, 255, 255, 0.5);
     border-radius: 35px;
     background-color: #119459;
     color: #ffffff;
@@ -260,36 +276,38 @@ $font_2: arial;
 }
 
 @keyframes wobble {
-     0 {
-    transform: translateY(0)
+    0 {
+        transform: translateY(0)
     }
-     50% {
-    transform: translateY(-15%)
+    50% {
+        transform: translateY(-15%)
     }
-     100% {
-    transform: translateY(0)
+    100% {
+        transform: translateY(0)
     }
 }
+
 @-moz-keyframes wobble {
-     0 {
-    -moz-transform: translateY(0)
+    0 {
+        -moz-transform: translateY(0)
     }
-     50% {
-    -moz-transform: translateY(-15%)
+    50% {
+        -moz-transform: translateY(-15%)
     }
-     100% {
-    -moz-transform: translateY(0)
+    100% {
+        -moz-transform: translateY(0)
     }
 }
+
 @-webkit-keyframes wobble {
-     0 {
-    -webkit-transform: translateY(0)
+    0 {
+        -webkit-transform: translateY(0)
     }
-     50% {
-    -webkit-transform: translateY(-15%)
+    50% {
+        -webkit-transform: translateY(-15%)
     }
-     100% {
-    -webkit-transform: translateY(0)
+    100% {
+        -webkit-transform: translateY(0)
     }
 }
 
@@ -374,6 +392,7 @@ $font_2: arial;
     font-weight: bold;
     text-align: left;
 }
+
 .compare-table-AQL {
     background-color: #4af75d;
     font-weight: 900;
