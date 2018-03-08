@@ -422,9 +422,14 @@ $font_2: arial;
 }
 
 .bulk-pricing {
-    margin: 0 0 20px 20px;
+    padding: 20px;
+    margin: 0 0 20px;
+    border-radius: 3px;
+    border: 2px solid #2c7cfa;
+    font-size: 20px;
+    list-style: none;
 
     li {
-        color: red;
+        color: #2c7cfa;
     }
 }
