@@ -647,7 +647,7 @@
             "view": "Buy in bulk and save",
             "modal_title": "Bulk discount rates",
             "instructions": "Below are the available bulk discount rates for each individual item when you purchase a certain amount",
-            "range": "Buy {min} {max, plural, =0{or more} other {- #}}",
+            "range": "Buy {min} {=0{or more}",
             "percent": "get {discount} off",
             "price": "get {discount} off",
             "fixed": "pay only {discount} each"
