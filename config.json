@@ -253,5 +253,12 @@
     "shop_by_brand": {
       "limit": 10
     }
-  }
+  },
+  "variations": [{
+      "name": "Light",
+      "id": "light",
+      "meta": {
+        "description": "AQL Light"
+      }
+    }]
 }
