@@ -96,41 +96,6 @@
           {{/if}}
           {{/if}}
           {{/if}}
-          {{#if product.bulk_discount_rates.length}}
-          <dt class="productView-info-name">{{lang 'products.bulk_pricing.title'}}</dt>
-          <dd class="productView-info-value">
-            <a href="{{product.url}}"
-            {{#unless is_ajax }}data-reveal-id="bulkPricingModal" {{/unless}}>
-            {{lang 'products.bulk_pricing.view'}}
-          </a>
-        </dd>
-
-        <div id="bulkPricingModal" class="modal modal--small" data-reveal>
-          <div class="modal-header">
-            <h2 class="modal-header-title">{{lang 'products.bulk_pricing.modal_title'}}</h2>
-            <a href="#" class="modal-close" aria-label="Close"><span aria-hidden="true">&#215;</span></a>
-          </div>
-          <div class="modal-body">
-            <p>{{lang 'products.bulk_pricing.instructions'}}</p>
-            <ul>
-              {{#each product.bulk_discount_rates}}
-              <li>
-                {{lang 'products.bulk_pricing.range' min=min max=max}}
-                {{#if type '===' 'percent'}}
-                {{lang 'products.bulk_pricing.percent' discount=discount.formatted}}
-                {{/if}}
-                {{#if type '===' 'fixed'}}
-                {{lang 'products.bulk_pricing.fixed' discount=discount.formatted}}
-                {{/if}}
-                {{#if type '===' 'price'}}
-                {{lang 'products.bulk_pricing.price' discount=discount.formatted}}
-                {{/if}}
-              </li>
-              {{/each}}
-            </ul>
-          </div>
-        </div>
-        {{/if}}
 
         {{#each product.custom_fields}}
         <!-- <dt class="productView-info-name">{{name}}:</dt> -->
@@ -253,18 +218,6 @@
       </div>
       <p class="alertBox-column alertBox-message"></p>
     </div>
-
-    <style>
-      .form-aql-discount {
-        display: block;
-        padding: 20px;
-        background: white;
-        border: 1px solid #2d7cfa;
-        color: #2d7cfa;
-        font-size: 22px;
-      }
-    </style>
-    <div class='form-aql-discount' style='display: none'>Discount <span>Buy 4 or more and get 5% OFF</span></div>
 
     <div class="form-action">
       <input id="form-action-addToCart" data-wait-message="{{lang 'products.adding_to_cart'}}" class="button button--primary" type="submit"

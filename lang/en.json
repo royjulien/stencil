@@ -643,14 +643,14 @@
         "quantity_min": "The minimum purchasable quantity is {quantity}",
         "quantity_max": "The maximum purchasable quantity is {quantity}",
         "bulk_pricing": {
-            "title": "Bulk Pricing:",
+            "title": "Discounts:",
             "view": "Buy in bulk and save",
             "modal_title": "Bulk discount rates",
             "instructions": "Below are the available bulk discount rates for each individual item when you purchase a certain amount",
-            "range": "Buy {min} {max, plural, =0{or above} other {- #}}",
-            "percent": "and get {discount} off",
-            "price": "and get {discount} off",
-            "fixed": "and pay only {discount} each"
+            "range": "Buy {min} {max, plural, =0{or more} other {- #}}",
+            "percent": "get {discount} off",
+            "price": "get {discount} off",
+            "fixed": "pay only {discount} each"
         }
     },
     "invoice": {

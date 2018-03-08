@@ -211,7 +211,28 @@
 
     </div>
 
+
+
     {{#if product.can_purchase}}
+    {{#if product.bulk_discount_rates.length}}
+      <label class="form-label form-label--alternate">Discounts</label>
+      <ul class='bulk-pricing'>
+        {{#each product.bulk_discount_rates}}
+        <li class='bulk-pricing-item'>
+          {{lang 'products.bulk_pricing.range' min=min max=max}}
+          {{#if type '===' 'percent'}}
+          {{lang 'products.bulk_pricing.percent' discount=discount.formatted}}
+          {{/if}}
+          {{#if type '===' 'fixed'}}
+          {{lang 'products.bulk_pricing.fixed' discount=discount.formatted}}
+          {{/if}}
+          {{#if type '===' 'price'}}
+          {{lang 'products.bulk_pricing.price' discount=discount.formatted}}
+          {{/if}}
+        </li>
+        {{/each}}
+      </ul>
+    {{/if}}
 
     <div class="form-field form-field--increments">
       <label class="form-label form-label--alternate"

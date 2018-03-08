@@ -1,6 +1,6 @@
 {
-  "name": "AQL-1.1.28",
-  "version": "1.1.28",
+  "name": "AQL-1.1.31",
+  "version": "1.1.31",
   "meta": {
     "price": 0,
     "documentation_url": "https://support.bigcommerce.com/articles/Public/Cornerstone-Theme-Manual",
@@ -253,14 +253,5 @@
     "shop_by_brand": {
       "limit": 10
     }
-  },
-  "variations": [
-    {
-    "name": "Light",
-    "id": "light",
-    "meta": {
-        "description": "Light style for AQL"
-        }
-    }
-  ]
+  }
 }
