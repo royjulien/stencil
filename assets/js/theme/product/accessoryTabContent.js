@@ -83,14 +83,10 @@ if (accessoryTabContent) {
             });
             break;
         case 'OutdoorAccessories':
-            // console.log('outdoor accessories');
             requestURL = '/content/json/outdoorAccessories.json';
             getJSON(requestURL, (error, data) => {
                 clearTabContent(accessoryTabContent);
-                // console.log(data);
-
                 const newContent = createHTML(data);
-                // console.log(newContent);
                 accessoryTabContent.appendChild(newContent);
             });
             break;
@@ -98,9 +94,7 @@ if (accessoryTabContent) {
             requestURL = 'content/json/120V4FluorescentHousings.json';
             getJSON(requestURL, (error, data) => {
                 clearTabContent(accessoryTabContent);
-                // console.log(data);
                 const newContent = createHTML(data);
-                // console.log(newContent);
                 accessoryTabContent.appendChild(newContent);
             });
             break;
@@ -113,7 +107,6 @@ if (accessoryTabContent) {
             });
             break;
         case '120V4Housing':
-            // console.log('120V 4 Housing');
             requestURL = 'content/json/120V4Housing.json';
             getJSON(requestURL, (error, data) => {
                 clearTabContent(accessoryTabContent);
@@ -227,6 +220,14 @@ if (accessoryTabContent) {
             break;
         case 'PGAU999Accessories':
             requestURL = '/content/json/PGAU999Accessories.json';
+            getJSON(requestURL, (error, data) => {
+                clearTabContent(accessoryTabContent);
+                const newContent = createHTML(data);
+                accessoryTabContent.appendChild(newContent);
+            });
+            break;
+        case 'VintagePendantAccessories':
+            requestURL = '/content/json/VintagePendantAccessories.json';
             getJSON(requestURL, (error, data) => {
                 clearTabContent(accessoryTabContent);
                 const newContent = createHTML(data);
