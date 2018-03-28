@@ -150,15 +150,6 @@ $font_2: arial;
     min-height: 265px;
     padding: 1.5rem 0;
     margin: 1.5rem 0;
-/*
-    img {
-        max-width: 250px;
-        height: auto;
-        padding: 10px;
-        border: 3px solid #f1f4f9;
-        border-radius: 50%;
-    }
-    */
 }
 
 .product-left {
@@ -193,6 +184,17 @@ $font_2: arial;
         border: 3px solid #f1f4f9;
         border-radius: 50%;
     }
+}
+
+.product-rowImg {
+    display: inline-block;
+    text-align: center;
+    width: 24%;
+    height: auto;
+    margin: auto;
+    padding: auto;
+    border: 3px solid #f1f4f9;
+    border-radius: 50%;
 }
 
 .RLkit {
