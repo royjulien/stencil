@@ -232,7 +232,7 @@ for (let i = productAttributesValue.length - 1; i >= 0; i--) {
         const outerDivChildren = this.parentElement.parentElement.parentElement.children;
 
         for (let k = outerDivChildren.length - 1; k >= 0; k--) {
-            let child = outerDivChildren[k];
+            const child = outerDivChildren[k];
 
             if (child.classList.contains('span1') || child.classList.contains('span2')) {
                 child.innerText = that.innerText;
@@ -245,7 +245,7 @@ for (let i = productAttributesValue.length - 1; i >= 0; i--) {
         const outerDivChildren = this.parentElement.parentElement.parentElement.children;
 
         for (let j = outerDivChildren.length - 1; j >= 0; j--) {
-            let child = outerDivChildren[j];
+            const child = outerDivChildren[j];
 
             if (child.classList.contains('span1') || child.classList.contains('span2')) {
                 child.innerText = that.innerText;
@@ -254,6 +254,6 @@ for (let i = productAttributesValue.length - 1; i >= 0; i--) {
     });
 }
 
-let changeToOne = document.getElementsByClassName('span1');
+const changeToOne = document.getElementsByClassName('span1');
 
 changeToOne[0].innerHTML = '1';
