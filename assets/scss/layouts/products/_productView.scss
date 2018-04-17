@@ -330,11 +330,19 @@ $font_2: arial;
 
         td {
             display: inline-block;
-            padding: 20px;
             vertical-align: inherit;
 
             @include breakpoint('medium') {
                 display: inline-block;
+                padding: 20px;
+                font-size: 11px;
+            }
+
+            @include breakpoint('small') {
+                display: inline-block;
+                padding: 0;
+                font-size: 9px;
+                line-height: 1.6;
             }
 
             &:last-child {
