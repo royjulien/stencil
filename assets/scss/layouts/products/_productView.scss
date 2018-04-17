@@ -183,7 +183,6 @@ $font_2: arial;
     @include breakpoint('small') {
         max-width: 250px;
         height: auto;
-        padding: 10px;
     }
 }
 
