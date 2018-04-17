@@ -50,11 +50,7 @@
 }
 
 .productView-thumbnails {
-    @include u-listBullets("none");
-    @include grid-row($behavior: "nest");
-
-    margin-left: -(spacing("quarter"));
-    margin-right: -(spacing("quarter"));
+    display: none;
 }
 
 .productView-thumbnail {
