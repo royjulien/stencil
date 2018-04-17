@@ -148,21 +148,24 @@ $font_2: arial;
     width: 100%;
     height: auto;
     min-height: 265px;
-    padding: 1.5rem 0;
-    margin: 1.5rem 0;
+    padding: 0;
+    margin: 20px 0;
+    font-size: 18px;
+    color: rgba(0,0,0,0.9);
+    line-height: 1.6;
 }
 
 .product-left {
     img {
         float: left;
-        margin-right: 35px;
+        margin-right: 50px;
     }
 }
 
 .product-right {
     img {
         float: right;
-        margin-left: 35px;
+        margin-left: 50px;
     }
 }
 
@@ -174,15 +177,13 @@ $font_2: arial;
     height: auto;
     margin: auto;
     padding: auto;
-    border: 3px solid #f1f4f9;
-    border-radius: 50%;
+    border: none;
+    border-radius: 3px;
 
     @include breakpoint('small') {
         max-width: 250px;
         height: auto;
         padding: 10px;
-        border: 3px solid #f1f4f9;
-        border-radius: 50%;
     }
 }
 
@@ -193,8 +194,8 @@ $font_2: arial;
     height: auto;
     margin: auto;
     padding: auto;
-    border: 3px solid #f1f4f9;
-    border-radius: 50%;
+    border: none;
+    border-radius: 3px;
 }
 
 .RLkit {
