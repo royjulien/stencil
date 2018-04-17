@@ -377,6 +377,8 @@
 }
 
 .product-title {
+    display: inline-block;
+    margin-bottom: 15px;
     color: #2d7cfa;
     font-size: medium;
     font-weight: bold;
@@ -385,8 +387,11 @@
 .product-right,
 .product-left {
     min-height: 265px;
-    padding: 1.5rem 0;
-    margin: 1.5rem 0;
+    padding: 0;
+    margin: 15px 0;
+    color: rgba(0,0,0,0.9);
+    font-size: 18px;
+    line-height: 1.7;
 }
 
 .product-right img {
@@ -518,4 +523,8 @@ iframe.youtube {
 
 .form-radio + .form-label::before {
     border: 1.35px solid #6f6f6f;
+}
+
+.addthis_toolbox {
+    display: none;
 }
