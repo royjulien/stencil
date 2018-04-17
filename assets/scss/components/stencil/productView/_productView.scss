@@ -15,7 +15,7 @@
 // -----------------------------------------------------------------------------
 
 .productView-images {
-    margin-bottom: spacing("double");
+    margin-bottom: spacing("single");
 }
 
 .productView-image {
@@ -50,17 +50,22 @@
 }
 
 .productView-thumbnails {
-    display: none;
+    @include u-listBullets("none");
+    @include grid-row($behavior: "nest");
+
+    margin-left: -(spacing("quarter"));
+    margin-right: -(spacing("quarter"));
 }
 
 .productView-thumbnail {
-    @include grid-column(3);
+    float: left;
+    width: 20%;
     padding-left: spacing("quarter");
     padding-right: spacing("quarter");
     margin-bottom: spacing("quarter");
 
     @include breakpoint("large") {
-        width: 20%;
+        width: 10%;
     }
 }
 
