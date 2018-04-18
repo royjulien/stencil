@@ -90,7 +90,6 @@ export default class Product {
             $weight: $('.productView-info [data-product-weight]', $scope),
             $increments: $('.form-field--increments :input', $scope),
             $addToCart: $('#form-action-addToCart', $scope),
-            $wishlistVariation: $('[data-wishlist-add] [name="variation_id"]', $scope),
             stock: {
                 $container: $('.form-field--stock', $scope),
                 $input: $('[data-product-stock]', $scope),
@@ -392,11 +391,6 @@ export default class Product {
 
         if (_.isObject(data.weight)) {
             viewModel.$weight.html(data.weight.formatted);
-        }
-
-        // Set variation_id if it exists for adding to wishlist
-        if (data.variantId) {
-            viewModel.$wishlistVariation.val(data.variantId);
         }
 
         // If SKU is available

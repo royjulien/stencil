@@ -20,7 +20,9 @@
     text-align: center;
 
     @include breakpoint("small") {
-        display: block; // 1
+        display: block;
+        text-align: left;
+        text-indent: 10px;
     }
 }
 
@@ -29,7 +31,6 @@
     float: none;
 
     &.is-active {
-
         // scss-lint:disable NestingDepth
         > .breadcrumb-label {
             cursor: text;
