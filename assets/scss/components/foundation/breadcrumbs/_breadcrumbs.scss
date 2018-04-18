@@ -30,11 +30,12 @@
     display: inline-block;
     float: none;
 
+    a {
+        color: #2d7bfa;
+    }
+
     &.is-active {
-        // scss-lint:disable NestingDepth
-        > .breadcrumb-label {
-            cursor: text;
-        }
+        display: none;
     }
 }
 
