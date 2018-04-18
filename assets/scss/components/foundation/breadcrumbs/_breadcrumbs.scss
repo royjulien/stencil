@@ -30,6 +30,12 @@
     display: inline-block;
     float: none;
 
+    &::before {
+        margin: 0;
+        left: -2px;
+        color: rgba(0,0,0,0.2);
+    }
+
     a {
         color: #2d7bfa;
     }
@@ -37,6 +43,7 @@
     &.is-active {
         display: none;
     }
+
 }
 
 .breadcrumb-label {
