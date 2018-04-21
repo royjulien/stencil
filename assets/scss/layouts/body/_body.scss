@@ -8,11 +8,13 @@
 
 
 .body {
-    padding-top: 40px;
-    // padding-bottom: spacing("double") * 2;
+    padding-top: 30px;
 
     @include breakpoint("medium") {
-        padding-top: 8.5rem;
+        padding-top: 90px;
+    }
+    @include breakpoint("large") {
+        padding-top: 70px;
     }
 }
 

@@ -48,12 +48,22 @@
     visibility: hidden;
 
     @include breakpoint("medium") {
-        position: relative;
+        position: absolute;
+        top: 11px;
+        left: 40%;
+        width: 525px;
         height: auto;
         padding: 0;
         background: transparent;
+        transform: translateX(-50%);
         opacity: 1;
         visibility: visible;
+        z-index: 55;
+    }
+
+    @include breakpoint("large") {
+      left: 50%;
+      width: 600px;
     }
 
     &.is-open {
@@ -589,7 +599,7 @@
   .main-menu-cat a {
     display: block;
     height: 100%;
-    padding: 0 17px;
+    padding: 0 10px;
     color: #555555;
     font-family: 'Yanone Kaffeesatz', sans-serif;
     font-size: 18px;
@@ -597,14 +607,6 @@
     line-height: 35px;
     text-decoration: none;
     text-transform: uppercase;
-
-    @media screen and (min-width: 900px) {
-      font-size: 22px;
-    }
-
-    @media screen and (min-width: 1100px) {
-      font-size: 28px;
-    }
 
     &:nth-child(3) > a {
       color: #f9401f;

@@ -583,7 +583,7 @@
             "show": "Show Reviews",
             "header": "{total, plural, =0{0 Reviews} one {# Review} other {# Reviews}}",
             "rating": "Rating",
-            "link_to_review": "({total, plural, =0{No reviews yet} one {# review} other {# reviews}})",
+            "link_to_review": "{total, plural, =0{No reviews yet} one {# Review} other {# Ratings and Reviews}}",
             "post_on_by": "Posted by { name } on { date }",
             "rating_label": "Rating",
             "select_rating": "Select Rating",

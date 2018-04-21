@@ -515,3 +515,16 @@ ul.accessorytab img {
   padding: auto;
   max-height: 198px;
 }
+
+.category-description-text {
+  height: 0;
+  max-width: 67rem;
+  margin: 0 auto 40px;
+  font-size: 14px;
+  line-height: 1.6;
+  overflow: hidden;
+
+  &.active {
+    height: auto;
+  }
+}

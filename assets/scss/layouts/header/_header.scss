@@ -16,14 +16,11 @@
     position: absolute;
     top: 0;
     width: 100%;
-    min-height: 85px;
+    height: 55px;
     padding-bottom: 5px;
-    border-bottom: 2px solid stencilColor("color-aql");
+    border-bottom: 1px solid stencilColor("color-aql");
+    box-shadow: 0 3px 10px -5px stencilColor("color-aql");;
     z-index: zIndex("low");
-
-    @include breakpoint("medium") {
-        min-height: 120px;
-    }
 
     &.is-open {
         min-height: 100vh;
@@ -35,6 +32,8 @@
     }
 
     &__promo {
+        position: absolute;
+        top: 54px;
         width: 100%;
         background-color: stencilColor("color-aql");
         color: white;
@@ -194,40 +193,47 @@
 .header-logo-container {
     display: block;
     position: absolute;
-    width: 30px;
-    left: 55px;
-    top: 6px;
+    top: 2px;
+    left: 50%;
+    width: 24px;
     overflow: hidden;
+    transform: translateX(-50%);
 
     @include breakpoint('small') {
-        top: 22px;
+        top: 12px;
     }
 
     @include breakpoint('medium') {
-        top: 0;
+        float: left;
+        position: relative;
+        top: -3px;
+        left: initial;
+        width: 55px;
+        transform: translateX(0);
+    }
+
+    @include breakpoint('large') {
+        position: relative;
+        top: initial;
         width: auto;
-        left: 30px;
+        left: initial;
         overflow: visible;
-        width: auto;
+        transform: translateX(0);
     }
 }
 
 .header-search-string {
     position: absolute;
-    left: 0;
-    top: 9px;
-    right: 0;
+    top: 5px;
+    right: 20px;
     margin: auto;
     text-align: center;
-    font-weight: 600;
-    text-transform: uppercase;
+    font-weight: 300;
+    text-transform: capitalize;
     text-decoration: none;
-    letter-spacing: 2px;
+    font-size: 14px;
 
     @include breakpoint('small') {
-        top: 24px;
-    }
-    @include breakpoint('medium') {
         display: none
     }
 }
@@ -236,14 +242,9 @@
     top: 8px !important;
     right: 15px !important;
 
-    @include breakpoint('small') {
-        right: 55px !important;
-        top: 22px !important;
-    }
-
     @include breakpoint('medium') {
-        right: 325px !important;
-        top: 15px !important;
+        right: 15px !important;
+        top: 0 !important;
     }
 }
 
@@ -258,7 +259,7 @@
         width: auto;
         height: 50px;
         padding: 10px;
-        margin: 5px 0 0 0;
+        margin: 1px 0;
     }
 }
 

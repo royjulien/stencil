@@ -7,6 +7,9 @@ import ShippingEstimator from './cart/shipping-estimator';
 import { defaultModal } from './global/modal';
 
 export default class Cart extends PageManager {
+    componentWillLoad() {
+        console.log('loads')
+    }
     loaded(next) {
         this.$cartContent = $('[data-cart-content]');
         this.$cartMessages = $('[data-cart-status]');

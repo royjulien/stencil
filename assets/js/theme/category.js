@@ -1,16 +1,35 @@
-import { hooks } from '@bigcommerce/stencil-utils';
+import { utils, hooks } from '@bigcommerce/stencil-utils';
 import CatalogPage from './catalog';
 import $ from 'jquery';
 import FacetedSearch from './common/faceted-search';
 
 export default class Category extends CatalogPage {
-    loaded() {
+    before(next) {
+        if ($('.category-description-text').length > 0) {
+            let detached = $('.category-description-text').detach();
+            detached.appendTo('.body');
+        }
+
+        next();
+    }
+
+    loaded(next) {
         if ($('#facetedSearch').length > 0) {
             this.initFacetedSearch();
         } else {
             this.onSortBySubmit = this.onSortBySubmit.bind(this);
             hooks.on('sortBy-submitted', this.onSortBySubmit);
         }
+
+        next();
+    }
+
+    after(next) {
+        if ($('.category-description-text').length > 0) {
+            $('.category-description-text').addClass('active');
+        }
+
+        next();
     }
 
     initFacetedSearch() {

@@ -15,7 +15,7 @@
     @include nav($style: "navBar", $wrapper: "nav");
     @include verticalPositionMiddle("absolute");
     right: 0;
-    top: 50px;
+    top: 23px;
     width: 100%;
     z-index: zIndex("lowest");
 
@@ -32,6 +32,14 @@
         margin: auto;
         transform: none;
         z-index: zIndex("high");
+    }
+
+    .navUser-section {
+        @include breakpoint("medium") {
+            position: relative;
+            top: 8px;
+            right: -20px;
+        }
     }
 
     .dropdown-menu {
@@ -69,17 +77,19 @@
 }
 
 .navUser-action {
-    color: color("greys", "light");
-    padding: spacing("base") spacing("half");
-    text-decoration: none;
     position: relative;
-    top: 8px;
+    padding: 10px;
+    color: rgba(0,0,0,0.8);
+    text-decoration: none;
+    font-size: 14px;
 
     @include breakpoint('small') {
-        top: 8px;
+        top: 5px;
+        right: 5px;
     }
     @include breakpoint('medium') {
         top: 0;
+        padding: 10px 6px;
     }
 
     &:hover,
@@ -132,7 +142,7 @@
 .navUser-item {
     display: none;
 
-    @include breakpoint("medium") {
+    @include breakpoint("small") {
         display: block;
     }
 }
@@ -141,7 +151,7 @@
     display: block;
 
     .navUser-action {
-        color: color("greys", "light");
+        color: rgba(0,0,0,0.8);
 
         // scss-lint:disable NestingDepth
         &:hover,

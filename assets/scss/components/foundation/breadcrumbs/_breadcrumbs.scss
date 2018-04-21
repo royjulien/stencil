@@ -19,7 +19,7 @@
     font-size: 0; // 2
     text-align: center;
 
-    @include breakpoint("small") {
+    @include breakpoint("large") {
         display: block;
         text-align: left;
         text-indent: 10px;
