@@ -78,6 +78,8 @@
 
 .navUser-action {
     position: relative;
+    top: 2px;
+    right: 10px;
     padding: 10px;
     color: rgba(0,0,0,0.8);
     text-decoration: none;
@@ -182,11 +184,7 @@
 }
 
 .navUser-item-cartLabel {
-    display: none;
-
-    @include breakpoint("small") {
-        display: inline;
-    }
+    display: inline;
 }
 
 .navUser-item--compare {

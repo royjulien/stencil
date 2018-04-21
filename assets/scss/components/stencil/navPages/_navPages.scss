@@ -49,7 +49,7 @@
 
     @include breakpoint("medium") {
         position: absolute;
-        top: 11px;
+        top: 9px;
         left: 40%;
         width: 525px;
         height: auto;
@@ -63,7 +63,7 @@
 
     @include breakpoint("large") {
       left: 50%;
-      width: 600px;
+      width: 650px;
     }
 
     &.is-open {
@@ -607,6 +607,10 @@
     line-height: 35px;
     text-decoration: none;
     text-transform: uppercase;
+
+    @include breakpoint('large') {
+      font-size: 22px;
+    }
 
     &:nth-child(3) > a {
       color: #f9401f;

@@ -193,15 +193,11 @@
 .header-logo-container {
     display: block;
     position: absolute;
-    top: 2px;
+    top: 12px;
     left: 50%;
     width: 24px;
     overflow: hidden;
     transform: translateX(-50%);
-
-    @include breakpoint('small') {
-        top: 12px;
-    }
 
     @include breakpoint('medium') {
         float: left;
@@ -224,8 +220,8 @@
 
 .header-search-string {
     position: absolute;
-    top: 5px;
-    right: 20px;
+    top: 12px;
+    right: 80px;
     margin: auto;
     text-align: center;
     font-weight: 300;
