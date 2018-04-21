@@ -1,4 +1,4 @@
-import { utils, hooks } from '@bigcommerce/stencil-utils';
+import { hooks } from '@bigcommerce/stencil-utils';
 import CatalogPage from './catalog';
 import $ from 'jquery';
 import FacetedSearch from './common/faceted-search';
@@ -6,7 +6,7 @@ import FacetedSearch from './common/faceted-search';
 export default class Category extends CatalogPage {
     before(next) {
         if ($('.category-description-text').length > 0) {
-            let detached = $('.category-description-text').detach();
+            const detached = $('.category-description-text').detach();
             detached.appendTo('.body');
         }
 
