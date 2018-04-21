@@ -239,13 +239,7 @@
 }
 
 #igFlag {
-    top: 8px !important;
-    right: 15px !important;
-
-    @include breakpoint('medium') {
-        right: 15px !important;
-        top: 0 !important;
-    }
+    display: none;
 }
 
 .header-logo-image {
