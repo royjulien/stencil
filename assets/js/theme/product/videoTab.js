@@ -36,7 +36,7 @@ if (videoTabContent) {
         }
         case 'PGC3BVideos': {
             clearTabContent(videoTabContent);
-            const newContent = insertVideo('DIY Video Guide: PGC3B', 'https://www.youtube.com/embed/-paZ8wrVQLY');
+            const newContent = insertVideo('DIY Video Guide: PGC3B', 'https://www.youtube.com/embed/-paZ8wrVQLY?rel=0');
             videoTabContent.appendChild(newContent);
             break;
         }
