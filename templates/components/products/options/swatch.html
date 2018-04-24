@@ -1,3 +1,4 @@
+
 <div class="form-field" data-product-attribute="swatch">
         <label class="form-label form-label--alternate form-label--inlineSmall">
             {{this.display_name}}:
@@ -7,7 +8,7 @@
                 <small>{{lang 'common.required'}}</small>
             {{/if}}
         </label>
-        <input type="checkbox" id="color-dropdown" class="dropdown-label-checkbox"><label class="dropdown-label" for="color-dropdown">{{this.display_name}}</label>
+        <input type="checkbox" id="color-dropdown" class="dropdown-label-checkbox"><label class="dropdown-button" for="color-dropdown"><div class="dropdown-label">{{this.display_name}}: </div></label>
         <div class="dropdown-content">
         {{#each this.values}}
             <input class="form-radio" type="radio" name="attribute[{{../id}}]" value="{{id}}" id="attribute_{{id}}" {{#if selected}}checked{{/if}} {{#if ../required}}required{{/if}}>
