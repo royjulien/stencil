@@ -527,7 +527,7 @@ iframe.youtube {
 .dropdown-button {
     display: flex;
     padding: 4px 7px;
-    width: 475px;
+    width: 100%;
     height: 58px;
     border: 1px solid rgba(0, 0, 0, 0.35);
     border-radius: 3px;
@@ -545,7 +545,8 @@ iframe.youtube {
 
 .dropdown-content {
     display: block;
-    width: 475px;
+    max-width: 100%;
+    width: 536px;
     background: white;
     border-right: 1px solid rgba(0, 0, 0, 0.35);
     border-bottom: 1px solid rgba(0, 0, 0, 0.35);

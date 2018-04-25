@@ -11,7 +11,6 @@ window.onclick = function(event) {
     }
 
 }
-
 var labelButton = document.querySelectorAll('.dropdown-button');
 
 var dropdownOptions = document.querySelectorAll('#drop-down--swatch');
@@ -20,7 +19,6 @@ for(var i = 0; i < dropdownOptions.length; i++) {
     dropdownOptions[i].addEventListener("click", function(event){
         var targetElement = event.target || event.srcElement;
         var newDropDown = targetElement.innerHTML;
-        console.log(newDropDown);
         labelButton[0].innerHTML = newDropDown + '<div class="arrow-down"></div>';
 })  
 }
