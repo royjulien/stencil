@@ -23,11 +23,11 @@ function createHTML(data) {
 
     // needs to loop for finish and glass swatches
     for (let n = 0; n < 2; n++) {
-    	if (n = 1){
+    	if (n = 0){
     		const currentArray = data.finishSwatches;
     		const currentTitle = data.finishHeader;
     	}
-    	else if (n = 2) {
+    	else if (n = 1) {
     		const currentArray = data.glassSwatches;
     		const currentTitle = data.glassHeader;
     	}
