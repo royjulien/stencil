@@ -7,7 +7,7 @@
                     <small>{{lang 'common.required'}}</small>
                 {{/if}}
             </label>
-        <input type="checkbox" id="color-dropdown" class="dropdown-label-checkbox"><label class="dropdown-button" for="color-dropdown"><div class="dropdown-label">Color: {{this.values.[0].label}}</div></label>
+        <input type="checkbox" id="color-dropdown" class="dropdown-label-checkbox"><label class="dropdown-button" for="color-dropdown"> <span class='form-option-variant form-option-variant--pattern' title="{{this.label}}" style="background-image: url('{{getImage this.values.[0].image "thumb_size" }}');"></span> <div class="dropdown-label"> <span class="dropdown-label-title"> Color: </span> {{this.values.[0].label}}</div></label>
         <div class="dropdown-content">
             <script type="javascript"> console.log(this.values); </script>
             {{#each this.values}}
