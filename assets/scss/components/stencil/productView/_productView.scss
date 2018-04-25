@@ -578,7 +578,22 @@ span.form-option-variant.form-option-variant--pattern {
     margin-left: 12px
 }
 
+.arrow-down {
+    width: 0; 
+    height: 0; 
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid black;
+    margin-left: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-right: 5%;
+  }
+
 input[type=checkbox]:checked ~ label ~ .dropdown-content {
     display: none;
 }
 
+span.form-option-variant.form-option-variant--pattern {
+    margin-left: 3%;
+}
