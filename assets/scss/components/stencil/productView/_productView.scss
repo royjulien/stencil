@@ -573,6 +573,7 @@ span.form-option-variant.form-option-variant--pattern {
 }
 
 .drop-down-form-option-title {
+    pointer-events: none;
     line-height: 50px;
     font-size: 14px;
     margin-left: 12px
@@ -597,3 +598,5 @@ input[type=checkbox]:checked ~ label ~ .dropdown-content {
 span.form-option-variant.form-option-variant--pattern {
     margin-left: 3%;
 }
+
+
