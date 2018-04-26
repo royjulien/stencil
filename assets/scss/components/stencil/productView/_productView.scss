@@ -521,10 +521,6 @@ iframe.youtube {
     display: none;
 }
 
-.dropdown-label-checkbox {
-    display: none
-}
-
 .dropdown-button {
     display: flex;
     padding: 4px 7px;
@@ -543,10 +539,12 @@ iframe.youtube {
 }
 
 .dropdown-label {
+    pointer-events: none;
     margin-left: 12px;
 }
 
 .dropdown-label-title {
+    pointer-events: none;
     font-weight: bold;
 }
 
@@ -575,6 +573,10 @@ iframe.youtube {
     }
 }
 
+.dropdown-content-hide {
+    display: none;
+}
+
 .form-radio:checked + .dropdown-content label.form-option {
     border: none;
 }
@@ -592,6 +594,7 @@ span.form-option-variant.form-option-variant--pattern {
 }
 
 .arrow-down {
+    pointer-events: none;
     position: absolute;
     top: calc(50% - 2.5px);
     right: 25px;
@@ -600,13 +603,11 @@ span.form-option-variant.form-option-variant--pattern {
     border-top: 5px solid rgba(0,0,0,0.8);
   }
 
-// this is very dangerous because if I change the DOM it doesn't work anymore
-input[type=checkbox]:checked ~ label ~ .dropdown-content {
-    display: none;
-}
 
 span.form-option-variant.form-option-variant--pattern {
+    pointer-events: none;
     margin-left: 3%;
 }
+
 
 
