@@ -1,7 +1,21 @@
 <div class="form-field" data-product-attribute="swatch">
 
   <label class="dropdown-button">
+
+    {{#if this.values.[0].image}}
     <span class='form-option-variant form-option-variant--pattern' title="{{this.label}}" style="background-image: url('{{getImage this.values.[0].image "thumb_size" }}');"></span>
+    {{/if}}
+
+    {{#if this.values.[0].data.[2]}}
+    <span class='form-option-variant form-option-variant--color' title="{{this.label}}" style="background-color: #{{this.values.[0].data.[0]}}"></span>
+    <span class='form-option-variant form-option-variant--color' title="{{this.label}}" style="background-color: #{{this.values.[0].data.[1]}}"></span>
+    <span class='form-option-variant form-option-variant--color' title="{{this.label}}" style="background-color: #{{this.values.[0].data.[2]}}"></span>
+    {{else if this.values.[0].data.[1]}}
+    <span class='form-option-variant form-option-variant--color' title="{{this.label}}" style="background-color: #{{this.values.[0].data.[0]}}"></span>
+    <span class='form-option-variant form-option-variant--color' title="{{this.label}}" style="background-color: #{{this.values.[0].data.[1]}}"></span>
+    {{else if this.values.[0].data.[0]}}
+    <span class='form-option-variant form-option-variant--color' title="{{this.label}}" style="background-color: #{{this.values.[0].data.[0]}}"></span>
+    {{/if}}
 
     <div class="dropdown-label">
       <span class="dropdown-label-title"> {{this.values.length}} {{this.display_name}}: </span> {{this.values.[0].label}}
@@ -22,11 +36,14 @@
           <span class='form-option-variant form-option-variant--color' title="{{this.label}}" style="background-color: #{{data.[0]}}"></span>
           <span class='form-option-variant form-option-variant--color' title="{{this.label}}" style="background-color: #{{data.[1]}}"></span>
           <span class='form-option-variant form-option-variant--color' title="{{this.label}}" style="background-color: #{{data.[2]}}"></span>
+          <span class="drop-down-form-option-title">{{this.label}}</span>
         {{else if data.[1]}}
           <span class='form-option-variant form-option-variant--color' title="{{this.label}}" style="background-color: #{{data.[0]}}"></span>
           <span class='form-option-variant form-option-variant--color' title="{{this.label}}" style="background-color: #{{data.[1]}}"></span>
+          <span class="drop-down-form-option-title">{{this.label}}</span>
         {{else if data.[0]}}
           <span class='form-option-variant form-option-variant--color' title="{{this.label}}" style="background-color: #{{data.[0]}}"></span>
+          <span class="drop-down-form-option-title">{{this.label}}</span>
         {{/if}}
       </label>
     {{/each}}

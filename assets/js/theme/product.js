@@ -14,7 +14,7 @@ import accessoryTab from './product/accessoryTabContent.js';
 import videoTab from './product/videoTab';
 import videoAQUC from './product/videoAQUC';
 import installationTab from './product/installationTab';
-import checkboxCloser from './global/dropdown-function.js';
+import dropdownFunction from './global/dropdown-function.js';
 
 
 export default class Product extends PageManager {
