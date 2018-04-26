@@ -1,27 +1,23 @@
-var allButtons = document.getElementsByClassName('dropdown-label-checkbox');
-var labelButton = document.querySelectorAll('.dropdown-button');
-var dropdownOptions = document.querySelectorAll('#drop-down--swatch');
+const allButtons = document.getElementsByClassName('dropdown-label-checkbox'),
+      labelButton = document.querySelectorAll('.dropdown-button'),
+      dropdownOptions = document.querySelectorAll('#drop-down--swatch');
 
-
-window.onclick = function(event) {
-    
-        if (!event.target.matches('.dropdown-label-checkbox')) {
-            console.log(event.target)
-    
-            for (var i = 0; i < allButtons.length; i++) {
-                allButtons[i].checked = true;
-            } 
-        
-        }
-        
+window.onclick = (event) => {
+  // close dropdown when user clicks anywhere but the dropdown
+  if (!event.target.matches('.dropdown-label-checkbox')) {
+    for (var i = allButtons.length - 1; i >= 0; i--) {
+      allButtons[i].checked = true;
+    }
+  }
 }
 
 
-for(var i = 0; i < dropdownOptions.length; i++) {
-    dropdownOptions[i].addEventListener("click", function(event){
-        var targetElement = event.target || event.srcElement;
-        if(targetElement.innerHTML) 
-        var newDropDown = targetElement.innerHTML;
-        labelButton[0].innerHTML = newDropDown + '<div class="arrow-down"></div>';
-})  
+for (var i = dropdownOptions.length - 1; i >= 0; i--) {
+  dropdownOptions[i].addEventListener('click', (event) => {
+    var targetElement = event.target || event.srcElement;
+
+    if (targetElement.innerHTML) {
+      labelButton[0].innerHTML = `${targetElement.innerHTML} <div class="arrow-down"></div>`;
+    }
+  });
 }
