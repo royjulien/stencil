@@ -21,10 +21,11 @@
       <span class="dropdown-label-title"> {{this.values.length}} {{this.display_name}}: </span> {{this.values.[0].label}}
     </div>
     <div class="arrow-down"></div>
-  </label>
+</label>
 
-  <div class="dropdown-content-hide">
+  <ul class="dropdown-content dropdown-content-hide" data-dropdown="dropdown">
     {{#each this.values}}
+      <li>
       <input class="form-radio" type="radio" name="attribute[{{../id}}]" value="{{id}}" id="attribute_{{id}}" {{#if selected}}checked{{/if}} {{#if ../required}}required{{/if}}>
       <label id="drop-down--swatch" class="form-option" for="attribute_{{id}}" data-product-attribute-value="{{id}}" title="{{this.label}}">
         {{#if image}}
@@ -46,8 +47,9 @@
           <span class="drop-down-form-option-title">{{this.label}}</span>
         {{/if}}
       </label>
+    </li>
     {{/each}}
-  </div>
+    </ul>
 </div>
 
 

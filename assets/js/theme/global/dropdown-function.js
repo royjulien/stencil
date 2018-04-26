@@ -20,15 +20,21 @@ window.onclick = (event) => {
 
 for (let i = labelButton.length - 1; i >= 0; i--) {
   labelButton[i].addEventListener('click', (event) => {
+    let dropdownContent = document.querySelectorAll('.dropdown-content');
     let targetElement = event.target || event.srcElement;
     selectedLabel = targetElement;
 
     let targetElementClass = targetElement.nextElementSibling;
     
     if (targetElementClass.className === 'dropdown-content-hide') {
-      targetElementClass.className = 'dropdown-content'
+      for (var i = dropdownContent.length - 1; i >= 0; i--) {
+        dropdownContent[i].className = 'dropdown-content-hide';
+      }
+      targetElementClass.classList.remove('dropdown-content-hide');
+      targetElementClass.classList.add('dropdown-content');
     } else {
-      targetElementClass.className = 'dropdown-content-hide';
+      targetElementClass.classList.remove('dropdown-content')
+      targetElementClass.classList.add('dropdown-content-hide');
     }
   })
 }
