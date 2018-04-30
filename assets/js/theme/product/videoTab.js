@@ -3,6 +3,21 @@ function clearTabContent(tab) {
     content.innerText = '';
 }
 
+function getJSON(url, callback) {
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', url, true);
+    xhr.responseType = 'json';
+    xhr.onload = () => {
+        const status = xhr.status;
+        if (status === 200) {
+            callback(null, xhr.response);
+        } else {
+            callback(status);
+        }
+    };
+    xhr.send(null);
+}
+
 function insertVideo(title, videoLink) {
     const container = document.createElement('div');
     container.className = 'video-window';
@@ -25,6 +40,22 @@ const videoTabContent = document.querySelector('#Videos');
 if (videoTabContent) {
     let tabContent = videoTabContent.innerText.split('.')[1];
     tabContent = tabContent.split('%%')[0];
+    requestURL = '/content/json/video-tab-videos.json'
+
+    getJSON(requestURL, (error, data) => {
+        if (error) {
+            // console.log(error);
+        } else {
+            // console.log(data);
+            for (let i = data.length - 1; i >= 0; i--) {
+                if (data[i].name === tabContent) {
+                    clearTabContent(videoTabContent);
+                    const newContent = insertVideo(data[i].title, data[i].url);
+                    videoTabContent.appendChild(newContent);
+                }
+            }
+        }
+    });
 
     if (tabContent) {
         switch (tabContent) {
