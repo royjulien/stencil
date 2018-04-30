@@ -40,13 +40,14 @@ const videoTabContent = document.querySelector('#Videos');
 if (videoTabContent) {
     let tabContent = videoTabContent.innerText.split('.')[1];
     tabContent = tabContent.split('%%')[0];
-    requestURL = '/content/json/video-tab-videos.json'
+    console.log('this is tabcontent', tabContent);
+    const requestURL = 'https://www.aqlightinggroup.com/content/json/video-tab-videos.json';
 
     getJSON(requestURL, (error, data) => {
         if (error) {
-            // console.log(error);
+            // console.log('This is the error', error);
         } else {
-            // console.log(data);
+            console.log('THIS IS DATA', data);
             for (let i = data.length - 1; i >= 0; i--) {
                 if (data[i].name === tabContent) {
                     clearTabContent(videoTabContent);
@@ -57,25 +58,25 @@ if (videoTabContent) {
         }
     });
 
-    if (tabContent) {
-        switch (tabContent) {
-        case 'LEDRopeVideos': {
-            clearTabContent(videoTabContent);
-            const newContent = insertVideo('DIY Video Guide: LED Rope Light', 'https://www.youtube.com/embed/yf7B4UgraXg?list=PLNsL1D_GAczZ_0Ocddeic0uivx1u3lWPP');
-            videoTabContent.appendChild(newContent);
-            break;
-        }
-        case 'PGC3BVideos': {
-            clearTabContent(videoTabContent);
-            const newContent = insertVideo('DIY Video Guide: PGC3B', 'https://www.youtube.com/embed/-paZ8wrVQLY?rel=0');
-            videoTabContent.appendChild(newContent);
-            break;
-        }
-        default: {
-            clearTabContent(videoTabContent);
-            videoTabContent.innerText = 'Coming Soon!';
-            break;
-        }
-        }
-    }
+    // if (tabContent) {
+    //     switch (tabContent) {
+    //     case 'LEDRopeVideos': {
+    //         clearTabContent(videoTabContent);
+    //         const newContent = insertVideo('DIY Video Guide: LED Rope Light', 'https://www.youtube.com/embed/yf7B4UgraXg?list=PLNsL1D_GAczZ_0Ocddeic0uivx1u3lWPP');
+    //         videoTabContent.appendChild(newContent);
+    //         break;
+    //     }
+    //     case 'PGC3BVideos': {
+    //         clearTabContent(videoTabContent);
+    //         const newContent = insertVideo('DIY Video Guide: PGC3B', 'https://www.youtube.com/embed/-paZ8wrVQLY?rel=0');
+    //         videoTabContent.appendChild(newContent);
+    //         break;
+    //     }
+    //     default: {
+    //         clearTabContent(videoTabContent);
+    //         videoTabContent.innerText = 'Coming Soon!';
+    //         break;
+    //     }
+    //     }
+    // }
 }
