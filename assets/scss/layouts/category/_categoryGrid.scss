@@ -1,7 +1,6 @@
 // =============================================================================
 // CATEGORY GRID (CSS)
 // =============================================================================
-
 //
 // Category Grid with masonry layout
 //
@@ -11,61 +10,67 @@
 // 1. Some older browser support. This class comes from Modernizr
 // -----------------------------------------------------------------------------
 #category-description {
-  padding: 0 0 0 0em;
-  font-size: 1em;
+    padding: 0 0 0 0em;
+    font-size: 1em;
 
-  h3, br {
-    display: none;
-  }
+    h3,
+    br {
+        display: none;
+    }
 
-  h5 {
-    margin: 0;
-    text-align: center;
-  }
+    h5 {
+        margin: 0;
+        text-align: center;
+    }
+    .bannerContainer {
+        display: flex;
+        overflow: hidden;
+        margin-left: 1.8%;
+    }
+    .tripleBanner {
+        width: 33.33%
+    }
 }
+
 .category {
-  background-color: white;
-
-  &Container {
-
-  }
-
-  &Card {
-    float: left;
-    width: 100%;
-    height: 335px;
-    padding: 50px 0;
     background-color: white;
-    box-shadow: 0 0 0 1px #ccc;
-    list-style-type: none;
-    text-align: center;
 
-    @include breakpoint("small") {
-      width: 50%;
+    &Container {}
+
+    &Card {
+        float: left;
+        width: 100%;
+        height: 335px;
+        padding: 50px 0;
+        background-color: white;
+        box-shadow: 0 0 0 1px #ccc;
+        list-style-type: none;
+        text-align: center;
+
+        @include breakpoint("small") {
+            width: 50%;
+        }
+
+        @include breakpoint("medium") {
+            width: 33.33%;
+        }
     }
 
-    @include breakpoint("medium") {
-      width: 33.33%;
+    &Link {
+        display: block;
+        text-decoration: none;
     }
-  }
 
-  &Link {
-    display: block;
-    text-decoration: none;
-  }
+    &Image {
+        max-width: 160px;
+        max-height: 160px;
+    }
 
-  &Image {
-    max-width: 160px;
-    max-height: 160px;
-  }
-
-  &Name {
-    display: block;
-    margin-top: 50px;
-    color: #0056e0;
-    font-size: 20px;
-    text-align: center;
-  }
+    &Name {
+        display: block;
+        margin-top: 50px;
+        color: #0056e0;
+        font-size: 20px;
+        text-align: center;
+    }
 }
-
-
