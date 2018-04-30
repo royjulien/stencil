@@ -40,14 +40,12 @@ const videoTabContent = document.querySelector('#Videos');
 if (videoTabContent) {
     let tabContent = videoTabContent.innerText.split('.')[1];
     tabContent = tabContent.split('%%')[0];
-    console.log('this is tabcontent', tabContent);
     const requestURL = 'https://www.aqlightinggroup.com/content/json/video-tab-videos.json';
 
     getJSON(requestURL, (error, data) => {
         if (error) {
             // console.log('This is the error', error);
         } else {
-            console.log('THIS IS DATA', data);
             for (let i = data.length - 1; i >= 0; i--) {
                 if (data[i].name === tabContent) {
                     clearTabContent(videoTabContent);
