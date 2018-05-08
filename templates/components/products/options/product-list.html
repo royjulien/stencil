@@ -1,21 +1,32 @@
 <div class="form-field" data-product-attribute="product-list">
-    <label class="form-label form-label--alternate form-label--inlineSmall">
+    
+    <!-- <label class="form-label form-label--alternate form-label--inlineSmall">
         {{display_name}}
         <div data-display-name='{{display_name}}'>
-            <!--
-            <a href='/smartscape/smartscape-mounting-systems/12v-bluetooth-controlled-wire-containment-hub-retrofit-mount-smartscape/'>
-                <img src='https://cdn1.bigcommerce.com/server1000/tc515/product_images/uploaded_images/smartscape-small-space.jpg?t=1498791401&_ga=2.156176114.872014998.1498777551-1136662378.1486587318'>
-            </a> -->
         </div>
         <span data-option-value></span>
 
         {{#if required}}
             <small>{{lang 'common.required'}}</small>
         {{/if}}
-    </label>
+    </label> -->
 
+  <label class="dropdown-button">
+
+    {{#if this.values.[0].image}}
+    <span class='form-option-variant form-option-variant--pattern' title="{{this.label}}" style="background-image: url('{{getImage this.values.[0].image "thumb_size" }}');"></span>
+    {{/if}}
+
+    <div class="dropdown-label">
+      <span class="dropdown-label-title"> Select {{this.display_name}} </span> 
+    </div>
+    <div class="arrow-down"></div>
+</label>
+
+    <ul class="dropdown-content-hide">
     {{#if values.0.image}}
-        <ul class="productOptions-list">
+        <li>
+        <ul class="remove-radio-circle">
             {{#unless required}}
                 <li class="productOptions-list-item">
                     <input class="form-radio"
@@ -70,4 +81,6 @@
             <label data-product-attribute-value="{{id}}" class="form-label" for="attribute_{{id}}">{{label}}</label>
         {{/each}}
     {{/if}}
+    </li>
+    </ul>
 </div>
