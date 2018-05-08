@@ -18,10 +18,12 @@
     {{/if}}
 
     <div class="dropdown-label">
-      <span class="dropdown-label-title"> {{this.values.length}} {{this.display_name}}: </span> {{this.values.[0].label}}
+      <span class="dropdown-label-title">Select a {{this.display_name}}</span> 
     </div>
     <div class="arrow-down"></div>
 </label>
+
+<!-- {{this.values.length}} {{this.display_name}}: -->
 
   <ul class="dropdown-content-hide">
     {{#each this.values}}

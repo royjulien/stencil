@@ -599,7 +599,14 @@ span.form-option-variant.form-option-variant--color{
     pointer-events: none;
     line-height: 50px;
     font-size: 14px;
-    margin-left: 12px
+    margin-left: 12px;
+}
+
+.drop-down-form-option-title--none {
+    pointer-events: none;
+    line-height: 50px;
+    font-size: 14px;
+    margin-left: 51px;    
 }
 
 .arrow-down {
@@ -612,6 +619,11 @@ span.form-option-variant.form-option-variant--color{
     border-top: 5px solid rgba(0,0,0,0.8);
   }
 
-  .remove-radio-circle {
-      list-style: none;
+  .form-checkbox:checked + .form-label::after, .form-radio:checked + .form-label::after {
+      display:none
   }
+
+  .form-radio + .form-label::before {
+      border: none;
+  }
+
