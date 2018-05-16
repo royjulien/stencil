@@ -67,6 +67,7 @@ export default class Product extends PageManager {
     after(next) {
         this.productReviewHandler();
         // altProduct();
+        dropdownFunction();
         productTabs();
         ropeMountingRibbon();
         transformerRibbon();
