@@ -14,6 +14,13 @@ window.onclick = (event) => {
             dropdownContent[i].className = 'dropdown-content-hide';
         }
     }
+    if (!event.target.matches('.inputBox')) {
+        const allButtons = document.getElementsByClassName('inputBox');
+
+        for (let i = 0; i < allButtons.length; i++) {
+            allButtons[i].checked = true;
+        }
+    }
 };
 
 // opens and closes the dropdown on click of the button
