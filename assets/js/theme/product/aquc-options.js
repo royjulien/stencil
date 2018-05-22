@@ -1,4 +1,3 @@
-
 const optionsDivs = document.querySelectorAll('div.form-field[data-product-attribute=set-radio]');
 
 const barDivs = [optionsDivs[0], optionsDivs[1], optionsDivs[2], optionsDivs[3], optionsDivs[4]];
@@ -32,7 +31,6 @@ placeToAppend.insertAdjacentElement('afterend', flexNodeOuter3);
 flexNodeOuter3.insertAdjacentElement('afterbegin', flexNode3);
 flexNodeOuter3.insertAdjacentHTML('afterbegin', '<img src="http://www.aqlightinggroup.com/product_images/uploaded_images/aquc-superpage/powercord.jpg" style="width: 80px;height: 80px;margin-right: 15px;margin-top: auto;">');
 
-
 const powerInput = document.createElement('input');
 powerInput.type = 'checkbox';
 powerInput.id = powerId;
@@ -49,19 +47,18 @@ outerDivPower.className = 'outerDiv3';
 const newDivPower = document.createElement('div');
 newDivPower.className = 'content2';
 
-const powerSpan = document.createElement('span');
-powerSpan.className = 'span2';
-powerSpan.innerHTML = '0';
+const newSpan = document.createElement('span');
+newSpan.className = 'span2';
+newSpan.innerHTML = '0';
 
 newDivPower.insertAdjacentElement('beforeend', powerDivs);
 
 outerDivPower.insertAdjacentElement('beforeend', powerInput);
-outerDivPower.insertAdjacentElement('beforeend', powerSpan);
+outerDivPower.insertAdjacentElement('beforeend', newSpan);
 outerDivPower.insertAdjacentElement('beforeend', powerLabel);
 outerDivPower.insertAdjacentElement('beforeend', newDivPower);
 flexNode3.insertAdjacentElement('beforeend', outerDivPower);
 powerInput.checked = true;
-
 
 const flexNode2 = document.createElement('div');
 flexNode2.setAttribute('id', 'jumper-div');
@@ -72,7 +69,6 @@ flexNodeOuter2.setAttribute('style', 'display:flex; flex-wrap:wrap;margin-bottom
 placeToAppend.insertAdjacentElement('afterend', flexNodeOuter2);
 flexNodeOuter2.insertAdjacentElement('afterbegin', flexNode2);
 flexNodeOuter2.insertAdjacentHTML('afterbegin', '<img src="http://www.aqlightinggroup.com/product_images/uploaded_images/aquc-superpage/jumper.jpg" style="width: 80px;height: 80px;margin-right: 15px;margin-top: auto;">');
-
 
 const flexNode = document.createElement('div');
 flexNode.setAttribute('id', 'length-div');
@@ -145,6 +141,7 @@ for (let i = 0; i < jumperName.length; i++) {
     flexNode2.insertAdjacentElement('beforeend', outerDiv);
     newInput.checked = true;
 }
+
 
 // Add Labels
 
