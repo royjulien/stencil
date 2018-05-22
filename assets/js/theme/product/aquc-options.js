@@ -49,14 +49,14 @@ outerDivPower.className = 'outerDiv3';
 const newDivPower = document.createElement('div');
 newDivPower.className = 'content2';
 
-const newSpan = document.createElement('span');
-newSpan.className = 'span2';
-newSpan.innerHTML = '0';
+const powerSpan = document.createElement('span');
+powerSpan.className = 'span2';
+powerSpan.innerHTML = '0';
 
 newDivPower.insertAdjacentElement('beforeend', powerDivs);
 
 outerDivPower.insertAdjacentElement('beforeend', powerInput);
-outerDivPower.insertAdjacentElement('beforeend', newSpan);
+outerDivPower.insertAdjacentElement('beforeend', powerSpan);
 outerDivPower.insertAdjacentElement('beforeend', powerLabel);
 outerDivPower.insertAdjacentElement('beforeend', newDivPower);
 flexNode3.insertAdjacentElement('beforeend', outerDivPower);

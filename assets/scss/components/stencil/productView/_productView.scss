@@ -525,6 +525,7 @@ iframe.youtube {
     display: flex;
     padding: 4px 7px;
     width: 100%;
+    min-height: 58px;
     border: 1px solid rgba(0, 0, 0, 0.35);
     border-radius: 3px;
     font-size: 14px;
@@ -596,9 +597,11 @@ span.form-option-variant.form-option-variant--color{
 
 .drop-down-form-option-title {
     pointer-events: none;
-    line-height: 50px;
+    line-height: 1.5;
     font-size: 14px;
     margin-left: 12px;
+    display: flex;
+    align-self: center;
 }
 
 .drop-down-form-option-title--none {
