@@ -212,7 +212,7 @@ flexNode4.insertAdjacentHTML('afterbegin', '<label class="form-label form-label-
 
 
 // add event listener that closes all dropdowns out of select
-window.onclick = function (event) {
+window.onclick = function closeDropdowns(event) {
     if (!event.target.matches('.inputBox')) {
         const allButtons = document.getElementsByClassName('inputBox');
 
@@ -225,33 +225,23 @@ window.onclick = function (event) {
 // add event listener that changes the value of those green boxes
 const productAttributesValue = document.querySelectorAll('[data-product-attribute-value]');
 
+function outerDivContains() {
+    const that = this;
+    const outerDivChildren = this.parentElement.parentElement.parentElement.children;
+
+    for (let k = outerDivChildren.length - 1; k >= 0; k--) {
+        const child = outerDivChildren[k];
+
+        if (child.classList.contains('span1') || child.classList.contains('span2')) {
+            child.innerText = that.innerText;
+        }
+    }
+}
+
 // I'm using a negative forloop as it's faster than an additional forloop
 for (let i = productAttributesValue.length - 1; i >= 0; i--) {
-    productAttributesValue[i].addEventListener('click', function () {
-        const that = this;
-        const outerDivChildren = this.parentElement.parentElement.parentElement.children;
-
-        for (let k = outerDivChildren.length - 1; k >= 0; k--) {
-            const child = outerDivChildren[k];
-
-            if (child.classList.contains('span1') || child.classList.contains('span2')) {
-                child.innerText = that.innerText;
-            }
-        }
-    });
-
-    productAttributesValue[i].addEventListener('touchend', function () {
-        const that = this;
-        const outerDivChildren = this.parentElement.parentElement.parentElement.children;
-
-        for (let j = outerDivChildren.length - 1; j >= 0; j--) {
-            const child = outerDivChildren[j];
-
-            if (child.classList.contains('span1') || child.classList.contains('span2')) {
-                child.innerText = that.innerText;
-            }
-        }
-    });
+    productAttributesValue[i].addEventListener('click', outerDivContains());
+    productAttributesValue[i].addEventListener('touchend', outerDivContains());
 }
 
 const changeToOne = document.getElementsByClassName('span1');
