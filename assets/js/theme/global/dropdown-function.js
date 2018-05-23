@@ -14,13 +14,6 @@ window.onclick = (event) => {
             dropdownContent[i].className = 'dropdown-content-hide';
         }
     }
-    if (!event.target.matches('.inputBox')) {
-        const allButtons = document.getElementsByClassName('inputBox');
-
-        for (let i = 0; i < allButtons.length; i++) {
-            allButtons[i].checked = true;
-        }
-    }
 };
 
 function toggleDropdown(event) {
@@ -44,10 +37,11 @@ function toggleDropdown(event) {
 
 // opens and closes the dropdown on click of the button
 for (let i = labelButton.length - 1; i >= 0; i--) {
-    labelButton[i].addEventListener('click', toggleDropdown(event));
+    labelButton[i].addEventListener('click', toggleDropdown);
 }
 
 function toggleDropdownArrow(event) {
+
     const targetElement = event.target || event.srcElement;
 
     if (targetElement.innerHTML) {
@@ -56,5 +50,5 @@ function toggleDropdownArrow(event) {
 }
 // changes the dropdown button
 for (let i = dropdownOptions.length - 1; i >= 0; i--) {
-    dropdownOptions[i].addEventListener('click', toggleDropdownArrow(event));
+    dropdownOptions[i].addEventListener('click', toggleDropdownArrow);
 }

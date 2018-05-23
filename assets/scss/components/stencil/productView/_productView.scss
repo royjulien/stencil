@@ -562,7 +562,6 @@ iframe.youtube {
 
     label.form-option {
         display: flex;
-        width: 100%;
         border: none;
         border-radius: 0;
         font-size: 15px;
@@ -599,16 +598,9 @@ span.form-option-variant.form-option-variant--color{
     pointer-events: none;
     line-height: 1.5;
     font-size: 14px;
+    width: 75%;
     margin-left: 12px;
-    display: flex;
     align-self: center;
-}
-
-.drop-down-form-option-title--none {
-    pointer-events: none;
-    line-height: 50px;
-    font-size: 14px;
-    margin-left: 51px;    
 }
 
 .arrow-down {
