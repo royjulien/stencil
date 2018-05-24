@@ -1,88 +1,96 @@
-// setting labels and places where the divs will be
+const optionsDivs = document.querySelectorAll('div.form-field[data-product-attribute=set-radio]');
 
-const optionDivs = document.getElementsByClassName('form-field');
-const lengthLabel = optionDivs[2];
-const jumperLabel = optionDivs[9];
-const powerLabel = optionDivs[13];
-const romexLabel = optionDivs[8];
-const powerLinkerDiv = ['outerDiv3', 'outerDiv4'];
+const barDivs = [optionsDivs[0], optionsDivs[1], optionsDivs[2], optionsDivs[3], optionsDivs[4]];
 
-const labels = document.getElementsByClassName('form-label form-label--alternate form-label--inlineSmall');
-const labelsToHide = [1, 2, 3, 4, 5, 7, 8, 9, 10, 11, 12, 13];
+const barId = ['bar-8', 'bar-12', 'bar-18', 'bar-24', 'bar-32'];
+const barName = ['  8"', '12"', '18"', '24"', '32"'];
 
-const idNames1 = ['bar-8', 'bar-12', 'bar-18', 'bar-24', 'bar-32'];
-const labelName1 = ['  8"', '12"', '18"', '24"', '32"'];
-const lengthDivs = [optionDivs[2], optionDivs[3], optionDivs[4], optionDivs[5], optionDivs[6]];
+const jumperDivs = [optionsDivs[5], optionsDivs[6], optionsDivs[7], optionsDivs[8]];
 
+const jumperId = ['jumper-6', 'jumper-12', 'jumper-18', 'jumper-24'];
+const jumperName = ['  6"', '12"', '18"', '24"'];
 
-const idNames2 = ['jumper-6', 'jumper-12', 'jumper-18', 'jumper-24'];
-const labelName2 = ['  6"', '12"', '18"', '24"'];
-const lengthDivs2 = [optionDivs[9], optionDivs[10], optionDivs[11], optionDivs[12]];
+const powerDivs = optionsDivs[9];
 
-const idNames3 = ['powerCord', 'Linker'];
-const labelName3 = ['Quantity', 'Quantity'];
-const lengthDivs3 = [optionDivs[13], optionDivs[14]];
+const powerId = 'powerCord';
+const powerName = 'Quantity';
 
-const idNames4 = ['romex'];
-const labelName4 = ['Quantity'];
-const lengthDivs4 = [optionDivs[8]];
+const labelsToHide = document.querySelectorAll('label.form-label--alternate.form-label--inlineSmall');
 
+const placeToAppend = document.querySelector('div.form-field[data-product-attribute=swatch]');
 
 // creating divs to house the flex'd options
 
-const flexNode = document.createElement('div');
-flexNode.setAttribute('id', 'length-div');
-flexNode.setAttribute('style', 'display:flex; flex-wrap:wrap; width: 350px');
-const flexNodeOuter = document.createElement('div');
-flexNodeOuter.setAttribute('id', 'length-div-outer');
-flexNodeOuter.setAttribute('style', 'display:flex; flex-wrap:wrap;');
-lengthLabel.insertAdjacentElement('beforebegin', flexNodeOuter);
-flexNodeOuter.insertAdjacentElement('afterbegin', flexNode);
-flexNodeOuter.insertAdjacentHTML('afterbegin', '<img src="http://www.aqlightinggroup.com/product_images/uploaded_images/aquc-superpage/aquc.jpg" style="width: 80px;height: 80px;margin-right: 15px;margin-top: auto;">');
+const flexNode3 = document.createElement('div');
+flexNode3.setAttribute('id', 'power-div');
+flexNode3.setAttribute('style', 'display:flex; flex-wrap:wrap; width: 180px');
+const flexNodeOuter3 = document.createElement('div');
+flexNodeOuter3.setAttribute('id', 'jumper-div-outer');
+flexNodeOuter3.setAttribute('style', 'display:flex; flex-wrap:wrap;margin-bottom:1.5rem;');
+placeToAppend.insertAdjacentElement('afterend', flexNodeOuter3);
+flexNodeOuter3.insertAdjacentElement('afterbegin', flexNode3);
+flexNodeOuter3.insertAdjacentHTML('afterbegin', '<img src="http://www.aqlightinggroup.com/product_images/uploaded_images/aquc-superpage/powercord.jpg" style="width: 80px;height: 80px;margin-right: 15px;margin-top: auto;">');
+
+const powerInput = document.createElement('input');
+powerInput.type = 'checkbox';
+powerInput.id = powerId;
+powerInput.className = 'inputBox';
+
+const powerLabel = document.createElement('label');
+powerLabel.htmlFor = powerId;
+powerLabel.innerText = powerName;
+powerLabel.setAttribute('style', 'height:50px; width:100px');
+
+const outerDivPower = document.createElement('div');
+outerDivPower.className = 'outerDiv3';
+
+const newDivPower = document.createElement('div');
+newDivPower.className = 'content2';
+
+const newPowerSpan = document.createElement('span');
+newPowerSpan.className = 'span2';
+newPowerSpan.innerHTML = '0';
+
+newDivPower.insertAdjacentElement('beforeend', powerDivs);
+
+outerDivPower.insertAdjacentElement('beforeend', powerInput);
+outerDivPower.insertAdjacentElement('beforeend', newPowerSpan);
+outerDivPower.insertAdjacentElement('beforeend', powerLabel);
+outerDivPower.insertAdjacentElement('beforeend', newDivPower);
+flexNode3.insertAdjacentElement('beforeend', outerDivPower);
+powerInput.checked = true;
 
 const flexNode2 = document.createElement('div');
 flexNode2.setAttribute('id', 'jumper-div');
 flexNode2.setAttribute('style', 'display:flex; flex-wrap:wrap; width: 350px');
 const flexNodeOuter2 = document.createElement('div');
 flexNodeOuter2.setAttribute('id', 'jumper-div-outer');
-flexNodeOuter2.setAttribute('style', 'display:flex; flex-wrap:wrap;');
-jumperLabel.insertAdjacentElement('beforebegin', flexNodeOuter2);
+flexNodeOuter2.setAttribute('style', 'display:flex; flex-wrap:wrap;margin-bottom:1.5rem;');
+placeToAppend.insertAdjacentElement('afterend', flexNodeOuter2);
 flexNodeOuter2.insertAdjacentElement('afterbegin', flexNode2);
 flexNodeOuter2.insertAdjacentHTML('afterbegin', '<img src="http://www.aqlightinggroup.com/product_images/uploaded_images/aquc-superpage/jumper.jpg" style="width: 80px;height: 80px;margin-right: 15px;margin-top: auto;">');
 
+const flexNode = document.createElement('div');
+flexNode.setAttribute('id', 'length-div');
+flexNode.setAttribute('style', 'display:flex; flex-wrap:wrap; width: 350px');
+const flexNodeOuter = document.createElement('div');
+flexNodeOuter.setAttribute('id', 'length-div-outer');
+flexNodeOuter.setAttribute('style', 'display:flex; flex-wrap:wrap;margin-bottom:1.5rem;');
+placeToAppend.insertAdjacentElement('afterend', flexNodeOuter);
+flexNodeOuter.insertAdjacentElement('afterbegin', flexNode);
+flexNodeOuter.insertAdjacentHTML('afterbegin', '<img src="http://www.aqlightinggroup.com/product_images/uploaded_images/aquc-superpage/aquc.jpg" style="width: 80px;height: 80px;margin-right: 15px;margin-top: auto;">');
 
-const flexNode3 = document.createElement('div');
-flexNode3.setAttribute('id', 'power-linker-div');
-flexNode3.setAttribute('style', 'display:flex; flex-wrap:wrap;');
+// adding content div using for loop
 
-powerLabel.insertAdjacentElement('beforebegin', flexNode3);
-
-const flexNode4 = document.createElement('div');
-flexNode4.setAttribute('id', 'romex-div');
-flexNode4.setAttribute('style', 'display:flex; flex-wrap:wrap; width: 170px');
-const flexNodeOuter4 = document.createElement('div');
-flexNodeOuter4.setAttribute('id', 'romex-div-outer');
-flexNodeOuter4.setAttribute('style', 'display:flex; flex-wrap:wrap;');
-romexLabel.insertAdjacentElement('beforebegin', flexNodeOuter4);
-flexNodeOuter4.insertAdjacentElement('afterbegin', flexNode4);
-flexNodeOuter4.insertAdjacentHTML('afterbegin', '<img src="http://www.aqlightinggroup.com/product_images/uploaded_images/aquc-superpage/romex.jpg" style="width: 80px;height: 80px;margin-right: 15px;margin-top: auto;">');
-
-// get rid of labels
-for (let i = 0; i < labelsToHide.length; i++) {
-    labels[labelsToHide[i]].setAttribute('style', 'display:none;');
-}
-
-// adding content div, input checkbox, and label with for-loops
-for (let i = 0; i < idNames1.length; i++) {
+for (let i = 0; i < barName.length; i++) {
     const newInput = document.createElement('input');
     newInput.type = 'checkbox';
-    newInput.id = idNames1[i];
+    newInput.id = barId[i];
     newInput.className = 'inputBox';
 
-
     const newLabel = document.createElement('label');
-    newLabel.htmlFor = idNames1[i];
-    newLabel.innerText = labelName1[i];
+    newLabel.htmlFor = barId[i];
+    newLabel.innerText = barName[i];
 
     const outerDiv = document.createElement('div');
     outerDiv.className = 'outerDiv1';
@@ -94,7 +102,7 @@ for (let i = 0; i < idNames1.length; i++) {
     newSpan.className = 'span1';
     newSpan.innerHTML = '0';
 
-    newDiv.insertAdjacentElement('beforeend', lengthDivs[i]);
+    newDiv.insertAdjacentElement('beforeend', barDivs[i]);
 
     outerDiv.insertAdjacentElement('beforeend', newInput);
     outerDiv.insertAdjacentElement('beforeend', newSpan);
@@ -104,15 +112,15 @@ for (let i = 0; i < idNames1.length; i++) {
     newInput.checked = true;
 }
 
-for (let i = 0; i < idNames2.length; i++) {
+for (let i = 0; i < jumperName.length; i++) {
     const newInput = document.createElement('input');
     newInput.type = 'checkbox';
-    newInput.id = idNames2[i];
+    newInput.id = jumperId[i];
     newInput.className = 'inputBox';
 
     const newLabel = document.createElement('label');
-    newLabel.htmlFor = idNames2[i];
-    newLabel.innerText = labelName2[i];
+    newLabel.htmlFor = jumperId[i];
+    newLabel.innerText = jumperName[i];
 
     const outerDiv = document.createElement('div');
     outerDiv.className = 'outerDiv2';
@@ -124,7 +132,7 @@ for (let i = 0; i < idNames2.length; i++) {
     newSpan.className = 'span1';
     newSpan.innerHTML = '0';
 
-    newDiv.insertAdjacentElement('beforeend', lengthDivs2[i]);
+    newDiv.insertAdjacentElement('beforeend', jumperDivs[i]);
 
     outerDiv.insertAdjacentElement('beforeend', newInput);
     outerDiv.insertAdjacentElement('beforeend', newSpan);
@@ -134,93 +142,18 @@ for (let i = 0; i < idNames2.length; i++) {
     newInput.checked = true;
 }
 
-for (let i = 0; i < idNames3.length; i++) {
-    const newInput = document.createElement('input');
-    newInput.type = 'checkbox';
-    newInput.id = idNames3[i];
-    newInput.className = 'inputBox';
 
-    const newLabel = document.createElement('label');
-    newLabel.htmlFor = idNames3[i];
-    newLabel.innerText = labelName3[i];
-    newLabel.setAttribute('style', 'height:50px; width:100px');
-
-    const outerDiv = document.createElement('div');
-    outerDiv.className = powerLinkerDiv[i];
-
-    const newDiv = document.createElement('div');
-    newDiv.className = 'content2';
-
-    const newSpan = document.createElement('span');
-    newSpan.className = 'span2';
-    newSpan.innerHTML = '0';
-
-    newDiv.insertAdjacentElement('beforeend', lengthDivs3[i]);
-
-    outerDiv.insertAdjacentElement('beforeend', newInput);
-    outerDiv.insertAdjacentElement('beforeend', newSpan);
-    outerDiv.insertAdjacentElement('beforeend', newLabel);
-    outerDiv.insertAdjacentElement('beforeend', newDiv);
-    flexNode3.insertAdjacentElement('beforeend', outerDiv);
-    newInput.checked = true;
-}
-
-for (let i = 0; i < idNames4.length; i++) {
-    const newInput = document.createElement('input');
-    newInput.type = 'checkbox';
-    newInput.id = idNames4[i];
-    newInput.className = 'inputBox';
-
-    const newLabel = document.createElement('label');
-    newLabel.htmlFor = idNames4[i];
-    newLabel.innerText = labelName4[i];
-    newLabel.setAttribute('style', 'height:50px; width:100px');
-
-    const outerDiv = document.createElement('div');
-    outerDiv.className = 'outerDiv5';
-
-    const newDiv = document.createElement('div');
-    newDiv.className = 'content2';
-
-    const newSpan = document.createElement('span');
-    newSpan.className = 'span2';
-    newSpan.innerHTML = '0';
-
-    newDiv.insertAdjacentElement('beforeend', lengthDivs4[i]);
-
-    outerDiv.insertAdjacentElement('beforeend', newInput);
-    outerDiv.insertAdjacentElement('beforeend', newSpan);
-    outerDiv.insertAdjacentElement('beforeend', newLabel);
-    outerDiv.insertAdjacentElement('beforeend', newDiv);
-    flexNode4.insertAdjacentElement('beforeend', outerDiv);
-    newInput.checked = true;
-}
-
-// get new labels
-const powerCordDiv = document.getElementsByClassName('outerDiv3');
-const endToEndDiv = document.getElementsByClassName('outerDiv4');
+// Add Labels
 
 flexNode.insertAdjacentHTML('afterbegin', '<label class="form-label form-label--alternate form-label--inlineSmall"> Select all the sizes of the fixtures <small>Required</small></label>');
 flexNode2.insertAdjacentHTML('afterbegin', '<label class="form-label form-label--alternate form-label--inlineSmall"> Select all the sizes of additional jumpers:</label>');
+flexNode3.insertAdjacentHTML('afterbegin', '<label class="form-label form-label--alternate form-label--inlineSmall"> 6\' power cord </label>');
 
-powerCordDiv[0].insertAdjacentHTML('afterbegin', '<label class="form-label form-label--alternate form-label--inlineSmall"> 6\' power cord </label>');
-powerCordDiv[0].insertAdjacentHTML('beforebegin', '<img src="http://www.aqlightinggroup.com/product_images/uploaded_images/aquc-superpage/powercord.jpg" style="width: 80px;height: 80px;margin-right: 15px;margin-top: auto;">');
-endToEndDiv[0].insertAdjacentHTML('afterbegin', '<label class="form-label form-label--alternate form-label--inlineSmall"> end-to-end linkers </label>');
-endToEndDiv[0].insertAdjacentHTML('beforebegin', '<img src="http://www.aqlightinggroup.com/product_images/uploaded_images/aquc-superpage/end-end.jpg" style="width: 80px;height: 80px;margin-right: 15px;margin-top: auto;">');
+// Hide the Unused Labels
+for (let i = 0; i < labelsToHide.length; i++) {
+    labelsToHide[i].setAttribute('style', 'display:none;');
+}
 
-flexNode4.insertAdjacentHTML('afterbegin', '<label class="form-label form-label--alternate form-label--inlineSmall"> Romex Connector</label>');
-
-
-// add event listener that closes all dropdowns out of select
-window.onclick = function (event) {
-    if (!event.target.matches('.inputBox')) {
-        const allButtons = document.getElementsByClassName('inputBox');
-
-        for (let i = 0; i < allButtons.length; i++) {
-            allButtons[i].checked = true;
-        }
-    }
-};
 
 // add event listener that changes the value of those green boxes
 const productAttributesValue = document.querySelectorAll('[data-product-attribute-value]');

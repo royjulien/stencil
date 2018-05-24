@@ -6,7 +6,7 @@ import collapsibleFactory from './common/collapsible';
 import ProductDetails from './common/product-details';
 import videoGallery from './product/video-gallery';
 import { classifyForm } from './common/form-utils';
-import altProduct from './product/altProduct';
+// import altProduct from './product/altProduct';
 import productTabs from './product/productTabs';
 import ropeMountingRibbon from './product/ropeMountingRibbon';
 import transformerRibbon from './product/transformerRibbon';
@@ -14,6 +14,8 @@ import accessoryTab from './product/accessoryTabContent.js';
 import videoTab from './product/videoTab';
 import videoAQUC from './product/videoAQUC';
 import installationTab from './product/installationTab';
+import dropdownFunction from './global/dropdown-function.js';
+
 
 export default class Product extends PageManager {
     constructor() {
@@ -64,7 +66,8 @@ export default class Product extends PageManager {
 
     after(next) {
         this.productReviewHandler();
-        altProduct();
+        // altProduct();
+        dropdownFunction();
         productTabs();
         ropeMountingRibbon();
         transformerRibbon();
