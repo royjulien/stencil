@@ -40,7 +40,7 @@ function createHTML(data) {
         const ulElement = document.createElement('ul');
         ulElement.className = 'accessorytab';
 
-        for (let i = 0; i < currentArray.length; i += 1) {
+        for (let i = 0; i < currentArray.length, i++) {
             const liElement = document.createElement('li');
 
             const liImg = document.createElement('img');
@@ -71,4 +71,5 @@ if (finishTab !== null) {
         const newContent = createHTML(data);
         finishTab.appendChild(newContent);
     });
+
 }
