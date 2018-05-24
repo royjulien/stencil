@@ -23,16 +23,14 @@ function createHTML(data) {
 
     // needs to loop for finish and glass swatches
     for (let n = 0; n < 2; n++) {
-        let currentArray;
-        let currentTitle;
-
-        if (n === 1) {
-            currentArray = data.finishSwatches;
-            currentTitle = data.finishHeader;
-        } else if (n === 2) {
-            currentArray = data.glassSwatches;
-            currentTitle = data.glassHeader;
-        }
+    	if (n = 0){
+    		const currentArray = data.finishSwatches;
+    		const currentTitle = data.finishHeader;
+    	}
+    	else if (n = 1) {
+    		const currentArray = data.glassSwatches;
+    		const currentTitle = data.glassHeader;
+    	}
 
         const tabTitle = document.createElement('span');
         tabTitle.className = 'product-title';
