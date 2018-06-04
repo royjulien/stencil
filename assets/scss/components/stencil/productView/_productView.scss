@@ -541,6 +541,7 @@ iframe.youtube {
 .dropdown-label {
     pointer-events: none;
     margin-left: 12px;
+    margin-right: 10%;
 }
 
 .dropdown-label-title {
@@ -559,6 +560,8 @@ iframe.youtube {
     box-shadow: 0 4px 7px 0 rgba(0,0,0, 0.25);
     position: absolute;
     z-index: 1;
+    max-height: 310px;
+    overflow: auto;
 
     label.form-option {
         display: flex;
@@ -621,3 +624,11 @@ span.form-option-variant.form-option-variant--color{
       border: none;
   }
 
+// Media Queries 
+// -----------------------------------------------------------------------------
+
+@media screen and (max-width: 420px) {
+    .drop-down-form-option-title {
+        width: 60%;
+    }
+}
