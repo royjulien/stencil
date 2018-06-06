@@ -568,6 +568,10 @@ iframe.youtube {
         border: none;
         border-radius: 0;
         font-size: 15px;
+
+        &:hover {
+            background-color: rgba(0,0,0,0.05);
+        }
     }
 }
 
