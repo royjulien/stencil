@@ -57,4 +57,5 @@ function toggleDropdownArrow(event) {
 // changes the dropdown button
 for (let i = dropdownOptions.length - 1; i >= 0; i--) {
     dropdownOptions[i].addEventListener('click', toggleDropdownArrow);
+    dropdownOptions[i].addEventListener('touchend', toggleDropdownArrow);
 }

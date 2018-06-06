@@ -68,6 +68,7 @@
     text-transform: inherit;
 }
 
+
 .footer-info-list {
     list-style: none;
     margin-left: 0;
@@ -131,4 +132,8 @@
 
 .footer-banner {
     padding-bottom: 25px;
+}
+
+.footer-info-list a[href="/claim-form/"] {
+    color: red;
 }
