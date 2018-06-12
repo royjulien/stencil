@@ -31,6 +31,8 @@
     justify-content: center;
 
     img {
+        object-fit: contain;
+        max-height: 100%;
         width: 100%;
     }
 
