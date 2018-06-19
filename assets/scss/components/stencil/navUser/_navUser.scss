@@ -17,7 +17,7 @@
     right: 0;
     top: 23px;
     width: 100%;
-    z-index: zIndex("lowest");
+    z-index: 21;
 
     @include breakpoint("medium") {
         top: 85px;
