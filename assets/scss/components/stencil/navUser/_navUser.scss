@@ -280,6 +280,9 @@
     }
 
     .productGrid {
+        height: calc(100vh - 235px);
+        overflow: hidden;
+        overflow-y: scroll;
         padding: spacing("single") 0 0;
 
         @include breakpoint("small") {
