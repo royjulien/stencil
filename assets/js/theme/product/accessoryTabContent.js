@@ -234,6 +234,14 @@ if (accessoryTabContent) {
                 accessoryTabContent.appendChild(newContent);
             });
             break;
+        case 'PGC5BAccessories':
+            requestURL = '/content/json/PGC5BAccessories.json';
+            getJSON(requestURL, (error, data) => {
+                clearTabContent(accessoryTabContent);
+                const newContent = createHTML(data);
+                accessoryTabContent.appendChild(newContent);
+            });
+            break;
         default:
             clearTabContent(accessoryTabContent);
             accessoryTabContent.innerText = 'Coming Soon!';

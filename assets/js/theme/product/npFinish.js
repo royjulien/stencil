@@ -20,17 +20,18 @@ function getJSON(url, callback) {
 
 function createHTML(data) {
     const container = document.createElement('div');
+    let currentArray;
+    let currentTitle;
 
     // needs to loop for finish and glass swatches
     for (let n = 0; n < 2; n++) {
-    	if (n = 1){
-    		const currentArray = data.finishSwatches;
-    		const currentTitle = data.finishHeader;
-    	}
-    	else if (n = 2) {
-    		const currentArray = data.glassSwatches;
-    		const currentTitle = data.glassHeader;
-    	}
+        if (n === 0) {
+            currentArray = data.finishSwatches;
+            currentTitle = data.finishHeader;
+        } else if (n === 1) {
+            currentArray = data.glassSwatches;
+            currentTitle = data.glassHeader;
+        }
 
         const tabTitle = document.createElement('span');
         tabTitle.className = 'product-title';
@@ -40,7 +41,7 @@ function createHTML(data) {
         const ulElement = document.createElement('ul');
         ulElement.className = 'accessorytab';
 
-        for (let i = 0; i < currentArray.length, i++) {
+        for (let i = 0; i < currentArray.length; i++) {
             const liElement = document.createElement('li');
 
             const liImg = document.createElement('img');
@@ -71,5 +72,4 @@ if (finishTab !== null) {
         const newContent = createHTML(data);
         finishTab.appendChild(newContent);
     });
-
 }

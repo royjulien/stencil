@@ -343,7 +343,7 @@ export default class Product {
         currentPrice = parseFloat(currentPrice);
 
         let brandName = document.querySelector('#productBrandName');
-        brandName = brandName.innerText.trim('').toLowerCase();
+        if (brandName) brandName = brandName.innerText.trim('').toLowerCase();
 
         const quantityCheck = document.querySelector('.form-input--incrementTotal');
         let quantityInput = 0;
