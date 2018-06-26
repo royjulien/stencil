@@ -19,6 +19,14 @@ function getJSON(url, callback) {
 }
 
 function insertVideo(title, videoLink) {
+    let noRel;
+
+    if (videoLink === 'https://www.youtube.com/embed/yf7B4UgraXg?list=PLNsL1D_GAczZ_0Ocddeic0uivx1u3lWPP') {
+        noRel = '';
+    } else {
+        noRel = '?rel=0';
+    }
+
     const container = document.createElement('div');
     container.className = 'video-window';
 
@@ -29,64 +37,61 @@ function insertVideo(title, videoLink) {
 
     const videoWindow = document.createElement('iframe');
     videoWindow.className = 'youtube';
-    videoWindow.src = videoLink + "?rel=0";
+    videoWindow.src = videoLink + noRel;
     container.appendChild(videoWindow);
 
     return container;
 }
 
 function insertGalleryVideo(videoSrc, thumbnail) {
+    const noRel = '?rel=0';
+    // create the video modal
 
+    const theContainer = document.querySelector('#Overview');
 
-        //create the video modal
+    const theModal = document.createElement('div');
+    theModal.className = 'modal';
+    theModal.setAttribute('id', 'modalVideo');
+    theModal.setAttribute('data-reveal', '');
 
-        let theContainer = document.querySelector('#Overview');
+    const videoContainer = document.createElement('div');
+    videoContainer.className = 'video-container';
 
-        let theModal = document.createElement("div");
-        theModal.className = "modal";
-        theModal.setAttribute("id", "modalVideo");
-        theModal.setAttribute("data-reveal", "");
+    const theVideo = document.createElement('iframe');
+    theVideo.style = 'background:none;border:none;';
 
-        let videoContainer = document.createElement("div");
-        videoContainer.className = "video-container";
-        
-        
-        let theVideo = document.createElement("iframe");
-        theVideo.style = "background:none;border:none;";
+    // This removes the recommended videos
 
-        // This removes the recommended videos
-        theVideo.src = videoSrc + "?rel=0";
+    theVideo.src = videoSrc + noRel;
 
-        videoContainer.appendChild(theVideo);
-        theModal.appendChild(videoContainer);
-        theContainer.appendChild(theModal);
+    videoContainer.appendChild(theVideo);
+    theModal.appendChild(videoContainer);
+    theContainer.appendChild(theModal);
 
+    // target dom
 
-        // target dom
-    
-        let thumbnailGallary = document.querySelector('.productView-thumbnails');
-        
-        // set elements
-        
-        let thumbNailLi = document.createElement("li");
-        let thumbNailOuter = document.createElement("a");
-        let thumbNail = document.createElement("img");
-        
-        
-        // setting the attributes in these elements.
-        
-        thumbNailLi.setAttribute("class", "productView-thumbnail");
-        
-        thumbNailOuter.setAttribute("class", "productView-thumbnail-link");
-        thumbNailOuter.setAttribute("id", "productView-thumbnail-video");
-        thumbNailOuter.setAttribute("data-reveal-id", "modalVideo");
-        thumbNailOuter.setAttribute("href", "#modalVideo");
-        
-        thumbNail.setAttribute("src", thumbnail);
-        
-        thumbNailOuter.appendChild(thumbNail);
-        thumbNailLi.appendChild(thumbNailOuter);
-        thumbnailGallary.appendChild(thumbNailLi);
+    const thumbnailGallary = document.querySelector('.productView-thumbnails');
+
+    // set elements
+
+    const thumbNailLi = document.createElement('li');
+    const thumbNailOuter = document.createElement('a');
+    const thumbNail = document.createElement('img');
+
+    // setting the attributes in these elements.
+
+    thumbNailLi.setAttribute('class', 'productView-thumbnail');
+
+    thumbNailOuter.setAttribute('class', 'productView-thumbnail-link');
+    thumbNailOuter.setAttribute('id', 'productView-thumbnail-video');
+    thumbNailOuter.setAttribute('data-reveal-id', 'modalVideo');
+    thumbNailOuter.setAttribute('href', '#modalVideo');
+
+    thumbNail.setAttribute('src', thumbnail);
+
+    thumbNailOuter.appendChild(thumbNail);
+    thumbNailLi.appendChild(thumbNailOuter);
+    thumbnailGallary.appendChild(thumbNailLi);
 }
 
 const videoTabContent = document.querySelector('#Videos');
