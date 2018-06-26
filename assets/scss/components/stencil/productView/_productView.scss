@@ -650,6 +650,34 @@ span.form-option-variant.form-option-variant--color{
     min-height:0px;
 }
 
+// Popups  
+// -----------------------------------------------------------------------------
+
+#target #popup {
+    display: none;
+  }
+
+  #target svg{
+    height: 16px;
+    width: 16px;
+    color: gray
+  }
+  
+  #target:hover #popup {
+    position: absolute;
+    display: block;
+    border: 1px;
+    border-style: solid;
+    border-color: black;
+    z-index: 100;
+    background-color: white;
+    width: 270px;
+    font-size: 13.5px;
+    text-align: left;
+    padding-left: 10px;
+    padding-right: 2px;
+    box-shadow:  0 5px 20px -5px #555;
+  }
 
 // Media Queries 
 // -----------------------------------------------------------------------------
