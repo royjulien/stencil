@@ -44,7 +44,7 @@ function insertVideo(title, videoLink) {
 }
 
 function insertGalleryVideo(videoSrc, thumbnail) {
-    const noRel = '?rel=0';
+    const noRel = '?rel=0&amp;showinfo=0';
     // create the video modal
 
     const theContainer = document.querySelector('#Overview');
@@ -57,6 +57,16 @@ function insertGalleryVideo(videoSrc, thumbnail) {
     const videoContainer = document.createElement('div');
     videoContainer.className = 'video-container';
 
+    const xButton = document.createElement('a');
+    xButton.className = 'modal-close';
+    xButton.setAttribute('href', '#');
+    xButton.setAttribute('aria-label', 'Close');
+    xButton.setAttribute('role', 'button');
+
+    const theX = document.createElement('span')
+    theX.setAttribute('aria-hidden', 'true')
+    theX.innerText = 'x';
+
     const theVideo = document.createElement('iframe');
     theVideo.style = 'background:none;border:none;';
 
@@ -64,6 +74,9 @@ function insertGalleryVideo(videoSrc, thumbnail) {
 
     theVideo.src = videoSrc + noRel;
 
+    xButton.appendChild(theX);
+    videoContainer.appendChild(xButton);
+    videoContainer.appendChild(theVideo);
     videoContainer.appendChild(theVideo);
     theModal.appendChild(videoContainer);
     theContainer.appendChild(theModal);
