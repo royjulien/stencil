@@ -17,7 +17,7 @@
     right: 0;
     top: 23px;
     width: 100%;
-    z-index: zIndex("lowest");
+    z-index: 21;
 
     @include breakpoint("medium") {
         top: 85px;
@@ -280,6 +280,9 @@
     }
 
     .productGrid {
+        height: calc(100vh - 235px);
+        overflow: hidden;
+        overflow-y: scroll;
         padding: spacing("single") 0 0;
 
         @include breakpoint("small") {

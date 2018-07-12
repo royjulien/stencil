@@ -143,3 +143,13 @@
         }
     }
 }
+
+.navBar--sub,
+.page-sidebar,
+.panel--large {
+    display: none;
+
+    @include breakpoint("medium") {
+        display: block;
+    }
+}
