@@ -63,8 +63,8 @@ function insertGalleryVideo(videoSrc, thumbnail) {
     xButton.setAttribute('aria-label', 'Close');
     xButton.setAttribute('role', 'button');
 
-    const theX = document.createElement('span')
-    theX.setAttribute('aria-hidden', 'true')
+    const theX = document.createElement('span');
+    theX.setAttribute('aria-hidden', 'true');
     theX.innerText = 'x';
 
     const theVideo = document.createElement('iframe');
@@ -128,26 +128,4 @@ if (videoTabContent) {
             }
         }
     });
-
-    // if (tabContent) {
-    //     switch (tabContent) {
-    //     case 'LEDRopeVideos': {
-    //         clearTabContent(videoTabContent);
-    //         const newContent = insertVideo('DIY Video Guide: LED Rope Light', 'https://www.youtube.com/embed/yf7B4UgraXg?list=PLNsL1D_GAczZ_0Ocddeic0uivx1u3lWPP');
-    //         videoTabContent.appendChild(newContent);
-    //         break;
-    //     }
-    //     case 'PGC3BVideos': {
-    //         clearTabContent(videoTabContent);
-    //         const newContent = insertVideo('DIY Video Guide: PGC3B', 'https://www.youtube.com/embed/-paZ8wrVQLY?rel=0');
-    //         videoTabContent.appendChild(newContent);
-    //         break;
-    //     }
-    //     default: {
-    //         clearTabContent(videoTabContent);
-    //         videoTabContent.innerText = 'Coming Soon!';
-    //         break;
-    //     }
-    //     }
-    // }
 }
