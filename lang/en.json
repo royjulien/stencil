@@ -672,8 +672,8 @@
     },
     "newsletter": {
         "subscribe": "Get Exclusive Discounts", 
-        "subscribe_intro": "Sign up to get exclusive offers",
-        "subscribe_submit": "Sign Up",
+        "subscribe_intro": "Subscribe to Exclusive Insider Sales Promotions",
+        "subscribe_submit": "Subscribe",
         "email_placeholder": "Your email address",
         "subscribed_heading": "Thanks for Signing Up!",
         "subscribed_heading_error": "Oops...",

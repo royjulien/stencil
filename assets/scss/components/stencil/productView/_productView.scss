@@ -686,4 +686,30 @@ span.form-option-variant.form-option-variant--color{
     .drop-down-form-option-title {
         width: 60%;
     }
+    .product-overview table tr td {
+        display: inline-block;
+        vertical-align: inherit;
+        font-size: 10px !important;
+        padding: 10px 0;
+    }
+    #target:hover #popup {
+        position: absolute;
+        display: block;
+        border: 1px;
+        border-style: solid;
+        border-color: black;
+        z-index: 100;
+        background-color: white;
+        width: 200px;
+        font-size: 10px;
+        line-height: 10px;
+        text-align: left;
+        padding-left: 10px;
+        padding-right: 2px;
+        box-shadow:  0 5px 20px -5px #555;
+        left: 100px;
+      }
+
 }
+
+
