@@ -44,7 +44,7 @@ function insertVideo(title, videoLink) {
 }
 
 function insertGalleryVideo(videoSrc, thumbnail) {
-    const noRel = '?rel=0';
+    const noRel = '?rel=0&amp;showinfo=0';
     // create the video modal
 
     const theContainer = document.querySelector('#Overview');
@@ -57,6 +57,16 @@ function insertGalleryVideo(videoSrc, thumbnail) {
     const videoContainer = document.createElement('div');
     videoContainer.className = 'video-container';
 
+    const xButton = document.createElement('a');
+    xButton.className = 'modal-close';
+    xButton.setAttribute('href', '#');
+    xButton.setAttribute('aria-label', 'Close');
+    xButton.setAttribute('role', 'button');
+
+    const theX = document.createElement('span');
+    theX.setAttribute('aria-hidden', 'true');
+    theX.innerText = 'x';
+
     const theVideo = document.createElement('iframe');
     theVideo.style = 'background:none;border:none;';
 
@@ -64,6 +74,9 @@ function insertGalleryVideo(videoSrc, thumbnail) {
 
     theVideo.src = videoSrc + noRel;
 
+    xButton.appendChild(theX);
+    videoContainer.appendChild(xButton);
+    videoContainer.appendChild(theVideo);
     videoContainer.appendChild(theVideo);
     theModal.appendChild(videoContainer);
     theContainer.appendChild(theModal);
@@ -115,26 +128,4 @@ if (videoTabContent) {
             }
         }
     });
-
-    // if (tabContent) {
-    //     switch (tabContent) {
-    //     case 'LEDRopeVideos': {
-    //         clearTabContent(videoTabContent);
-    //         const newContent = insertVideo('DIY Video Guide: LED Rope Light', 'https://www.youtube.com/embed/yf7B4UgraXg?list=PLNsL1D_GAczZ_0Ocddeic0uivx1u3lWPP');
-    //         videoTabContent.appendChild(newContent);
-    //         break;
-    //     }
-    //     case 'PGC3BVideos': {
-    //         clearTabContent(videoTabContent);
-    //         const newContent = insertVideo('DIY Video Guide: PGC3B', 'https://www.youtube.com/embed/-paZ8wrVQLY?rel=0');
-    //         videoTabContent.appendChild(newContent);
-    //         break;
-    //     }
-    //     default: {
-    //         clearTabContent(videoTabContent);
-    //         videoTabContent.innerText = 'Coming Soon!';
-    //         break;
-    //     }
-    //     }
-    // }
 }
