@@ -19,10 +19,6 @@
 
             {{#if cart.show_primary_checkout_button}}
                 <div class="cart-actions">
-                    <div data-cart-status>
-                        {{> components/cart/status-messages}}
-                    </div>
-
                     <a class="button button--primary" href="{{urls.checkout.single_address}}" title="{{lang 'cart.checkout.title'}}">{{lang 'cart.checkout.button'}}</a>
                     {{#if cart.show_multiple_address_shipping}}
                         <a class="checkoutMultiple" href="{{urls.checkout.multiple_address}}">
@@ -32,13 +28,13 @@
                 </div>
             {{else}}
                 <div class="cart-actions">
-                    <div data-cart-status>
-                        {{> components/cart/status-messages}}
-                    </div>
-
                     <a class="button" href="{{urls.home}}" title="{{lang 'cart.continue_shopping'}}">{{lang 'cart.continue_shopping'}}</a>
                 </div>
             {{/if}}
+
+            <div data-cart-status>
+                {{> components/cart/status-messages}}
+            </div>
 
             {{#if cart.additional_checkout_buttons}}
                 <div class="cart-additionalCheckoutButtons">
