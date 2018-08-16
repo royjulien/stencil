@@ -15,6 +15,23 @@
 
 .alertBox--info {
     color: stencilColor("alert-color-alt");
+    background-color: #54a66a;
+    border-color: #489c5e;
+    font-size: 18px;
+    line-height: 1.6;
+    border-radius: 10px !important;
+    margin-top: 20px;
+    position: relative;
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: -15px;
+        right: 50px;
+        border-left: 25px solid transparent;
+        border-right: 25px solid transparent;
+        border-bottom: 25px solid #54a66a;
+    }
 
     .alertBox-close {
 
