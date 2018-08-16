@@ -133,12 +133,19 @@
 // -----------------------------------------------------------------------------
 
 .form-label--alternate {
+    display: inline-block;
     padding: 10px 0;
     margin-bottom: 0;
     font-size: fontSize("small");
     font-family: fontFamily("headingSans");
 }
 
+[data-quantity-change] {
+    display: inline-block;
+    position: relative;
+    top: -7px;
+    left: 15px;
+}
 .form-select--date {
     width: initial;
 
