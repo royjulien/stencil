@@ -6,10 +6,6 @@
 
         {{> components/cart/page-title}}
 
-        <div data-cart-status>
-            {{> components/cart/status-messages}}
-        </div>
-
         {{#if cart.items.length}}
             <div class="loadingOverlay"></div>
 
@@ -35,6 +31,10 @@
                     <a class="button" href="{{urls.home}}" title="{{lang 'cart.continue_shopping'}}">{{lang 'cart.continue_shopping'}}</a>
                 </div>
             {{/if}}
+
+            <div data-cart-status>
+                {{> components/cart/status-messages}}
+            </div>
 
             {{#if cart.additional_checkout_buttons}}
                 <div class="cart-additionalCheckoutButtons">

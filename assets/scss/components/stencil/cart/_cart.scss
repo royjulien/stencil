@@ -557,7 +557,7 @@ $cart-item-label-offset:                $cart-thumbnail-maxWidth + $cart-item-sp
 
 .previewCartItem-image {
     @include grid-column(4, $float: false);
-    padding: spacing("single");
+    padding: 10px;
     text-align: center;
 }
 
@@ -603,10 +603,10 @@ $cart-item-label-offset:                $cart-thumbnail-maxWidth + $cart-item-sp
 
 .previewCartAction-checkout,
 .previewCartAction-viewCart {
-    @include grid-column(6);
+    @include grid-column(12);
 
     &.previewCartAction-viewCart--sole {
-        @include grid-column($columns: 6, $center: true);
+        @include grid-column($columns: 12, $center: true);
     }
 }
 
