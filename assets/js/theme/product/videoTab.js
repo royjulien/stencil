@@ -27,6 +27,12 @@ function insertVideo(title, videoLink) {
         noRel = '?rel=0';
     }
 
+    const outerContainer = document.createElement('div');
+    const lineBreaks = '<br><br> <h1>';
+    const endTag = '</h1>';
+    outerContainer.innerHTML = lineBreaks + title + endTag;
+
+
     const container = document.createElement('div');
     container.className = 'video-window';
 
@@ -39,8 +45,11 @@ function insertVideo(title, videoLink) {
     videoWindow.className = 'youtube';
     videoWindow.src = videoLink + noRel;
     container.appendChild(videoWindow);
+    outerContainer.appendChild(container);
 
-    return container;
+    // return container;
+
+    return outerContainer;
 }
 
 function insertGalleryVideo(videoSrc, thumbnail) {
@@ -108,6 +117,7 @@ function insertGalleryVideo(videoSrc, thumbnail) {
 }
 
 const videoTabContent = document.querySelector('#Videos');
+const overViewContent = document.querySelector('#Overview');
 
 if (videoTabContent) {
     let tabContent = videoTabContent.innerText.split('.')[1];
@@ -122,7 +132,7 @@ if (videoTabContent) {
                 if (data[i].name === tabContent) {
                     clearTabContent(videoTabContent);
                     const newContent = insertVideo(data[i].title, data[i].url);
-                    videoTabContent.appendChild(newContent);
+                    overViewContent.insertAdjacentElement('beforeend', newContent);
                     insertGalleryVideo(data[i].url, data[i].thumbnail);
                 }
             }
