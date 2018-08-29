@@ -38,11 +38,6 @@
       },
       {
         "type": "color",
-        "label": "Pace bar color",
-        "id": "pace-progress-backgroundColor"
-      },
-      {
-        "type": "color",
         "label": "Spinner light half",
         "id": "spinner-borderColor-light"
       },

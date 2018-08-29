@@ -48,22 +48,10 @@
     visibility: hidden;
 
     @include breakpoint("medium") {
-        position: absolute;
-        top: 9px;
-        left: 40%;
-        width: 525px;
-        height: auto;
-        padding: 0;
-        background: transparent;
-        transform: translateX(-50%);
+        position: relative;
         opacity: 1;
         visibility: visible;
         z-index: 55;
-    }
-
-    @include breakpoint("large") {
-      left: 50%;
-      width: 650px;
     }
 
     &.is-open {
@@ -550,7 +538,7 @@
   #main-menu {
     display: block;
     position: relative;
-    max-width: 72rem;
+    max-width: 69rem;
     height: 35px;
     padding: 0;
     margin: 0 auto;
@@ -600,17 +588,12 @@
     display: block;
     height: 100%;
     padding: 0 10px;
-    color: #555555;
-    font-family: 'Yanone Kaffeesatz', sans-serif;
-    font-size: 18px;
+    color: #232323;
+    font-size: 14px;
     font-weight: 300;
     line-height: 35px;
     text-decoration: none;
-    text-transform: uppercase;
-
-    @include breakpoint('large') {
-      font-size: 22px;
-    }
+    text-transform: capitalize;
 
     &:nth-child(3) > a {
       color: #f9401f;

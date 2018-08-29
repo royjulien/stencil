@@ -147,6 +147,23 @@
     @include breakpoint("small") {
         display: block;
     }
+
+    .form {
+        margin: 0;
+
+        .form-field {
+            margin: 0;
+        }
+
+        .form-submit {
+            position: relative;
+            top: 6px;
+            width: 100px;
+            height: 3rem;
+            padding: 0.875rem;
+            letter-spacing: 1px;
+        }
+    }
 }
 
 .navUser-item--cart {

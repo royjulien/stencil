@@ -13,7 +13,6 @@ import compareProducts from './global/compare-products';
 import privacyCookieNotification from './global/cookieNotification';
 import maintenanceMode from './global/maintenanceMode';
 import carousel from './common/carousel';
-import loadingProgressBar from './global/loading-progress-bar';
 import FastClick from 'fastclick';
 // import swiperConfig from './global/swiperConfig';
 

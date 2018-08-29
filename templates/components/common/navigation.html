@@ -7,7 +7,7 @@
 
     {{> components/common/currency-selector}}
 
-    <a class="header-search-string" href="#" data-search="quickSearch" aria-controls="quickSearch" aria-expanded="false">{{lang 'common.search'}}</a>
+    <section class="quickSearchResults" data-bind="html: results"></section>
 
     <ul class="navUser-section navUser-section--alt">
         {{#if customer.store_credit.value '>' 0}}
@@ -23,11 +23,18 @@
                 </div>
             </li>
         {{/if}}
+
         <li class="navUser-item">
-            <a class="navUser-action navUser-item--compare" href="{{urls.compare}}" data-compare-nav>{{lang 'common.compare'}} <span class="countPill countPill--positive countPill--alt"></span></a>
-        </li>
-        <li class="navUser-item">
-            <a class="navUser-action navUser-action--quickSearch" href="#" data-search="quickSearch" aria-controls="quickSearch" aria-expanded="false">{{lang 'common.search'}}</a>
+            {{{ snippet "forms_search"}}}
+            <form class="form" action="{{urls.search}}">
+                <fieldset class="form-fieldset">
+                    <div class="form-field">
+                        <label class="is-srOnly" for="search_query">{{lang "search.quick_search.input_label"}}</label>
+                        <input class="form-input" data-search-quick name="search_query" id="search_query" data-error-message="{{lang 'search.error.empty_field'}}" placeholder="{{lang 'search.quick_search.input_placeholder'}}" autocomplete="off">
+                        <button type="submit" class="form-submit button button--primary">search</button>
+                    </div>
+                </fieldset>
+            </form>
         </li>
         {{#if settings.account_creation_enabled}}
             <li class="navUser-item navUser-item--account">
@@ -52,7 +59,4 @@
             <div class="dropdown-menu" id="cart-preview-dropdown" data-dropdown-content aria-hidden="true"></div>
         </li>
     </ul>
-    <div class="dropdown dropdown--quickSearch" id="quickSearch" aria-hidden="true" tabindex="-1" data-prevent-quick-search-close>
-        {{> components/common/quick-search}}
-    </div>
 </nav>

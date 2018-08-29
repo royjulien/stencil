@@ -13,13 +13,6 @@
 // -----------------------------------------------------------------------------
 
 .header {
-    position: absolute;
-    top: 0;
-    width: 100%;
-    height: 55px;
-    padding-bottom: 5px;
-    border-bottom: 1px solid stencilColor("color-aql");
-    box-shadow: 0 3px 10px -5px stencilColor("color-aql");;
     z-index: zIndex("low");
 
     &.is-open {
@@ -32,8 +25,6 @@
     }
 
     &__promo {
-        position: absolute;
-        top: 54px;
         width: 100%;
         background-color: stencilColor("color-aql");
         color: white;

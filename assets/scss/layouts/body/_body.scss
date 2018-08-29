@@ -6,19 +6,6 @@
 //
 // =============================================================================
 
-
-.body {
-    padding-top: 30px;
-
-    @include breakpoint("medium") {
-        padding-top: 90px;
-    }
-    @include breakpoint("large") {
-        padding-top: 70px;
-    }
-}
-
-
 .page {
     @include grid-row(
         $behavior: nest
@@ -57,7 +44,7 @@
 
 }
 
-// fuck you olark, you smug mother fucka
+// fuck you olark, you smug mother fuckas
 .olark-attention-grabber.olark-init.olark-above-tab.olark-size-sm {
     display: none;
 }

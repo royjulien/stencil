@@ -691,7 +691,7 @@
     "search": {
         "quick_search": {
             "input_label": "Search",
-            "input_placeholder": "Search the store"
+            "input_placeholder": "What can we help you find today?"
         },
         "results": {
             "form_label": "Search Keyword:",
