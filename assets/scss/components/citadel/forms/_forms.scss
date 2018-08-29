@@ -326,7 +326,7 @@
     margin-right: -$form-minMaxRow-column-gutter;
 
     .form-field {
-        @include grid-column(4);
+        @include grid-column(3);
         margin-bottom: 0;
         padding-left: $form-minMaxRow-column-gutter;
         padding-right: $form-minMaxRow-column-gutter;
