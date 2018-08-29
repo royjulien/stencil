@@ -149,8 +149,6 @@ $url_0: url('https://cdn1.bigcommerce.com/server1000/tc515/product_images/upload
   text-align: center;
 }
 .america {
-  border-bottom: 1px solid rgba(0,0,0,0.2);
-
   @include breakpoint('medium') {
     border-right: 1px solid rgba(0,0,0,0.2);
   }

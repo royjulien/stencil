@@ -46,6 +46,8 @@
     z-index: zIndex("lower");
     opacity: 0;
     visibility: hidden;
+    margin-top: 5px;
+    padding: 5px 0;
 
     @include breakpoint("medium") {
         position: relative;
@@ -55,7 +57,7 @@
     }
 
     &.is-open {
-        top: 80px;
+        top: 60px;
         opacity: 1;
         visibility: visible;
         z-index: 20;

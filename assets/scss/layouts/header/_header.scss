@@ -42,7 +42,7 @@
         &__shipping {
             width: 100%;
             font-size: 11px;
-            text-align: center;
+            text-align: left;
 
             @include breakpoint("small") {
                 font-size: 13px;
@@ -53,6 +53,10 @@
                 width: 50%;
                 font-size: inherit;
             }
+
+            @include breakpoint("large") {
+                text-indent: 14px;
+            }
         }
 
         &__shipping {
@@ -60,6 +64,7 @@
 
             @include breakpoint("medium") {
                 display: block;
+                text-align: right;
             }
         }
 
@@ -73,6 +78,7 @@
             color: white;
             font-weight: 600;
             text-decoration: none;
+            text-indent: 0;
 
             &:hover,
             &:active,
@@ -185,15 +191,19 @@
     display: block;
     position: absolute;
     top: 12px;
-    left: 50%;
+    left: 30px;
     width: 24px;
     overflow: hidden;
     transform: translateX(-50%);
 
+    @include breakpoint('small') {
+        display: none;
+    }
     @include breakpoint('medium') {
+        display: block;
         float: left;
         position: relative;
-        top: -3px;
+        top: 14px;
         left: initial;
         width: 55px;
         transform: translateX(0);
@@ -201,11 +211,8 @@
 
     @include breakpoint('large') {
         position: relative;
-        top: initial;
         width: auto;
-        left: initial;
         overflow: visible;
-        transform: translateX(0);
     }
 }
 
@@ -254,11 +261,12 @@
     @include square($header-toggle-width);
     display: inline-block;
     font-size: 0;
-    left: 0;
+    top: 0;
+    left: 35px;
     overflow: hidden;
     padding: 0 remCalc(18);
     position: absolute;
-    z-index: zIndex("high");
+    z-index: 57;
 
     @include breakpoint("medium") {
         display: none;

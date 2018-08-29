@@ -39,7 +39,6 @@ export default class Global extends PageManager {
         mobileMenuToggle();
         privacyCookieNotification();
         maintenanceMode(this.context.maintenanceMode);
-        loadingProgressBar();
         // swiperConfig();
         next();
     }

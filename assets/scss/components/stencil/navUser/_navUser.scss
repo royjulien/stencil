@@ -17,7 +17,7 @@
     right: 0;
     top: 23px;
     width: 100%;
-    z-index: 21;
+    z-index: 56;
 
     @include breakpoint("medium") {
         top: 85px;
@@ -31,7 +31,7 @@
         max-width: 72rem;
         margin: auto;
         transform: none;
-        z-index: zIndex("high");
+        z-index: 56;
     }
 
     .navUser-section {
@@ -148,21 +148,129 @@
         display: block;
     }
 
+    &:first-child {
+        display: block;
+        position: absolute;
+        left: 60px;
+        top: 2px;
+
+        @include breakpoint("small") {
+            position: relative;
+            left: 0;
+            top: 0;
+        }
+    }
+
+    &.navUser-item--account,
+    &.navUser-item--cart {
+        position: relative;
+        top: 4px;
+
+        @include breakpoint("medium") {
+            top: 14px;
+        }
+    }
+
     .form {
-        margin: 0;
+        margin: 0 25px;
+
+        @include breakpoint("small") {
+            position: relative;
+            top: 6px;
+        }
 
         .form-field {
             margin: 0;
         }
 
+        .quickSearchResults {
+            display: none;
+        }
+
+        .form-input:focus + .quickSearchResults,
+        .quickSearchResults:hover {
+            display: block;
+            width: 320px;
+
+            @include breakpoint("medium") {
+                width: 350px;
+            }
+        }
+
         .form-submit {
+            display: none;
             position: relative;
             top: 6px;
             width: 100px;
             height: 3rem;
             padding: 0.875rem;
             letter-spacing: 1px;
+
+            @include breakpoint("small") {
+                display: none;
+            }
+
+            @include breakpoint("medium") {
+                display: inline-block;
+            }
         }
+    }
+
+    .quickSearchResults .product {
+        width: 100%;
+        min-height: auto;
+        box-shadow: none;
+    }
+
+    .quickSearchResults .card-figure {
+        width: 50px;
+        display: inline-block;
+        margin: 0;
+    }
+
+    section.quickSearchResults {
+        position: absolute;
+    }
+
+    .quickSearchResults .card-image {
+        margin: 0;
+    }
+
+    .quickSearchResults .card-body {
+        display: inline-block;
+        text-align: left;
+        width: calc(100% - 60px);
+        padding: 0 20px;
+        transition: none;
+    }
+
+    .quickSearchResults .card-text {
+        display: none;
+    }
+
+    .quickSearchResults h4.card-title a {
+        text-transform: lowercase;
+        font-weight: bold;
+    }
+
+    .quickSearchResults ul.productGrid {
+        box-shadow: 0 0 0 1px rgba(0,0,0,0.25), 0 0 20px rgba(0,0,0,0.25);
+        border-radius: 5px;
+    }
+
+    .quickSearchResults article.card.card--alternate:hover {
+        border: none;
+    }
+
+    .quickSearchResults article.card.card--alternate {
+        border: none;
+        transition: none;
+        cursor: pointer;
+        margin-bottom: 0;
+    }
+
+    .modal-close {
+        display: none;
     }
 }
 
@@ -316,13 +424,13 @@
 // -----------------------------------------------------------------------------
 
 .countPill {
+    display: inline-block;
     position: relative;
     top: -1px;
     left: 2px;
     background-color: stencilColor("navUser-indicator-backgroundColor");
     border-radius: 50%;
     color: color("whites", "bright");
-    display: none;
     font-size: fontSize("tiny");
     font-weight: fontWeight("bold");
     height: 20px; // 1
