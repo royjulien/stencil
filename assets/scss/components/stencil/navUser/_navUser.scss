@@ -289,6 +289,7 @@
 
     .dropdown-menu {
         width: remCalc(320px);
+        max-width: none;
 
         // scss-lint:disable NestingDepth
         &.is-open {
