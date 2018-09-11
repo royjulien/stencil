@@ -148,7 +148,8 @@
         display: block;
     }
 
-    &:first-child {
+    &:first-child,
+    #igFlag + .navUser-item {
         display: block;
         position: absolute;
         left: 60px;
