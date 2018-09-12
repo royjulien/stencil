@@ -71,12 +71,12 @@ export default class {
             validate: 'min-length:2',
             errorMessage: 'The \'Comments\' field cannot be blank.',
         }, {
-            selector: '[name="email"]',
+            selector: '[name="revfromname"]',
             validate: (cb, val) => {
-                const result = forms.email(val);
+                const result = forms.notEmpty(val);
                 cb(result);
             },
-            errorMessage: 'Please use a valid email address, such as user@example.com.',
+            errorMessage: 'Please use a valid email address, such as user@gmail.com for example.',
         }]);
 
         return this.validator;
