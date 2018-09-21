@@ -568,7 +568,7 @@
   .main-menu-cat a {
     z-index: 2;
 
-    .last-chance {
+    &.last-chance {
       padding: 0 20px;
       box-shadow: inset 0 0 0 3px #e30404;
       color: #ea0202;
