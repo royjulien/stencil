@@ -336,15 +336,6 @@
   display: none;
 }
 
-.last-chance {
-  padding: 0 20px;
-  box-shadow: inset 0 0 0 3px #e30404;
-  color: #ea0202;
-  font-weight: bold;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-}
-
 @media screen and (max-width: 801px) {
   #hamburger {
     display: block;
@@ -435,6 +426,15 @@
     font-weight: 400;
     text-decoration: none;
     text-transform: capitalize;
+
+    .last-chance {
+      padding: 0 20px;
+      box-shadow: inset 0 0 0 3px #e30404;
+      color: #ea0202;
+      font-weight: bold;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
   }
   .main-menu-sub-cat-container {
     padding-left: 0;
