@@ -28,8 +28,8 @@ $modal-width--large:               1280px;
 
 // Positioning Variables
 $modal-footer-align:               right;
-$modal-max-height:                 80%;
-$modal-transformY:                 -50%;
+$modal-max-height:                 0;
+$modal-transformY:                 0;
 
 
 // Spacing
@@ -79,7 +79,7 @@ $reveal-overlay-bg-old:            $modal-backdrop-color;
 
 // We use these to control the style of the modal itself.
 $reveal-modal-bg:                  $body-bg;
-$reveal-position-top:              50% !important;
+$reveal-position-top:              0;
 $reveal-default-width:             900px;
 $reveal-max-width:                 80%;
 $reveal-modal-paddingHorizontal:   spacing("single") * 1.5;

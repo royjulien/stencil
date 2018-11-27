@@ -611,7 +611,7 @@ $cart-item-label-offset:                $cart-thumbnail-maxWidth + $cart-item-sp
 }
 
 .previewCartAction-checkout {
-    padding-right: spacing("quarter");
+    padding: spacing("quarter");
 }
 
 .previewCartAction-checkoutMultiple {
@@ -621,7 +621,7 @@ $cart-item-label-offset:                $cart-thumbnail-maxWidth + $cart-item-sp
 }
 
 .previewCartAction-viewCart {
-    padding-left: spacing("quarter");
+    padding: spacing("quarter");
 }
 
 .previewCart-emptyBody {
