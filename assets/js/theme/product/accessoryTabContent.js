@@ -242,6 +242,30 @@ if (accessoryTabContent) {
                 accessoryTabContent.appendChild(newContent);
             });
             break;
+        case 'BrooklynSeries':
+            requestURL = '/content/json/BrooklynSeries.json';
+            getJSON(requestURL, (error, data) => {
+                clearTabContent(accessoryTabContent);
+                const newContent = createHTML(data);
+                accessoryTabContent.appendChild(newContent);
+            });
+            break;
+        case 'MexliteSeries':
+            requestURL = '/content/json/MexliteSeries.json';
+            getJSON(requestURL, (error, data) => {
+                clearTabContent(accessoryTabContent);
+                const newContent = createHTML(data);
+                accessoryTabContent.appendChild(newContent);
+            });
+            break;
+        case 'CornucopiaSeries':
+            requestURL = '/content/json/CornucopiaSeries.json';
+            getJSON(requestURL, (error, data) => {
+                clearTabContent(accessoryTabContent);
+                const newContent = createHTML(data);
+                accessoryTabContent.appendChild(newContent);
+            });
+            break;
         default:
             clearTabContent(accessoryTabContent);
             accessoryTabContent.innerText = 'Coming Soon!';
