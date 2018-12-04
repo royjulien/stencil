@@ -49,18 +49,6 @@
 //
 // -----------------------------------------------------------------------------
 
-.page-sidebar + .page-content {
-
-  .productGrid {
-        // scss-lint:disable SelectorDepth, NestingDepth
-        .product { // 1
-          @include breakpoint("small") {
-            width: grid-calc(2.5, $total-columns);
-          }
-        }
-      }
-    }
-
 
 //
 // Product Grid with masonry layout

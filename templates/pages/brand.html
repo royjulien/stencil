@@ -16,9 +16,9 @@ brand:
 {{#partial "page"}}
 {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
 {{#if brand.image}}
-    <img src="{{getImage brand.image 'thumb_size'}}">
+    <img class="brand-logo" src="{{getImage brand.image}}">
 {{/if}}
-<h1 class="page-heading">{{brand.name}}</h1>
+
 {{{snippet 'brand'}}}
 <div class="page">
     <aside class="page-sidebar" id="faceted-search-container">
@@ -36,3 +36,48 @@ brand:
 
 {{/partial}}
 {{> layout/base}}
+
+<style>
+    .body {
+        background-color: #f8f8f8;
+    }
+
+    .brand-logo {
+        max-width: 300px;
+        display: block;
+        margin: auto;
+    }
+
+    .productGrid {
+        background-color: transparent;
+    }
+
+    .productGrid .product {
+        width: calc(33% - 20px);
+        background-color: white;
+        border-radius: 0;
+        box-shadow: 0 0 0 1px #ccc;
+    }
+
+    .productGrid .product .rating--small {
+        display: none;
+    }
+
+    .productGrid .product .card-image {
+        padding: 0;
+        margin: 40px auto;
+        max-height: none;
+        width: 80%;
+    }
+
+    .productGrid .product .card-title {
+        padding: 10px 20px 0;
+    }
+
+    .card-text .price--withoutTax {
+        color: #2679fe;
+        font-size: 18px;
+        font-weight: 300;
+        display: inline-block;
+    }
+</style>

@@ -569,12 +569,14 @@
     z-index: 2;
 
     &.last-chance {
-      padding: 0 20px;
-      box-shadow: inset 0 0 0 3px #e30404;
+      padding: 0 10px;
       color: #ea0202;
+    }
+
+    &.thomas-mark {
       font-weight: bold;
-      letter-spacing: 2px;
       text-transform: uppercase;
+      letter-spacing: 1px;
     }
   }
   .main-menu-cat > a:hover,
