@@ -44,8 +44,9 @@ brand:
 
     .brand-logo {
         display: block;
-        max-width: 200px;
-        margin: 50px auto;
+        max-width: 250px;
+        padding: 50px;
+        margin: 0 auto;
     }
 
     .productGrid {
@@ -53,10 +54,15 @@ brand:
     }
 
     .productGrid .product {
-        width: calc(33% - 20px);
         background-color: white;
         border-radius: 0;
         box-shadow: 0 0 0 1px #ccc;
+    }
+
+    @media (min-width: 801px) {
+        .productGrid .product {
+            width: calc(33% - 20px);
+        }
     }
 
     .productGrid .product .rating--small {
