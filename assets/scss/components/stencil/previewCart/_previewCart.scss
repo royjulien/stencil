@@ -95,3 +95,28 @@
         display: block;
     }
 }
+
+.navUser-item--cart .dropdown-menu {
+    position: fixed !important;
+    top: 0 !important;
+    left: calc(100% - 530px) !important;
+    width: 530px;
+    height: 100%;
+    border: none;
+    border-radius: 0;
+    border-left: 1px solid #ccc;
+}
+
+.previewCart-header {
+    text-align: center;
+    font-size: 24px;
+    text-transform: uppercase;
+    background: #555555;
+    color: #fff;
+    line-height: 54px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+

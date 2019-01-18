@@ -27,6 +27,45 @@ $cart-item-label-offset:                $cart-thumbnail-maxWidth + $cart-item-sp
 //
 // -----------------------------------------------------------------------------
 
+.sidecart {
+    position: relative;
+    max-height: calc(100vh - 450px);
+    overflow-x: hidden;
+    overflow-y: scroll;
+
+    .cart-item {
+      display: block;
+      position: relative;
+      padding: 20px 0;
+      overflow: hidden;
+    }
+
+    .cart-item-figure {
+      float: left;
+      text-align: left;
+      width: 100px;
+      padding: 0;
+      margin: 20px;
+    }
+
+    .cart-item-title {
+      display: block;
+      float: left;
+      width: calc(100% - 160px);
+    }
+
+    .cart-item-info {
+      float: none;
+      position: absolute;
+      right: 20px;
+      bottom: 20px;
+      font-size: 14px;
+      color: #818181;
+      display: inline-block;
+      width: auto;
+    }
+}
+
 .cart {
     display: block; // 1
     margin-bottom: spacing("single");

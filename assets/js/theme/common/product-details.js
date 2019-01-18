@@ -238,10 +238,9 @@ export default class Product {
                 return;
             }
 
-            // Open preview modal and update content
-            previewModal.open();
-
             this.updateCartContent(previewModal, response.data.cart_item.hash);
+
+            $('[data-cart-preview]').click();
         });
     }
 
