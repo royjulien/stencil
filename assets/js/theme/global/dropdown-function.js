@@ -3,26 +3,6 @@ const dropdownOptions = document.querySelectorAll('#drop-down--swatch');
 
 let selectedLabel;
 
-// closes all dropdowns on outside clicks
-
-window.onclick = (event) => {
-    const dropdownContent = document.querySelectorAll('.dropdown-content');
-    const targetElement = event.target || event.srcElement;
-
-    if (!targetElement.matches('.dropdown-button')) {
-        for (let i = dropdownContent.length - 1; i >= 0; i--) {
-            dropdownContent[i].className = 'dropdown-content-hide';
-        }
-    }
-    if (!event.target.matches('.inputBox')) {
-        const allButtons = document.getElementsByClassName('inputBox');
-
-        for (let i = 0; i < allButtons.length; i++) {
-            allButtons[i].checked = true;
-        }
-    }
-};
-
 function toggleDropdown(event) {
     const dropdownContent = document.querySelectorAll('.dropdown-content');
     const targetElement = event.target || event.srcElement;
@@ -42,11 +22,6 @@ function toggleDropdown(event) {
     }
 }
 
-// opens and closes the dropdown on click of the button
-for (let i = labelButton.length - 1; i >= 0; i--) {
-    labelButton[i].addEventListener('click', toggleDropdown);
-}
-
 function toggleDropdownArrow(event) {
     const targetElement = event.target || event.srcElement;
 
@@ -54,8 +29,35 @@ function toggleDropdownArrow(event) {
         selectedLabel.innerHTML = `${targetElement.innerHTML} <div class="arrow-down"></div>`;
     }
 }
-// changes the dropdown button
-for (let i = dropdownOptions.length - 1; i >= 0; i--) {
-    dropdownOptions[i].addEventListener('click', toggleDropdownArrow);
-    dropdownOptions[i].addEventListener('touchend', toggleDropdownArrow);
+
+export default function () {
+    // closes all dropdowns on outside clicks
+    window.onclick = (event) => {
+        const dropdownContent = document.querySelectorAll('.dropdown-content');
+        const targetElement = event.target || event.srcElement;
+
+        if (!targetElement.matches('.dropdown-button')) {
+            for (let i = dropdownContent.length - 1; i >= 0; i--) {
+                dropdownContent[i].className = 'dropdown-content-hide';
+            }
+        }
+        if (!event.target.matches('.inputBox')) {
+            const allButtons = document.getElementsByClassName('inputBox');
+
+            for (let i = 0; i < allButtons.length; i++) {
+                allButtons[i].checked = true;
+            }
+        }
+    };
+
+    // opens and closes the dropdown on click of the button
+    for (let i = labelButton.length - 1; i >= 0; i--) {
+        labelButton[i].addEventListener('click', toggleDropdown);
+    }
+
+    // changes the dropdown button
+    for (let i = dropdownOptions.length - 1; i >= 0; i--) {
+        dropdownOptions[i].addEventListener('click', toggleDropdownArrow);
+        dropdownOptions[i].addEventListener('touchend', toggleDropdownArrow);
+    }
 }

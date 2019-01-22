@@ -62,215 +62,217 @@ function createHTML(data) {
     return container;
 }
 
-const accessoryTabContent = document.querySelector('#Things') || document.querySelector('#Accessories') || document.querySelector('#Housing') || document.querySelector('#Accessory');
+export default function () {
+    const accessoryTabContent = document.querySelector('#Things') || document.querySelector('#Accessories') || document.querySelector('#Housing') || document.querySelector('#Accessory');
 
-if (accessoryTabContent) {
-    let tabContent = accessoryTabContent.innerText.split('.')[1];
+    if (accessoryTabContent) {
+        let tabContent = accessoryTabContent.innerText.split('.')[1];
 
-    if (tabContent) {
-        tabContent = tabContent.split('%%')[0];
+        if (tabContent) {
+            tabContent = tabContent.split('%%')[0];
 
-        let requestURL = '';
-        switch (tabContent) {
-        case 'LEDRopeLightAccessories':
-            requestURL = '/content/json/LEDRopeLightAccessories.json';
-            getJSON(requestURL, (error, data) => {
-                if (error) {
-                    // console.log(error);
-                }
-                clearTabContent(accessoryTabContent);
+            let requestURL = '';
+            switch (tabContent) {
+            case 'LEDRopeLightAccessories':
+                requestURL = '/content/json/LEDRopeLightAccessories.json';
+                getJSON(requestURL, (error, data) => {
+                    if (error) {
+                        // console.log(error);
+                    }
+                    clearTabContent(accessoryTabContent);
 
-                const newContent = createHTML(data);
-                accessoryTabContent.appendChild(newContent);
-            });
-            break;
-        case 'OutdoorAccessories':
-            requestURL = '/content/json/outdoorAccessories.json';
-            getJSON(requestURL, (error, data) => {
+                    const newContent = createHTML(data);
+                    accessoryTabContent.appendChild(newContent);
+                });
+                break;
+            case 'OutdoorAccessories':
+                requestURL = '/content/json/outdoorAccessories.json';
+                getJSON(requestURL, (error, data) => {
+                    clearTabContent(accessoryTabContent);
+                    const newContent = createHTML(data);
+                    accessoryTabContent.appendChild(newContent);
+                });
+                break;
+            case '120V4FluorescentHousings':
+                requestURL = 'content/json/120V4FluorescentHousings.json';
+                getJSON(requestURL, (error, data) => {
+                    clearTabContent(accessoryTabContent);
+                    const newContent = createHTML(data);
+                    accessoryTabContent.appendChild(newContent);
+                });
+                break;
+            case '120V4FluorescentTrim':
+                requestURL = 'content/json/120V4FluorescentTrims.json';
+                getJSON(requestURL, (error, data) => {
+                    clearTabContent(accessoryTabContent);
+                    const newContent = createHTML(data);
+                    accessoryTabContent.appendChild(newContent);
+                });
+                break;
+            case '120V4Housing':
+                requestURL = 'content/json/120V4Housing.json';
+                getJSON(requestURL, (error, data) => {
+                    clearTabContent(accessoryTabContent);
+                    const newContent = createHTML(data);
+                    accessoryTabContent.appendChild(newContent);
+                });
+                break;
+            case '120V5Housing':
+                requestURL = 'content/json/120V5Housing.json';
+                getJSON(requestURL, (error, data) => {
+                    clearTabContent(accessoryTabContent);
+                    const newContent = createHTML(data);
+                    accessoryTabContent.appendChild(newContent);
+                });
+                break;
+            case '120V6FluorescentHousing':
+                requestURL = '/content/json/120V6FluorescentHousing.json';
+                getJSON(requestURL, (error, data) => {
+                    clearTabContent(accessoryTabContent);
+                    const newContent = createHTML(data);
+                    accessoryTabContent.appendChild(newContent);
+                });
+                break;
+            case '120V6FluorescentTrim':
+                requestURL = '/content/json/120V6FluorescentTrim.json';
+                getJSON(requestURL, (error, data) => {
+                    clearTabContent(accessoryTabContent);
+                    const newContent = createHTML(data);
+                    accessoryTabContent.appendChild(newContent);
+                });
+                break;
+            case '120V6Housing':
+                requestURL = '/content/json/120V6Housing.json';
+                getJSON(requestURL, (error, data) => {
+                    clearTabContent(accessoryTabContent);
+                    const newContent = createHTML(data);
+                    accessoryTabContent.appendChild(newContent);
+                });
+                break;
+            case '120V6SlopedHousing':
+                requestURL = '/content/json/120V6SlopedHousing.json';
+                getJSON(requestURL, (error, data) => {
+                    clearTabContent(accessoryTabContent);
+                    const newContent = createHTML(data);
+                    accessoryTabContent.appendChild(newContent);
+                });
+                break;
+            case '120V6SlopedTrim':
+                requestURL = '/content/json/120V6SlopedTrim.json';
+                getJSON(requestURL, (error, data) => {
+                    clearTabContent(accessoryTabContent);
+                    const newContent = createHTML(data);
+                    accessoryTabContent.appendChild(newContent);
+                });
+                break;
+            case '120V6Trim':
+                requestURL = '/content/json/120V6Trim.json';
+                getJSON(requestURL, (error, data) => {
+                    clearTabContent(accessoryTabContent);
+                    const newContent = createHTML(data);
+                    accessoryTabContent.appendChild(newContent);
+                });
+                break;
+            case '12VLEDTapeAccessories':
+                requestURL = '/content/json/12VLEDTapeAccessories.json';
+                getJSON(requestURL, (error, data) => {
+                    clearTabContent(accessoryTabContent);
+                    const newContent = createHTML(data);
+                    accessoryTabContent.appendChild(newContent);
+                });
+                break;
+            case '12VRGBLEDTapeAccessories':
+                requestURL = '/content/json/12VRGBLEDTapeAccessories.json';
+                getJSON(requestURL, (error, data) => {
+                    clearTabContent(accessoryTabContent);
+                    const newContent = createHTML(data);
+                    accessoryTabContent.appendChild(newContent);
+                });
+                break;
+            case '12VHOLEDTapeAccessories':
+                requestURL = '/content/json/12VHOLEDTapeAccessories.json';
+                getJSON(requestURL, (error, data) => {
+                    clearTabContent(accessoryTabContent);
+                    const newContent = createHTML(data);
+                    accessoryTabContent.appendChild(newContent);
+                });
+                break;
+            case 'AQUCaccessories':
+                requestURL = '/content/json/AQUCaccessories.json';
+                getJSON(requestURL, (error, data) => {
+                    clearTabContent(accessoryTabContent);
+                    const newContent = createHTML(data);
+                    accessoryTabContent.appendChild(newContent);
+                });
+                break;
+            case 'PuckLightJumpers':
+                requestURL = '/content/json/PuckLightJumpers.json';
+                getJSON(requestURL, (error, data) => {
+                    clearTabContent(accessoryTabContent);
+                    const newContent = createHTML(data);
+                    accessoryTabContent.appendChild(newContent);
+                });
+                break;
+            case 'UnderwaterMR16':
+                requestURL = '/content/json/UnderwaterMR16.json';
+                getJSON(requestURL, (error, data) => {
+                    clearTabContent(accessoryTabContent);
+                    const newContent = createHTML(data);
+                    accessoryTabContent.appendChild(newContent);
+                });
+                break;
+            case 'PGAU999Accessories':
+                requestURL = '/content/json/PGAU999Accessories.json';
+                getJSON(requestURL, (error, data) => {
+                    clearTabContent(accessoryTabContent);
+                    const newContent = createHTML(data);
+                    accessoryTabContent.appendChild(newContent);
+                });
+                break;
+            case 'VintagePendantAccessories':
+                requestURL = '/content/json/VintagePendantAccessories.json';
+                getJSON(requestURL, (error, data) => {
+                    clearTabContent(accessoryTabContent);
+                    const newContent = createHTML(data);
+                    accessoryTabContent.appendChild(newContent);
+                });
+                break;
+            case 'PGC5BAccessories':
+                requestURL = '/content/json/PGC5BAccessories.json';
+                getJSON(requestURL, (error, data) => {
+                    clearTabContent(accessoryTabContent);
+                    const newContent = createHTML(data);
+                    accessoryTabContent.appendChild(newContent);
+                });
+                break;
+            case 'BrooklynSeries':
+                requestURL = '/content/json/BrooklynSeries.json';
+                getJSON(requestURL, (error, data) => {
+                    clearTabContent(accessoryTabContent);
+                    const newContent = createHTML(data);
+                    accessoryTabContent.appendChild(newContent);
+                });
+                break;
+            case 'MexliteSeries':
+                requestURL = '/content/json/MexliteSeries.json';
+                getJSON(requestURL, (error, data) => {
+                    clearTabContent(accessoryTabContent);
+                    const newContent = createHTML(data);
+                    accessoryTabContent.appendChild(newContent);
+                });
+                break;
+            case 'CornucopiaSeries':
+                requestURL = '/content/json/CornucopiaSeries.json';
+                getJSON(requestURL, (error, data) => {
+                    clearTabContent(accessoryTabContent);
+                    const newContent = createHTML(data);
+                    accessoryTabContent.appendChild(newContent);
+                });
+                break;
+            default:
                 clearTabContent(accessoryTabContent);
-                const newContent = createHTML(data);
-                accessoryTabContent.appendChild(newContent);
-            });
-            break;
-        case '120V4FluorescentHousings':
-            requestURL = 'content/json/120V4FluorescentHousings.json';
-            getJSON(requestURL, (error, data) => {
-                clearTabContent(accessoryTabContent);
-                const newContent = createHTML(data);
-                accessoryTabContent.appendChild(newContent);
-            });
-            break;
-        case '120V4FluorescentTrim':
-            requestURL = 'content/json/120V4FluorescentTrims.json';
-            getJSON(requestURL, (error, data) => {
-                clearTabContent(accessoryTabContent);
-                const newContent = createHTML(data);
-                accessoryTabContent.appendChild(newContent);
-            });
-            break;
-        case '120V4Housing':
-            requestURL = 'content/json/120V4Housing.json';
-            getJSON(requestURL, (error, data) => {
-                clearTabContent(accessoryTabContent);
-                const newContent = createHTML(data);
-                accessoryTabContent.appendChild(newContent);
-            });
-            break;
-        case '120V5Housing':
-            requestURL = 'content/json/120V5Housing.json';
-            getJSON(requestURL, (error, data) => {
-                clearTabContent(accessoryTabContent);
-                const newContent = createHTML(data);
-                accessoryTabContent.appendChild(newContent);
-            });
-            break;
-        case '120V6FluorescentHousing':
-            requestURL = '/content/json/120V6FluorescentHousing.json';
-            getJSON(requestURL, (error, data) => {
-                clearTabContent(accessoryTabContent);
-                const newContent = createHTML(data);
-                accessoryTabContent.appendChild(newContent);
-            });
-            break;
-        case '120V6FluorescentTrim':
-            requestURL = '/content/json/120V6FluorescentTrim.json';
-            getJSON(requestURL, (error, data) => {
-                clearTabContent(accessoryTabContent);
-                const newContent = createHTML(data);
-                accessoryTabContent.appendChild(newContent);
-            });
-            break;
-        case '120V6Housing':
-            requestURL = '/content/json/120V6Housing.json';
-            getJSON(requestURL, (error, data) => {
-                clearTabContent(accessoryTabContent);
-                const newContent = createHTML(data);
-                accessoryTabContent.appendChild(newContent);
-            });
-            break;
-        case '120V6SlopedHousing':
-            requestURL = '/content/json/120V6SlopedHousing.json';
-            getJSON(requestURL, (error, data) => {
-                clearTabContent(accessoryTabContent);
-                const newContent = createHTML(data);
-                accessoryTabContent.appendChild(newContent);
-            });
-            break;
-        case '120V6SlopedTrim':
-            requestURL = '/content/json/120V6SlopedTrim.json';
-            getJSON(requestURL, (error, data) => {
-                clearTabContent(accessoryTabContent);
-                const newContent = createHTML(data);
-                accessoryTabContent.appendChild(newContent);
-            });
-            break;
-        case '120V6Trim':
-            requestURL = '/content/json/120V6Trim.json';
-            getJSON(requestURL, (error, data) => {
-                clearTabContent(accessoryTabContent);
-                const newContent = createHTML(data);
-                accessoryTabContent.appendChild(newContent);
-            });
-            break;
-        case '12VLEDTapeAccessories':
-            requestURL = '/content/json/12VLEDTapeAccessories.json';
-            getJSON(requestURL, (error, data) => {
-                clearTabContent(accessoryTabContent);
-                const newContent = createHTML(data);
-                accessoryTabContent.appendChild(newContent);
-            });
-            break;
-        case '12VRGBLEDTapeAccessories':
-            requestURL = '/content/json/12VRGBLEDTapeAccessories.json';
-            getJSON(requestURL, (error, data) => {
-                clearTabContent(accessoryTabContent);
-                const newContent = createHTML(data);
-                accessoryTabContent.appendChild(newContent);
-            });
-            break;
-        case '12VHOLEDTapeAccessories':
-            requestURL = '/content/json/12VHOLEDTapeAccessories.json';
-            getJSON(requestURL, (error, data) => {
-                clearTabContent(accessoryTabContent);
-                const newContent = createHTML(data);
-                accessoryTabContent.appendChild(newContent);
-            });
-            break;
-        case 'AQUCaccessories':
-            requestURL = '/content/json/AQUCaccessories.json';
-            getJSON(requestURL, (error, data) => {
-                clearTabContent(accessoryTabContent);
-                const newContent = createHTML(data);
-                accessoryTabContent.appendChild(newContent);
-            });
-            break;
-        case 'PuckLightJumpers':
-            requestURL = '/content/json/PuckLightJumpers.json';
-            getJSON(requestURL, (error, data) => {
-                clearTabContent(accessoryTabContent);
-                const newContent = createHTML(data);
-                accessoryTabContent.appendChild(newContent);
-            });
-            break;
-        case 'UnderwaterMR16':
-            requestURL = '/content/json/UnderwaterMR16.json';
-            getJSON(requestURL, (error, data) => {
-                clearTabContent(accessoryTabContent);
-                const newContent = createHTML(data);
-                accessoryTabContent.appendChild(newContent);
-            });
-            break;
-        case 'PGAU999Accessories':
-            requestURL = '/content/json/PGAU999Accessories.json';
-            getJSON(requestURL, (error, data) => {
-                clearTabContent(accessoryTabContent);
-                const newContent = createHTML(data);
-                accessoryTabContent.appendChild(newContent);
-            });
-            break;
-        case 'VintagePendantAccessories':
-            requestURL = '/content/json/VintagePendantAccessories.json';
-            getJSON(requestURL, (error, data) => {
-                clearTabContent(accessoryTabContent);
-                const newContent = createHTML(data);
-                accessoryTabContent.appendChild(newContent);
-            });
-            break;
-        case 'PGC5BAccessories':
-            requestURL = '/content/json/PGC5BAccessories.json';
-            getJSON(requestURL, (error, data) => {
-                clearTabContent(accessoryTabContent);
-                const newContent = createHTML(data);
-                accessoryTabContent.appendChild(newContent);
-            });
-            break;
-        case 'BrooklynSeries':
-            requestURL = '/content/json/BrooklynSeries.json';
-            getJSON(requestURL, (error, data) => {
-                clearTabContent(accessoryTabContent);
-                const newContent = createHTML(data);
-                accessoryTabContent.appendChild(newContent);
-            });
-            break;
-        case 'MexliteSeries':
-            requestURL = '/content/json/MexliteSeries.json';
-            getJSON(requestURL, (error, data) => {
-                clearTabContent(accessoryTabContent);
-                const newContent = createHTML(data);
-                accessoryTabContent.appendChild(newContent);
-            });
-            break;
-        case 'CornucopiaSeries':
-            requestURL = '/content/json/CornucopiaSeries.json';
-            getJSON(requestURL, (error, data) => {
-                clearTabContent(accessoryTabContent);
-                const newContent = createHTML(data);
-                accessoryTabContent.appendChild(newContent);
-            });
-            break;
-        default:
-            clearTabContent(accessoryTabContent);
-            accessoryTabContent.innerText = 'Coming Soon!';
+                accessoryTabContent.innerText = 'Coming Soon!';
+            }
         }
     }
 }

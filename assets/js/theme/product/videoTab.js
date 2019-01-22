@@ -116,26 +116,28 @@ function insertGalleryVideo(videoSrc, thumbnail) {
     thumbnailGallary.appendChild(thumbNailLi);
 }
 
-const videoTabContent = document.querySelector('#Videos');
-const overViewContent = document.querySelector('#Overview');
+export default function () {
+    const videoTabContent = document.querySelector('#Videos');
+    const overViewContent = document.querySelector('#Overview');
 
-if (videoTabContent) {
-    let tabContent = videoTabContent.innerText.split('.')[1];
-    tabContent = tabContent.split('%%')[0];
-    const requestURL = 'https://www.aqlightinggroup.com/content/json/video-tab-videos.json';
+    if (videoTabContent) {
+        let tabContent = videoTabContent.innerText.split('.')[1];
+        tabContent = tabContent.split('%%')[0];
+        const requestURL = 'https://www.aqlightinggroup.com/content/json/video-tab-videos.json';
 
-    getJSON(requestURL, (error, data) => {
-        if (error) {
-            // console.log('This is the error', error);
-        } else {
-            for (let i = data.length - 1; i >= 0; i--) {
-                if (data[i].name === tabContent) {
-                    clearTabContent(videoTabContent);
-                    const newContent = insertVideo(data[i].title, data[i].url);
-                    overViewContent.insertAdjacentElement('beforeend', newContent);
-                    insertGalleryVideo(data[i].url, data[i].thumbnail);
+        getJSON(requestURL, (error, data) => {
+            if (error) {
+                // console.log('This is the error', error);
+            } else {
+                for (let i = data.length - 1; i >= 0; i--) {
+                    if (data[i].name === tabContent) {
+                        clearTabContent(videoTabContent);
+                        const newContent = insertVideo(data[i].title, data[i].url);
+                        overViewContent.insertAdjacentElement('beforeend', newContent);
+                        insertGalleryVideo(data[i].url, data[i].thumbnail);
+                    }
                 }
             }
-        }
-    });
+        });
+    }
 }
