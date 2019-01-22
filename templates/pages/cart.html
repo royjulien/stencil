@@ -2,9 +2,6 @@
 <div class="page">
 
     <main class="page-content" data-cart>
-        {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
-
-        {{> components/cart/page-title}}
 
         {{#if cart.items.length}}
             <div class="loadingOverlay"></div>
@@ -52,4 +49,3 @@
 </div>
 {{/partial}}
 {{> layout/base}}
-`

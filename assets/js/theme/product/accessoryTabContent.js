@@ -24,38 +24,40 @@ function createHTML(data) {
 
     const tabTitle = document.createElement('span');
     tabTitle.className = 'product-title';
-    tabTitle.innerText = data.header;
+    tabTitle.innerText = data ? data.header : null;
     container.appendChild(tabTitle);
 
     const ulElement = document.createElement('ul');
     ulElement.className = 'accessorytab';
 
-// for loop start point
-    for (let i = 0; i < data.items.length; i++) {
-        // create URL link to product
-        const cardLink = document.createElement('a');
-        cardLink.target = '_blank';
-        cardLink.href = data.items[i].itemLink;
+    if (data) {
+        // for loop start point
+        for (let i = 0; i < data.items.length; i++) {
+            // create URL link to product
+            const cardLink = document.createElement('a');
+            cardLink.target = '_blank';
+            cardLink.href = data.items[i].itemLink;
 
-        // create list item for image and text content
-        const liElement = document.createElement('li');
-        liElement.className = 'accessorytab';
+            // create list item for image and text content
+            const liElement = document.createElement('li');
+            liElement.className = 'accessorytab';
 
-        // create image
-        const liImage = document.createElement('img');
-        liImage.src = data.items[i].itemImg;
-        cardLink.appendChild(liImage);
+            // create image
+            const liImage = document.createElement('img');
+            liImage.src = data.items[i].itemImg;
+            cardLink.appendChild(liImage);
 
-        // create text content
-        const liName = data.items[i].itemName;
+            // create text content
+            const liName = data.items[i].itemName;
 
-        cardLink.innerHTML += liName;
-        liElement.appendChild(cardLink);
+            cardLink.innerHTML += liName;
+            liElement.appendChild(cardLink);
 
-        // append all content to li element
-        ulElement.appendChild(liElement);
+            // append all content to li element
+            ulElement.appendChild(liElement);
+        }
     }
-// for loop end point
+    // for loop end point
     container.appendChild(ulElement);
     return container;
 }

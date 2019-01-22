@@ -26,12 +26,96 @@ $cart-item-label-offset:                $cart-thumbnail-maxWidth + $cart-item-sp
 // 2. Hide the table headings on mobile and tablet, show them for larger screens.
 //
 // -----------------------------------------------------------------------------
+body.active {
+    overflow: hidden;
+}
+
+.mobileMenu-toggle.active {
+    z-index: 0;
+}
+
+.sidecart-exit {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    z-index: 1;
+
+    &.active {
+        display: block;
+    }
+}
 
 .sidecart {
-    position: relative;
-    max-height: calc(100vh - 450px);
-    overflow-x: hidden;
-    overflow-y: scroll;
+    position: fixed !important;
+    top: 0 !important;
+    right: -100% !important;
+    left: initial !important;
+    width: 100% !important;
+    height: 100vh;
+    border-left: 1px solid #ccc;
+    background-color: white;
+    transition: transform 333ms;
+    z-index: 999;
+
+    &.active {
+        transform: translateX(-100%);
+    }
+
+    @media (min-width: 530px) {
+        right: -530px !important;
+        width: 530px !important;
+
+        &.active {
+            transform: translateX(-530px);
+        }
+    }
+
+
+    .sidecart-close {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 54px;
+        height: 54px;
+        margin: 0;
+        padding: 0;
+        cursor: pointer;
+
+        &::before,
+        &::after {
+            content: '';
+            display: block;
+            position: absolute;
+            top: 25px;
+            left: 15px;
+            width: 50%;
+            height: 3px;
+            background-color: white;
+            transform-origin: center;
+        }
+
+        &::before {
+            transform: rotate(45deg);
+        }
+        &::after {
+            transform: rotate(-45deg);
+        }
+    }
+
+    .sidecart-container {
+        max-height: calc(100vh - 320px);
+        border-bottom: 3px solid #666;
+        overflow-x: hidden;
+        overflow-y: scroll;
+
+        @media (min-width: 530px) {
+            max-height: calc(100vh - 240px);
+        }
+    }
 
     .cart-item {
       display: block;
@@ -52,6 +136,53 @@ $cart-item-label-offset:                $cart-thumbnail-maxWidth + $cart-item-sp
       display: block;
       float: left;
       width: calc(100% - 160px);
+      height: auto;
+      margin-bottom: 60px;
+
+      > a {
+        display: none;
+      }
+
+      .definitionList-key {
+        float: none;
+        display: block;
+        margin: 10px 0 0;
+        text-transform: uppercase;
+        font-weight: bold;
+        color: #888;
+        font-size: 11px;
+        letter-spacing: 1px;
+      }
+
+      .definitionList-value {
+        display: block;
+        color: #222;
+        font-size: 14px;
+        line-height: 1.6;
+        text-decoration: none;
+        font-family: 'Open Sans', sans-serif;
+      }
+    }
+
+    .cart-item-brand {
+        margin: 0;
+        color: #888;
+        font-size: 11px;
+        letter-spacing: 1px;
+        font-weight: bold;
+    }
+
+    .cart-item-name + .definitionList {
+        margin: 0;
+    }
+
+    .cart-item-name a {
+        display: block;
+        color: #222;
+        font-size: 14px;
+        line-height: 1.6;
+        text-decoration: none;
+        font-family: 'Open Sans', sans-serif;
     }
 
     .cart-item-info {
@@ -63,6 +194,110 @@ $cart-item-label-offset:                $cart-thumbnail-maxWidth + $cart-item-sp
       color: #818181;
       display: inline-block;
       width: auto;
+    }
+
+    .cart-item-quantity {
+        left: 162px;
+        right: initial;
+        text-align: left;
+
+        .form-increment {
+            margin: 0;
+        }
+    }
+
+    .form-increment .loadingOverlay {
+        display: block;
+
+        &:before {
+            width: 10px;
+            height: 10px;
+        }
+    }
+
+    .cart-total,
+    .cart-checkout {
+        float: left;
+        width: 100%;
+        padding: 20px;
+
+        @media (min-width: 530px) {
+            width: 50%;
+        }
+
+        .checkout-button {
+            width: 100%;
+            padding: 1rem;
+            margin: 0;
+            border: none;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 21px;
+            letter-spacing: 3px;
+            font-weight: 600;
+            text-align: center;
+            text-transform: uppercase;
+        }
+    }
+
+    .cart-checkout {
+        padding: 0 20px 20px;
+
+        @media (min-width: 530px) {
+            padding: 20px;
+            margin-top: 90px;
+        }
+    }
+
+    .cart-total-label,
+    .cart-total-value {
+        position: relative;
+        width: 50%;
+        padding: 5px 0;
+        color: #666;
+        font-size: 14px;
+
+        &.green {
+            color: #16942d;
+        }
+
+        &.big {
+            padding: 10px 0;
+            margin-top: 10px;
+            border-top: 1px solid #888;
+            font-size: 21px;
+            font-weight: bold;
+        }
+
+        .cart-total-gfs {
+            display: block;
+            position: relative;
+            left: -40px;
+            width: calc(100% + 40px);
+            border-radius: 3px;
+            box-shadow: 0 0 0 2px #dd0000;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+
+            &:hover {
+                .cart-total-gfs-anchor {
+                    background-color: #dd0000;
+                    color: white;
+                }
+            }
+
+            .cart-total-gfs-anchor {
+                display: block;
+                padding: 7px 5px;
+                color: #dd0000;
+                text-decoration: none;
+                text-transform: uppercase;
+            }
+        }
+    }
+
+    .cart-total-value {
+        text-align: right;
     }
 }
 
@@ -258,7 +493,7 @@ $cart-item-label-offset:                $cart-thumbnail-maxWidth + $cart-item-sp
 }
 
 .cart-item-value {
-    padding-left: $cart-item-spacing;
+    padding-right: 10px;
 
     @include breakpoint("medium") {
         padding-left: 0;

@@ -9,6 +9,7 @@ import menu from './global/menu';
 import foundation from './global/foundation';
 import quickView from './global/quick-view';
 import cartPreview from './global/cart-preview';
+import cartContent from './cart/cart-content';
 import compareProducts from './global/compare-products';
 import privacyCookieNotification from './global/cookieNotification';
 import maintenanceMode from './global/maintenanceMode';
@@ -33,6 +34,7 @@ export default class Global extends PageManager {
         foundation($(document));
         quickView(this.context);
         cartPreview();
+        cartContent();
         compareProducts(this.context.urls);
         carousel();
         menu();

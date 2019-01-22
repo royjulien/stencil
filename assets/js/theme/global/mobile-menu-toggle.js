@@ -55,7 +55,6 @@ export class MobileMenuToggle {
 
     bindEvents() {
         this.$toggle.on('click', this.onToggleClick);
-        this.$header.on(CartPreviewEvents.open, this.onCartPreviewOpen);
 
         if (this.mediumMediaQueryList && this.mediumMediaQueryList.addListener) {
             this.mediumMediaQueryList.addListener(this.onMediumMediaQueryMatch);
@@ -64,7 +63,6 @@ export class MobileMenuToggle {
 
     unbindEvents() {
         this.$toggle.off('click', this.onToggleClick);
-        this.$header.off(CartPreviewEvents.open, this.onCartPreviewOpen);
 
         if (this.mediumMediaQueryList && this.mediumMediaQueryList.addListener) {
             this.mediumMediaQueryList.removeListener(this.onMediumMediaQueryMatch);

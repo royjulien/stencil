@@ -1,30 +1,40 @@
 <div class="previewCart">
-    <section class="previewCart-header">
-        Your Cart
-    </section>
+    <div class="sidecart-close"></div>
+
+    <section class="previewCart-header">Your Cart</section>
 
     {{#if cart.items.length}}
-        <div data-cart-content>
-            {{> components/cart/content}}
-        </div>
+        {{> components/cart/cart-content}}
 
         <div class="cart-total">
-            <div class="cart-total-label">
-                <strong>{{lang 'cart.checkout.subtotal'}}:</strong>
-            </div>
+            <div class="cart-total-label">Item subtotal</div>
+            <div class="cart-total-value"><span>{{cart.sub_total.formatted}}</span></div>
+
+            <div class="cart-total-label">Shipping</div>
             <div class="cart-total-value">
-                <span>{{cart.sub_total.formatted}}</span>
+                {{#if cart.sub_total.value "<" "150"}}
+                    <span class="cart-total-gfs"><a href="/" class="cart-total-gfs-anchor">Add ${{toFixed (subtract 150 cart.sub_total.value) 2}} to get Free Shipping</a></span>
+                {{else}}
+                    <strong>FREE</strong>
+                {{/if}}
             </div>
+
+
+            {{#if cart.coupons}}
+            {{#each cart.coupons}}
+                <div class="cart-total-label">Discounts</div>
+                <div class="cart-total-value green">
+                    <strong>${{multiply discount.value -1}}</strong>
+                </div>
+            {{/each}}
+            {{/if}}
+
+            <div class="cart-total-label big">Total Due</div>
+            <div class="cart-total-value big"><span>{{cart.grand_total.formatted}}</span></div>
         </div>
 
-        <div class="previewCartAction">
-            {{#if cart.show_primary_checkout_button}}
-                <div class="previewCartAction-checkout">
-                    <a href="{{urls.checkout.single_address}}" class="button button--small button--primary">
-                        {{lang 'cart.preview.checkout_now'}}
-                    </a>
-                </div>
-            {{/if}}
+        <div class="cart-checkout">
+            <a href="{{urls.checkout.single_address}}" class="button button--small button--primary checkout-button">Checkout</a>
         </div>
     {{else}}
         <div class="previewCart-emptyBody">
