@@ -32,28 +32,28 @@ export default function () {
             const options = {
                 template: 'common/cart-preview',
             };
-
-            if (data && data[0]) {
-                if (data[0].baseAmount) {
-                    const cartSubtotal = data[0].baseAmount;
-                    if (cartSubtotal < 250) {
-                        utils.api.cart.applyCode('', () => {
-                            setTimeout(getContent(options), 0);
-                        }, callback);
-                    } else if (cartSubtotal >= 250 && cartSubtotal < 450) {
-                        utils.api.cart.applyCode('SIDECART5', () => {
-                            setTimeout(getContent(options), 0);
-                        }, callback);
-                    } else if (cartSubtotal >= 450) {
-                        utils.api.cart.applyCode('SIDECART10', () => {
-                            setTimeout(getContent(options), 0);
-                        }, callback);
-                    }
-                }
-            } else {
-                getContent(options);
-            }
         });
+
+        if (data && data[0]) {
+            if (data[0].baseAmount) {
+                const cartSubtotal = data[0].baseAmount;
+                if (cartSubtotal < 250) {
+                    utils.api.cart.applyCode('', () => {
+                        setTimeout(getContent(options), 0);
+                    }, callback);
+                } else if (cartSubtotal >= 250 && cartSubtotal < 450) {
+                    utils.api.cart.applyCode('SIDECART5', () => {
+                        setTimeout(getContent(options), 0);
+                    }, callback);
+                } else if (cartSubtotal >= 450) {
+                    utils.api.cart.applyCode('SIDECART10', () => {
+                        setTimeout(getContent(options), 0);
+                    }, callback);
+                }
+            }
+        } else {
+            getContent(options);
+        }
     };
 
     incrementItemQuantity = () => {
@@ -97,7 +97,7 @@ export default function () {
             const delta = new Date() - openTime;
             event.preventDefault();
 
-            // Delta workaround for Chrome's "prevent popup"
+            // Ask user if they want to confirm removing the item within the cart
             if (!result && delta > 10) {
                 return;
             }
@@ -126,7 +126,14 @@ export default function () {
     };
 
     recart = () => {
-        applyCoupon();
+        // if adding a discount, call applyCoupon() instead
+        $.getJSON('/api/storefront/cart', (data) => {
+            const options = {
+                template: 'common/cart-preview',
+            };
+
+            getContent(options);
+        });
     };
 
     $('body').on('cart-quantity-update', (event, quantity) => {
@@ -143,6 +150,6 @@ export default function () {
         $cartDropdown.addClass(loadingClass).html($cartLoading);
         $cartLoading.show();
 
-        applyCoupon();
+        recart();
     });
 }

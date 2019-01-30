@@ -107,7 +107,7 @@ body.active {
     }
 
     .sidecart-container {
-        max-height: calc(100vh - 320px);
+        max-height: calc(100vh - 300px);
         border-bottom: 3px solid #666;
         overflow-x: hidden;
         overflow-y: scroll;
@@ -244,7 +244,7 @@ body.active {
 
         @media (min-width: 530px) {
             padding: 20px;
-            margin-top: 90px;
+            margin-top: 60px;
         }
     }
 
