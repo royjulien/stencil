@@ -57,7 +57,7 @@ export default function () {
     // };
 
     incrementItemQuantity = () => {
-        $('.sidecart [data-action]').on('click', function (event) {
+        $('.sidecart [data-action]').on('click', (event) => {
             const itemId = $(this).data('cart-itemid');
             const $el = $(`#qty-${itemId}`);
             const oldQty = parseInt($el.val(), 10);
@@ -127,7 +127,7 @@ export default function () {
 
     recart = () => {
         // if adding a discount, call applyCoupon() instead
-        $.getJSON('/api/storefront/cart', (data) => {
+        $.getJSON('/api/storefront/cart', () => {
             const options = {
                 template: 'common/cart-preview',
             };
