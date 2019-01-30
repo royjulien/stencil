@@ -9,7 +9,7 @@ export default function () {
     const $cartDropdown = $('#cart-preview-dropdown');
     const $cartLoading = $('<div class="loadingOverlay"></div>');
     let getContent = '';
-    let applyCoupon = '';
+    // let applyCoupon = '';
     let incrementItemQuantity = '';
     let removeItem = '';
     let toggleSidecart = '';
@@ -27,34 +27,34 @@ export default function () {
         });
     };
 
-    applyCoupon = (callback) => {
-        $.getJSON('/api/storefront/cart', (data) => {
-            const options = {
-                template: 'common/cart-preview',
-            };
-        });
+    // applyCoupon = (callback) => {
+    //     $.getJSON('/api/storefront/cart', (data) => {
+    //         const options = {
+    //             template: 'common/cart-preview',
+    //         };
+    //     });
 
-        if (data && data[0]) {
-            if (data[0].baseAmount) {
-                const cartSubtotal = data[0].baseAmount;
-                if (cartSubtotal < 250) {
-                    utils.api.cart.applyCode('', () => {
-                        setTimeout(getContent(options), 0);
-                    }, callback);
-                } else if (cartSubtotal >= 250 && cartSubtotal < 450) {
-                    utils.api.cart.applyCode('SIDECART5', () => {
-                        setTimeout(getContent(options), 0);
-                    }, callback);
-                } else if (cartSubtotal >= 450) {
-                    utils.api.cart.applyCode('SIDECART10', () => {
-                        setTimeout(getContent(options), 0);
-                    }, callback);
-                }
-            }
-        } else {
-            getContent(options);
-        }
-    };
+    //     if (data && data[0]) {
+    //         if (data[0].baseAmount) {
+    //             const cartSubtotal = data[0].baseAmount;
+    //             if (cartSubtotal < 250) {
+    //                 utils.api.cart.applyCode('', () => {
+    //                     setTimeout(getContent(options), 0);
+    //                 }, callback);
+    //             } else if (cartSubtotal >= 250 && cartSubtotal < 450) {
+    //                 utils.api.cart.applyCode('SIDECART5', () => {
+    //                     setTimeout(getContent(options), 0);
+    //                 }, callback);
+    //             } else if (cartSubtotal >= 450) {
+    //                 utils.api.cart.applyCode('SIDECART10', () => {
+    //                     setTimeout(getContent(options), 0);
+    //                 }, callback);
+    //             }
+    //         }
+    //     } else {
+    //         getContent(options);
+    //     }
+    // };
 
     incrementItemQuantity = () => {
         $('.sidecart [data-action]').on('click', function (event) {
