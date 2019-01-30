@@ -57,7 +57,7 @@ export default function () {
     // };
 
     incrementItemQuantity = () => {
-        $('.sidecart [data-action]').on('click', (event) => {
+        $('.sidecart [data-action]').on('click', function (event) {
             const itemId = $(this).data('cart-itemid');
             const $el = $(`#qty-${itemId}`);
             const oldQty = parseInt($el.val(), 10);
