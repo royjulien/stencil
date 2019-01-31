@@ -1,5 +1,5 @@
 {
-  "name": "bigcommerce-storefront",
+  "name": "stencil",
   "description": "The new Bigcommerce Storefront",
   "version": "2.1.2",
   "private": true,
@@ -44,5 +44,18 @@
     "slick-carousel": "1.5.5",
     "time-grunt": "^1.2.2",
     "webpack": "^1.15.0"
-  }
+  },
+  "main": "Gruntfile.js",
+  "dependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/royjulien/stencil.git"
+  },
+  "bugs": {
+    "url": "https://github.com/royjulien/stencil/issues"
+  },
+  "homepage": "https://github.com/royjulien/stencil#readme"
 }
