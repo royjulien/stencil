@@ -40,7 +40,8 @@
                     <a class="navUser-action" href="{{urls.account.index}}">{{lang 'common.account'}}</a>
                     <a class="navUser-action" href="{{urls.auth.logout}}">{{lang 'common.logout'}}</a>
                 {{else}}
-                    <a class="navUser-action" href="{{urls.auth.login}}">{{lang 'common.login'}}</a> <span class="navUser-or">{{lang 'common.or'}}</span> <a class="navUser-action" href="{{urls.auth.create_account}}">{{lang 'common.sign_up'}}</a>
+                    <a class="navUser-action" href="{{urls.auth.login}}">{{lang 'common.login'}}</a>
+                    <a class="navUser-action" href="{{urls.auth.create_account}}">{{lang 'common.sign_up'}}</a>
                 {{/if}}
             </li>
         {{/if}}
