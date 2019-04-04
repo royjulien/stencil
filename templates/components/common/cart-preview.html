@@ -33,8 +33,9 @@
             <div class="cart-total-value big"><span>{{cart.grand_total.formatted}}</span></div>
         </div>
 
-        <div class="cart-checkout">
-            <a href="{{urls.checkout.single_address}}" class="button button--small button--primary checkout-button">Checkout</a>
+        <div class="cart-checkout" style="margin-top:0;">
+            <div style="font-size: 15px;font-weight: bold;margin-bottom: 14px;color: white;background: #2c8846;border-radius: 5px;padding: 15px;letter-spacing: 0.25px;">Checkout currently offline for maintenance, please call to place your order: (800) 865-7221</div>
+            <a href="#" class="button button--small button--primary checkout-button" style='background-color: #999;'>Checkout</a>
         </div>
     {{else}}
         <div class="previewCart-emptyBody">
