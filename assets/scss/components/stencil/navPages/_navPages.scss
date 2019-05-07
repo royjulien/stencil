@@ -46,8 +46,10 @@
     z-index: zIndex("lower");
     opacity: 0;
     visibility: hidden;
-    margin-top: 5px;
-    padding: 5px 0;
+    margin-top: 15px;
+    padding: 10px 0;
+    border-top: 1px solid #eff1f6;
+    border-bottom: 1px solid #eff1f6;
 
     @include breakpoint("medium") {
         position: relative;
@@ -391,11 +393,9 @@
   }
   #main-menu a {
     position: relative;
-    color: #2165D1;
-    font-weight: 600;
-    font-size: 14px;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
+    color: #232323;
+    font-size: 16px;
+    text-transform: capitalize;
   }
   #main-menu > ul {
     margin: 0;
@@ -405,9 +405,9 @@
     margin: 0;
   }
   #main-menu li {
-    padding: 10px 0 10px 20px;
-    margin: 10px;
-    border: 1px solid #ddd;
+    position: relative;
+    padding: 5px 20px;
+    margin: 2px;
     border-radius: 3px;
     background-color: white;
     list-style-type: none;
@@ -484,24 +484,27 @@
   .main-menu-cat-bracket {
     display: block;
     position: absolute;
+    top: 0;
     right: 0;
-    width: 100px;
-    height: 45px;
-    margin: 5px;
-    color: #2165D1;
+    width: 60px;
+    height: 100%;
+    color: #232323;
     font-size: 30px;
     font-weight: 100;
     line-height: 43px;
     text-align: center;
+    border-left: 1px solid #f0f0f0;
     cursor: pointer;
 
     &:before,
     &:after {
       content: '';
       position: absolute;
+      top: 13px;
+      left: 10px;
       width: 15px;
       height: 2px;
-      background-color: #2165D1;
+      background-color: #232323;
     }
 
     &:before {
@@ -518,16 +521,14 @@
   }
 
   .main-menu-cat-back {
-    padding: 20px;
-    margin: 10px;
-    border-radius: 3px;
-    background-color: #1E5CBE;
-    color: #ffffff;
-    font-size: 16px;
+    padding: 20px 5px;
+    margin: 2px;
+    border-radius: 2px;
+    color: #232323;
+    font-size: 14px;
     font-weight: bold;
-    letter-spacing: 5px;
-    text-transform: uppercase;
-    text-align: center;
+    letter-spacing: 1px;
+    text-transform: capitalize;
     cursor: pointer;
   }
 
@@ -540,11 +541,10 @@
   #main-menu {
     display: block;
     position: relative;
-    max-width: 69rem;
+    max-width: 925px;
     height: 35px;
     padding: 0;
     margin: 0 auto;
-    text-shadow: 1px 1px 1px rgba(255,255,255,.5);
   }
   #main-menu > ul,
   #main-menu > li {
@@ -602,7 +602,7 @@
     height: 100%;
     padding: 0 10px;
     color: #232323;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 300;
     line-height: 35px;
     text-decoration: none;

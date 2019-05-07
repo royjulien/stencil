@@ -35,42 +35,74 @@
 .category {
     background-color: white;
 
-    &Container {}
+    &Container {
+        clear: both;
+        position: relative;
+        left: -30px;
+        width: calc(100% + 60px);
+        padding: 27px 30px;
+        margin: 0;
+        background-color: #edf0f5;
+        text-align: center;
+        overflow: hidden;
+    }
 
     &Card {
         float: left;
         width: 100%;
-        height: 335px;
-        padding: 50px 0;
+        height: 55px;
+        padding: 7px 0;
+        margin: 1px;
+        border-radius: 2px;
         background-color: white;
-        box-shadow: 0 0 0 1px #ccc;
         list-style-type: none;
         text-align: center;
 
-        @include breakpoint("small") {
-            width: 50%;
-        }
-
         @include breakpoint("medium") {
-            width: 33.33%;
+            width: 33%;
+            height: 280px;
+            padding: 50px 0;
         }
     }
 
     &Link {
         display: block;
+        position: relative;
         text-decoration: none;
     }
 
     &Image {
-        max-width: 160px;
-        max-height: 160px;
+        position: absolute;
+        top: 0;
+        left: 10px;
+        max-width: 40px;
+
+        @include breakpoint("medium") {
+            position: relative;
+            left: 0;
+            max-width: 160px;
+        }
     }
 
     &Name {
-        display: block;
-        margin-top: 50px;
-        color: #0056e0;
-        font-size: 20px;
-        text-align: center;
+        display: inline-block;
+        position: relative;
+        top: 8px;
+        left: 30px;
+        width: calc(100% - 60px);
+        margin: 0;
+        color: #232323;
+        font-size: 14px;
+        line-height: 24px;
+        text-align: left;
+
+        @include breakpoint("medium") {
+            left: 0;
+            width: 100%;
+            padding: 20px;
+            border-top: 1px solid #eff1f6;
+            font-size: 18px;
+            text-align: center;
+        }
     }
 }

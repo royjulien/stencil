@@ -96,14 +96,10 @@
           {{/if}}
           {{/if}}
           {{/if}}
-
-        {{#each product.custom_fields}}
-        <!-- <dt class="productView-info-name">{{name}}:</dt> -->
-        <dd class="productView-info-value">{{{value}}}</dd>
-        {{/each}}
       </dl>
     </div>
   </section>
+
 
   <section class="productView-images" data-image-gallery>
     <figure class="productView-image" data-image-gallery-main>
@@ -131,6 +127,9 @@
     <input type="hidden" name="action" value="add">
     <input type="hidden" name="product_id" value="{{product.id}}"/>
 
+    {{#each product.custom_fields}}
+      <input type="hidden" name="{{name}}" value="{{value}}"/>
+    {{/each}}
 
     {{#each product.customizations}}
     {{{dynamicComponent 'components/products/customizations'}}}

@@ -12,6 +12,8 @@ export default function () {
     // let applyCoupon = '';
     let incrementItemQuantity = '';
     let removeItem = '';
+    let addUpsellItems = '';
+    let getUpsellProduct = '';
     let toggleSidecart = '';
     let cartRemoveItem = '';
     let recart = '';
@@ -24,7 +26,60 @@ export default function () {
             toggleSidecart('.sidecart-close');
             incrementItemQuantity();
             removeItem();
+
+            addUpsellItems();
         });
+    };
+
+    addUpsellItems = () => {
+        let $cartItems = $('[data-item-row]');
+        let currentCartProductIds = [];
+        let lineUpsell = '';
+        let upsellTitle = '';
+        let wattageTotal = 0;
+        let conditional = 0;
+        let upsellProductIds = 0;
+        let upsellProductId = 0;
+
+        $cartItems.each(function () {
+            lineUpsell = $(this).find('[data-line-upsell]');
+            currentCartProductIds.push($(this)[0].dataset.itemRow);
+
+            if (lineUpsell.length > 0) {
+                let lineData = lineUpsell[0].dataset;
+                let lengthInFeet = $(this).find('[data-length]') ? parseInt($(this).find('[data-length]')[0].dataset.length.split('Feet')[0].trim()) : 0;
+                let quantity = $(this).find('.form-input--incrementTotal') ? parseInt($(this).find('.form-input--incrementTotal').val()) : 0;
+                let expression = parseInt(lineData.lineUpsellExpression);
+
+                conditional = parseInt(lineData.lineUpsellCondition);
+                wattageTotal += expression * lengthInFeet * quantity;
+                upsellProductIds = lineData.lineUpsellProductids.split(',');
+                upsellTitle = lineData.lineUpsellTitle;
+
+                console.log(expression, lengthInFeet, quantity)
+            }
+        });
+
+        if (lineUpsell) {
+            if (wattageTotal > 0 && wattageTotal < conditional) {
+                upsellProductId = upsellProductIds[0];
+            } else if (wattageTotal > 0 && wattageTotal > conditional) {
+                upsellProductId = upsellProductIds[1];
+            }
+
+            if (upsellProductId > 0 && currentCartProductIds.indexOf(upsellProductId) == -1) {
+                getUpsellProduct(upsellProductId, upsellTitle);
+            }
+        }
+    };
+
+    getUpsellProduct = (productId, title) => {
+        utils.api.product.getById(productId, {template: 'products/product-upsell'}, (err, res) => {
+            // reset cart-item
+            $('[data-upsell-product]').html('');
+            $('[data-upsell-product]').addClass('active').append(res);
+            $('[data-upsell-product]').find('[data-upsell-title]').text(title);
+        })
     };
 
     // applyCoupon = (callback) => {
@@ -136,15 +191,10 @@ export default function () {
         });
     };
 
-    $('body').on('cart-quantity-update', (event, quantity) => {
-        $('.cart-quantity').text(quantity).toggleClass('countPill--positive', quantity > 0);
-    });
-
-    toggleSidecart('.sidecart-exit');
-
     $cart.on('click', (event) => {
-        $('.sidecart, .sidecart-exit, .mobileMenu-toggle, body').toggleClass('active');
+        $('.sidecart, .sidecart-exit, .mobileMenu-toggle, body').addClass('active');
 
+        // even though this event isn't being clicked it is triggered and its element is the document itself??
         event.preventDefault();
 
         $cartDropdown.addClass(loadingClass).html($cartLoading);
@@ -152,4 +202,10 @@ export default function () {
 
         recart();
     });
+
+    $('body').on('cart-quantity-update', (event, quantity) => {
+        $('.cart-quantity').text(quantity).toggleClass('countPill--positive', quantity > 0);
+    });
+
+    toggleSidecart('.sidecart-exit');
 }

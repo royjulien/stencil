@@ -37,10 +37,9 @@ cite {
 
 .page-heading {
     font-size: $h1-font-size;
-    margin: 0 0 spacing("single");
+    margin: spacing("single") 0 spacing("single");
     text-align: center;
 }
-
 
 .definitionList {
     @include clearfix;

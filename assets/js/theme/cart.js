@@ -53,6 +53,17 @@ export default class Cart extends PageManager {
         });
     }
 
+    cartAddItemInternal(itemId) {
+        this.$overlay.show();
+        utils.api.cart.itemUpdate(itemId, 1, (err, response) => {
+            if (response.data.status === 'succeed') {
+                this.refreshContent(true);
+            } else {
+                alert(response.data.errors.join('\n'));
+            }
+        });
+    }
+
     cartRemoveItem(itemId) {
         this.$overlay.show();
         utils.api.cart.itemRemove(itemId, (err, response) => {

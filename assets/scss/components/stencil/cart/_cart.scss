@@ -301,6 +301,47 @@ body.active {
     }
 }
 
+[data-upsell-product] {
+    height: 0;
+    opacity: 0;
+    visibility: none;
+    transition: height 333ms, opacity 987ms, visibility 987ms;
+
+    &.active {
+        height: 187px;
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .cart-item-brand {
+        padding: 0 20px;
+        color: #4188f9;
+        font-size: 16px;
+        letter-spacing: 0;
+        text-align: center;
+    }
+
+    .form-field.form-field--increments {
+        display: none;
+    }
+
+    .form-action {
+        position: absolute;
+        right: 30px;
+        bottom: 20px;
+        z-index: 11;
+    }
+
+    #form-action-upsell-addToCart {
+        background-color: white;
+        color: #2d7cfa;
+        border-width: 2px;
+        font-weight: bold;
+        font-size: 13px;
+        padding: 7px 14px;
+    }
+}
+
 .cart {
     display: block; // 1
     margin-bottom: spacing("single");

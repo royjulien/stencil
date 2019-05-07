@@ -3,12 +3,6 @@
 
 {{#if banners.top}}<div class="banners" data-banner-location="top"><div class="banner">{{{limit banners.top 1}}}</div></div>{{/if}}
 
-<header class="header" role="banner">
-    <a href="#" class="mobileMenu-toggle" data-mobile-menu-toggle="menu"><span class="mobileMenu-toggleIcon">Toggle menu</span></a>
-    {{> components/common/navigation}}
-    <div class="navPages-container" id="menu" data-menu>{{> components/common/navigation-menu}}</div>
-</header>
-
 <div class="header__promo">
     <div class='container'>
         <div class="header__promo__caption">Need help from our experts?
@@ -17,3 +11,10 @@
         <div class="header__promo__shipping">Today, <strong>Free shipping</strong> on orders over $150*</div>
     </div>
 </div>
+
+<header class="header" role="banner">
+    <a href="#" class="mobileMenu-toggle" data-mobile-menu-toggle="menu"><span class="mobileMenu-toggleIcon">Toggle menu</span></a>
+    {{> components/common/navigation}}
+    <div class="navPages-container" id="menu" data-menu>{{> components/common/navigation-menu}}</div>
+</header>
+

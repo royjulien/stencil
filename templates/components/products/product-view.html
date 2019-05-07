@@ -60,10 +60,6 @@
           <dt class="productView-info-name">{{lang 'products.condition'}}</dt>
           <dd class="productView-info-value">{{product.condition}}</dd>
           {{/if}}
-          {{#if product.availability}}
-          <dt class="productView-info-name">{{lang 'products.availability'}}</dt>
-          <dd class="productView-info-value">{{product.availability}}</dd>
-          {{/if}}
           {{#if product.weight}}
           <dt class="productView-info-name">{{lang 'products.weight'}}</dt>
           <dd class="productView-info-value" data-product-weight>{{product.weight}}</dd>
@@ -94,11 +90,6 @@
           {{/if}}
           {{/if}}
           {{/if}}
-
-        {{#each product.custom_fields}}
-        <!-- <dt class="productView-info-name">{{name}}:</dt> -->
-        <dd class="productView-info-value">{{{value}}}</dd>
-        {{/each}}
       </dl>
     </div>
   </section>
@@ -128,6 +119,11 @@
     data-cart-item-add>
     <input type="hidden" name="action" value="add">
     <input type="hidden" name="product_id" value="{{product.id}}"/>
+
+
+    {{#each product.custom_fields}}
+    <input type="hidden" name="{{name}}" value="{{value}}"/>
+    {{/each}}
 
 
     {{#each product.customizations}}

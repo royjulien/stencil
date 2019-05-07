@@ -14,30 +14,22 @@
 
 
 .breadcrumbs {
-    display: none; // 1
-    margin: 0;
-    font-size: 0; // 2
-    text-align: center;
-
-    @include breakpoint("large") {
-        display: block;
-        text-align: left;
-        text-indent: 10px;
-    }
+    margin: 12px;
 }
 
 .breadcrumb {
     display: inline-block;
     float: none;
+    margin: 0 5px;
 
     &::before {
         margin: 0;
-        left: -2px;
-        color: rgba(0,0,0,0.2);
+        left: -6px;
+        color: #343434;
     }
 
     a {
-        color: #2d7bfa;
+        color: #343434;
     }
 
     &.is-active {

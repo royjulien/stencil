@@ -515,12 +515,20 @@ ul.accessorytab img {
 }
 
 .category-description-text {
-  height: 0;
-  max-width: 67rem;
-  margin: 0 auto 40px;
-  font-size: 14px;
+  max-width: 760px;
+  padding: 20px;
+  margin: 10px auto 10px;
+  color: #232323;
+  font-family: serif;
+  font-size: 17px;
+  font-style: italic;
   line-height: 1.6;
+  text-align: center;
   overflow: hidden;
+
+  @include breakpoint("medium") {
+    margin: 40px auto 40px;
+  }
 
   &.active {
     height: auto;

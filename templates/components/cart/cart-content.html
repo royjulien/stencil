@@ -1,6 +1,6 @@
 <div class="sidecart-container">
     {{#each cart.items}}
-        <div class="cart-item" data-item-row>
+        <div class="cart-item" data-item-row="{{product_id}}">
             <div class="cart-item-block cart-item-figure">
                 {{#if type '==' 'GiftCertificate'}}
                     <img class="cart-item-fixed-image" src="{{cdn ../../theme_settings.default_image_gift_certificate}}" alt="GiftCertificate" title="GiftCertificate">
@@ -15,26 +15,15 @@
                     <p>({{release_date}})</p>
                 {{/if}}
 
-                {{#if configurable_fields}}
-                    <dl class="definitionList">
-                        {{#each configurable_fields}}
-                            <dt class="definitionList-key">{{name}}</dt>
-                            <dd class="definitionList-value">
-                                {{#if is_file}}
-                                    <a href="/viewfile.php?prodfield={{../id}}&cartitem={{../../id}}">{{{value}}}</a>
-                                {{else}}
-                                    {{{value}}}
-                                {{/if}}
-                            </dd>
-                        {{/each}}
-                    </dl>
+                {{#if custom_fields}}
+                <div data-line-upsell {{#each custom_fields}}data-line-{{name}}="{{value}}"{{/each}}></div>
                 {{/if}}
 
                 {{#if options}}
                     <dl class="definitionList">
                         {{#each options}}
                             <dt class="definitionList-key">{{name}}</dt>
-                            <dd class="definitionList-value">
+                            <dd class="definitionList-value" data-{{name}}="{{{value}}}">
                                 {{#if is_file}}
                                     <a href="/viewfile.php?attributeId={{../id}}&cartitem={{../../id}}">{{{value}}}</a>
                                 {{else}}
@@ -59,7 +48,7 @@
                             {{event_date.name}}
                         </dt>
 
-                        <dd class="cart-item-option-description">
+                        <dd class="cart-item-option-description" data-{{name}}="{{{value}}}">
                             {{event_date.date}}
                         </dd>
                     </dl>
@@ -116,4 +105,6 @@
             </div>
         </div>
     {{/each}}
+
+    <div class="cart-item" data-upsell-product></div>
 </div>

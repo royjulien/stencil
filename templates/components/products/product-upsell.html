@@ -1,0 +1,21 @@
+<p class="cart-item-brand" data-upsell-title></p>
+
+<div class="cart-item-block cart-item-figure" data-upsell-product-image>
+  <img class="productView-image--default" src="{{getImage product.main_image 'product_size' (cdn theme_settings.default_image_product)}}">
+</div>
+
+<div class="cart-item-block cart-item-title">
+    <h4 class="cart-item-name"><a href='#' data-upsell-product-title>{{product.title}}</a></h4>
+    {{product.price.without_tax.formatted}}
+
+    <form class="form" method="post" action="{{product.cart_url}}" enctype="multipart/form-data" data-cart-item-add>
+      <input type="hidden" name="action" value="add">
+      <input type="hidden" name="product_id" value="{{product.id}}"/>
+
+      <div class="form-field form-field--increments">
+        <input class="form-input form-input--incrementTotal" id="qty[]" name="qty[]" type="tel" value="{{#if product.min_purchase_quantity}}{{product.min_purchase_quantity}}{{else}}1{{/if}}" data-quantity-min="{{product.min_purchase_quantity}}" data-quantity-max="{{product.max_purchase_quantity}}" min="1" pattern="[0-9]*" aria-live="polite">
+      </div>
+
+      <input id="form-action-upsell-addToCart" data-wait-message="{{lang 'products.adding_to_cart'}}" class="button button--primary" type="submit" value="{{#if product.pre_order}}{{lang 'products.pre_order'}}{{else}}{{lang 'products.add_to_cart'}}{{/if}}">
+    </form>
+</div>
