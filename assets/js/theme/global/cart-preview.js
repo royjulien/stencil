@@ -32,8 +32,8 @@ export default function () {
     };
 
     addUpsellItems = () => {
-        let $cartItems = $('[data-item-row]');
-        let currentCartProductIds = [];
+        const $cartItems = $('[data-item-row]');
+        const currentCartProductIds = [];
         let lineUpsell = '';
         let upsellTitle = '';
         let wattageTotal = 0;
@@ -46,17 +46,15 @@ export default function () {
             currentCartProductIds.push($(this)[0].dataset.itemRow);
 
             if (lineUpsell.length > 0) {
-                let lineData = lineUpsell[0].dataset;
-                let lengthInFeet = $(this).find('[data-length]') ? parseInt($(this).find('[data-length]')[0].dataset.length.split('Feet')[0].trim()) : 0;
-                let quantity = $(this).find('.form-input--incrementTotal') ? parseInt($(this).find('.form-input--incrementTotal').val()) : 0;
-                let expression = parseInt(lineData.lineUpsellExpression);
+                const lineData = lineUpsell[0].dataset;
+                const lengthInFeet = $(this).find('[data-length]') ? parseInt($(this).find('[data-length]')[0].dataset.length.split('Feet')[0].trim(), 10) : 0;
+                const quantity = $(this).find('.form-input--incrementTotal') ? parseInt($(this).find('.form-input--incrementTotal').val(), 10) : 0;
+                const expression = parseInt(lineData.lineUpsellExpression, 10);
 
-                conditional = parseInt(lineData.lineUpsellCondition);
+                conditional = parseInt(lineData.lineUpsellCondition, 10);
                 wattageTotal += expression * lengthInFeet * quantity;
                 upsellProductIds = lineData.lineUpsellProductids.split(',');
                 upsellTitle = lineData.lineUpsellTitle;
-
-                console.log(expression, lengthInFeet, quantity)
             }
         });
 
@@ -67,19 +65,19 @@ export default function () {
                 upsellProductId = upsellProductIds[1];
             }
 
-            if (upsellProductId > 0 && currentCartProductIds.indexOf(upsellProductId) == -1) {
+            if (upsellProductId > 0 && currentCartProductIds.indexOf(upsellProductId) === -1) {
                 getUpsellProduct(upsellProductId, upsellTitle);
             }
         }
     };
 
     getUpsellProduct = (productId, title) => {
-        utils.api.product.getById(productId, {template: 'products/product-upsell'}, (err, res) => {
+        utils.api.product.getById(productId, { template: 'products/product-upsell' }, (err, res) => {
             // reset cart-item
             $('[data-upsell-product]').html('');
             $('[data-upsell-product]').addClass('active').append(res);
             $('[data-upsell-product]').find('[data-upsell-title]').text(title);
-        })
+        });
     };
 
     // applyCoupon = (callback) => {

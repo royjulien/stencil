@@ -11,6 +11,10 @@
 //
 // -----------------------------------------------------------------------------
 
+.pagination {
+    margin: 50px 0;
+}
+
 .pagination-list {
     @include clearfix;
 
@@ -46,7 +50,7 @@
     }
 
     &.pagination-item--current { // 1
-        border-color: $pagination-link-current-borderColor;
+        border-color: #5b5b5b;
         border-radius: $pagination-link-current-borderRadius;
         margin: $pagination-link-current-margin;
     }
@@ -88,8 +92,6 @@
 }
 
 .pagination-item--next {
-    float: right;
-
     .icon {
         margin-right: -(remCalc(12px));
     }

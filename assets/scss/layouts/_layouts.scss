@@ -176,7 +176,6 @@ $url_0: url('https://cdn1.bigcommerce.com/server1000/tc515/product_images/upload
 }
 
 .home-box-header {
-  border-bottom: 1px solid rgba(0,0,0,0.2);
   text-align: center;
 }
 
@@ -329,7 +328,6 @@ ul.accessorytab img {
   width: 100%;
   padding-top: 5px;
   padding-bottom: 5px;
-  border-bottom: 1px solid #d3dceb;
   background-color: white;
   text-align: center;
   overflow-x: hidden;
@@ -422,6 +420,7 @@ ul.accessorytab img {
   width: 100%;
   height: auto;
   text-align: center;
+  border-radius: 3px;
 }
 .banner-container {
   display: flex;
@@ -500,20 +499,15 @@ ul.accessorytab img {
 }
 
 .category-description-text {
-  max-width: 760px;
+  max-width: 72rem;
   padding: 20px;
-  margin: 10px auto 10px;
+  margin: 0 auto;
   color: #232323;
   font-family: serif;
-  font-size: 17px;
-  font-style: italic;
+  font-size: 16px;
   line-height: 1.6;
   text-align: center;
   overflow: hidden;
-
-  @include breakpoint("medium") {
-    margin: 40px auto 40px;
-  }
 
   &.active {
     height: auto;

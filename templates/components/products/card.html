@@ -33,16 +33,8 @@
         </figcaption>
     </figure>
     <div class="card-body">
-        {{#if show_rating}}
-            <p class="card-text" data-test-info-type="productRating">
-                <span class="rating--small">
-                    {{> components/products/ratings rating=rating}}
-                </span>
-            </p>
-        {{/if}}
-
         <div class="card-text" data-test-info-type="price">
-            {{> components/products/price price=price}}
+            <a href="{{url}}" class="card-link">{{> components/products/price price=price}}</a>
         </div>
 
         <h4 class="card-title">

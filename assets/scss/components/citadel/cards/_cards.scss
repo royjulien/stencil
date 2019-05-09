@@ -36,14 +36,17 @@
     display: flex;
     height: auto;
     width: 100%;
-    max-height: 250px;
     padding: auto;
-    margin: 1.5rem 0 0 0;
+    margin: 10px 0;
     border: 0;
 }
 
+.card-link {
+    text-decoration: none;
+}
+
 .card-title {
-    font-size: $card-title-fontSize;
+    font-size: 12px;
     margin: $card-title-margin;
 
     > a {
@@ -71,10 +74,12 @@
     }
 
     .price--withoutTax {
-        display: block;
         color: stencilColor("color-aql-green");;
-        font-size: 22px;
-        font-weight: 600;
+        font-size: 12px;
+    }
+
+    .price--rrp, .price--discounted {
+        font-size: 12px;
     }
 }
 
@@ -134,6 +139,7 @@
         }
 
         .card-title > a {
+            display: block;
             color: stencilColor("card--alternate-color--hover");
         }
     }
