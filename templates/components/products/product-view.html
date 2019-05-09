@@ -8,92 +8,6 @@
     {{/if}}
     {{/each}}
 
-    <section class="productView-details">
-      <div class="productView-product">
-        <h1 class="productView-title" {{#if schema}}itemprop="name"{{/if}}>{{product.title}}</h1>
-
-        {{#if product.call_for_price}}
-        <p class="productView-price">
-          <span>{{product.call_for_price}}</span>
-        </p>
-        {{/if}}
-        {{#if product.price}}
-        <div class="productView-price">
-          {{> components/products/price price=product.price schema_org=schema}}
-        </div>
-        {{/if}}
-        <div class="productView-rating"{{#if schema}} itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating"{{/if}}>
-          {{#if settings.show_product_rating}}
-          {{#if product.num_reviews '>' 0}}
-          {{#if schema}}
-          <meta itemprop="ratingValue" content="{{product.rating}}">
-          <meta itemprop="ratingCount" content="{{product.num_reviews}}">
-          <meta itemprop="reviewCount" content="{{product.num_reviews}}">
-          {{/if}}
-          {{/if}}
-          {{> components/products/ratings rating=product.rating}}
-          <span class="productView-reviewLink">
-            {{#if product.num_reviews '>' 0}}
-              {{lang 'products.reviews.link_to_review' total=product.num_reviews}}
-            {{else}}
-            {{lang 'products.reviews.link_to_review' total=product.num_reviews}}
-            {{/if}}
-          </span>
-          {{/if}}
-        </div>
-        {{product.detail_messages}}
-        <dl class="productView-info">
-
-          {{#if product.brand.name}}
-          <dt class="productView-info-name" data-product-brand-name>{{lang 'BRAND:'}} <span id="productBrandName">{{product.brand.name}}</span></dt>
-          {{/if}}
-          {{#if product.sku}}
-          <dt class="productView-info-name" data-product-sku>SKU: <span id="productSKU">{{product.sku}}</span></dt>
-          {{/if}}
-          <!--
-          {{#if product.upc}}
-          <dt class="productView-info-name">{{lang 'products.upc'}}</dt>
-          <dd class="productView-info-value" data-product-upc>{{product.upc}}</dd>
-          {{/if}}
-          -->
-          {{#if product.condition}}
-          <dt class="productView-info-name">{{lang 'products.condition'}}</dt>
-          <dd class="productView-info-value">{{product.condition}}</dd>
-          {{/if}}
-          {{#if product.weight}}
-          <dt class="productView-info-name">{{lang 'products.weight'}}</dt>
-          <dd class="productView-info-value" data-product-weight>{{product.weight}}</dd>
-          {{/if}}
-          {{#if product.min_purchase_quantity}}
-          <dt class="productView-info-name">{{lang 'products.min_purchase_quantity'}}</dt>
-          <dd class="productView-info-value">{{lang 'products.purchase_units' quantity=product.min_purchase_quantity}}</dd>
-          {{/if}}
-          {{#if product.max_purchase_quantity}}
-          <dt class="productView-info-name">{{lang 'products.max_purchase_quantity'}}</dt>
-          <dd class="productView-info-value">{{lang 'products.purchase_units' quantity=product.max_purchase_quantity}}</dd>
-          {{/if}}
-          {{#if product.gift_wrapping_available}}
-          <dt class="productView-info-name">{{lang 'products.gift_wrapping'}}</dt>
-          <dd class="productView-info-value">{{lang 'products.gift_wrapping_available'}}</dd>
-          {{/if}}
-          {{#if product.shipping}}
-          {{#if product.shipping.calculated}}
-          <dt class="productView-info-name">{{lang 'products.shipping'}}</dt>
-          <dd class="productView-info-value">{{lang 'products.shipping_calculated'}}</dd>
-          {{else}}
-          {{#if product.shipping.price.value '===' 0}}
-          <dt class="productView-info-name">{{lang 'products.shipping'}}</dt>
-          <dd class="productView-info-value">{{lang 'products.shipping_free'}}</dd>
-          {{else}}
-          <dt class="productView-info-name">{{lang 'products.shipping'}}</dt>
-          <dd class="productView-info-value">{{lang 'products.shipping_fixed' amount=product.shipping.price.formatted}}</dd>
-          {{/if}}
-          {{/if}}
-          {{/if}}
-      </dl>
-    </div>
-  </section>
-
   <section class="productView-images" data-image-gallery>
     <figure class="productView-image" data-image-gallery-main>
       <img class="productView-image--default" src="{{getImage product.main_image 'product_size' (cdn theme_settings.default_image_product)}}" alt="{{product.main_image.alt}}" title="{{product.main_image.alt}}" data-main-image>
@@ -110,6 +24,86 @@
 </section>
 
 <section class="productView-details">
+  <div class="productView-product">
+    <h1 class="productView-title" {{#if schema}}itemprop="name"{{/if}}>{{product.title}}</h1>
+
+    {{#if product.call_for_price}}
+    <p class="productView-price">
+      <span>{{product.call_for_price}}</span>
+    </p>
+    {{/if}}
+    {{#if product.price}}
+    <div class="productView-price">
+      {{> components/products/price price=product.price schema_org=schema}}
+    </div>
+    {{/if}}
+
+    {{#if product.num_reviews '>' 0}}
+      <div class="productView-rating"{{#if schema}} itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating"{{/if}}>
+        {{#if schema}}
+          <meta itemprop="ratingValue" content="{{product.rating}}">
+          <meta itemprop="ratingCount" content="{{product.num_reviews}}">
+          <meta itemprop="reviewCount" content="{{product.num_reviews}}">
+        {{/if}}
+
+        {{> components/products/ratings rating=product.rating}}
+
+        <span class="productView-reviewLink">{{lang 'products.reviews.link_to_review' total=product.num_reviews}}</span>
+      </div>
+    {{/if}}
+
+    {{product.detail_messages}}
+    <dl class="productView-info">
+
+      {{#if product.brand.name}}
+      <dt class="productView-info-name" data-product-brand-name>{{lang 'BRAND:'}} <span id="productBrandName">{{product.brand.name}}</span></dt>
+      {{/if}}
+      {{#if product.sku}}
+      <dt class="productView-info-name" data-product-sku>SKU: <span id="productSKU">{{product.sku}}</span></dt>
+      {{/if}}
+      <!--
+      {{#if product.upc}}
+      <dt class="productView-info-name">{{lang 'products.upc'}}</dt>
+      <dd class="productView-info-value" data-product-upc>{{product.upc}}</dd>
+      {{/if}}
+      -->
+      {{#if product.condition}}
+      <dt class="productView-info-name">{{lang 'products.condition'}}</dt>
+      <dd class="productView-info-value">{{product.condition}}</dd>
+      {{/if}}
+      {{#if product.weight}}
+      <dt class="productView-info-name">{{lang 'products.weight'}}</dt>
+      <dd class="productView-info-value" data-product-weight>{{product.weight}}</dd>
+      {{/if}}
+      {{#if product.min_purchase_quantity}}
+      <dt class="productView-info-name">{{lang 'products.min_purchase_quantity'}}</dt>
+      <dd class="productView-info-value">{{lang 'products.purchase_units' quantity=product.min_purchase_quantity}}</dd>
+      {{/if}}
+      {{#if product.max_purchase_quantity}}
+      <dt class="productView-info-name">{{lang 'products.max_purchase_quantity'}}</dt>
+      <dd class="productView-info-value">{{lang 'products.purchase_units' quantity=product.max_purchase_quantity}}</dd>
+      {{/if}}
+      {{#if product.gift_wrapping_available}}
+      <dt class="productView-info-name">{{lang 'products.gift_wrapping'}}</dt>
+      <dd class="productView-info-value">{{lang 'products.gift_wrapping_available'}}</dd>
+      {{/if}}
+      {{#if product.shipping}}
+      {{#if product.shipping.calculated}}
+      <dt class="productView-info-name">{{lang 'products.shipping'}}</dt>
+      <dd class="productView-info-value">{{lang 'products.shipping_calculated'}}</dd>
+      {{else}}
+      {{#if product.shipping.price.value '===' 0}}
+      <dt class="productView-info-name">{{lang 'products.shipping'}}</dt>
+      <dd class="productView-info-value">{{lang 'products.shipping_free'}}</dd>
+      {{else}}
+      <dt class="productView-info-name">{{lang 'products.shipping'}}</dt>
+      <dd class="productView-info-value">{{lang 'products.shipping_fixed' amount=product.shipping.price.formatted}}</dd>
+      {{/if}}
+      {{/if}}
+      {{/if}}
+    </dl>
+  </div>
+
   <div class="productView-options">
     {{#if product.release_date }}
     <p>{{product.release_date}}</p>

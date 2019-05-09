@@ -8,13 +8,14 @@
 </style>
 
 <div class="form-field" data-product-attribute="set-rectangle">
+  <label class="form-label">{{display_name}}</label>
   <ul class='form-field-list'>
-    {{#each this.values}}
+    {{#each values}}
     <li class='form-field-item {{#if selected}}active{{/if}}'>
       <input class="form-radio" type="radio" id="attribute_{{id}}" name="attribute[{{../id}}]" value="{{id}}" {{#if selected}}checked{{/if}} {{#if ../required}}required{{/if}}>
 
       <label class="form-option" for="attribute_{{id}}" data-product-attribute-value="{{id}}">
-          <span class="form-option-variant" data-option-variant="{{this.label}}">{{this.label}}</span>
+          <span class="form-option-variant" data-option-variant="{{label}}">{{label}}</span>
       </label>
     </li>
     {{/each}}

@@ -37,7 +37,8 @@ cite {
 
 .page-heading {
     font-size: $h1-font-size;
-    margin: spacing("single") 0 spacing("single");
+    padding: spacing("single") 0 spacing("single");
+    margin: 0;
     text-align: center;
 }
 

@@ -75,7 +75,7 @@
     "default_image_product": "/assets/img/ProductDefault.gif",
     "default_image_gift_certificate": "/assets/img/GiftCertificate.png",
     "body-font": "Google_Open+Sans_400",
-    "headings-font": "Google_Montserrat_400",
+    "headings-font": "Google_Open+Sans_400",
     "logo-font": "Google_Oswald_300",
     "fontSize-root": 16,
     "fontSize-h1": 28,

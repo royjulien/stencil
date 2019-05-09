@@ -9,8 +9,7 @@
                 {{/if}}
             </div>
             <div class="cart-item-block cart-item-title">
-                <p class="cart-item-brand">PRODUCT</p>
-                <h4 class="cart-item-name"><a href="{{url}}">{{name}}</a></h4>
+                <h4 class="cart-item-name"><a href="{{url}}">{{sku}}</a></h4>
                 {{#if release_date}}
                     <p>({{release_date}})</p>
                 {{/if}}
@@ -20,18 +19,22 @@
                 {{/if}}
 
                 {{#if options}}
-                    <dl class="definitionList">
-                        {{#each options}}
-                            <dt class="definitionList-key">{{name}}</dt>
-                            <dd class="definitionList-value" data-{{name}}="{{{value}}}">
+                    <table class="definitionList">
+                    {{#each options}}
+                        <tr>
+                            <td class="definitionList-key">
+                                {{name}}
+                            </td>
+                            <td class="definitionList-value" data-{{name}}="{{{value}}}">
                                 {{#if is_file}}
                                     <a href="/viewfile.php?attributeId={{../id}}&cartitem={{../../id}}">{{{value}}}</a>
                                 {{else}}
                                     {{{value}}}
                                 {{/if}}
-                            </dd>
-                        {{/each}}
-                    </dl>
+                            </td>
+                        </tr>
+                    {{/each}}
+                    </table>
                 {{/if}}
 
                 {{#or options configurable_fields}}

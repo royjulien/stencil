@@ -59,11 +59,7 @@ $url_0: url('https://cdn1.bigcommerce.com/server1000/tc515/product_images/upload
 
 .box-bg {
   width: 100%;
-  margin-top: 20px;
-  border-bottom: 1px solid $black_20;
-  border-radius: 5px;
-  background-color: $white;
-  box-shadow: 0 0 0 1px rgba(0,0,0,0.1), 0 3px 6px rgba(0,0,0,0.08), 0 8px 12px rgba(0,0,0,0.08);
+  margin: 20px 0;
   overflow: hidden;
 }
 .home-hero {
@@ -317,15 +313,6 @@ $url_0: url('https://cdn1.bigcommerce.com/server1000/tc515/product_images/upload
 .ProductThumbImage a > .zoomPad {
   z-index: 1 !important;
 }
-.product-left, .product-right {
-  min-height: 265px;
-  padding: 0;
-  margin: 15px 0;
-}
-.product-left img, .product-right img {
-  float: left;
-  margin-right: 35px;
-}
 ul.accessorytab {
   overflow: hidden;
 }
@@ -429,8 +416,6 @@ ul.accessorytab img {
   display: block;
   height: 40px;
   margin-top: 10px;
-  background: #fafafa;
-  color: #333333;
   line-height: 40px;
 }
 .full-banner {

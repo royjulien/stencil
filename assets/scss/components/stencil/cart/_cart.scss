@@ -107,7 +107,7 @@ body.active {
     }
 
     .sidecart-container {
-        max-height: calc(100vh - 300px);
+        max-height: calc(100vh - 350px);
         border-bottom: 3px solid #666;
         overflow-x: hidden;
         overflow-y: scroll;
@@ -120,24 +120,24 @@ body.active {
     .cart-item {
       display: block;
       position: relative;
-      padding: 20px 0;
+      padding: 10px 0;
       overflow: hidden;
     }
 
     .cart-item-figure {
       float: left;
       text-align: left;
-      width: 100px;
+      width: 60px;
       padding: 0;
-      margin: 20px;
+      margin: 10px;
     }
 
     .cart-item-title {
       display: block;
       float: left;
-      width: calc(100% - 160px);
+      width: calc(100% - 100px);
       height: auto;
-      margin-bottom: 60px;
+      margin-bottom: 55px;
 
       > a {
         display: none;
@@ -145,20 +145,20 @@ body.active {
 
       .definitionList-key {
         float: none;
-        display: block;
         margin: 10px 0 0;
         text-transform: uppercase;
         font-weight: bold;
         color: #888;
         font-size: 11px;
-        letter-spacing: 1px;
+        letter-spacing: 0.5px;
+        white-space: nowrap;
       }
 
       .definitionList-value {
-        display: block;
-        color: #222;
-        font-size: 14px;
-        line-height: 1.6;
+        padding-left: 5px;
+        color: #343434;
+        font-size: 11px;
+        line-height: 1.5;
         text-decoration: none;
         font-family: 'Open Sans', sans-serif;
       }
@@ -314,7 +314,7 @@ body.active {
     }
 
     .cart-item-brand {
-        padding: 0 20px;
+        padding: 20px 20px 0;
         color: #4188f9;
         font-size: 16px;
         letter-spacing: 0;
@@ -414,23 +414,8 @@ body.active {
 
 .cart-item-figure {
     float: left;
-    height: $cart-thumbnail-height;
-    margin-bottom: $cart-item-spacing;
     text-align: right;
     width: grid-calc(4, $total-columns);
-
-    @include breakpoint("small") {
-        // height: auto;
-        margin-bottom: 0;
-        margin-left: -(grid-calc(4, $total-columns));
-        width: grid-calc(4, $total-columns);
-    }
-
-    @include breakpoint("medium") {
-        float: none;
-        text-align: left;
-        width: grid-calc(1, $total-columns);
-    }
 }
 
 .cart-item-fixed-image {
@@ -444,7 +429,6 @@ body.active {
 .cart-item-title {
     display: table-cell;
     height: $cart-thumbnail-height;
-    padding-left: $cart-item-spacing;
 
     @include breakpoint("small") {
         display: block;

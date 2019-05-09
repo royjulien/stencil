@@ -239,6 +239,7 @@
     .button {
         margin: 0;
         padding: remCalc(3px) remCalc(5px);
+        background-color: white;
     }
 }
 
@@ -267,8 +268,8 @@
     padding: 4px 7px;
     margin-bottom: spacing("third");
     margin-right: spacing("third");
-    border-radius: 50px;
-    border: 5px solid stencilColor("input-border-color");
+    border-radius: 2px;
+    border: 2px solid stencilColor("input-border-color");
     background-color: white;
     color: stencilColor("form-label-font-color");
     cursor: pointer;

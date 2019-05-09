@@ -102,6 +102,7 @@ export default class Product {
         };
     }
 
+
     /**
      *
      * Handle product options changes

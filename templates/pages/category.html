@@ -16,20 +16,27 @@ category:
 
 {{#partial "page"}}
 
-{{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+<main class="page">
+    {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
 
-<h1 class="page-heading">{{category.name}}</h1>
-{{{category.description}}}
-{{{snippet 'categories'}}}
-<div class="page">
-    <main class="page-content" id="product-listing-container">
-        {{> components/category/main}}
+    <div class="box-bg">
+        <div class="home-box-header">
+            <h1 class="h2-categories">{{category.name}}</h1>
+        </div>
+        {{{category.description}}}
+        {{{snippet 'categories'}}}
+    </div>
 
-        {{#if category.products}}
-            {{> components/category/product-listing}}
-        {{/if}}
-    </main>
-</div>
+    <div class="page">
+        <main class="page-content" id="product-listing-container">
+            {{> components/category/main}}
 
-{{/partial}}
-{{> layout/base}}
+            {{#if category.products}}
+                {{> components/category/product-listing}}
+            {{/if}}
+        </main>
+    </div>
+
+    {{/partial}}
+    {{> layout/base}}
+</main>
