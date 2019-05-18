@@ -71,37 +71,41 @@
 }
 
 .tabNavigation {
-    border-bottom: none;
-    margin: 0;
     display: flex;
     flex-wrap: wrap;
+    margin: 0;
+    border-bottom: none;
 
     li {
         display: block;
-        width: 48%;
-        margin: 1%;
+        width: 50%;
+        margin: 0;
         list-style: none;
 
         @include breakpoint('medium') {
-            width: 23%;
-            margin: 1%;
+            width: 20%;
         }
 
         a {
             display: block;
             height: 50px;
-            padding: 0 30px;
+            padding: 0 1px;
+            margin: 0 20px 0 0;
             border: none;
             border-bottom: 2px solid;
-            color: rgba(0,0,0,0.60);
-            font-size: 17px;
-            font-weight: 600;
+            color: #232323;
+            font-size: 11px;
+            font-weight: bold;
+            letter-spacing: 1px;
             line-height: 50px;
-            text-align: center;
-            letter-spacing: .3px;
             text-decoration: none;
+            text-transform: uppercase;
             white-space: nowrap;
             transition: color 333ms;
+
+            @include breakpoint('medium') {
+                font-size: 13px;
+            }
             
             &.active {
                 color: #2d7cfa;

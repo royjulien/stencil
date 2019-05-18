@@ -26,7 +26,7 @@
 
     &__promo {
         width: 100%;
-        background-color: stencilColor("color-aql");
+        background-color: #484848;
         color: white;
 
         @include breakpoint("small") {
@@ -49,9 +49,7 @@
             }
 
             @include breakpoint("medium") {
-                font-size: 16px;
                 width: 50%;
-                font-size: inherit;
             }
 
             @include breakpoint("large") {
@@ -205,7 +203,7 @@
         position: relative;
         top: 14px;
         left: initial;
-        width: 55px;
+        width: auto;
         transform: translateX(0);
     }
 

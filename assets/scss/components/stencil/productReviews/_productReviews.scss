@@ -22,16 +22,12 @@
     @include grid-column(12);
     display: inline-block;
     float: none;
+    padding: 20px 30px 0;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 3px;
     font-size: fontSize("base");
     vertical-align: top;
-
-    @include breakpoint("medium") {
-        width: grid-calc(6, $total-columns);
-    }
-
-    @include breakpoint("large") {
-        width: grid-calc(4, $total-columns);
-    }
 }
 
 .productReview-title {

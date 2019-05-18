@@ -26,6 +26,10 @@
     padding-right: spacing("base");
 
     @include breakpoint("medium") {
+        width: grid-calc(5, $total-columns);
+    }
+
+    @media all and (min-width: 1000px) {
         width: grid-calc(6, $total-columns);
     }
 }
@@ -38,13 +42,17 @@
     @include breakpoint("medium") {
         clear: right;
         float: right;
+        width: grid-calc(7, $total-columns);
+    }
+
+    @media all and (min-width: 1000px) {
         width: grid-calc(6, $total-columns);
     }
 }
 
 .productView-description {
     @include grid-column(12);
-    padding-top: 40px;
+    padding-top: 60px;
     padding-left: spacing("base");
     padding-right: spacing("base");
 }

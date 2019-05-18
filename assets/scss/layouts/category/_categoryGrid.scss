@@ -45,11 +45,16 @@
         height: 55px;
         list-style-type: none;
         text-align: center;
+        border: 1px solid #ccc;
+        padding: 6px;
+        border-radius: 3px;
+        margin: 5px 0;
 
 
         @include breakpoint("medium") {
             width: 25%;
             height: 280px;
+            border: none;
         }
     }
 

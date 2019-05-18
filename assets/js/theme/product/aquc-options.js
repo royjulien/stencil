@@ -1,25 +1,15 @@
 const optionsDivs = document.querySelectorAll('div.form-field[data-product-attribute=set-radio]');
-
 const barDivs = [optionsDivs[0], optionsDivs[1], optionsDivs[2], optionsDivs[3], optionsDivs[4]];
-
 const barId = ['bar-8', 'bar-12', 'bar-18', 'bar-24', 'bar-32'];
 const barName = ['  8"', '12"', '18"', '24"', '32"'];
-
 const jumperDivs = [optionsDivs[5], optionsDivs[6], optionsDivs[7], optionsDivs[8]];
-
 const jumperId = ['jumper-6', 'jumper-12', 'jumper-18', 'jumper-24'];
 const jumperName = ['  6"', '12"', '18"', '24"'];
-
 const powerDivs = optionsDivs[9];
-
 const powerId = 'powerCord';
 const powerName = 'Quantity';
-
 const labelsToHide = document.querySelectorAll('label.form-label--alternate.form-label--inlineSmall');
-
 const placeToAppend = document.querySelector('div.form-field[data-product-attribute=swatch]');
-
-// creating divs to house the flex'd options
 
 const flexNode3 = document.createElement('div');
 flexNode3.setAttribute('id', 'power-div');
@@ -29,7 +19,7 @@ flexNodeOuter3.setAttribute('id', 'jumper-div-outer');
 flexNodeOuter3.setAttribute('style', 'display:flex; flex-wrap:wrap;margin-bottom:1.5rem;');
 placeToAppend.insertAdjacentElement('afterend', flexNodeOuter3);
 flexNodeOuter3.insertAdjacentElement('afterbegin', flexNode3);
-flexNodeOuter3.insertAdjacentHTML('afterbegin', '<img src="http://www.aqlightinggroup.com/product_images/uploaded_images/aquc-superpage/powercord.jpg" style="width: 80px;height: 80px;margin-right: 15px;margin-top: auto;">');
+flexNodeOuter3.insertAdjacentHTML('afterbegin', '<img src="/product_images/uploaded_images/aquc-superpage/powercord.jpg" style="width: 80px;height: 80px;margin-right: 15px;margin-top: auto;">');
 
 const powerInput = document.createElement('input');
 powerInput.type = 'checkbox';
@@ -68,7 +58,7 @@ flexNodeOuter2.setAttribute('id', 'jumper-div-outer');
 flexNodeOuter2.setAttribute('style', 'display:flex; flex-wrap:wrap;margin-bottom:1.5rem;');
 placeToAppend.insertAdjacentElement('afterend', flexNodeOuter2);
 flexNodeOuter2.insertAdjacentElement('afterbegin', flexNode2);
-flexNodeOuter2.insertAdjacentHTML('afterbegin', '<img src="http://www.aqlightinggroup.com/product_images/uploaded_images/aquc-superpage/jumper.jpg" style="width: 80px;height: 80px;margin-right: 15px;margin-top: auto;">');
+flexNodeOuter2.insertAdjacentHTML('afterbegin', '<img src="/product_images/uploaded_images/aquc-superpage/jumper.jpg" style="width: 80px;height: 80px;margin-right: 15px;margin-top: auto;">');
 
 const flexNode = document.createElement('div');
 flexNode.setAttribute('id', 'length-div');
@@ -78,7 +68,7 @@ flexNodeOuter.setAttribute('id', 'length-div-outer');
 flexNodeOuter.setAttribute('style', 'display:flex; flex-wrap:wrap;margin-bottom:1.5rem;');
 placeToAppend.insertAdjacentElement('afterend', flexNodeOuter);
 flexNodeOuter.insertAdjacentElement('afterbegin', flexNode);
-flexNodeOuter.insertAdjacentHTML('afterbegin', '<img src="http://www.aqlightinggroup.com/product_images/uploaded_images/aquc-superpage/aquc.jpg" style="width: 80px;height: 80px;margin-right: 15px;margin-top: auto;">');
+flexNodeOuter.insertAdjacentHTML('afterbegin', '<img src="/product_images/uploaded_images/aquc-superpage/aquc.jpg" style="width: 80px;height: 80px;margin-right: 15px;margin-top: auto;">');
 
 // adding content div using for loop
 

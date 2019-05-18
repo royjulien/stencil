@@ -46,7 +46,9 @@
     "webpack": "^1.15.0"
   },
   "main": "Gruntfile.js",
-  "dependencies": {},
+  "dependencies": {
+    "@bigcommerce/stencil-paper": "^2.0.12"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

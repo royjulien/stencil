@@ -46,10 +46,11 @@
 }
 
 .card-title {
-    font-size: 12px;
+    font-size: 14px;
     margin: $card-title-margin;
+    text-align: left;
 
-    > a {
+    .card-title-link {
         color: $card-title-color;
         text-decoration: $card-title-textDecoration;
 
@@ -74,8 +75,7 @@
     }
 
     .price--withoutTax {
-        color: stencilColor("color-aql-green");;
-        font-size: 12px;
+        color: stencilColor("color-aql-green");
     }
 
     .price--rrp, .price--discounted {

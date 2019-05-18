@@ -27,6 +27,56 @@
   <div class="productView-product">
     <h1 class="productView-title" {{#if schema}}itemprop="name"{{/if}}>{{product.title}}</h1>
 
+    <dl class="productView-info">
+      {{#if product.brand.name}}
+        <dt class="productView-info-name" data-product-brand-name>{{lang 'BRAND'}}</dt>
+        <dd class="productView-info-value">{{product.brand.name}}</dd>
+      {{/if}}
+      <!--
+      {{#if product.upc}}
+      <dt class="productView-info-name">{{lang 'products.upc'}}</dt>
+      <dd class="productView-info-value" data-product-upc>{{product.upc}}</dd>
+      {{/if}}
+      -->
+      {{#if product.condition}}
+        <dt class="productView-info-name">Condition</dt>
+        <dd class="productView-info-value">{{product.condition}}</dd>
+      {{/if}}
+      {{#if product.weight}}
+        <dt class="productView-info-name">Weight</dt>
+        <dd class="productView-info-value" data-product-weight>{{product.weight}}</dd>
+      {{/if}}
+      {{#if product.min_purchase_quantity}}
+        <dt class="productView-info-name">{{lang 'products.min_purchase_quantity'}}</dt>
+        <dd class="productView-info-value">{{lang 'products.purchase_units' quantity=product.min_purchase_quantity}}</dd>
+      {{/if}}
+      {{#if product.max_purchase_quantity}}
+        <dt class="productView-info-name">{{lang 'products.max_purchase_quantity'}}</dt>
+        <dd class="productView-info-value">{{lang 'products.purchase_units' quantity=product.max_purchase_quantity}}</dd>
+      {{/if}}
+      {{#if product.gift_wrapping_available}}
+        <dt class="productView-info-name">{{lang 'products.gift_wrapping'}}</dt>
+        <dd class="productView-info-value">{{lang 'products.gift_wrapping_available'}}</dd>
+      {{/if}}
+      {{#if product.shipping}}
+        {{#if product.shipping.calculated}}
+          <dt class="productView-info-name">{{lang 'products.shipping'}}</dt>
+          <dd class="productView-info-value">{{lang 'products.shipping_calculated'}}</dd>
+        {{else}}
+          {{#if product.shipping.price.value '===' 0}}
+            <dt class="productView-info-name">{{lang 'products.shipping'}}</dt>
+            <dd class="productView-info-value">{{lang 'products.shipping_free'}}</dd>
+          {{else}}
+            <dt class="productView-info-name">{{lang 'products.shipping'}}</dt>
+            <dd class="productView-info-value">{{lang 'products.shipping_fixed' amount=product.shipping.price.formatted}}</dd>
+          {{/if}}
+        {{/if}}
+      {{/if}}
+      {{#if product.sku}}
+        <dt class="productView-info-name" data-product-sku>SKU</dt>
+        <dd class="productView-info-value">{{product.sku}}</dd>
+      {{/if}}
+    </dl>
     {{#if product.call_for_price}}
     <p class="productView-price">
       <span>{{product.call_for_price}}</span>
@@ -38,70 +88,19 @@
     </div>
     {{/if}}
 
-    {{#if product.num_reviews '>' 0}}
-      <div class="productView-rating"{{#if schema}} itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating"{{/if}}>
-        {{#if schema}}
-          <meta itemprop="ratingValue" content="{{product.rating}}">
-          <meta itemprop="ratingCount" content="{{product.num_reviews}}">
-          <meta itemprop="reviewCount" content="{{product.num_reviews}}">
-        {{/if}}
+    <div class="productView-rating"{{#if schema}} itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating"{{/if}}>
+      {{#if schema}}
+        <meta itemprop="ratingValue" content="{{product.rating}}">
+        <meta itemprop="ratingCount" content="{{product.num_reviews}}">
+        <meta itemprop="reviewCount" content="{{product.num_reviews}}">
+      {{/if}}
 
-        {{> components/products/ratings rating=product.rating}}
+      {{> components/products/ratings rating=product.rating}}
 
-        <span class="productView-reviewLink">{{lang 'products.reviews.link_to_review' total=product.num_reviews}}</span>
-      </div>
-    {{/if}}
+      <span class="productView-reviewLink">{{lang 'products.reviews.link_to_review' total=product.num_reviews}}</span>
+    </div>
 
     {{product.detail_messages}}
-    <dl class="productView-info">
-
-      {{#if product.brand.name}}
-      <dt class="productView-info-name" data-product-brand-name>{{lang 'BRAND:'}} <span id="productBrandName">{{product.brand.name}}</span></dt>
-      {{/if}}
-      {{#if product.sku}}
-      <dt class="productView-info-name" data-product-sku>SKU: <span id="productSKU">{{product.sku}}</span></dt>
-      {{/if}}
-      <!--
-      {{#if product.upc}}
-      <dt class="productView-info-name">{{lang 'products.upc'}}</dt>
-      <dd class="productView-info-value" data-product-upc>{{product.upc}}</dd>
-      {{/if}}
-      -->
-      {{#if product.condition}}
-      <dt class="productView-info-name">{{lang 'products.condition'}}</dt>
-      <dd class="productView-info-value">{{product.condition}}</dd>
-      {{/if}}
-      {{#if product.weight}}
-      <dt class="productView-info-name">{{lang 'products.weight'}}</dt>
-      <dd class="productView-info-value" data-product-weight>{{product.weight}}</dd>
-      {{/if}}
-      {{#if product.min_purchase_quantity}}
-      <dt class="productView-info-name">{{lang 'products.min_purchase_quantity'}}</dt>
-      <dd class="productView-info-value">{{lang 'products.purchase_units' quantity=product.min_purchase_quantity}}</dd>
-      {{/if}}
-      {{#if product.max_purchase_quantity}}
-      <dt class="productView-info-name">{{lang 'products.max_purchase_quantity'}}</dt>
-      <dd class="productView-info-value">{{lang 'products.purchase_units' quantity=product.max_purchase_quantity}}</dd>
-      {{/if}}
-      {{#if product.gift_wrapping_available}}
-      <dt class="productView-info-name">{{lang 'products.gift_wrapping'}}</dt>
-      <dd class="productView-info-value">{{lang 'products.gift_wrapping_available'}}</dd>
-      {{/if}}
-      {{#if product.shipping}}
-      {{#if product.shipping.calculated}}
-      <dt class="productView-info-name">{{lang 'products.shipping'}}</dt>
-      <dd class="productView-info-value">{{lang 'products.shipping_calculated'}}</dd>
-      {{else}}
-      {{#if product.shipping.price.value '===' 0}}
-      <dt class="productView-info-name">{{lang 'products.shipping'}}</dt>
-      <dd class="productView-info-value">{{lang 'products.shipping_free'}}</dd>
-      {{else}}
-      <dt class="productView-info-name">{{lang 'products.shipping'}}</dt>
-      <dd class="productView-info-value">{{lang 'products.shipping_fixed' amount=product.shipping.price.formatted}}</dd>
-      {{/if}}
-      {{/if}}
-      {{/if}}
-    </dl>
   </div>
 
   <div class="productView-options">
@@ -109,8 +108,7 @@
     <p>{{product.release_date}}</p>
     {{/if}}
 
-    <form class="form" method="post" action="{{product.cart_url}}" enctype="multipart/form-data"
-    data-cart-item-add>
+    <form class="form" method="post" action="{{product.cart_url}}" enctype="multipart/form-data" data-cart-item-add>
     <input type="hidden" name="action" value="add">
     <input type="hidden" name="product_id" value="{{product.id}}"/>
 
@@ -187,40 +185,6 @@
       </ul>
     {{/if}}
 
-    <div class="form-field form-field--increments">
-      <label class="form-label form-label--alternate"
-      for="qty[]">{{lang 'products.quantity'}}</label>
-
-      <div class="form-increment" data-quantity-change>
-        <button class="button button--icon" data-action="dec">
-          <span class="is-srOnly">{{lang 'products.quantity_decrease'}}</span>
-          <i class="icon" aria-hidden="true">
-            <svg>
-              <use xlink:href="#icon-keyboard-arrow-down"/>
-            </svg>
-          </i>
-        </button>
-        <input class="form-input form-input--incrementTotal"
-        id="qty[]"
-        name="qty[]"
-        type="tel"
-        value="{{#if product.min_purchase_quantity}}{{product.min_purchase_quantity}}{{else}}1{{/if}}"
-        data-quantity-min="{{product.min_purchase_quantity}}"
-        data-quantity-max="{{product.max_purchase_quantity}}"
-        min="1"
-        pattern="[0-9]*"
-        aria-live="polite">
-        <button class="button button--icon" data-action="inc">
-          <span class="is-srOnly">{{lang 'products.quantity_increase'}}</span>
-          <i class="icon" aria-hidden="true">
-            <svg>
-              <use xlink:href="#icon-keyboard-arrow-up"/>
-            </svg>
-          </i>
-        </button>
-      </div>
-    </div>
-
     <div class="alertBox productAttributes-message" style="display:none">
       <div class="alertBox-column alertBox-icon">
         <icon glyph="ic-success" class="icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"></path></svg></icon>
@@ -229,8 +193,28 @@
     </div>
 
     <div class="form-action">
-      <input id="form-action-addToCart" data-wait-message="{{lang 'products.adding_to_cart'}}" class="button button--primary" type="submit"
-      value="{{#if product.pre_order}}{{lang 'products.pre_order'}}{{else}}{{lang 'products.add_to_cart'}}{{/if}}">
+      <div class="form-field form-field--increments">
+        <div class="form-increment" data-quantity-change>
+          <button class="button button--icon" data-action="dec">
+            <i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-keyboard-arrow-down"/></svg></i>
+          </button>
+          <input class="form-input form-input--incrementTotal"
+                id="qty[]"
+                name="qty[]"
+                type="tel"
+                value="{{#if product.min_purchase_quantity}}{{product.min_purchase_quantity}}{{else}}1{{/if}}"
+                data-quantity-min="{{product.min_purchase_quantity}}"
+                data-quantity-max="{{product.max_purchase_quantity}}"
+                min="1"
+                pattern="[0-9]*"
+                aria-live="polite">
+          <button class="button button--icon" data-action="inc">
+            <i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-keyboard-arrow-up"/></svg></i>
+          </button>
+        </div>
+      </div>
+
+      <input id="form-action-addToCart" data-wait-message="{{lang 'products.adding_to_cart'}}" class="button button--primary" type="submit" value="{{#if product.pre_order}}{{lang 'products.pre_order'}}{{else}}{{lang 'products.add_to_cart'}}{{/if}}">
     </div>
     <!--
     <div class="free-shipping-container">Qualifies for Free Shipping</div>

@@ -15,6 +15,31 @@
   color: stencilColor("color-aql-green");;
 }
 
+.price--rrp {
+  position: relative;
+  top: 3px;
+  font-size: 16px;
+}
+
 .price--withoutTax {
-  color: stencilColor("color-aql-green");;
+  color: #0863f0;
+  font-size: 20px;
+}
+
+.price--save {
+  color: #c51e22;
+  font-size: 11px;
+  letter-spacing: 0.75px;
+  white-space: nowrap;
+}
+
+.price-section {
+  &.price-section--withoutTax {
+    @include breakpoint("small") {
+      position: relative;
+      top: 5px;
+      text-align: right;
+      background-color: white;
+    }
+  }
 }

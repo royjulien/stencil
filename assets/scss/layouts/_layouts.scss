@@ -57,6 +57,12 @@ $color_dodger_blue_approx: rgba(45, 124, 250, 1);
 //urls
 $url_0: url('https://cdn1.bigcommerce.com/server1000/tc515/product_images/uploaded_images/aql-american-lighting.jpg?t=1415586819');
 
+body {
+  &.no-scroll {
+    overflow: hidden;
+  }
+}
+
 .box-bg {
   width: 100%;
   margin: 20px 0;
@@ -330,15 +336,26 @@ ul.accessorytab img {
   padding-bottom: 5px;
   background-color: white;
   text-align: center;
-  overflow-x: hidden;
-  overflow-y: hidden;
+  overflow: hidden;
+
+  p {
+    padding: 20px;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: left;
+  }
 }
-.home-box-header p {
-  padding: 20px;
-  font-size: 16px;
-  line-height: 24px;
-  text-align: left;
+
+.category-description {
+  text-align: center;
+
+  h5 {
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 1px;
+  }
 }
+
 .box-content {
   padding: 15px 0;
   text-align: center;

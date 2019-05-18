@@ -47,7 +47,7 @@
     opacity: 0;
     visibility: hidden;
     margin-top: 15px;
-    padding: 10px 0;
+    padding: 0;
     border-top: 1px solid #eff1f6;
     border-bottom: 1px solid #eff1f6;
 
@@ -59,7 +59,7 @@
     }
 
     &.is-open {
-        top: 60px;
+        top: 40px;
         opacity: 1;
         visibility: visible;
         z-index: 20;
@@ -125,7 +125,6 @@
     padding: spacing("half") 0;
     text-decoration: none;
     text-transform: uppercase;
-    font-family: 'Yanone Kaffeesatz', sans-serif;
 
     @include breakpoint("medium") {
         display: inline-block;
@@ -415,17 +414,24 @@
   .main-menu-cat {
     margin: 0;
     text-indent: 0;
+
+    a {
+      display: inline-block;
+      padding: 13px 0;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      text-transform: capitalize;
+      
+    }
+
+    > a {
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
   }
   .main-menu-sub-cat {
     text-indent: 0;
-  }
-  .main-menu-cat a {
-    display: inline-block;
-    padding: 13px 0;
-    font-size: 18px;
-    font-weight: 400;
-    text-decoration: none;
-    text-transform: capitalize;
   }
   .main-menu-sub-cat-container {
     padding-left: 0;
@@ -542,7 +548,7 @@
     display: block;
     position: relative;
     max-width: 68.6rem;
-    height: 35px;
+    height: 55px;
     padding: 0;
     margin: 0 auto;
   }
@@ -563,13 +569,12 @@
   .main-menu-cat:active,
   .main-menu-cat > a:hover,
   .main-menu-cat > a:active {
-    background: #eeeeee;
+    color: #2d7dfa;
   }
   .main-menu-cat a {
     z-index: 2;
 
     &.last-chance {
-      padding: 0 10px;
       color: #ea0202;
     }
 
@@ -582,7 +587,6 @@
   .main-menu-cat > a:hover,
   .main-menu-cat > a:active {
     position: relative;
-    color: black;
   }
 
   .main-menu-cat:hover .main-menu-cat-vertical-left,
@@ -602,7 +606,7 @@
     height: 100%;
     padding: 0 10px;
     color: #232323;
-    font-size: 16px;
+    font-size: 12px;
     font-weight: 300;
     line-height: 35px;
     text-decoration: none;
@@ -612,6 +616,13 @@
       color: #f9401f;
     }
   }
+
+  .main-menu-cat > a {
+    padding: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0;
+    font-weight: 600;
+  }
   
   .main-menu-cat-vertical,
   .main-menu-cat-vertical-left,
@@ -619,12 +630,12 @@
     display: none;
     z-index: 10;
     position: absolute;
-    top: 34px;
+    top: 55px;
     padding: 0;
     margin: 0;
-    border: 1px solid #e2e2e2;
-    box-shadow: 0 5px 20px -5px #555555;
-    background: #f2f2f2;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.08), 0 12px 16px rgba(0,0,0,0.16);
+    background: white;
     list-style: none;
   }
   .main-menu-cat-vertical-left {
@@ -643,17 +654,23 @@
   }
   .main-menu-sub-cat {
     width: 250px;
+    padding: 0 5px;
     margin: 0;
-    border-bottom: 1px dashed #ffffff;
-    background: #f2f2f2;
+    border-bottom: 1px solid #eee;
+
+    &:last-child {
+      border-bottom: none;
+    }
   }
   .main-menu-sub-cat:hover,
   .main-menu-sub-cat:active {
     background: #f8f8f8;
+
+    > a {
+      color: #2d7dfa;
+    }
   }
   .main-menu-sub-cat a {
-    color: #3f3e37;
-    font-family: arial;
     font-size: 13px;
     line-height: 35px;
     text-transform: capitalize;
@@ -674,55 +691,53 @@
     left: 250px;
     -webkit-box-sizing: border-box;
        -moz-box-sizing: border-box;
+        -ms-box-sizing: border-box;
             box-sizing: border-box;
     width: 550px;
     height: 685px;
     padding: 0 20px;
-    border-bottom-right-radius: 5px;
-    -webkit-box-shadow: 5px 5px 20px -10px;
-            box-shadow: 5px 5px 20px -10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.08), 0 12px 16px rgba(0,0,0,0.16);
     background: white;
     font-weight: 300;
     overflow: hidden;
-
-        -ms-box-sizing: border-box;
+    z-index: -1;
   }
   .main-menu-sub-cat-container-column {
     display: inline-block;
     float: left;
-    width: 230px;
+    width: calc(50% - 8px);
     margin-right: 8px;
+
+    h3 {
+      margin: 0;
+    }
+
+    ul {
+      margin: 0 0 30px;
+    }
   }
   .main-menu-sub-cat-container-column-img {
     max-width: 100%;
   }
   .main-menu-sub-cat-container-column-first-h3,
   .main-menu-sub-cat-container-column-first-p {
-    color: #3f3e37;
+    color: #232323;
     text-align: center;
-  }
-  .main-menu-sub-cat-container-column h3,
-  .main-menu-sub-cat-container-column h4,
-  .main-menu-sub-cat-container-column ul {
-    padding: 0;
-    margin: 0;
-    font-weight: 300;
   }
   .main-menu-sub-cat-container-column h3 a,
   .main-menu-sub-cat-container-footer h3 {
     height: 40px;
-    color: #3f3e37;
-    font-family: 'Yanone Kaffeesatz', sans-serif;
-    font-size: 24px;
+    color: #232323;
     line-height: 50px;
+    font-size: 18px;
+    font-weight: bold;
+    white-space: nowrap;
   }
   .main-menu-sub-cat-container-column h4 {
-    height: 35px;
-    margin-bottom: 10px;
-    border-bottom: 1px dashed #f2f2f2;
-    font-size: 12px;
-    font-weight: 100;
-    line-height: 45px;
+    margin: 20px 0 5px;
+    border-bottom: 1px dashed #f8f8f8;
+    font-size: 11px;
+    font-weight: 600;
     letter-spacing: 1px;
     text-transform: uppercase;
   }
@@ -735,25 +750,23 @@
     line-height: 40px;
   }
   .main-menu-sub-cat-container-column li {
-    height: 20px;
     margin-left: 0;
+    margin-bottom: 5px;
     line-height: 20px;
     list-style: none;
   }
   .main-menu-sub-cat-container-column a {
     position: relative;
-    height: 20px;
     padding: 0;
     margin-left: 0;
     font-size: 12px;
-    line-height: 20px;
+    line-height: 18px;
   }
   .main-menu-sub-cat-container-column h3 a:hover,
   .main-menu-sub-cat-container-column a:hover,
   .main-menu-sub-cat-container-column h3 a:active,
   .main-menu-sub-cat-container-column a:active {
-    color: orange;
-    text-decoration: underline;
+    color: #2d7dfa;
   }
   .main-menu-sub-cat-container-column p {
     color: #ff0000;
@@ -784,5 +797,17 @@
     font-size: 12px;
     font-weight: 500;
     line-height: 30px;
+  }
+}
+
+@media all and (min-width: 1000px) {
+  .main-menu-cat {
+    a {
+      font-size: 14px;
+    }
+
+    > a {
+      letter-spacing: 0.5px;
+    }
   }
 }

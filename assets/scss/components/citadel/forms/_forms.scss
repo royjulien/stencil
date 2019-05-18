@@ -133,19 +133,72 @@
 // -----------------------------------------------------------------------------
 
 .form-label--alternate {
-    display: inline-block;
+    display: block;
     padding: 10px 0;
     margin-bottom: 0;
     font-size: fontSize("small");
     font-family: fontFamily("headingSans");
 }
 
-[data-quantity-change] {
-    display: inline-block;
-    position: relative;
-    top: -7px;
-    left: 15px;
+.productView-options {
+    .form-field {
+        &.form-field--increments {
+            height: 65px;
+            margin: 0 5px 0 0;
+            border-radius: 3px;
+            border: 1px solid #2c7cfa;
+        }
+
+        .form-input--incrementTotal {
+            width: 50px;
+            border-radius: 0;
+            background-color: transparent;
+            color: #2c7cfa;
+        }
+
+        .button--icon {
+            border: none;
+            background-color: transparent;
+
+            &[data-action="dec"] {
+                border-right: 1px solid #2c7cfa;
+                border-radius: 3px 0 0 3px;
+                background-color: rgba(44, 124, 250, 0.05);
+
+                @include breakpoint("medium") {
+                    width: 50px;
+                }
+            }
+
+            &[data-action="inc"] {
+                border-left: 1px solid #2c7cfa;
+                border-radius: 0 3px 3px 0;
+                background-color: rgba(44, 124, 250, 0.05);
+
+                @include breakpoint("medium") {
+                    width: 50px;
+                }
+            }
+
+            svg {
+                fill: #2c7cfa;
+            }
+        }
+    }
+
+    [data-quantity-change] {
+        display: flex;
+        position: relative;
+        top: 0;
+        left: 0;
+        height: 64px;
+
+        @include breakpoint("medium") {
+            width: 150px;
+        }
+    }
 }
+
 .form-select--date {
     width: initial;
 
@@ -156,14 +209,19 @@
 
 .form-select--small,
 .form-select--date {
-    background-position: right spacing("third") top spacing("third");
-    background-size: remCalc(18px);
-    font-size: $input-small-fontSize;
-    height: $input-small-height;
-    line-height: 1rem;
-    max-width: 20rem;
-    padding: $input-small-padding;
-    padding-right: $select-small-paddingRight;
+    height: 51px;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    padding: 0 20px;
+    border: 2px solid #e8e8e8;
+
+    &:hover,
+    &:active,
+    &:focus {
+        border-color: #2d7cfa;
+        color: #2d7cfa;
+    }
 }
 
 .form-select--short {
@@ -262,43 +320,152 @@
 // 1. Issue with FastClick JS library workaround: https://github.com/ftlabs/fastclick/issues/351
 // 2. Resetting font due to inline-block whitespace issue.
 //
+.form-label {
+    color: #232323;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
 
 .form-option {
-    display: inline-block;
-    padding: 4px 7px;
-    margin-bottom: spacing("third");
-    margin-right: spacing("third");
-    border-radius: 2px;
-    border: 2px solid stencilColor("input-border-color");
+    display: flex;
+    position: relative;
+    padding: 7px;
+    margin: 0;
+    border: 2px solid #e8e8e8;
     background-color: white;
     color: stencilColor("form-label-font-color");
     cursor: pointer;
-    font-size: 0;
-    transition: all 0.15s ease;
 
     &:hover {
-        border-color: stencilColor("input-border-color-active");
+        border-color: #81b2ff;
+        z-index: 1;
+
+        &.form-option-variant, {
+            color: #76aafb;
+        }
+
+        &.form-option-variant-group {
+            color: #76aafb;
+        }
+    }
+
+    .swatch & {
+        border: none;
+    }
+
+    .form-field-item:first-child & {
+        border-radius: 5px 0 0 5px;
+    }
+
+    .form-field-item:last-child & {
+        border-radius: 0 5px 5px 0;
     }
 
     .form-radio:checked + & {
         border-color: stencilColor("color-aql");
-    }
-}
+        z-index: 2;
 
-.form-option-variant {
-    display: inline-block;
-    font-size: $body-fontSize; // 2
-    min-width: remCalc(38px);
-    padding: 1px spacing("quarter");
-    pointer-events: none; // 1
-    text-align: center;
+        &.form-option-variant {
+            color: #0863f1;
+        }
+
+        &.form-option-variant-group {
+            color: #0863f1;
+        }
+
+        .form-option-variant--color {
+            .swatch & {
+                box-shadow: inset 0 0 0 3px white, 0 0 0 2px #2c7cfa;
+            }
+        }
+    }
+
+    &.form-option-variant {
+        display: inline-block;
+        font-size: 14px;
+        font-weight: 600;
+        text-align: center;
+        letter-spacing: 1px;
+        color: #9c9c9c;
+
+        .swatch & {
+            color: #232323;
+            font-size: 9px;
+            text-transform: uppercase;
+        }
+    }
+
+    &.form-option-variant-group {
+        display: inline-block;
+        width: 55px;
+        height: 55px;
+        padding: 7px 0;
+        border-radius: 3px;
+        color: #9c9c9c;
+        font-size: 13px;
+        font-weight: 600;
+        line-height: 38px;
+        text-align: center;
+        text-transform: uppercase;
+        overflow: visible !important;
+
+        &:before {
+            content: attr(data-option-variant-group);
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            line-height: 19px;
+            border-radius: 50%;
+            top: -10px;
+            right: -10px;
+            background-color: #2c7cfa;
+            color: white;
+            font-size: 11px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        & + .form-field-list {
+            display: none;
+
+            &.active {
+                display: block;
+                position: absolute;
+                margin-top: -2px;
+                border-radius: 3px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.16), 0 12px 16px rgba(0, 0, 0, 0.32);
+                overflow: hidden;
+                z-index: 1;
+            }
+
+            .form-field-item {
+                width: 100%;
+
+                .form-option-variant {
+                    width: 100%;
+                    padding: 0 10px;
+                    line-height: 45px;
+                    border-radius: 0;
+                    border: none;
+                }
+            }
+        }
+    }
 }
 
 .form-option-variant--color,
 .form-option-variant--pattern {
-    @include square(22);
-    min-width: initial;
+    display: block;
+    height: 45px;
+    width: 90px;
     padding: 0;
+    margin: 0 0 7px;
+    border-radius: 2px;
+    box-shadow: inset 0 0 0 3px white, 0 0 0 1px #adacaa;
+    background-size: contain;
+    background-position: center;
 }
 
 .form-option-variant--pattern {

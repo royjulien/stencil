@@ -1,50 +1,29 @@
-<div class="form-field" data-product-attribute="swatch">
+<div class="form-field swatch" data-product-attribute="swatch">
+  <label class="form-label form-label--alternate form-label--inlineSmall">{{display_name}} <small>{{#if required}}required{{/if}}</small></label>
 
-    <label class="dropdown-button" for="attribute_{{id}}">
-        {{#if this.values.[0].image}}
-        <span class='form-option-variant form-option-variant--pattern' title="{{this.label}}" style="background-image: url('{{getImage this.values.[0].image "thumb_size" }}');"></span>
-        {{/if}}
-        {{#if this.values.[0].data.[2]}}
-        <span class='form-option-variant form-option-variant--color' title="{{this.label}}" style="background-color: #{{this.values.[0].data.[0]}}"></span>
-        <span class='form-option-variant form-option-variant--color' title="{{this.label}}" style="background-color: #{{this.values.[0].data.[1]}}"></span>
-        <span class='form-option-variant form-option-variant--color' title="{{this.label}}" style="background-color: #{{this.values.[0].data.[2]}}"></span>
-        {{else if this.values.[0].data.[1]}}
-        <span class='form-option-variant form-option-variant--color' title="{{this.label}}" style="background-color: #{{this.values.[0].data.[0]}}"></span>
-        <span class='form-option-variant form-option-variant--color' title="{{this.label}}" style="background-color: #{{this.values.[0].data.[1]}}"></span>
-        {{else if this.values.[0].data.[0]}}
-        <span class='form-option-variant form-option-variant--color' title="{{this.label}}" style="background-color: #{{this.values.[0].data.[0]}}"></span>
+  <ul class='form-field-list' data-product-attribute-name="{{dashcase display_name}}">
+    {{#each values}}
+    <li class='form-field-item {{#if selected}}active{{/if}}'>
+      <input id="attribute_{{id}}" type="radio" name="attribute[{{../id}}]" class="form-radio" value="{{id}}" data-product-attribute-label="{{label}}" {{#if selected}}checked{{/if}} {{#if ../required}}required{{/if}}>
+      <label class="form-option form-option-variant" for="attribute_{{id}}" data-product-attribute-value="{{id}}">
+        {{#if image}}
+          <span class='form-option-variant form-option-variant--color' title="{{label}}" style="background-image: url({{getImage image "gallery_size"}})"></span>
         {{/if}}
 
-        <div class="dropdown-label">
-          <span class="dropdown-label-title"> Select {{this.display_name}} {{#if required}}<small class='product-title2'>{{lang 'common.required'}}</small>{{/if}} </span> 
-        </div>
+        {{#if data.[2]}}
+          <span class='form-option-variant form-option-variant--color' title="{{label}}" style="background-color: #{{data.[0]}}"></span>
+          <span class='form-option-variant form-option-variant--color' title="{{label}}" style="background-color: #{{data.[1]}}"></span>
+          <span class='form-option-variant form-option-variant--color' title="{{label}}" style="background-color: #{{data.[2]}}"></span>
+        {{else if data.[1]}}
+          <span class='form-option-variant form-option-variant--color' title="{{label}}" style="background-color: #{{data.[0]}}"></span>
+          <span class='form-option-variant form-option-variant--color' title="{{label}}" style="background-color: #{{data.[1]}}"></span>
+        {{else if data.[0]}}
+          <span class='form-option-variant form-option-variant--color' title="{{label}}" style="background-color: #{{data.[0]}}"></span>
+        {{/if}}
 
-        <div class="arrow-down"></div>
-    </label>
-    <!-- {{this.values.length}} {{this.display_name}}: -->
-    <ul class="dropdown-content-hide">
-        {{#each this.values}}
-        <li>
-            <input class="form-radio" type="radio" name="attribute[{{../id}}]" value="{{id}}" id="attribute_{{id}}" {{#if selected}} checked{{/if}} {{#if ../required}} required{{/if}}> <label id="drop-down--swatch" class="form-option" for="attribute_{{id}}" data-product-attribute-value="{{id}}" title="{{this.label}}">
-            {{#if image}}
-            <span class='form-option-variant form-option-variant--pattern' title="{{this.label}}" style="background-image: url('{{getImage image "thumb_size"}}');"></span>
-            <span class="drop-down-form-option-title">{{this.label}}</span>
-            {{/if}}
-            {{#if data.[2]}}
-            <span class='form-option-variant form-option-variant--color' title="{{this.label}}" style="background-color: #{{data.[0]}}"></span>
-            <span class='form-option-variant form-option-variant--color' title="{{this.label}}" style="background-color: #{{data.[1]}}"></span>
-            <span class='form-option-variant form-option-variant--color' title="{{this.label}}" style="background-color: #{{data.[2]}}"></span>
-            <span class="drop-down-form-option-title">{{this.label}}</span>
-            {{else if data.[1]}}
-            <span class='form-option-variant form-option-variant--color' title="{{this.label}}" style="background-color: #{{data.[0]}}"></span>
-            <span class='form-option-variant form-option-variant--color' title="{{this.label}}" style="background-color: #{{data.[1]}}"></span>
-            <span class="drop-down-form-option-title">{{this.label}}</span>
-            {{else if data.[0]}}
-            <span class='form-option-variant form-option-variant--color' title="{{this.label}}" style="background-color: #{{data.[0]}}"></span>
-            <span class="drop-down-form-option-title">{{this.label}}</span>
-            {{/if}}
-            </label>
-        </li>
-        {{/each}}
-    </ul>
+        {{label}}
+      </label>
+    </li>
+    {{/each}}
+  </ul>
 </div>

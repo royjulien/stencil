@@ -1,64 +1,87 @@
-<div class="form-field" data-product-attribute="product-list">
+<div class="form-field product-list" data-product-attribute="product-list" data-product-attribute-category="{{dashcase display_name}}">
+  <label class="form-label form-label--alternate form-label--inlineSmall">{{display_name}} <small>{{#if required}}required{{/if}}</small></label>
+
   <label class="dropdown-button">
+    <figure class="dropdown-add-text">Choose<br>{{display_name}}</figure>
+    <figure class="dropdown-add-icon"></figure>
 
-    {{#if this.values.[0].image}}
-    <span class='form-option-variant form-option-variant--pattern' title="{{this.label}}" style="background-image: url('{{getImage this.values.[0].image "thumb_size" }}');"></span>
+    {{> components/common/icons/dropdown-icons name=display_name}}
+  </label>
+
+  <div class="dropdown-content">
+  {{#if values.0.image}}
+    {{#unless required}}
+    <input class="form-radio"
+           type="radio"
+           name="attribute[{{id}}]"
+           value="0"
+           id="attribute_0_{{id}}"
+           {{#if defaultValue '==' 0}}checked{{/if}} {{#if required}}required{{/if}}>
+    <label class="form-option drop-down--swatch" for="attribute_0_{{id}}">
+      <figure class="dropdown-remove-icon"></figure>
+      <span class="drop-down-form-option-title">None</span>
+    </label>
+    {{/unless}}
+
+    {{#each values}}
+    <input class="form-radio"
+            type="radio"
+            name="attribute[{{../id}}]"
+            value="{{id}}"
+            id="attribute_{{id}}"
+            {{#if selected}}checked{{/if}}
+            {{#if ../required}}required{{/if}}>
+    <label class="form-option drop-down--swatch"
+           data-product-attribute-value="{{id}}"
+           for="attribute_{{id}}"
+           {{#startsWith "12V" label}} 
+             data-product-attribute-parameter="12V"
+           {{/startsWith}} 
+           {{#startsWith "120V" label}} 
+             data-product-attribute-parameter="120V"
+           {{/startsWith}}>
+    {{#if image}}
+      <img class="dropdown-content-image" src="{{getImage image "gallery_size"}}" />
     {{/if}}
-
-    <div class="dropdown-label">
-      <span class="dropdown-label-title"> Select {{this.display_name}} </span> 
-    </div>
-    <div class="arrow-down"></div>
-</label>
-
-    <div class="dropdown-content-hide">
-    {{#if values.0.image}}
-            {{#unless required}}
-            <input class="form-radio"
-                   type="radio"
-                   name="attribute[{{id}}]"
-                   value="0"
-                   id="attribute_0_{{id}}"
-                   data-dude='{{default}}'
-                   {{#if defaultValue '==' 0}}checked{{/if}} {{#if required}}required{{/if}}>
-            <label id="drop-down--swatch" class="form-option" for="attribute_0_{{id}}"> <span class='form-option-variant form-option-variant--pattern' style="background-image: url(http://www.aqlightinggroup.com/product_images/uploaded_images/blue-x-1.jpg);"></span> <span class="drop-down-form-option-title"> <span class="dropdown-label-title"> Select {{this.display_name}} </span>  : {{lang 'products.none'}} </span></label>
-            {{/unless}}
-
-            {{#each values}}
-            <input class="form-radio"
-                    type="radio"
-                    name="attribute[{{../id}}]"
-                    value="{{id}}"
-                    id="attribute_{{id}}"
-                    {{#if selected}}checked{{/if}}
-                    {{#if ../required}}required{{/if}}>
-            <label class="form-option" id="drop-down--swatch" data-product-attribute-value="{{id}}"  for="attribute_{{id}}">
-            {{#if image}}
-                <span class='form-option-variant form-option-variant--pattern' style="background-image: url('{{getImage image "thumb_size"}}');"></span>
-            {{/if}}
-                <span class="drop-down-form-option-title">{{this.label}}</span>    
-            </label>
-            {{/each}}
-    {{else}}
-        <input class="form-radio"
-               type="radio"
-               name="attribute[{{id}}]"
-               value="0"
-               id="attribute_0_{{id}}"
-               {{#if defaultValue '==' 0}}checked{{/if}}
-               {{#if required}}required{{/if}}>
-        <label class="form-label" for="attribute_0_{{id}}">{{lang 'products.none'}}</label>
-        {{#each values}}
-            <input
-                class="form-radio"
-                type="radio"
-                name="attribute[{{../id}}]"
-                value="{{id}}"
-                id="attribute_{{id}}"
-                {{#if selected}}checked{{/if}}
-                {{#if ../required}}required{{/if}}>
-            <label data-product-attribute-value="{{id}}" class="form-label" for="attribute_{{id}}">{{label}}</label>
-        {{/each}}
-    {{/if}}
-    </div>
+      <span class="drop-down-form-option-title" data-parse-label>{{label}}</span>
+    </label>
+    {{/each}}
+  {{else}}
+    <input class="form-radio"
+           type="radio"
+           name="attribute[{{id}}]"
+           value="0"
+           id="attribute_0_{{id}}"
+           {{#if defaultValue '==' 0}}checked{{/if}}
+           {{#if required}}required{{/if}}>
+    <label class="form-option drop-down--swatch" for="attribute_0_{{id}}">
+      <figure class="dropdown-remove-icon"></figure>
+      <span class="drop-down-form-option-title">None</span>
+    </label>
+    {{#each values}}
+        <input
+            class="form-radio"
+            type="radio"
+            name="attribute[{{../id}}]"
+            value="{{id}}"
+            id="attribute_{{id}}"
+            {{#if selected}}checked{{/if}}
+            {{#if ../required}}required{{/if}}>
+        <label class="form-option drop-down--swatch"
+               data-product-attribute-value="{{id}}"
+               for="attribute_{{id}}"
+               {{#startsWith "12V" label}} 
+                 data-product-attribute-parameter="12V"
+               {{/startsWith}} 
+               {{#startsWith "120V" label}} 
+                 data-product-attribute-parameter="120V"
+               {{/startsWith}}>
+        {{#if image}}
+          <img class="dropdown-content-image" src="{{getImage image "gallery_size"}}" />
+        {{/if}}
+          <span class="drop-down-form-option-title" data-parse-label>{{label}}</span>
+        </label>
+    {{/each}}
+  {{/if}}
+  </div>
 </div>
