@@ -9,9 +9,7 @@
 // -----------------------------------------------------------------------------
 
 .productReviews-list {
-    @include u-listBullets("none");
-    @include grid-row($behavior: "nest");
-    font-size: 0; // 1
+    margin: 0;
 }
 
 

@@ -7,42 +7,56 @@
 // across breakpoints.
 //
 // -----------------------------------------------------------------------------
+.tabs-contents {
+    .slick-track {
+      display: flex;
+      flex-wrap: wrap;
+      width: 100% !important;
 
+      .productCarousel-slide {
+        width: 20% !important;
+      }
+    }
+}
 .tab {
-    border-top: $tab-active-border;
-    float: none;
+    display: inline-block;
+    list-style: none;
+    min-width: calc(50% - 5px);
 
     @include breakpoint("medium") {
-        border-top-color: $tab-title-border-color;
-        float: left;
+        min-width: 20%;
     }
 
     &.is-active {
-        border-left-color: $tab-title-border-color;
-        border-right-color: $tab-title-border-color;
 
-        @include breakpoint("small") {
-            margin-bottom: $tab-title-border-bottom-offset;
+        .tab-title {
+            outline: none;
+            color: #2d7cfa;
+            border-bottom-color: #2d7cfa;
         }
+
+    }
+
+    .tab-title {
+        display: block;
+        height: 50px;
+        padding: 0 1px;
+        margin: 0 20px 0 0;
+        border: none;
+        border-bottom: 2px solid;
+        color: #232323;
+        font-size: 11px;
+        font-weight: bold;
+        letter-spacing: 1px;
+        line-height: 50px;
+        text-decoration: none;
+        text-transform: uppercase;
+        white-space: nowrap;
+        transition: color 333ms;
 
         @include breakpoint("medium") {
-            border: $tab-active-border;
-            border-bottom: $tab-title-border;
+            font-size: 13px;
         }
-    }
-}
-
-.tab-title {
-    padding: spacing("half") + spacing("quarter") 0;
-    text-align: center;
-    text-decoration: $tab-title-text-decoration;
-
-    @include breakpoint("small") {
-        text-align: left;
-    }
-
-    @include breakpoint("medium") {
-        padding: spacing("half") spacing("single");
     }
 }
 

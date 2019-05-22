@@ -1,11 +1,20 @@
 <div class="form-field product-list" data-product-attribute="product-list" data-product-attribute-category="{{dashcase display_name}}">
-  <label class="form-label form-label--alternate form-label--inlineSmall">{{display_name}} <small>{{#if required}}required{{/if}}</small></label>
+  <label class="form-label form-label--alternate form-label--inlineSmall">
+    {{#if display_name '==' 'Add Injecta-Seal (+$4.99)'}}Protector{{else}}{{display_name}}{{/if}}
+    <small>{{#if required}} required{{/if}}</small></label>
 
   <label class="dropdown-button">
-    <figure class="dropdown-add-text">Choose<br>{{display_name}}</figure>
+    <figure class="dropdown-add-text">Choose
+      <br>
+      {{#if display_name '==' 'Add Injecta-Seal (+$4.99)'}}Protector{{else}}{{display_name}}{{/if}}
+    </figure>
     <figure class="dropdown-add-icon"></figure>
 
-    {{> components/common/icons/dropdown-icons name=display_name}}
+    {{#if display_name '==' 'Add Injecta-Seal (+$4.99)'}}
+      {{> components/common/icons/dropdown-icons name='Protector'}}
+    {{else}}
+      {{> components/common/icons/dropdown-icons name=display_name}}
+    {{/if}}
   </label>
 
   <div class="dropdown-content">

@@ -652,15 +652,19 @@ export default class Product {
                         $(this).parent().before(`<div class="form-label"># of __ ${attributeName.split('-')[2]} ${attributeName.split('-')[3]}</div>`);
                     }
                 }
+
+                previousAttribute = currentAttribute;
             }
 
-            if ($.isNumeric(attributeName.split('-')[1])) {
-                $(this).prev().text(`${attributeName.split('-')[1]}"`).removeClass().addClass('form-option form-option-variant-group').attr('data-option-variant-group', 0);
-            } else {
-                $(this).prev().text(`${attributeName.split('-')[1]}`).removeClass().addClass('form-option form-option-variant-group').attr('data-option-variant-group', 0);
+            if ($(this).prev().text().match('^#')) {
+                if ($.isNumeric(attributeName.split('-')[1])) {
+                    $(this).prev().text(`${attributeName.split('-')[1]}"`).removeClass().addClass('form-option form-option-variant-group').attr('data-option-variant-group', 0);
+                } else {
+                    $(this).prev().text(`${attributeName.split('-')[1]}`).removeClass().addClass('form-option form-option-variant-group').attr('data-option-variant-group', 0);
+                }
             }
 
-            previousAttribute = currentAttribute;
+
         });
     }
 
