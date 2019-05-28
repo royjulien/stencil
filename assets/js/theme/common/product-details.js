@@ -538,7 +538,7 @@ export default class Product {
         const $mountingCategory = $('[data-product-attribute-category=mounting]');
 
         // reset fields that require specific voltage
-        $label.on('click', function (event) {
+        $label.on('click', (event) => {
             $('.dropdown-content input', $bulbCategory).attr('checked', false);
             $('.dropdown-content input', $mountingCategory).attr('checked', false);
 
@@ -555,7 +555,7 @@ export default class Product {
             $(`[data-product-attribute-parameter=${event.currentTarget.dataset.productAttributeLabel}]`, $mountingCategory).removeClass('hide');
         });
 
-        $('[data-product-attribute-label]:checked', $voltage).each(function (i, radio) {
+        $('[data-product-attribute-label]:checked', $voltage).each((i, radio) => {
             $('[data-product-attribute-parameter]').addClass('hide');
             $(`[data-product-attribute-parameter=${radio.dataset.productAttributeLabel}]`).removeClass('hide');
         });
@@ -638,7 +638,7 @@ export default class Product {
         let currentAttribute;
         let previousAttribute;
 
-        $('[data-product-attribute=set-rectangle] [data-product-attribute-name]').each(function (index) {
+        $('[data-product-attribute=set-rectangle] [data-product-attribute-name]').each(function () {
             const attributeName = $(this).data('product-attribute-name');
             currentAttribute = attributeName.split('-')[2];
 
@@ -663,8 +663,6 @@ export default class Product {
                     $(this).prev().text(`${attributeName.split('-')[1]}`).removeClass().addClass('form-option form-option-variant-group').attr('data-option-variant-group', 0);
                 }
             }
-
-
         });
     }
 
