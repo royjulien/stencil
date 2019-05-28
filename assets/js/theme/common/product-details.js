@@ -566,7 +566,7 @@ export default class Product {
             const img = $(this).find('.form-radio:checked + .form-option .dropdown-content-image');
 
             if (img.length > 0) {
-                $(this).find('.dropdown-button').append(img);
+                $(this).find('.dropdown-button').append(img.clone());
             }
         });
     }
