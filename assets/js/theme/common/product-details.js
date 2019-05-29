@@ -584,9 +584,10 @@ export default class Product {
             });
 
             $('body').toggleClass('no-scroll');
+            $('.dropdown-exit').toggleClass('active');
         });
 
-        $('.form-option.drop-down--swatch').on('click', function () {
+        $('.form-option.drop-down--swatch, .dropdown-exit').on('click', function () {
             const img = $(this).find('.dropdown-content-image');
 
             // detect if an image is present and attribute it to the selector and activate it else remove any image present
@@ -601,10 +602,10 @@ export default class Product {
                 dropdownButton.removeClass('active');
             }
 
-            dropdownContent.insertAfter(dropdownButton);
-            $(this).parent().removeClass('active');
+            dropdownContent.insertAfter(dropdownButton).removeClass('active');
 
             $('body').toggleClass('no-scroll');
+            $('.dropdown-exit').toggleClass('active');
         });
     }
 
