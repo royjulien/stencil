@@ -1,7 +1,15 @@
+import $ from 'jquery';
+
 export default function () {
     // Product Tab - ES6 Version
     const tabAnchors = document.querySelectorAll('.tabNavigation a');
     const tabContents = document.querySelectorAll('.product-overview');
+
+
+    // hack to fix all images coming from old AQL
+    $('img').each(function () {
+        $(this).attr('src', $(this).attr('src').replace('affordablequalitylighting', 'aqlightinggroup'));
+    });
 
     // activate the first tab by default
     if (location.hash) {
