@@ -534,8 +534,9 @@ export default class Product {
     filterVariations() {
         const $voltage = $('[data-product-attribute-name=voltage]');
         const $label = $('[data-product-attribute-label]', $voltage);
-        const $bulbCategory = $('[data-product-attribute-category=bulb]');
+        const $bulbCategory = $('[data-product-attribute-category=bulb], [data-product-attribute-category=bulbs]');
         const $mountingCategory = $('[data-product-attribute-category=mounting]');
+
 
         // reset fields that require specific voltage
         $label.on('click', (event) => {
