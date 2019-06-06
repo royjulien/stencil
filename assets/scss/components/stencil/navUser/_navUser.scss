@@ -232,6 +232,10 @@
     .quickSearchResults .product {
         width: 100%;
         min-height: auto;
+        padding: 20px 10px 20px 20px;
+        margin: 0;
+        border-bottom: 1px solid #ccc;
+        border-radius: 0;
         box-shadow: none;
     }
 
@@ -243,6 +247,7 @@
 
     section.quickSearchResults {
         position: absolute;
+        top: 54px;
     }
 
     .quickSearchResults .card-image {
@@ -262,13 +267,14 @@
     }
 
     .quickSearchResults h4.card-title a {
-        text-transform: lowercase;
-        font-weight: bold;
+        text-transform: capitalize;
+        letter-spacing: 0;
+        font-size: 13px;
     }
 
     .quickSearchResults ul.productGrid {
-        box-shadow: 0 0 0 1px rgba(0,0,0,0.25), 0 0 20px rgba(0,0,0,0.25);
-        border-radius: 5px;
+        box-shadow: 0 0 0 1px rgba(0,0,0,0.1), 0 0 20px rgba(0,0,0,0.25);
+        border-radius: 3px;
     }
 
     .quickSearchResults article.card.card--alternate:hover {

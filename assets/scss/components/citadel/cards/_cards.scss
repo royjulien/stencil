@@ -56,7 +56,7 @@
 
         // scss-lint:disable NestingDepth
         &:hover {
-            color: $card-title-color-hover;
+            color: #2d7cfa;
         }
     }
 }
@@ -123,24 +123,6 @@
 
         @include breakpoint("small") {
             padding: spacing("single");
-        }
-    }
-
-    &:hover {
-        border-color: stencilColor("color-primary");
-
-        // scss-lint:disable SelectorDepth, NestingDepth
-        .card-body {
-            background-color: stencilColor("color-primary");
-
-            .card-text {
-                color: stencilColor("card--alternate-color--hover");
-            }
-        }
-
-        .card-title > a {
-            display: block;
-            color: stencilColor("card--alternate-color--hover");
         }
     }
 }
