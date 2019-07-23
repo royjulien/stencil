@@ -3,6 +3,8 @@
 
     <section class="previewCart-header">Your Cart</section>
 
+    {{> components/cart/shipping-estimator cart.shipping_handling}}
+
     {{#if cart.items.length}}
         {{> components/cart/cart-content}}
 
@@ -11,13 +13,16 @@
             <div class="cart-total-value"><span>{{cart.sub_total.formatted}}</span></div>
 
             <div class="cart-total-label">Shipping</div>
+
             <div class="cart-total-value">
                 {{#if cart.sub_total.value "<" "150"}}
-                    <span class="cart-total-gfs"><a href="/" class="cart-total-gfs-anchor">Add ${{toFixed (subtract 150 cart.sub_total.value) 2}} to get Free Shipping</a></span>
+                    <span class="cart-total-gfs"><a href="/" class="cart-total-gfs-anchor">Add <strong>${{toFixed (subtract 150 cart.sub_total.value) 2}}</strong> to get Free Shipping</a></span>
                 {{else}}
                     <strong>FREE</strong>
                 {{/if}}
             </div>
+
+            <div class="cart-total-label calculate-shipping" data-calculate-shipping>Calculate Shipping</div>
 
 
             {{#if cart.coupons}}

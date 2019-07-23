@@ -256,6 +256,13 @@ body.active {
         color: #666;
         font-size: 14px;
 
+        &.calculate-shipping {
+            width: 100%;
+            font-weight: bold;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
         &.green {
             color: #16942d;
         }
@@ -273,9 +280,7 @@ body.active {
             position: relative;
             left: -40px;
             width: calc(100% + 40px);
-            border-radius: 3px;
-            box-shadow: 0 0 0 2px #dd0000;
-            text-align: center;
+            text-align: right;
             text-decoration: none;
             cursor: pointer;
 
@@ -288,7 +293,7 @@ body.active {
 
             .cart-total-gfs-anchor {
                 display: block;
-                padding: 7px 5px;
+                padding: 0;
                 color: #dd0000;
                 text-decoration: none;
                 text-transform: uppercase;
@@ -737,6 +742,14 @@ body.active {
     }
 }
 
+.estimator-form--default {
+    margin-top: 25px;
+}
+
+.estimator-form-dl {
+    margin: 0;
+}
+
 .estimator-form-label {
     float: left;
     clear: both;
@@ -752,13 +765,31 @@ body.active {
 }
 
 .estimator-form-label-text {
-    margin-left: remCalc(10px);
+    display: block;
+    padding: 15px;
+    margin-left: 0;
+    border-bottom: 1px solid #dfdfdf;
+    font-size: 14px;
+    cursor: pointer;
+
+    &:hover {
+        border-color: #2d7cfa;
+    }
+
+    strong {
+        float: right;
+    }
+
+    input[type="checkbox"],
+    input[type="radio"] {
+        position: relative;
+        top: -1px;
+        margin-right: 10px;
+    }
 }
 
 .estimator-form-input {
-    float: right;
     margin-bottom: 1em;
-    width: 60%;
 
     .form-input,
     .form-select {
@@ -772,6 +803,11 @@ body.active {
 
 .estimator-form-row {
     @include clearfix;
+    margin: 5px 0;
+}
+
+.estimator-form-row-dl {
+    margin: 0;
 }
 
 .estimator-form-toggleUPSRate {
@@ -926,4 +962,69 @@ body.active {
 .previewCart-emptyBody {
     padding: spacing("double");
     text-align: center;
+}
+
+.shipping-estimator {
+    display: none;
+    position: absolute;
+    width: 90%;
+    max-height: 85%;
+    padding: 30px;
+    margin: 5%;
+    border-radius: 3px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.08), 0 8px 16px rgba(0,0,0,0.16);
+    background-color: white;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    z-index: 1;
+
+    &.active {
+        display: block;
+    }
+
+    .shipping-estimator-close {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        width: 25px;
+        height: 25px;
+        margin: 0;
+        padding: 0;
+        border-radius: 50%;
+        background-color: #de0000;
+        cursor: pointer;
+
+        &::before,
+        &::after {
+            content: '';
+            display: block;
+            position: absolute;
+            top: 12px;
+            left: 4px;
+            width: 70%;
+            height: 2px;
+            background-color: white;
+            transform-origin: center;
+        }
+
+        &::before {
+            transform: rotate(45deg);
+        }
+        &::after {
+            transform: rotate(-45deg);
+        }
+    }
+
+    .estimator-form .button--primary {
+        width: 100%;
+        margin: 0;
+        font-size: 16px;
+        line-height: 34px;
+        cursor: pointer;
+    }
+}
+
+.estimator-form--default--list {
+    margin: 0;
+    list-style-type: none;
 }

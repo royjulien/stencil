@@ -4,7 +4,7 @@ import nod from '../common/nod';
 import utils from '@bigcommerce/stencil-utils';
 import { Validators } from '../common/form-utils';
 
-export default class ShippingEstimator {
+export default class shippingEstimator {
     constructor($element) {
         this.$element = $element;
 
@@ -175,6 +175,10 @@ export default class ShippingEstimator {
             $estimatorContainer.addClass('u-hiddenVisually');
             $('.shipping-estimate-show').show();
             $('.shipping-estimate-hide').hide();
+        });
+
+        $('[data-calculate-shipping]').on('click', () => {
+            $('.shipping-estimator').toggleClass('active');
         });
     }
 }

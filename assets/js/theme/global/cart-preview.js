@@ -2,12 +2,14 @@ import $ from 'jquery';
 import 'foundation-sites/js/foundation/foundation';
 import 'foundation-sites/js/foundation/foundation.dropdown';
 import utils from '@bigcommerce/stencil-utils';
+import shippingEstimator from '../cart/shipping-estimator';
 
 export default function () {
     const loadingClass = 'is-loading';
     const $cart = $('[data-cart-preview]');
     const $cartDropdown = $('#cart-preview-dropdown');
     const $cartLoading = $('<div class="loadingOverlay"></div>');
+    const $shippingEstimator = $('[data-shipping-estimator]');
     let getContent = '';
     // let applyCoupon = '';
     let incrementItemQuantity = '';
@@ -28,6 +30,8 @@ export default function () {
             removeItem();
 
             addUpsellItems();
+
+            shippingEstimator($shippingEstimator);
         });
     };
 
