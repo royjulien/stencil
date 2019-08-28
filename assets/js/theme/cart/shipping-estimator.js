@@ -4,7 +4,7 @@ import nod from '../common/nod';
 import utils from '@bigcommerce/stencil-utils';
 import { Validators } from '../common/form-utils';
 
-export default class shippingEstimator {
+export default class ShippingEstimator {
     constructor($element) {
         this.$element = $element;
 

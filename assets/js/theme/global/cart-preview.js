@@ -2,7 +2,7 @@ import $ from 'jquery';
 import 'foundation-sites/js/foundation/foundation';
 import 'foundation-sites/js/foundation/foundation.dropdown';
 import utils from '@bigcommerce/stencil-utils';
-import shippingEstimator from '../cart/shipping-estimator';
+import ShippingEstimator from '../cart/shipping-estimator';
 
 export default function () {
     const loadingClass = 'is-loading';
@@ -31,7 +31,8 @@ export default function () {
 
             addUpsellItems();
 
-            shippingEstimator($shippingEstimator);
+            const shippingEstimator = new ShippingEstimator($shippingEstimator);
+            shippingEstimator();
         });
     };
 
