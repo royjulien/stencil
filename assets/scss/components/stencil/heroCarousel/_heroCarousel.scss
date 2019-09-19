@@ -25,6 +25,7 @@
     }
 
     &.slick-initialized { // 2
+        clear: both;
         max-height: remCalc(1000);
         opacity: 1;
     }
