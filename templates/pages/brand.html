@@ -4,39 +4,6 @@ brand:
         limit: {{theme_settings.brandpage_products_per_page}}
 ---
 {{inject "brandProductsPerPage" theme_settings.brandpage_products_per_page}}
-{{#partial "head"}}
-    {{#if pagination.brand.previous}}
-        <link rel="prev" href="{{pagination.brand.previous}}">
-    {{/if}}
-    {{#if pagination.brand.next}}
-        <link rel="next" href="{{pagination.brand.next}}">
-    {{/if}}
-{{/partial}}
-
-{{#partial "page"}}
-{{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
-{{#if brand.image}}
-    <img class="brand-logo" src="{{getImage brand.image}}" width="300">
-{{/if}}
-
-{{{snippet 'brand'}}}
-<div class="page">
-    <aside class="page-sidebar" id="faceted-search-container">
-        {{> components/brand/sidebar}}
-    </aside>
-
-    <main class="page-content" id="product-listing-container">
-        {{#if brand.products}}
-            {{> components/brand/product-listing}}
-        {{else}}
-            <p>{{lang 'brands.no_products'}}</p>
-        {{/if}}
-    </main>
-</div>
-
-{{/partial}}
-{{> layout/base}}
-
 <style>
     .body {
         background-color: #f8f8f8;
@@ -87,3 +54,36 @@ brand:
         display: inline-block;
     }
 </style>
+
+{{#partial "head"}}
+    {{#if pagination.brand.previous}}
+        <link rel="prev" href="{{pagination.brand.previous}}">
+    {{/if}}
+    {{#if pagination.brand.next}}
+        <link rel="next" href="{{pagination.brand.next}}">
+    {{/if}}
+{{/partial}}
+
+{{#partial "page"}}
+{{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+{{#if brand.image}}
+    <img class="brand-logo" src="{{getImage brand.image}}" width="300">
+{{/if}}
+
+{{{snippet 'brand'}}}
+<div class="page">
+    <aside class="page-sidebar" id="faceted-search-container">
+        {{> components/brand/sidebar}}
+    </aside>
+
+    <main class="page-content" id="product-listing-container">
+        {{#if brand.products}}
+            {{> components/brand/product-listing}}
+        {{else}}
+            <p>{{lang 'brands.no_products'}}</p>
+        {{/if}}
+    </main>
+</div>
+
+{{/partial}}
+{{> layout/base}}
