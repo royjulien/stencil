@@ -47,7 +47,9 @@
   },
   "main": "Gruntfile.js",
   "dependencies": {
-    "@bigcommerce/stencil-paper": "^2.0.12"
+    "@bigcommerce/stencil-paper": "^2.0.12",
+    "@stencil/core": "1.6.1",
+    "nvm": "0.0.4"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
