@@ -4,57 +4,6 @@ brand:
         limit: {{theme_settings.brandpage_products_per_page}}
 ---
 {{inject "brandProductsPerPage" theme_settings.brandpage_products_per_page}}
-<style>
-    .body {
-        background-color: #f8f8f8;
-    }
-
-    .brand-logo {
-        display: block;
-        max-width: 300px;
-        padding: 25px;
-        margin: 0 auto;
-    }
-
-    .productGrid {
-        background-color: transparent;
-    }
-
-    .productGrid .product {
-        background-color: white;
-        border-radius: 0;
-        box-shadow: 0 0 0 1px #ccc;
-    }
-
-    @media (min-width: 801px) {
-        .productGrid .product {
-            width: calc(33% - 7px);
-        }
-    }
-
-    .productGrid .product .rating--small {
-        display: none;
-    }
-
-    .productGrid .product .card-image {
-        padding: 0;
-        margin: 40px auto;
-        max-height: none;
-        width: 80%;
-    }
-
-    .productGrid .product .card-title {
-        padding: 10px 20px 0;
-    }
-
-    .card-text .price--withoutTax {
-        color: #2679fe;
-        font-size: 18px;
-        font-weight: 300;
-        display: inline-block;
-    }
-</style>
-
 {{#partial "head"}}
     {{#if pagination.brand.previous}}
         <link rel="prev" href="{{pagination.brand.previous}}">
@@ -62,6 +11,58 @@ brand:
     {{#if pagination.brand.next}}
         <link rel="next" href="{{pagination.brand.next}}">
     {{/if}}
+
+    <style>
+        .body {
+            background-color: #f8f8f8;
+        }
+
+        .brand-logo {
+            display: block;
+            max-width: 300px;
+            padding: 25px;
+            margin: 0 auto;
+        }
+
+        .productGrid {
+            background-color: transparent;
+        }
+
+        .productGrid .product {
+            background-color: white;
+            border-radius: 0;
+            box-shadow: 0 0 0 1px #ccc;
+        }
+
+        @media (min-width: 801px) {
+            .productGrid .product {
+                width: calc(33% - 7px);
+            }
+        }
+
+        .productGrid .product .rating--small {
+            display: none;
+        }
+
+        .productGrid .product .card-image {
+            padding: 0;
+            margin: 40px auto;
+            max-height: none;
+            width: 80%;
+        }
+
+        .productGrid .product .card-title {
+            padding: 10px 20px 0;
+        }
+
+        .card-text .price--withoutTax {
+            color: #2679fe;
+            font-size: 18px;
+            font-weight: 300;
+            display: inline-block;
+        }
+    </style>
+
 {{/partial}}
 
 {{#partial "page"}}
