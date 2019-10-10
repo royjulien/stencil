@@ -11,12 +11,64 @@ brand:
     {{#if pagination.brand.next}}
         <link rel="next" href="{{pagination.brand.next}}">
     {{/if}}
+
+    <style>
+        .body {
+            background-color: #f8f8f8;
+        }
+
+        .brand-logo {
+            display: block;
+            max-width: 300px;
+            padding: 25px;
+            margin: 0 auto;
+        }
+
+        .productGrid {
+            background-color: transparent !important;
+        }
+
+        .productGrid .product {
+            background-color: white;
+            border-radius: 0;
+            box-shadow: 0 0 0 1px #ccc;
+        }
+
+        @media (min-width: 801px) {
+            .productGrid .product {
+                width: calc(33% - 7px);
+            }
+        }
+
+        .productGrid .product .rating--small {
+            display: none;
+        }
+
+        .productGrid .product .card-image {
+            padding: 0;
+            margin: 40px auto;
+            max-height: none;
+            width: 80%;
+        }
+
+        .productGrid .product .card-title {
+            padding: 10px 20px 0;
+        }
+
+        .card-text .price--withoutTax {
+            display: inline-block;
+            color: #2679fe;
+            font-size: 18px;
+            font-weight: 300;
+        }
+    </style>
+
 {{/partial}}
 
 {{#partial "page"}}
 {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
 {{#if brand.image}}
-    <img class="brand-logo" src="{{getImage brand.image}}">
+    <img class="brand-logo" src="{{getImage brand.image}}" width="300">
 {{/if}}
 
 {{{snippet 'brand'}}}
@@ -36,54 +88,3 @@ brand:
 
 {{/partial}}
 {{> layout/base}}
-
-<style>
-    .body {
-        background-color: #f8f8f8;
-    }
-
-    .brand-logo {
-        display: block;
-        max-width: 250px;
-        padding: 50px;
-        margin: 0 auto;
-    }
-
-    .productGrid {
-        background-color: transparent;
-    }
-
-    .productGrid .product {
-        background-color: white;
-        border-radius: 0;
-        box-shadow: 0 0 0 1px #ccc;
-    }
-
-    @media (min-width: 801px) {
-        .productGrid .product {
-            width: calc(33% - 20px);
-        }
-    }
-
-    .productGrid .product .rating--small {
-        display: none;
-    }
-
-    .productGrid .product .card-image {
-        padding: 0;
-        margin: 40px auto;
-        max-height: none;
-        width: 80%;
-    }
-
-    .productGrid .product .card-title {
-        padding: 10px 20px 0;
-    }
-
-    .card-text .price--withoutTax {
-        color: #2679fe;
-        font-size: 18px;
-        font-weight: 300;
-        display: inline-block;
-    }
-</style>
