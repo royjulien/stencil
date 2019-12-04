@@ -73,7 +73,12 @@
 }
 
 .quickSearchMessage {
-    font-size: fontSize("largest");
+    font-size: 12px;
     margin: spacing("single") 0 0;
     text-align: center;
+    background-color: white;
+    padding: 5px;
+    border-radius: 3px;
+    border: 1px solid #ccc;
 }
+

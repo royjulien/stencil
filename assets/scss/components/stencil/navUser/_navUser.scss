@@ -223,9 +223,6 @@
                 display: none;
             }
 
-            @include breakpoint("medium") {
-                display: inline-block;
-            }
         }
     }
 
