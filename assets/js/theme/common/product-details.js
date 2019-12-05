@@ -42,7 +42,6 @@ export default class Product {
         this.toggleDropdown();
         this.parseLabels();
         this.renderBlocks();
-        this.initialVariations();
         this.renderSets();
         this.showQuantities();
 
@@ -51,8 +50,8 @@ export default class Product {
         const hasOptions = $productOptionsElement.html().trim().length;
 
         // Update product attributes. If we're in quick view and the product has options, then also update the initial view in case items are oos
+        const $productId = $('[name="product_id"]', $form).val();
         if (_.isEmpty(productAttributesData) && hasOptions) {
-            const $productId = $('[name="product_id"]', $form).val();
 
             utils.api.productAttributes.optionChange($productId, $form.serialize(), (err, response) => {
                 const attributesData = response.data || {};
@@ -72,6 +71,8 @@ export default class Product {
         let startingPrice = document.querySelector('#productSalePrice').innerText.split('$')[1];
         startingPrice = parseFloat(startingPrice);
         this.updateQualifyForShipping();
+
+        this.initialVariations($productId);
     }
 
     /**
@@ -562,13 +563,24 @@ export default class Product {
         });
     }
 
-    initialVariations() {
-        $('.form-field').each(function () {
+    initialVariations(productId) {
+        $('.form-field').each(function (data, elem) {
             const img = $(this).find('.form-radio:checked + .form-option .dropdown-content-image');
 
             if (img.length > 0) {
                 $(this).find('.dropdown-button').append(img.clone());
             }
+        });
+
+        $('[data-product-attribute-name=color] .form-field-item > input').each(function (data, elem) {
+            const productAttributeName = $(elem)[0].name;
+            const productAttributeValue = $(elem)[0].value;
+
+            utils.api.productAttributes.getData(productId, `product_id=${productId}&${productAttributeName}=${productAttributeValue}`, (err, response) => {
+                const priceArray = response.data.price;
+                let discountedPrice = Math.round(100 - ((priceArray.without_tax.value / priceArray.rrp_without_tax.value) * 100));
+                if (discountedPrice >= 30) $(elem).next()[0].setAttribute('data-discount', `${discountedPrice}% OFF`);
+            });
         });
     }
 
