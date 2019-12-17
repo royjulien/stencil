@@ -1,0 +1,15 @@
+<div style="background: linear-gradient(360deg,#484848 0,#e91919 50%,#484848 100%); color: white;">
+    <p style="margin-left: auto; margin-right: auto; max-width: 100%; width: 120rem; height: auto; text-align: center; font-size: 1.4rem;">Holiday Hours: Offices closed on Christmas day 12/25 and New Year's day 1/1. We are open half day on Christmas Eve 12/24 and New Year's Eve 12/31. Customer service will be available to assist you on 12/27 and 12/30. Orders will ship everyday except Christmas and New year's Day. Normal hours will resume on January 2nd.</p>
+</div>
+<div class="checkoutHeader-content">
+    <h1 class="is-srOnly">{{lang 'checkout.title'}}</h1>
+    <h2 class="checkoutHeader-heading">
+        <a class="checkoutHeader-link" href="{{urls.home}}">
+            {{#if checkout.header_image}}
+                <img alt="{{settings.store_logo.title}}" class="checkoutHeader-logo" id="logoImage" src="{{ checkout.header_image }}"/>
+            {{ else }}
+                <span class="header-logo-text">{{settings.store_logo.title}}</span>
+            {{/if}}
+        </a>
+    </h2>
+</div>
