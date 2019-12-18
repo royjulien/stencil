@@ -1,13 +1,15 @@
 {{#partial "head"}}
 
-{{{ stylesheet '/assets/css/optimized-checkout.css' }}}
-{{{ checkout.checkout_head }}}
+<!-- {{{ stylesheet '/assets/css/optimized-checkout.css' }}} -->
+
 {{ getFontsCollection }}
 
 {{/partial}}
 
 {{#partial "page"}}
-<header class="checkoutHeader optimizedCheckout-header"> 
+
+{{> components/common/temp-checkouthead }} <!--temp-->
+<!--<header class="checkoutHeader optimizedCheckout-header"> 
     <div class="checkoutHeader-content">
         <h1 class="is-srOnly">{{lang 'checkout.title'}}</h1>
         <h2 class="checkoutHeader-heading">
@@ -20,7 +22,7 @@
             </a>
         </h2>
     </div>
-</header>
+</header>-->
 
 {{{ checkout.checkout_content }}}
 
