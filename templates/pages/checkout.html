@@ -1,14 +1,8 @@
 {{#partial "head"}}
 
+{{{ checkout.checkout_head }}}
 {{{ stylesheet '/assets/css/optimized-checkout.css' }}}
 {{ getFontsCollection }}
-
-
-<!--temp banner-->
-<div class="temp-banner">
-    <p class="temp-content">Holiday Hours: Offices closed on Christmas day 12/25 and New Year's day 1/1. We are open half day on Christmas Eve 12/24 and New Year's Eve 12/31. Customer service will be available to assist you on 12/27 and 12/30. Orders will ship everyday except Christmas and New year's Day. Normal hours will resume on January 2nd.</p>
-</div>
-<!--remove later-->  
 
 {{/partial}}
 
@@ -33,21 +27,3 @@
 {{/partial}}
 
 {{> layout/empty}}
-
-<style>
-    .temp-banner {
-        background: linear-gradient(360deg, #484848 0, #e91919 50%, #484848 100%);
-        color: white;
-        max-width: 100%;
-        height: auto;
-        
-    }
-    .temp-content {
-        margin-left: auto;
-        margin-right: auto;
-        height: auto;
-        width: 120rem;
-        font-size: 1.4rem;
-        text-align: center;
-    }
-</style>
