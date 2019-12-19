@@ -15,7 +15,7 @@
 // Background, Logo Position
 // -----------------------------------------------------------------------------
 
-.optimizedCheckout-header {
+/* .optimizedCheckout-header {
     background-color: stencilColor("optimizedCheckout-header-backgroundColor");
     // scss-lint:disable StringQuotes
     background-image: url(stencilImage('optimizedCheckout-backgroundImage', 'optimizedCheckout-backgroundImage-size'));
@@ -29,11 +29,11 @@
     @media (min-width: 801px) {
         text-align: stencilString("optimizedCheckout-logo-position");
     }
-}
+} */
 
-#LogoImage {
+/* #LogoImage {
     width: 150px;
-}
+} */
 
 
 
