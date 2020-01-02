@@ -12,12 +12,8 @@
     
     .slick-track {
       display: flex;
-      //flex-wrap: wrap;
+      flex-wrap: wrap;
       width: 100%;
-
-      .productCarousel-slide {
-        width: 20% !important;
-      }
     }
 }
 .tab {

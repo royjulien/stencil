@@ -32,16 +32,20 @@ export default function () {
     // stagger searching for 200ms after last input
     const doSearch = _.debounce((searchQuery) => {
         utils.api.search.search(searchQuery, { template: 'search/quick-results' }, (err, response) => {
-            if (err) {
-                return false;
-            }
+            if (err) return false;
 
+            console.log(response)
             $quickSearchResults.html(response);
+            let productElement = $(`[data-product-sku="${searchQuery}"]`),
+                sku = productElement.data('product-sku'),
+                url = productElement.data('product-url');
+
+            if (searchQuery === sku) document.location.pathname = url;
         });
-    }, 200);
+    }, 50);
 
     utils.hooks.on('search-quick', (event) => {
-        const searchQuery = $(event.currentTarget).val();
+        const searchQuery = $(event.currentTarget).val().toLowerCase();
 
         // server will only perform search with at least 3 characters
         if (searchQuery.length < 3) {
@@ -54,7 +58,6 @@ export default function () {
     // Catch the submission of the quick-search
     $quickSearchDiv.on('submit', (event) => {
         const searchQuery = $(event.currentTarget).find('input').val();
-
         if (searchQuery.length === 0) {
             return event.preventDefault();
         }

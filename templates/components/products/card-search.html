@@ -33,7 +33,7 @@
         </figcaption>
     </figure>
     <div class="card-body">
-        <div class="card-text" data-test-info-type="price">
+        <div class="card-text" data-test-info-type="price" data-product-sku="{{toLowerCase sku}}" data-product-url="{{url}}">
             <a href="{{url}}" class="card-link">
                 <div class="price-section price-section--withoutTax {{#if price.with_tax}}price-section--minor{{/if}}" {{#if schema_org}}itemprop="offers" itemscope itemtype="http://schema.org/Offer" {{/if}}>
                   <div class="price price--withoutTax">{{price.without_tax.formatted}}</div>
