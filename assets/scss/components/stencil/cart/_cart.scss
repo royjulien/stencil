@@ -144,7 +144,7 @@ body.active {
       }
 
       .definitionList-key {
-        float: none;
+        width: 280px;
         margin: 10px 0 0;
         text-transform: uppercase;
         font-weight: bold;
@@ -152,15 +152,21 @@ body.active {
         font-size: 11px;
         letter-spacing: 0.5px;
         white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
       }
 
       .definitionList-value {
+        float: right;
+        position: relative;
+        top: 10px;
+        right: 40px;
         padding-left: 5px;
         color: #343434;
         font-size: 11px;
         line-height: 1.5;
+        text-align: right;
         text-decoration: none;
-        font-family: 'Open Sans', sans-serif;
       }
     }
 
