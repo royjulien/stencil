@@ -34,13 +34,12 @@ export default function () {
         utils.api.search.search(searchQuery, { template: 'search/quick-results' }, (err, response) => {
             if (err) return false;
 
-            console.log(response)
             $quickSearchResults.html(response);
-            let productElement = $(`[data-product-sku="${searchQuery}"]`),
-                sku = productElement.data('product-sku'),
-                url = productElement.data('product-url');
+            const productElement = $(`[data-product-sku="${searchQuery}"]`);
+            const sku = productElement.data('product-sku');
+            const url = productElement.data('product-url');
 
-            if (searchQuery === sku) document.location.pathname = url;
+            if (searchQuery === sku) document.location.href = url;
         });
     }, 50);
 
