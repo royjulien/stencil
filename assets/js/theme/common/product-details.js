@@ -683,7 +683,6 @@ export default class Product {
 
     showQuantities() {
         const $group = $('[data-option-variant-group]');
-        const $variants = $('[data-option-variant-group]').parent().find('.form-option-variant');
         const $formRadio = $('[data-option-variant-group]').parent().find('.form-radio');
 
         $group.on('click', function () {
