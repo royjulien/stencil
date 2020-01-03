@@ -683,14 +683,16 @@ export default class Product {
 
     showQuantities() {
         const $group = $('[data-option-variant-group]');
+        const $variants = $('[data-option-variant-group]').parent().find('.form-option-variant');
+        const $formRadio = $('[data-option-variant-group]').parent().find('.form-radio');
 
-        $group.click(function () {
+        $group.on('click', function () {
             $(this).next().toggleClass('active');
         });
 
-        $('+ .form-field-list .form-option-variant', $group).click(function () {
+        $formRadio.on('click', function () {
             $(this).parents('.form-field-list').toggleClass('active');
-            $(this).parents('.form-field-list').prev().attr('data-option-variant-group', $(this).text());
+            $(this).parents('.form-field-list').prev().attr('data-option-variant-group', $(this).next().text());
         });
 
         $group.each(function () {

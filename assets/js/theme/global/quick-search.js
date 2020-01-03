@@ -44,7 +44,7 @@ export default function () {
     }, 50);
 
     utils.hooks.on('search-quick', (event) => {
-        const searchQuery = $(event.currentTarget).val().toLowerCase();
+        const searchQuery = $(event.currentTarget).val().toLowerCase().trim();
 
         // server will only perform search with at least 3 characters
         if (searchQuery.length < 3) {
