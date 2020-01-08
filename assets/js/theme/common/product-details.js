@@ -573,7 +573,7 @@ export default class Product {
             }
         });
 
-        /* $('[data-product-attribute-name=color] .form-field-item > input').each((data, elem) => {
+        $('[data-product-attribute-name=color] .form-field-item > input').each((data, elem) => {
             const productAttributeName = $(elem)[0].name;
             const productAttributeValue = $(elem)[0].value;
 
@@ -582,7 +582,7 @@ export default class Product {
                 const discountedPrice = Math.round(100 - ((priceArray.without_tax.value / priceArray.rrp_without_tax.value) * 100));
                 if (discountedPrice >= 30) $(elem).next()[0].setAttribute('data-discount', `${discountedPrice}% OFF`);
             });
-        }); */
+        });
     }
 
     toggleDropdown() {
