@@ -519,17 +519,6 @@
     padding-bottom: 56.25%;
     padding-top: 30px;
 
-    &:after {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: -100vw;
-        width: 200vw;
-        height: 100%;
-        background: #000;
-        z-index: -1;
-    }
-
     .product-title {
         display: none;
     }
