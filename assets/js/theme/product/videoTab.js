@@ -118,7 +118,6 @@ function insertGalleryVideo(videoSrc, thumbnail) {
 
 export default function () {
     const videoTabContent = document.querySelector('#Videos');
-    //const overViewContent = document.querySelector('#Overview');
 
     if (videoTabContent) {
         let tabContent = videoTabContent.innerText.split('.')[1];
