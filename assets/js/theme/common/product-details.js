@@ -576,7 +576,6 @@ export default class Product {
         $('[data-product-attribute-name=color] .form-field-item > input').each((data, elem) => {
             const productAttributeName = $(elem)[0].name;
             const productAttributeValue = $(elem)[0].value;
-
             utils.api.productAttributes.getData(productId, `product_id=${productId}&${productAttributeName}=${productAttributeValue}`, (err, response) => {
                 const priceArray = response.data.price;
                 const discountedPrice = Math.round(100 - ((priceArray.without_tax.value / priceArray.rrp_without_tax.value) * 100));

@@ -133,7 +133,7 @@ export default function () {
                     if (data[i].name === tabContent) {
                         clearTabContent(videoTabContent);
                         const newContent = insertVideo(data[i].title, data[i].url);
-                        overViewContent.insertAdjacentElement('beforeend', newContent);
+                        videoTabContent.insertAdjacentElement('beforeend', newContent);
                         insertGalleryVideo(data[i].url, data[i].thumbnail);
                     }
                 }
