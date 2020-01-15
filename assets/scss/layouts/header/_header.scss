@@ -27,7 +27,7 @@
 
     &__promo {
         width: 100%;
-        background-color: #484848;
+        background-color: stencilColor("color-aql");
         color: white;
 
         @include breakpoint("small") {
