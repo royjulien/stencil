@@ -64,6 +64,7 @@
             @include breakpoint("medium") {
                 display: block;
                 text-align: right;
+                margin-top: 6px; //temp change --> added line
             }
         }
 
@@ -78,6 +79,7 @@
             font-weight: 600;
             text-decoration: none;
             text-indent: 0;
+            font-size: 18px; //temp font size increase --> added line
 
             &:hover,
             &:active,
@@ -244,7 +246,7 @@
 
     @include breakpoint('medium') {
         width: auto;
-        height: 50px;
+        height: 55px; //Temp change from 50px to 55px
         padding: 10px;
         margin: 1px 0;
     }
