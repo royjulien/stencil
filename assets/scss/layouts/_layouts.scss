@@ -536,17 +536,16 @@ ul.accessorytab img {
   position: fixed;
   bottom: 0;
   right: 0;
-}
 
-#google-badge iframe {
-  position: static!important;
-  top: 0px!important;
-  width: 165px!important;
-  margin: 0px!important;
-  border-style: none!important;
-  display: block!important;
-  left: 0px!important;
-  visibility: visible!important;
-  height: 54px!important;
+  &iframe {
+    position: static!important;
+    top: 0px!important;
+    width: 165px!important;
+    margin: 0px!important;
+    border-style: none!important;
+    display: block!important;
+    left: 0px!important;
+    visibility: visible!important;
+    height: 54px!important;
+  }
 }
-
