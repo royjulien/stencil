@@ -1,0 +1,13 @@
+<div data-added-form-elements>
+  <div class="form-field">
+      <label class="form-label" for="contractor_license">Contractor License</label>
+      <input class="form-input" type="text" id="contractor_license" name="contractor_license" value="">
+  </div>
+</div>
+
+<script>
+  var form = document.querySelector('[data-contact-form]'),
+      more = document.querySelector('[data-added-form-elements]');
+
+  form.append(more);
+</script>
