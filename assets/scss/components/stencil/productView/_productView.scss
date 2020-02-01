@@ -111,7 +111,6 @@
     font-weight: bold;
 
     @include breakpoint("medium") {
-        margin: 10px 0 0;
         font-size: 18px;
     }
 }
@@ -852,6 +851,10 @@ span.form-option-variant.form-option-variant--pattern  {
 
     @include breakpoint('medium') {
         width: calc(33% - 40px);
+    }
+
+    @include breakpoint('large') {
+        width: calc(25% - 40px);
     }
 
     img {
