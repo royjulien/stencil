@@ -53,6 +53,8 @@
     .card-title-link {
         color: $card-title-color;
         text-decoration: $card-title-textDecoration;
+        font-weight: 500;
+        letter-spacing: 0;
 
         // scss-lint:disable NestingDepth
         &:hover {
@@ -81,6 +83,23 @@
     .price--rrp, .price--discounted {
         font-size: 12px;
     }
+}
+
+.card-price {
+    margin-top: 10px;
+    text-align: left;
+    font-size: 13px;
+    color: rgba(0,0,0,0.4);
+}
+
+.card-price--without_tax {
+    font-size: 15px;
+    color: black;
+    font-weight: bold;
+}
+
+.card-price--without_tax-value {
+    color: #2e7cfa;
 }
 
 .card-figcaption-button {

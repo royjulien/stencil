@@ -33,16 +33,17 @@
         </figcaption>
     </figure>
     <div class="card-body">
-        <div class="card-text" data-test-info-type="price">
-            <a href="{{url}}" class="card-link">
-                <div class="price-section price-section--withoutTax {{#if price.with_tax}}price-section--minor{{/if}}" {{#if schema_org}}itemprop="offers" itemscope itemtype="http://schema.org/Offer" {{/if}}>
-                  <div class="price price--withoutTax">{{price.without_tax.formatted}}</div>
-                </div>
-            </a>
-        </div>
-
         <h4 class="card-title">
             <a href="{{url}}" class="card-title-link">{{name}}</a>
         </h4>
+        <div class="card-text" data-test-info-type="price">
+            <a href="{{url}}" class="card-link">
+                <div class="card-price" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+                  {{#if price.rrp_without_tax}}<div class="card-price--rrp">Compare at: {{price.rrp_without_tax.formatted}}</div>{{/if}}
+                  <div class="card-price--without_tax">Price: <span class="card-price--without_tax-value">{{price.without_tax.formatted}}</span></div>
+                  {{#if price.saved}}<div class="card-price--saved">You save: {{price.saved.formatted}}</div>{{/if}}
+                </div>
+            </a>
+        </div>
     </div>
 </article>

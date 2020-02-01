@@ -21,8 +21,9 @@
     }
 
     @include breakpoint("large") {
-        padding: 10px 13px;
-        margin: 0 13px;
+        max-width: 72rem;
+        padding: 10px 33px;
+        margin: auto;
     }
 
     .breadcrumb {

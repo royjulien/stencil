@@ -398,8 +398,7 @@
     margin: 30px 0;
     border: 0;
     color: rgba(0, 0, 0, 0.9);
-    font-family: 'Open Sans', sans-serif;
-    font-size: 18px;
+    font-size: 16px;
     line-height: 1.6;
 
     h1 {
@@ -409,14 +408,21 @@
 }
 
 .product-title {
-    display: inline-block;
-    margin: 20px 0;
+    clear: both;
+    display: block;
+    width: 100%;
+    padding: 20px 0 0;
     color: #2d7cfa;
-    font-size: 22px;
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+.product-description {
+    font-size: 16px;
 }
 
 .accessorytab, .NPFinish {
-
     ul {
         list-style-type: none;
     }
@@ -834,28 +840,23 @@ span.form-option-variant.form-option-variant--pattern  {
 
 .product-left,
 .product-right {
-    clear: both;
-    display: inline-block;
-    width: 100%;
+    float: left;
+    display: block;
+    width: calc(33% - 40px);
     height: auto;
     min-height: 265px;
     padding: 0;
-    margin: 50px 0;
+    margin: 20px;
     color: rgba(0,0,0,0.9);
     line-height: 1.6;
-}
 
-.product-left {
     img {
         float: left;
         margin-right: 50px;
     }
-}
 
-.product-right {
-    img {
-        float: right;
-        margin-left: 50px;
+    .product-description {
+        max-width: 800px;
     }
 }
 

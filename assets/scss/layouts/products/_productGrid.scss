@@ -21,8 +21,10 @@
     width: calc(50% - 10px);
     padding: 0 20px;
     margin: 5px;
+    border-radius: 2px;
     vertical-align: top;
     font-size: fontSize("base");
+    box-shadow: 0 0 0 1px rgba(0,0,0,0.1);
     overflow: hidden;
 
     @include breakpoint("small") {
@@ -35,6 +37,10 @@
 
     @include breakpoint("large") {
       width: calc(25% - 10px);
+    }
+
+    &:hover {
+      box-shadow: 0 0 0 1px rgba(0,0,0,0.2), 0 0 10px rgba(0,0,0,0.1);
     }
   }
 }

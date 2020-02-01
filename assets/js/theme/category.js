@@ -7,7 +7,7 @@ export default class Category extends CatalogPage {
     before(next) {
         if ($('.category-description-text').length > 0) {
             const detached = $('.category-description-text').detach();
-            detached.appendTo('.body');
+            detached.insertBefore('.footer');
         }
 
         next();
