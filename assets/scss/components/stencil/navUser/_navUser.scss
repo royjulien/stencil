@@ -118,6 +118,18 @@
     }
 }
 
+.navUser-action--storeCredit {
+    position: relative;
+    top: 3px;
+    left: 80px;
+
+    @include breakpoint("medium") {
+        top: 10px;
+        left: 0;
+    }
+}
+
+
 .navUser-action--storeCredit + .dropdown-menu {
     max-width: remCalc(300px);
     padding: spacing("single");
@@ -185,7 +197,7 @@
     }
 
     .form {
-        margin: 0 25px;
+        margin: 0 15px;
 
         @include breakpoint("small") {
             position: relative;

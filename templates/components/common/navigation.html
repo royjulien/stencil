@@ -2,6 +2,9 @@
     {{#if settings.store_logo.image}}
         <a class='header-logo-container' href='/'>
             <img class="header-logo-image" src="{{getImage settings.store_logo.image 'logo_size'}}" alt="{{settings.store_logo.title}}" title="{{settings.store_logo.title}}">
+            {{#if customer.customer_group_name '==' 'Contractor'}}
+            <span class="header-logo-pro">PRO</span>
+            {{/if}}
         </a>
     {{/if}}
 

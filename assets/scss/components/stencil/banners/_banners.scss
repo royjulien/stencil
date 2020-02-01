@@ -32,3 +32,24 @@
         margin-top: spacing("single");
     }
 }
+
+.banner-pro {
+    display: none;
+
+    @include breakpoint("medium") {
+        display: block;
+        position: fixed;
+        top: 30px;
+        left: -80px;
+        width: 300px;
+        padding: 12px;
+        border-radius: 5px 0 0 5px;
+        background-color: black;
+        color: white;
+        font-size: 13px;
+        font-weight: bold;
+        text-align: center;
+        transform: rotate(-45deg);
+        z-index: 999999;
+    }
+}

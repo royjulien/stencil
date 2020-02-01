@@ -196,6 +196,7 @@
     width: 24px;
     overflow: hidden;
     transform: translateX(-50%);
+    text-decoration: none;
 
     @include breakpoint('small') {
         display: none;
@@ -249,6 +250,20 @@
         height: 55px; //Temp change from 50px to 55px
         padding: 10px;
         margin: 1px 0;
+    }
+}
+
+.header-logo-pro {
+    position: relative;
+    top: -4px;
+    color: #2e7cfa;
+    font-size: 14px;
+    font-weight: bold;
+    font-family: 'Roboto Condensed', sans-serif;
+
+    @include breakpoint('medium') {
+        top: 4px;
+        font-size: 18px;
     }
 }
 

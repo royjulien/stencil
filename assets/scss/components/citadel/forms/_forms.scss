@@ -356,6 +356,7 @@
         left: -15px;
         width: calc(100% + 30px);
         text-align: center;
+        letter-spacing: 0;
     }
 
     .swatch & {
@@ -393,10 +394,10 @@
 
     &.form-option-variant {
         display: inline-block;
-        font-size: 14px;
-        font-weight: 600;
+        font-size: 13px;
+        font-weight: bold;
         text-align: center;
-        letter-spacing: 1px;
+        letter-spacing: -0.5px;
         color: #9c9c9c;
 
         .swatch & {
@@ -432,6 +433,7 @@
         font-size: 13px;
         font-weight: 600;
         line-height: 38px;
+        letter-spacing: 1px;
         text-align: center;
         text-transform: uppercase;
         overflow: visible !important;
@@ -447,6 +449,7 @@
             background-color: #0063ff;
             color: white;
             line-height: 25px;
+            letter-spacing: 1px;
             font-size: 12px;
             font-weight: bold;
             text-align: center;
