@@ -842,13 +842,17 @@ span.form-option-variant.form-option-variant--pattern  {
 .product-right {
     float: left;
     display: block;
-    width: calc(33% - 40px);
+    width: calc(100% - 40px);
     height: auto;
     min-height: 265px;
     padding: 0;
     margin: 20px;
     color: rgba(0,0,0,0.9);
     line-height: 1.6;
+
+    @include breakpoint('medium') {
+        width: calc(33% - 40px);
+    }
 
     img {
         float: left;

@@ -144,8 +144,7 @@ body.active {
       }
 
       .definitionList-key {
-        width: 280px;
-        margin: 10px 0 0;
+        margin: 0;
         text-transform: uppercase;
         font-weight: bold;
         color: #888;
@@ -157,15 +156,11 @@ body.active {
       }
 
       .definitionList-value {
-        float: right;
         position: relative;
-        top: 10px;
-        right: 40px;
         padding-left: 5px;
         color: #343434;
         font-size: 11px;
         line-height: 1.5;
-        text-align: right;
         text-decoration: none;
       }
     }
@@ -186,9 +181,9 @@ body.active {
         display: block;
         color: #222;
         font-size: 14px;
-        line-height: 1.6;
+        font-weight: 500;
         text-decoration: none;
-        font-family: 'Open Sans', sans-serif;
+        letter-spacing: 0;
     }
 
     .cart-item-info {
@@ -203,7 +198,7 @@ body.active {
     }
 
     .cart-item-quantity {
-        left: 162px;
+        left: 80px;
         right: initial;
         text-align: left;
 
@@ -450,7 +445,7 @@ body.active {
 
     @include breakpoint("medium") {
         display: table-cell;
-        padding: $cart-item-spacing;
+        padding: 5px 0 0 0;
     }
 }
 
