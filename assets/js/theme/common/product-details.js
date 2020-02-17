@@ -565,7 +565,6 @@ export default class Product {
             $(`[data-product-attribute-parameter=${radio.dataset.productAttributeLabel}]`).removeClass('hide');
         });
 
-        
         // bundle fields
         $bundleLabel.on('click', (event) => {
             $('.dropdown-content input', $bulbCategory).attr('checked', false);
