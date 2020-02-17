@@ -538,7 +538,9 @@ export default class Product {
         const $label = $('[data-product-attribute-label]', $voltage);
         const $bulbCategory = $('[data-product-attribute-category=bulb], [data-product-attribute-category=bulbs]');
         const $mountingCategory = $('[data-product-attribute-category=mounting]');
-
+        // testing same concept for bundle packs and bulb options
+        const $bundle = $('[data-product-attribute-name=pack]');
+        const $bundleLabel = $('[data-product-attribute-label]', $bundle);
 
         // reset fields that require specific voltage
         $label.on('click', (event) => {
@@ -559,6 +561,24 @@ export default class Product {
         });
 
         $('[data-product-attribute-label]:checked', $voltage).each((i, radio) => {
+            $('[data-product-attribute-parameter]').addClass('hide');
+            $(`[data-product-attribute-parameter=${radio.dataset.productAttributeLabel}]`).removeClass('hide');
+        });
+
+        
+        // bundle fields
+        $bundleLabel.on('click', (event) => {
+            $('.dropdown-content input', $bulbCategory).attr('checked', false);
+
+            $('.dropdown-button', $bulbCategory).removeClass('active');
+            $('.dropdown-button .dropdown-content-image', $bulbCategory).remove();
+
+            $('[data-product-attribute-parameter]', $bulbCategory).addClass('hide');
+
+            $(`[data-product-attribute-parameter=${event.currentTarget.dataset.productAttributeLabel}]`, $bulbCategory).removeClass('hide');
+        });
+
+        $('[data-product-attribute-label]:checked', $bundle).each((i, radio) => {
             $('[data-product-attribute-parameter]').addClass('hide');
             $(`[data-product-attribute-parameter=${radio.dataset.productAttributeLabel}]`).removeClass('hide');
         });

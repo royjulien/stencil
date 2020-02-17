@@ -48,6 +48,15 @@
            {{/startsWith}} 
            {{#startsWith "120V" label}} 
              data-product-attribute-parameter="120V"
+           {{/startsWith}}
+           {{#startsWith "Single" label}} 
+             data-product-attribute-parameter="Single"
+           {{/startsWith}} 
+           {{#startsWith "2-Pack" label}} 
+             data-product-attribute-parameter="2-Pack"
+           {{/startsWith}}
+           {{#startsWith "5-Pack" label}} 
+             data-product-attribute-parameter="5-Pack"
            {{/startsWith}}>
     {{#if image}}
       <img class="dropdown-content-image" src="{{getImage image "gallery_size"}}" />
@@ -84,6 +93,15 @@
                {{/startsWith}} 
                {{#startsWith "120V" label}} 
                  data-product-attribute-parameter="120V"
+               {{/startsWith}}
+               {{#startsWith "Single" label}} 
+                 data-product-attribute-parameter="Single"
+               {{/startsWith}} 
+               {{#startsWith "2-Pack" label}} 
+                 data-product-attribute-parameter="2-Pack"
+               {{/startsWith}}
+               {{#startsWith "5-Pack" label}} 
+                 data-product-attribute-parameter="5-Pack"
                {{/startsWith}}>
         {{#if image}}
           <img class="dropdown-content-image" src="{{getImage image "gallery_size"}}" />

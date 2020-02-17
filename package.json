@@ -47,8 +47,9 @@
   },
   "main": "Gruntfile.js",
   "dependencies": {
-    "@bigcommerce/stencil-paper": "^2.0.12",
+    "@bigcommerce/stencil-paper": "^2.0.22",
     "@stencil/core": "1.6.1",
+    "node": "^10.19.0",
     "nvm": "0.0.4"
   },
   "scripts": {
