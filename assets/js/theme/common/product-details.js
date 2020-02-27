@@ -533,74 +533,84 @@ export default class Product {
         });
     }
 
+    setInitialOptions(type) {
+        $('[data-product-attribute-label]:checked', type).each((i, radio) => {
+            $('[data-product-attribute-parameter]').addClass('hide');
+            $(`[data-product-attribute-parameter=${radio.dataset.productAttributeLabel}]`).removeClass('hide');
+        });
+    }
+
+    resetAttributes(internalSelector) {
+        $('.dropdown-content input', internalSelector).attr('checked', false);
+    }
+
     filterVariations() {
-        const $voltage = $('[data-product-attribute-name=voltage]');
-        const $label = $('[data-product-attribute-label]', $voltage);
-        const $bulbCategory = $('[data-product-attribute-category=bulb], [data-product-attribute-category=bulbs]');
-        const $mountingCategory = $('[data-product-attribute-category=mounting]');
-        // testing same concept for bundle packs and bulb options
-        const $bundle = $('[data-product-attribute-name=pack]');
-        const $bundleLabel = $('[data-product-attribute-label]', $bundle);
-        // color
-        const $temp = $('[data-product-attribute-name=temperature]');
-        const $tempLabel = $('[data-product-attribute-label]', $temp);
-        console.log($tempLabel);
-        // reset fields that require specific voltage
+        const $voltageSelector = $('[data-product-attribute-name=voltage]');
+        const $labelVoltageSelector = $('[data-product-attribute-label]', $voltageSelector);
+        const $bulbInterface = $('[data-product-attribute-category=bulb], [data-product-attribute-category=bulbs]');
+        const $mountingInterface = $('[data-product-attribute-category=mounting]');
+        const $bundleSelector = $('[data-product-attribute-name=pack]');
+        const $labelBundleSelector = $('[data-product-attribute-label]', $bundleSelector);
+        const $bulbTemperatureSelector = $('[data-product-attribute-name="bulb-temperature"]');
+        const $labelBulbTemperatureSelector = $('[data-product-attribute-label]', $bulbTemperatureSelector);
 
-        $label.on('click', (event) => {
-            $('.dropdown-content input', $bulbCategory).attr('checked', false);
-            $('.dropdown-content input', $mountingCategory).attr('checked', false);
+        this.setInitialOptions($voltageSelector);
+        this.setInitialOptions($bundleSelector);
 
-            $('.dropdown-button', $bulbCategory).removeClass('active');
-            $('.dropdown-button', $mountingCategory).removeClass('active');
+        $labelVoltageSelector.on('click', (event) => {
+            this.resetAttributes($bulbInterface);
+            this.resetAttributes($mountingInterface);
 
-            $('.dropdown-button .dropdown-content-image', $bulbCategory).remove();
-            $('.dropdown-button .dropdown-content-image', $mountingCategory).remove();
+            $('.dropdown-button', $bulbInterface).removeClass('active');
+            $('.dropdown-button', $mountingInterface).removeClass('active');
 
-            $('[data-product-attribute-parameter]', $bulbCategory).addClass('hide');
-            $('[data-product-attribute-parameter]', $mountingCategory).addClass('hide');
+            $('.dropdown-button .dropdown-content-image', $bulbInterface).remove();
+            $('.dropdown-button .dropdown-content-image', $mountingInterface).remove();
 
-            $(`[data-product-attribute-parameter=${event.currentTarget.dataset.productAttributeLabel}]`, $bulbCategory).removeClass('hide');
-            $(`[data-product-attribute-parameter=${event.currentTarget.dataset.productAttributeLabel}]`, $mountingCategory).removeClass('hide');
+            $('[data-product-attribute-parameter]', $bulbInterface).addClass('hide');
+            $('[data-product-attribute-parameter]', $mountingInterface).addClass('hide');
+
+            $(`[data-product-attribute-parameter=${event.currentTarget.dataset.productAttributeLabel}]`, $bulbInterface).removeClass('hide');
+            $(`[data-product-attribute-parameter=${event.currentTarget.dataset.productAttributeLabel}]`, $mountingInterface).removeClass('hide');
+
+            $('[data-product-attribute-label]', $bulbTemperatureSelector).each((i, radio) => {
+                if (radio.checked !== true) {
+                    let bulbType = radio.dataset.productAttributeLabel.toLowerCase() === "warm white" ? "warm" : "cool";
+                    $(`[data-product-attribute-bulb=${bulbType}]`).addClass('hide');
+                }
+            });
         });
 
-        $('[data-product-attribute-label]:checked', $voltage).each((i, radio) => {
-            $('[data-product-attribute-parameter]').addClass('hide');
-            $(`[data-product-attribute-parameter=${radio.dataset.productAttributeLabel}]`).removeClass('hide');
-        });
         // color temp
-        $tempLabel.on('click', (event) => {
-						$('.dropdown-content input', $bulbCategory).attr('checked', false);
+        $labelBulbTemperatureSelector.on('click', (event) => {
+            this.resetAttributes($bulbInterface);
 
-						$('.dropdown-button', $bulbCategory).removeClass('active');
+            $('.dropdown-button', $bulbInterface).removeClass('active');
+            $('.dropdown-button .dropdown-content-image', $bulbInterface).remove();
+            $('[data-product-attribute-bulb]', $bulbInterface).addClass('hide');
 
-						$('.dropdown-button .dropdown-content-image', $bulbCategory).remove();
+            let bulbType = event.currentTarget.dataset.productAttributeLabel.toLowerCase() === "warm white" ? "warm" : "cool";
 
-						$('[data-product-attribute-parameter]', $bulbCategory).addClass('hide');
+            $(`[data-product-attribute-bulb=${bulbType}]`, $bulbInterface).removeClass('hide');
 
-						$(`[data-product-attribute-parameter=${event.currentTarget.dataset.productAttributeLabel}]`, $bulbCategory).removeClass('hide');
-				});
+            $('[data-product-attribute-label]', $voltageSelector).each((i, radio) => {
+                if (radio.checked !== true) $(`[data-product-attribute-parameter=${radio.dataset.productAttributeLabel}]`).addClass('hide');
+            });
+        });
 
-				$('[data-product-attribute-label]:checked', $temp).each((j, radio) => {
-						$('[data-product-attribute-parameter]').addClass('hide');
-						$(`[data-product-attribute-parameter=${ardio.dataset.productAttributeLabel}]`).removeClass('hide');
-				});
         // bundle fields
-        $bundleLabel.on('click', (event) => {
-            $('.dropdown-content input', $bulbCategory).attr('checked', false);
+        $labelBundleSelector.on('click', (event) => {
+            this.resetAttributes($bulbInterface);
 
-            $('.dropdown-button', $bulbCategory).removeClass('active');
-            $('.dropdown-button .dropdown-content-image', $bulbCategory).remove();
+            $('.dropdown-button', $bulbInterface).removeClass('active');
+            $('.dropdown-button .dropdown-content-image', $bulbInterface).remove();
 
-            $('[data-product-attribute-parameter]', $bulbCategory).addClass('hide');
+            $('[data-product-attribute-parameter]', $bulbInterface).addClass('hide');
 
-            $(`[data-product-attribute-parameter=${event.currentTarget.dataset.productAttributeLabel}]`, $bulbCategory).removeClass('hide');
+            $(`[data-product-attribute-parameter=${event.currentTarget.dataset.productAttributeLabel}]`, $bulbInterface).removeClass('hide');
         });
 
-        $('[data-product-attribute-label]:checked', $bundle).each((i, radio) => {
-            $('[data-product-attribute-parameter]').addClass('hide');
-            $(`[data-product-attribute-parameter=${radio.dataset.productAttributeLabel}]`).removeClass('hide');
-        });
+        
     }
 
     initialVariations(productId) {

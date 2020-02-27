@@ -58,11 +58,11 @@
            {{#startsWith "5-Pack" label}} 
              data-product-attribute-parameter="5-Pack"
            {{/startsWith}}
-           {{#contains "Warm-White" label}}
-             data-product-attribute-parameter="Warm-White"
+           {{#contains label "Warm White"}}
+             data-product-attribute-bulb="warm"
            {{/contains}}
-           {{#contains "Cool-White" label}}
-             data-product-attribute-parameter="Cool-White"
+           {{#contains label "Cool White"}}
+             data-product-attribute-bulb="cool"
            {{/contains}}>
     {{#if image}}
       <img class="dropdown-content-image" src="{{getImage image "gallery_size"}}" />
@@ -109,11 +109,11 @@
                {{#startsWith "5-Pack" label}} 
                  data-product-attribute-parameter="5-Pack"
                {{/startsWith}}
-               {{#contains "Warm-White" label}}
-                 data-product-attribute-parameter="Warm-White"
+               {{#contains label "Warm White"}}
+                 data-product-attribute-bulb="warm"
                {{/contains}}
-               {{#contains "Cool-White" label}}
-                 data-product-attribute-parameter="Cool-White"
+               {{#contains label "Cool White"}}
+                 data-product-attribute-bulb="cool"
                {{/contains}}>
         {{#if image}}
           <img class="dropdown-content-image" src="{{getImage image "gallery_size"}}" />
