@@ -541,8 +541,12 @@ export default class Product {
         // testing same concept for bundle packs and bulb options
         const $bundle = $('[data-product-attribute-name=pack]');
         const $bundleLabel = $('[data-product-attribute-label]', $bundle);
-
+        // color
+        const $temp = $('[data-product-attribute-name=temperature]');
+        const $tempLabel = $('[data-product-attribute-label]', $temp);
+        console.log($tempLabel);
         // reset fields that require specific voltage
+
         $label.on('click', (event) => {
             $('.dropdown-content input', $bulbCategory).attr('checked', false);
             $('.dropdown-content input', $mountingCategory).attr('checked', false);
@@ -564,7 +568,23 @@ export default class Product {
             $('[data-product-attribute-parameter]').addClass('hide');
             $(`[data-product-attribute-parameter=${radio.dataset.productAttributeLabel}]`).removeClass('hide');
         });
+        // color temp
+        $tempLabel.on('click', (event) => {
+						$('.dropdown-content input', $bulbCategory).attr('checked', false);
 
+						$('.dropdown-button', $bulbCategory).removeClass('active');
+
+						$('.dropdown-button .dropdown-content-image', $bulbCategory).remove();
+
+						$('[data-product-attribute-parameter]', $bulbCategory).addClass('hide');
+
+						$(`[data-product-attribute-parameter=${event.currentTarget.dataset.productAttributeLabel}]`, $bulbCategory).removeClass('hide');
+				});
+
+				$('[data-product-attribute-label]:checked', $temp).each((j, radio) => {
+						$('[data-product-attribute-parameter]').addClass('hide');
+						$(`[data-product-attribute-parameter=${ardio.dataset.productAttributeLabel}]`).removeClass('hide');
+				});
         // bundle fields
         $bundleLabel.on('click', (event) => {
             $('.dropdown-content input', $bulbCategory).attr('checked', false);
