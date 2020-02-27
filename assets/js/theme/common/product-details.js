@@ -575,7 +575,7 @@ export default class Product {
 
             $('[data-product-attribute-label]', $bulbTemperatureSelector).each((i, radio) => {
                 if (radio.checked !== true) {
-                    let bulbType = radio.dataset.productAttributeLabel.toLowerCase() === "warm white" ? "warm" : "cool";
+                    const bulbType = radio.dataset.productAttributeLabel.toLowerCase() === 'warm white' ? 'warm' : 'cool';
                     $(`[data-product-attribute-bulb=${bulbType}]`).addClass('hide');
                 }
             });
@@ -589,7 +589,7 @@ export default class Product {
             $('.dropdown-button .dropdown-content-image', $bulbInterface).remove();
             $('[data-product-attribute-bulb]', $bulbInterface).addClass('hide');
 
-            let bulbType = event.currentTarget.dataset.productAttributeLabel.toLowerCase() === "warm white" ? "warm" : "cool";
+            const bulbType = event.currentTarget.dataset.productAttributeLabel.toLowerCase() === 'warm white' ? 'warm' : 'cool';
 
             $(`[data-product-attribute-bulb=${bulbType}]`, $bulbInterface).removeClass('hide');
 
@@ -609,8 +609,6 @@ export default class Product {
 
             $(`[data-product-attribute-parameter=${event.currentTarget.dataset.productAttributeLabel}]`, $bulbInterface).removeClass('hide');
         });
-
-        
     }
 
     initialVariations(productId) {
