@@ -596,6 +596,10 @@ export default class Product {
             $('[data-product-attribute-label]', $voltageSelector).each((i, radio) => {
                 if (radio.checked !== true) $(`[data-product-attribute-parameter=${radio.dataset.productAttributeLabel}]`).addClass('hide');
             });
+
+            $('[data-product-attribute-label]', $bundleSelector).each((i, radio) => {
+                if (radio.checked !== true) $(`[data-product-attribute-parameter=${radio.dataset.productAttributeLabel}]`).addClass('hide');
+            });
         });
 
         // bundle fields
@@ -604,10 +608,16 @@ export default class Product {
 
             $('.dropdown-button', $bulbInterface).removeClass('active');
             $('.dropdown-button .dropdown-content-image', $bulbInterface).remove();
-
             $('[data-product-attribute-parameter]', $bulbInterface).addClass('hide');
 
             $(`[data-product-attribute-parameter=${event.currentTarget.dataset.productAttributeLabel}]`, $bulbInterface).removeClass('hide');
+
+            $('[data-product-attribute-label]', $bulbTemperatureSelector).each((i, radio) => {
+                if (radio.checked !== true) {
+                    const bulbType = radio.dataset.productAttributeLabel.toLowerCase() === 'warm white' ? 'warm' : 'cool';
+                    $(`[data-product-attribute-bulb=${bulbType}]`).addClass('hide');
+                }
+            });
         });
     }
 
