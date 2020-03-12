@@ -837,6 +837,42 @@ span.form-option-variant.form-option-variant--pattern  {
 // Changes from other productList
 // -----------------------------------------------------------------------------
 
+//Product Description Variation
+.product-title-text {
+    display: inline-block;
+    margin: 20px 0;
+    padding: 20px 0 0;
+    color: #2d7cfa;
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+.product-right-text,
+.product-left-text {
+    clear: both;
+    display: inline-block;
+    width: 100%;
+    height: auto;
+    min-height: 265px;
+    padding: 0;
+    color: rgba(0, 0, 0, 0.9);
+    line-height: 1.6;
+}
+.product-right-text {
+    img {
+        float: left;
+        margin-right: 50px;
+    }
+}
+
+.product-left-text {
+    img {
+        float: right;
+        margin-left: 50px;
+    }
+}
+//End Product Description Variation
+
 .product-left,
 .product-right {
     float: left;
