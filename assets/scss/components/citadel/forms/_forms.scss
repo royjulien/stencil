@@ -425,9 +425,9 @@
 
     &.form-option-variant-group {
         display: inline-block;
-        width: 55px;
-        height: 55px;
-        padding: 7px 0;
+        width: 60px;
+        height: 60px;
+        padding: 8px 0;
         border-radius: 3px;
         color: #454545;
         font-size: 13px;
@@ -441,6 +441,7 @@
         &:before {
             content: attr(data-option-variant-group);
             position: absolute;
+            overflow: hidden;
             top: -10px;
             right: -14px;
             width: 25px;
