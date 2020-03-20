@@ -11,6 +11,9 @@
   {{#if page_type '===' 'product'}}
     {{#if price.saved}}
       <div class="price price-section price--save">{{price.saved.formatted}} OFF</div>
+      {{#if customer.customer_group_name '==' 'Contractor'}}
+        <div class="price price-section price--save">PRO DISCOUNT: ${{toFixed (divide price.without_tax.value 10) 2}} OFF</div>
+      {{/if}}
     {{/if}}
   {{/if}}
 
