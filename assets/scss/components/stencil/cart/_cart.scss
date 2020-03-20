@@ -195,6 +195,11 @@ body.active {
       color: #818181;
       display: inline-block;
       width: auto;
+
+      .pro-discount {
+        color: black;
+        font-weight: bold;
+      }
     }
 
     .cart-item-quantity {
@@ -245,7 +250,7 @@ body.active {
 
         @media (min-width: 530px) {
             padding: 20px;
-            margin-top: 60px;
+            margin-top: 113px;
         }
     }
 
