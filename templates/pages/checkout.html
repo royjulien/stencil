@@ -1,3 +1,5 @@
+<style>[data-test="cart-handling"] {display: none}</style>
+
 {{#partial "head"}}
     {{{ head.scripts }}}
     {{> components/common/header }}
@@ -6,13 +8,13 @@
     {{ getFontsCollection }}
 {{/partial}}
 
-<style>[data-test="cart-handling"] {display: none}</style>
-
 {{#partial "page"}}
     {{{ checkout.checkout_content }}}
+    {{{ footer.scripts }}}
 {{/partial}}
 
 <script>
+console.log('loading checkout')
 var shippingCost = parseInt('{{cart.shipping_handling.shipping_cost.value}}' * 100) / 100;
 var handlingCost = parseInt('{{cart.shipping_handling.handling_cost}}' * 100) / 100;
 var totalShippingCost = '$' + (shippingCost + handlingCost).toFixed(2);

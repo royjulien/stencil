@@ -90,7 +90,9 @@
             </div>
 
             <div class="cart-item-block cart-item-info">
-                <strong class="cart-item-value pro-discount">PRO DISCOUNT: ${{toFixed (subtract (divide total.value 0.9) total.value) 2}}</strong>
+                {{#if customer.customer_group_name '==' 'Contractor'}}
+                    <strong class="cart-item-value pro-discount">PRO DISCOUNT: ${{toFixed (subtract (divide total.value 0.9) total.value) 2}}</strong>
+                {{/if}}
                 <strong class="cart-item-value {{#if total_discounted}}price--discounted{{/if}}">{{total.formatted}}</strong>
                 {{#if total_discounted}}
                     <strong class="cart-item-value">{{total_discounted.formatted}}</strong>
