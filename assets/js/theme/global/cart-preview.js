@@ -32,7 +32,6 @@ export default function () {
             addUpsellItems();
 
             const shippingEstimator = new ShippingEstimator($shippingEstimator);
-            shippingEstimator();
         });
     };
 

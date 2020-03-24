@@ -1,12 +1,28 @@
 {{#partial "head"}}
+    {{{ head.scripts }}}
     {{> components/common/header }}
     {{{ checkout.checkout_head }}}
     {{{ stylesheet '/assets/css/optimized-checkout.css' }}}
     {{ getFontsCollection }}
 {{/partial}}
 
+<style>[data-test="cart-handling"] {display: none}</style>
+
 {{#partial "page"}}
     {{{ checkout.checkout_content }}}
 {{/partial}}
+
+<script>
+var shippingCost = parseInt('{{cart.shipping_handling.shipping_cost.value}}' * 100) / 100;
+var handlingCost = parseInt('{{cart.shipping_handling.handling_cost}}' * 100) / 100;
+var totalShippingCost = '$' + (shippingCost + handlingCost).toFixed(2);
+
+window.addEventListener('load', function () {
+  setTimeout(function () {
+    var shippingPriceElement = document.querySelector('[data-test="cart-shipping"] [data-test="cart-price-value"]');
+    console.log(shippingPriceElement.innerText = totalShippingCost)
+  }, 1000);
+});
+</script>
 
 {{> layout/empty}}
