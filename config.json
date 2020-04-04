@@ -28,20 +28,15 @@
         "product_showcase",
         "persistent_cart",
         "one_page_check_out",
-        "product_videos",
-        "google_amp",
-        "customized_checkout",
-        "enhanced_ecommerce",
-        "csrf_protection",
-        "account_payment_methods_v2"
+        "product_videos"
     ]
-  },
-  "css_compiler": "scss",
-  "autoprefixer_cascade": true,
-  "autoprefixer_browsers": [
+},
+"css_compiler": "scss",
+"autoprefixer_cascade": true,
+"autoprefixer_browsers": [
     "last 3 versions"
-  ],
-  "settings": {
+],
+"settings": {
     "homepage_new_products_count": 20,
     "homepage_featured_products_count": 8,
     "homepage_top_products_count": 8,
@@ -242,8 +237,8 @@
     "optimizedCheckout-form-text": "#666666",
     "optimizedCheckout-formField-backgroundColor": "white",
     "optimizedCheckout-formField-borderColor": "#989898"
-  },
-  "read_only_files": [
+},
+"read_only_files": [
     "/assets/scss/components/citadel",
     "/assets/scss/components/foundation",
     "/assets/scss/components/vendor",
@@ -252,20 +247,20 @@
     "/assets/scss/settings/normalize",
     "/assets/scss/settings/vendor",
     "/assets/scss/vendor"
-  ],
-  "resources": {
+],
+"resources": {
     "cart": true,
     "shop_by_brand": {
       "limit": 10
-    }
-  },
-  "variations": [
+  }
+},
+"variations": [
     {
       "name": "Light",
       "id": "light",
       "meta": {
         "description": "AQL Light"
-      }
     }
-  ]
+}
+]
 }
