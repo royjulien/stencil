@@ -47,7 +47,6 @@
   },
   "main": "Gruntfile.js",
   "dependencies": {
-    "@bigcommerce/checkout-sdk": "^1.56.2",
     "@bigcommerce/stencil-paper": "^2.0.22",
     "@stencil/core": "1.6.1",
     "node": "^10.19.0",
