@@ -408,6 +408,8 @@ export default class Product {
             viewModel.$sku.text(data.sku);
         }
 
+        console.log(data)
+
         // if stock view is on (CP settings)
         if (viewModel.stock.$container.length && _.isNumber(data.stock)) {
             // if the stock container is hidden, show

@@ -12,6 +12,21 @@
         padding-bottom: 0;
         padding-top: 0;
     }
+
+    &.wood-swatch {
+        .form-option-variant--color, .form-option-variant--pattern {
+            width: 125px;
+            height: auto;
+            padding-bottom: 100%;
+            border-radius: 10px;
+            box-shadow: none;
+            background-size: cover;
+        }
+
+        .swatch .form-radio:checked + .form-option .form-option-variant--color {
+            box-shadow: 0 0 0 3px white, 0 0 0 5px rgb(52, 123, 250);
+        }
+    }
 }
 
 .productView--quickView {
