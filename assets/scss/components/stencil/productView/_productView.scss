@@ -723,7 +723,7 @@ iframe.youtube {
       }
 
       &.hide {
-        display: none;
+        display: none !important;
       }
 
       &:hover,

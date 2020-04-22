@@ -40,39 +40,17 @@
             id="attribute_{{id}}"
             {{#if selected}}checked{{/if}}
             {{#if ../required}}required{{/if}}>
-    <label class="form-option drop-down--swatch"
-           data-product-attribute-value="{{id}}"
-           for="attribute_{{id}}"
-           {{#startsWith "12V" label}} 
-             data-product-attribute-parameter="12V"
-           {{/startsWith}} 
-           {{#startsWith "120V" label}} 
-             data-product-attribute-parameter="120V"
-           {{/startsWith}}
-           {{#startsWith "Single" label}} 
-             data-product-attribute-parameter="Single"
-           {{/startsWith}} 
-           {{#startsWith "2-Pack" label}} 
-             data-product-attribute-parameter="2-Pack"
-           {{/startsWith}}
-           {{#startsWith "5-Pack" label}} 
-             data-product-attribute-parameter="5-Pack"
-           {{/startsWith}}
-           {{#contains label "Warm White"}}
-             data-product-attribute-bulb="warm"
-           {{/contains}}
-           {{#contains label "Halogen"}}
-             data-product-attribute-bulb="warm"
-           {{/contains}}
-           {{#contains label "Xelogen"}}
-             data-product-attribute-bulb="warm"
-           {{/contains}}
-           {{#contains label "Incandescent"}}
-             data-product-attribute-bulb="warm"
-           {{/contains}}
-           {{#contains label "Cool White"}}
-             data-product-attribute-bulb="cool"
-           {{/contains}}>
+    <label class="form-option drop-down--swatch" for="attribute_{{id}}" data-product-attribute-value="{{id}}"
+           {{#startsWith "12V" label}}data-product-attribute-parameter="12V"{{/startsWith}}
+           {{#startsWith "120V" label}}data-product-attribute-parameter="120V"{{/startsWith}}
+           {{#startsWith "Single" label}}data-product-attribute-parameter="Single"{{/startsWith}}
+           {{#startsWith "2-Pack" label}}data-product-attribute-parameter="2-Pack"{{/startsWith}}
+           {{#startsWith "5-Pack" label}}data-product-attribute-parameter="5-Pack"{{/startsWith}}
+           {{#contains label "Warm White"}}data-product-attribute-bulb="warm"{{/contains}}
+           {{#contains label "Halogen"}}data-product-attribute-bulb="warm"{{/contains}}
+           {{#contains label "Xelogen"}}data-product-attribute-bulb="warm"{{/contains}}
+           {{#contains label "Incandescent"}}data-product-attribute-bulb="warm"{{/contains}}
+           {{#contains label "Cool White"}}data-product-attribute-bulb="cool"{{/contains}}>
     {{#if image}}
       <img class="dropdown-content-image" src="{{getImage image "gallery_size"}}" />
     {{/if}}
@@ -100,39 +78,17 @@
             id="attribute_{{id}}"
             {{#if selected}}checked{{/if}}
             {{#if ../required}}required{{/if}}>
-        <label class="form-option drop-down--swatch"
-               data-product-attribute-value="{{id}}"
-               for="attribute_{{id}}"
-               {{#startsWith "12V" label}} 
-                 data-product-attribute-parameter="12V"
-               {{/startsWith}} 
-               {{#startsWith "120V" label}} 
-                 data-product-attribute-parameter="120V"
-               {{/startsWith}}
-               {{#startsWith "Single" label}} 
-                 data-product-attribute-parameter="Single"
-               {{/startsWith}} 
-               {{#startsWith "2-Pack" label}} 
-                 data-product-attribute-parameter="2-Pack"
-               {{/startsWith}}
-               {{#startsWith "5-Pack" label}} 
-                 data-product-attribute-parameter="5-Pack"
-               {{/startsWith}}
-               {{#contains label "Warm White"}}
-                 data-product-attribute-bulb="warm"
-               {{/contains}}
-               {{#contains label "Halogen"}}
-                 data-product-attribute-bulb="warm"
-               {{/contains}}
-               {{#contains label "Xelogen"}}
-                data-product-attribute-bulb="warm"
-               {{/contains}}
-               {{#contains label "Incandescent"}}
-                data-product-attribute-bulb="warm"
-               {{/contains}}
-               {{#contains label "Cool White"}}
-                 data-product-attribute-bulb="cool"
-               {{/contains}}>
+        <label class="form-option drop-down--swatch" for="attribute_{{id}}" data-product-attribute-value="{{id}}"
+               {{#startsWith "12V" label}}data-product-attribute-parameter="12V"{{/startsWith}}
+               {{#startsWith "120V" label}}data-product-attribute-parameter="120V"{{/startsWith}}
+               {{#startsWith "Single" label}}data-product-attribute-parameter="Single"{{/startsWith}}
+               {{#startsWith "2-Pack" label}}data-product-attribute-parameter="2-Pack"{{/startsWith}}
+               {{#startsWith "5-Pack" label}}data-product-attribute-parameter="5-Pack"{{/startsWith}}
+               {{#contains label "Warm White"}}data-product-attribute-bulb="warm"{{/contains}}
+               {{#contains label "Halogen"}}data-product-attribute-bulb="warm"{{/contains}}
+               {{#contains label "Xelogen"}}data-product-attribute-bulb="warm"{{/contains}}
+               {{#contains label "Incandescent"}}data-product-attribute-bulb="warm"{{/contains}}
+               {{#contains label "Cool White"}}data-product-attribute-bulb="cool"{{/contains}}>
         {{#if image}}
           <img class="dropdown-content-image" src="{{getImage image "gallery_size"}}" />
         {{/if}}
