@@ -13,18 +13,101 @@
         padding-top: 0;
     }
 
-    &.wood-swatch {
-        .form-option-variant--color, .form-option-variant--pattern {
-            width: 125px;
-            height: auto;
-            padding-bottom: 100%;
-            border-radius: 10px;
-            box-shadow: none;
-            background-size: cover;
+    &.thomas-mark {
+        .productView-product {
+            margin-top: 60px;
+            border-bottom: none;
         }
 
-        .swatch .form-radio:checked + .form-option .form-option-variant--color {
-            box-shadow: 0 0 0 3px white, 0 0 0 5px rgb(52, 123, 250);
+        .productView-title {
+            font-family: Lora, serif;
+            text-transform: uppercase;
+            font-weight: normal;
+            font-size: 22px;
+        }
+
+        .productView-info {
+            display: none;
+        }
+
+        .productView-price {
+            position: relative;
+            right: initial;
+            bottom: 0;
+
+            .price-section {
+                &.price-section--withoutTax {
+                    top: 0;
+                    text-align: left;
+                    letter-spacing: 0.5px;
+                    font-size: 14px;
+
+                    .price--rrp {
+                        top: 0;
+                        font-weight: normal;
+                        font-size: inherit;
+
+                        &:after {
+                            content: ' Regular';
+                            margin-left: 10px;
+                            text-transform: uppercase;
+                        }
+                    }
+
+                    .price--save {
+                        display: none;
+                    }
+
+                    .price--withoutTax {
+                        font-size: inherit;
+                        color: inherit;
+
+                        &:after {
+                            content: ' On Sale';
+                            margin-left: 10px;
+                            text-transform: uppercase;
+                        }
+                    }
+                }
+            }
+        }
+
+        .productView-rating {
+            display: none;
+        }
+
+        .button--primary {
+            border: none;
+            border-radius: 0;
+            background-color: black;
+            font-size: 16px;
+        }
+
+        .productView-options .form-field.form-field--increments {
+            border-color: black;
+            border-radius: 0;
+            height: 63px;
+        }
+
+        .productView-options [data-quantity-change] {
+            height: 61px;
+        }
+
+        .productView-options .form-field {
+            .button--icon[data-action="dec"],
+            .button--icon[data-action="inc"] {
+                border-color: black;
+                border-radius: 0;
+                background-color: white;
+            }
+        }
+
+        .productView-options .form-field .button--icon svg {
+            fill: black;
+        }
+
+        .productView-options .form-field .form-input--incrementTotal {
+            color: black;
         }
     }
 }
