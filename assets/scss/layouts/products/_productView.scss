@@ -86,6 +86,19 @@
             display: none;
         }
 
+        .dropdown-button .dropdown-add-icon {
+            background-color: black;
+        }
+
+        .productView-options .form-field.product-list {
+            width: calc(25% - 11px);
+            margin-right: 10px;
+
+            &:last-child {
+                margin: 0;
+            }
+        }
+
         .button--primary {
             border: none;
             border-radius: 0;
