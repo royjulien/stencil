@@ -15,8 +15,18 @@
 
     &.thomas-mark {
         .productView-product {
-            margin-top: 60px;
+            margin-top: 20px;
             border-bottom: none;
+        }
+
+        .productView-message {
+            font-size: 17px;
+            font-family: Lora;
+            margin: 20px 0 30px;
+            background: black;
+            color: white;
+            text-align: center;
+            padding: 10px;
         }
 
         .productView-title {
