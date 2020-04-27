@@ -84,14 +84,10 @@
   {{#if product.price}}
   <div class="productView-price">
     <div class="price-section price-section--withoutTax {{#if price.with_tax}}price-section--minor{{/if}}" {{#if schema_org}}itemprop="offers" itemscope itemtype="http://schema.org/Offer" {{/if}}>
-      {{#if schema_org}}
-        <meta itemprop="price" content="{{price.without_tax.value}}">
-        <meta itemprop="priceCurrency" content="{{currency_selector.active_currency_code}}">
-      {{/if}}
+      <meta itemprop="price" content="{{price.without_tax.value}}">
+      <meta itemprop="priceCurrency" content="{{currency_selector.active_currency_code}}">
 
-      {{#if price.rrp_without_tax}}
-        <div data-product-rrp-without-tax class="price price--rrp">{{price.rrp_without_tax.formatted}}</div>
-      {{/if}}
+      <div data-product-rrp-without-tax class="price price--rrp">{{price.rrp_without_tax.formatted}}</div>
 
       {{#if page_type '===' 'product'}}
         {{#if price.saved}}
@@ -104,7 +100,7 @@
         {{/if}}
       {{/if}}
 
-      <div id="productSalePrice" data-product-price-without-tax class="price price--withoutTax">$229.99</div>
+      <div id="productSalePrice" data-product-price-without-tax class="price price--withoutTax">{{price.without_tax.formatted}}</div>
     </div>
   </div>
   {{/if}}
