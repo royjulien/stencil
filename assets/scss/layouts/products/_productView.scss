@@ -92,16 +92,18 @@
             background-repeat: no-repeat;
 
             .dropdown-content-image {
-                position: absolute;
-                top: 28px;
-                left: 0;
-                right: 0;
-                max-width: calc(100% - 4px);
-                max-height: none;
-                padding: 0;
-                margin: auto;
-                background-color: #fff;
-                border-radius: 3px;
+                @media all and (max-width: 687px) {
+                    position: absolute;
+                    top: 28px;
+                    left: 0;
+                    right: 0;
+                    max-width: calc(100% - 4px);
+                    max-height: none;
+                    padding: 0;
+                    margin: auto;
+                    background-color: #fff;
+                    border-radius: 3px;
+                }
             }
 
             .dropdown-add-icon {
