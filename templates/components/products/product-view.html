@@ -1,4 +1,4 @@
-<div class="productView thomas-mark">
+<div class="productView">
   {{#each product.reviews.messages}}
   {{#if error}}
   {{>components/common/alert-error error}}
@@ -26,6 +26,7 @@
   <section class="productView-details">
     <div class="productView-product">
       <h1 class="productView-title" {{#if schema}}itemprop="name"{{/if}}>{{product.title}}</h1>
+
       <dl class="productView-info">
         {{#if product.brand.name}}
         <dt class="productView-info-name" data-product-brand-name>{{lang 'BRAND'}}</dt>
@@ -102,7 +103,6 @@
   {{product.detail_messages}}
 </div>
 
-<div class='productView-message'>Each piece is different, you can choose one or two from each design below.</div>
 <div class="productView-options">
   {{#if product.release_date }}
   <p>{{product.release_date}}</p>
@@ -123,7 +123,7 @@
     {{/each}}
     <div data-product-option-change style="display:none;">
       {{#each product.options}}
-        {{{dynamicComponent 'components/products/options'}}}
+      {{{dynamicComponent 'components/products/options'}}}
       {{/each}}
     </div>
 
