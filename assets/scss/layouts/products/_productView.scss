@@ -86,6 +86,16 @@
             display: none;
         }
 
+        .dropdown-button {
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .dropdown-add-text {
+            display: none;
+        }
+
         .dropdown-button .dropdown-add-icon {
             background-color: black;
         }

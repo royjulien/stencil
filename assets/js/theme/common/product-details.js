@@ -679,6 +679,13 @@ export default class Product {
             $('body').toggleClass('no-scroll');
             $('.dropdown-exit').toggleClass('active');
         });
+
+        if ($('.productView').hasClass('thomas-mark')) {
+            $('.dropdown-button').each(function () {
+                var text = $(this)[0].previousElementSibling.innerText.trim().replace(/ /g, '-').toLowerCase();
+                $(this).css('background-image', `url(/assets/img/wooden-lamp-${text}.jpg)`);
+            })
+        }
     }
 
     parseLabels() {
