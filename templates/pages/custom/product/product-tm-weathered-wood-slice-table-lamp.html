@@ -1,0 +1,12 @@
+{{#partial "page"}}
+    {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+    <div itemscope itemtype="http://schema.org/Product" data-suck>
+        {{> components/products/product-view-tm-weathered-wood-slice-table-lamp schema=true}}
+
+        {{#if settings.show_product_reviews}}
+            {{> components/products/reviews reviews=product.reviews product=product urls=urls}}
+            {{> components/products/modals/writeReview}}
+        {{/if}}
+    </div>
+{{/partial}}
+{{> layout/base}}
