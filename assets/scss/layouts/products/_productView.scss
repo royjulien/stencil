@@ -90,19 +90,36 @@
             background-size: contain;
             background-position: center;
             background-repeat: no-repeat;
+
+            .dropdown-content-image {
+                position: absolute;
+                top: 28px;
+                left: 0;
+                right: 0;
+                max-width: calc(100% - 4px);
+                padding: 0;
+                margin: auto;
+                background-color: #fff;
+                border-radius: 3px;
+            }
+
+            .dropdown-add-icon {
+                background-color: black;
+            }
         }
 
         .dropdown-add-text {
             display: none;
         }
 
-        .dropdown-button .dropdown-add-icon {
-            background-color: black;
-        }
-
         .productView-options .form-field.product-list {
-            width: calc(25% - 11px);
-            margin-right: 10px;
+            width: calc(50% - 22px);
+            margin-right: 20px;
+
+            @media all and (min-width: 687px) {
+                width: calc(25% - 11px);
+                margin-right: 10px;
+            }
 
             &:last-child {
                 margin: 0;
