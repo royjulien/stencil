@@ -146,6 +146,10 @@
             display: none;
         }
 
+        .productView-options .form-action .button#form-action-addToCart {
+            width: 100%;
+        }
+
         .productView-options [data-quantity-change] {
             height: 61px;
         }
