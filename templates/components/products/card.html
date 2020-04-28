@@ -40,7 +40,19 @@
             <a href="{{url}}" class="card-link">
                 <div class="card-price" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
                   {{#if price.rrp_without_tax}}<div class="card-price--rrp">Compare at: {{price.rrp_without_tax.formatted}}</div>{{/if}}
-                  <div class="card-price--without_tax">Price: <span class="card-price--without_tax-value">{{price.without_tax.formatted}}</span></div>
+                  <div class="card-price--without_tax">
+                    Price: 
+                    {{#if price.without_tax.value '==' 0}}
+                        {{#each custom_fields}}
+                            {{#if name '==' 'price'}}
+                                <span class="card-price--without_tax-value">{{value}}</span>
+                            {{/if}}
+                        {{/each}}
+                    {{else}}
+                        <span class="card-price--without_tax-value">{{price.without_tax.formatted}}</span>
+                    {{/if}}
+
+                  </div>
                   {{#if price.saved}}<div class="card-price--saved">You save: {{price.saved.formatted}}</div>{{/if}}
                 </div>
             </a>
