@@ -100,7 +100,7 @@
         {{/if}}
       {{/if}}
 
-      <div id="productSalePrice" data-product-price-without-tax class="price price--withoutTax">$229.99</div>
+      <div id="productSalePrice" data-product-price-without-tax class="price price--withoutTax">{{price.without_tax.formatted}}</div>
     </div>
   </div>
   {{/if}}
@@ -120,7 +120,7 @@
   {{product.detail_messages}}
 </div>
 
-<div class='productView-message'>Each piece is different, you can choose one or two from each design below.</div>
+<div class='productView-message'>Each piece is different, you can choose the different styles below.</div>
 <div class="productView-options">
   {{#if product.release_date }}
   <p>{{product.release_date}}</p>
