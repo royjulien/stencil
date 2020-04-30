@@ -83,25 +83,7 @@
   {{/if}}
   {{#if product.price}}
   <div class="productView-price">
-    <div class="price-section price-section--withoutTax {{#if price.with_tax}}price-section--minor{{/if}}" {{#if schema_org}}itemprop="offers" itemscope itemtype="http://schema.org/Offer" {{/if}}>
-      <meta itemprop="price" content="{{price.without_tax.value}}">
-      <meta itemprop="priceCurrency" content="{{currency_selector.active_currency_code}}">
-
-      <div data-product-rrp-without-tax class="price price--rrp">{{product.price.rrp_without_tax.formatted}}</div>
-
-      {{#if page_type '===' 'product'}}
-        {{#if product.price.saved}}
-          {{#if customer.customer_group_name '==' 'Contractor'}}
-            <div class="price price-section price--save">${{toFixed (subtract product.price.saved.value (multiply (divide product.price.without_tax.value 0.9) 0.1)) 2}} OFF</div>
-            <div class="price price-section price--save">PRO DISCOUNT: ${{toFixed (multiply (divide product.price.without_tax.value 0.9) 0.1) 2}} OFF</div>
-          {{else}}
-            <div class="price price-section price--save">{{product.price.saved.formatted}} OFF</div>
-          {{/if}}
-        {{/if}}
-      {{/if}}
-
-      <div id="productSalePrice" data-product-price-without-tax class="price price--withoutTax">{{price.without_tax.formatted}}</div>
-    </div>
+    {{> components/products/price price=product.price schema_org=schema}}
   </div>
   {{/if}}
 
