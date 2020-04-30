@@ -681,9 +681,10 @@ export default class Product {
         });
 
         if ($('.productView').hasClass('thomas-mark')) {
+            const productClassName = $('.productView').attr('class').split(' ')[2];
             $('.dropdown-button').each(function () {
                 var text = $(this)[0].previousElementSibling.innerText.trim().replace(/ /g, '-').toLowerCase();
-                $(this).css('background-image', `url(https://cdn11.bigcommerce.com/s-l0exu5p4yn/product_images/uploaded_images/wooden-lamp-${text}.jpg)`);
+                $(this).css('background-image', `url(https://cdn11.bigcommerce.com/s-l0exu5p4yn/product_images/uploaded_images/${productClassName}-${text}.jpg)`);
             })
         }
     }
