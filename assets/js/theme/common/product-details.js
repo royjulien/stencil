@@ -684,7 +684,8 @@ export default class Product {
             const productClassName = $('.productView').attr('class').split(' ')[2];
             $('.dropdown-button').each(function () {
                 var text = $(this)[0].previousElementSibling.innerText.trim().replace(/ /g, '-').toLowerCase();
-                $(this).css('background-image', `url(https://cdn11.bigcommerce.com/s-l0exu5p4yn/product_images/uploaded_images/${productClassName}-${text}.jpg)`);
+                var imageName = `${productClassName}-${text}.jpg`.replace(/\s/g, "").replace('-----required','');
+                $(this).css('background-image', `url(https://cdn11.bigcommerce.com/s-l0exu5p4yn/product_images/uploaded_images/${imageName})`);
             });
 
 

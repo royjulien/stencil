@@ -121,7 +121,7 @@ export default function () {
 
     if (videoTabContent) {
         let tabContent = videoTabContent.innerText.split('.')[1];
-        tabContent = tabContent.split('%%')[0];
+        tabContent = tabContent ? tabContent.split('%%')[0] : null;
         const requestURL = 'https://www.aqlightinggroup.com/content/json/video-tab-videos.json';
 
         getJSON(requestURL, (error, data) => {
