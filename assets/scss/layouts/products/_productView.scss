@@ -21,12 +21,13 @@
 
         .productView-message {
             font-size: 17px;
-            font-family: Lora;
+            font-family: Lora, serif;
             margin: 20px 0 30px;
-            background: black;
-            color: white;
-            text-align: center;
-            padding: 10px;
+            color: #f00;
+            padding: 10px 20px;
+            border: 1px solid;
+            display: inline-block;
+            border-radius: 2px;
         }
 
         .productView-title {
