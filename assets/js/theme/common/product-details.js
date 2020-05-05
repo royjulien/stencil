@@ -685,7 +685,9 @@ export default class Product {
             $('.dropdown-button').each(function () {
                 var text = $(this)[0].previousElementSibling.innerText.trim().replace(/ /g, '-').toLowerCase();
                 $(this).css('background-image', `url(https://cdn11.bigcommerce.com/s-l0exu5p4yn/product_images/uploaded_images/${productClassName}-${text}.jpg)`);
-            })
+            });
+
+
         }
     }
 
