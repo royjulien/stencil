@@ -683,12 +683,10 @@ export default class Product {
         if ($('.productView').hasClass('thomas-mark')) {
             const productClassName = $('.productView').attr('class').split(' ')[2];
             $('.dropdown-button').each(function () {
-                var text = $(this)[0].previousElementSibling.innerText.trim().replace(/ /g, '-').toLowerCase();
-                var imageName = `${productClassName}-${text}.jpg`.replace(/\s/g, "").replace('-----required','');
+                const text = $(this)[0].previousElementSibling.innerText.trim().replace(/ /g, '-').toLowerCase();
+                const imageName = `${productClassName}-${text}.jpg`.replace(/ /g, '').replace('-----required', '');
                 $(this).css('background-image', `url(https://cdn11.bigcommerce.com/s-l0exu5p4yn/product_images/uploaded_images/${imageName})`);
             });
-
-
         }
     }
 
