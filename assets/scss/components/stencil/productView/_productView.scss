@@ -631,6 +631,51 @@ iframe.youtube {
             width: 46px;
         }
     }
+    /*Custom CSS for Weathered Slice Dropdown Icons*/
+    .dropdown-icon-weathered {
+        position: absolute;
+        top: 70%;
+        left: calc(38% - 15px);
+        width: 55px;
+        opacity: 0.9;
+        transform: translateY(-50%);
+
+        @include breakpoint("medium") {
+            top: 65%;
+            left: calc(38% - 23px);
+            width: 85px;
+        }
+    }
+    /*Custom CSS for Sea Drift Dropdown Icons*/
+    .dropdown-icon-sea {
+        position: absolute;
+        top: 70%;
+        left: calc(35% - 15px);
+        width: 75px;
+        opacity: 0.9;
+        transform: translateY(-50%);
+
+        @include breakpoint("medium") {
+            top: 62%;
+            left: calc(30% - 23px);
+            width: 115px;
+        }
+    }
+    /*Custom CSS for White Water Dropdown Icons*/
+    .dropdown-icon-white-water {
+        position: absolute;
+        top: 65%;
+        left: calc(38% - 15px);
+        width: 60px;
+        opacity: 0.9;
+        transform: translateY(-50%);
+
+        @include breakpoint("medium") {
+            top: 60%;
+            left: calc(30% - 23px);
+            width: 100px;
+        }
+    }
 
     .dropdown-content-image {
         position: absolute;
