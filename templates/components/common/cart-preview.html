@@ -9,8 +9,13 @@
         {{> components/cart/cart-content}}
 
         <div class="cart-total">
-            <div class="cart-total-label">Item subtotal</div>
+            <div class="cart-total-label">Subtotal</div>
             <div class="cart-total-value"><span>{{cart.sub_total.formatted}}</span></div>
+
+            {{#if cart.discount }}
+                <div class="cart-total-label">{{lang 'cart.discount'}}:</div>
+                <div class="cart-total-value"><span>{{cart.discount.formatted}}</span></div>
+            {{/if}}
 
             <div class="cart-total-label">Shipping</div>
 
