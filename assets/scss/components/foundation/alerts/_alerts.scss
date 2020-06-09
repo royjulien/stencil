@@ -23,14 +23,18 @@
     margin-top: 20px;
     position: relative;
 
-    &::after {
-        content: '';
-        position: absolute;
-        top: -15px;
-        right: 50px;
-        border-left: 25px solid transparent;
-        border-right: 25px solid transparent;
-        border-bottom: 25px solid #54a66a;
+    .promotion-list {
+        list-style-type: none;
+        margin: 0;
+        display: flex;
+        justify-content: space-evenly;
+
+        .promotion.item {
+            font-family: Roboto,Arial,Helvetica,sans-serif;
+            font-weight: bold;
+            letter-spacing: -0.5px;
+            padding: 10px;
+        }
     }
 
     .alertBox-close {
