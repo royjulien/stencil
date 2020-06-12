@@ -405,7 +405,19 @@
         font-weight: bold;
     }
 }
+.nsc-title {
+    clear: both;
+    width: 100%;
+    color:#2d7cfa;
+    text-align:center;
+    font-size:2rem!important;
+    text-transform: uppercase;
+    font-weight: 500;
+}
 
+.nsc-diagram {
+    padding-bottom: 2rem;
+}
 .product-title {
     clear: both;
     display: block;
