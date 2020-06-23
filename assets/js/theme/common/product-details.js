@@ -553,7 +553,6 @@ export default class Product {
         const $labelBundleSelector = $('[data-product-attribute-label]', $bundleSelector);
         const $bulbTemperatureSelector = $('[data-product-attribute-name="bulb-temperature"]');
         const $labelBulbTemperatureSelector = $('[data-product-attribute-label]', $bulbTemperatureSelector);
-        //socket filter
         const $socketSelector = $('[data-product-attribute-name=socket]');
         const $labelSocketSelector = $('[data-product-attribute-label]', $socketSelector);
 
@@ -583,7 +582,7 @@ export default class Product {
                     $(`[data-product-attribute-bulb=${bulbType}]`).addClass('hide');
                 }
             });
-            //conditional for socket filter
+            // conditional for socket filter
             $('[data-product-attribute-label]', $socketSelector).each((i, radio) => {
                 if (radio.checked !== true) {
                     const socketType = radio.dataset.productAttributeLabel.toLowerCase() === 'medium base' ? 'medium' : 'jc';
@@ -611,7 +610,7 @@ export default class Product {
             $('[data-product-attribute-label]', $bundleSelector).each((i, radio) => {
                 if (radio.checked !== true) $(`[data-product-attribute-parameter=${radio.dataset.productAttributeLabel}]`).addClass('hide');
             });
-            //conditional for socket filter
+            // conditional for socket filter
             $('[data-product-attribute-label]', $socketSelector).each((i, radio) => {
                 if (radio.checked !== true) {
                     const socketType = radio.dataset.productAttributeLabel.toLowerCase() === 'medium base' ? 'medium' : 'jc';
@@ -638,7 +637,7 @@ export default class Product {
             });
         });
 
-        //socket filter
+        // socket filter
         $labelSocketSelector.on('click', (event) => {
             this.resetAttributes($bulbInterface);
 
