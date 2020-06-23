@@ -659,9 +659,7 @@ export default class Product {
                     $(`[data-product-attribute-bulb=${bulbType}]`).addClass('hide');
                 }
             });
-
         });
-
     }
 
     initialVariations(productId) {
