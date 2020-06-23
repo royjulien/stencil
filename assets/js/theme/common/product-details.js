@@ -553,9 +553,13 @@ export default class Product {
         const $labelBundleSelector = $('[data-product-attribute-label]', $bundleSelector);
         const $bulbTemperatureSelector = $('[data-product-attribute-name="bulb-temperature"]');
         const $labelBulbTemperatureSelector = $('[data-product-attribute-label]', $bulbTemperatureSelector);
+        //socket filter
+        const $socketSelector = $('[data-product-attribute-name=socket]');
+        const $labelSocketSelector = $('[data-product-attribute-label]', $socketSelector);
 
         this.setInitialOptions($voltageSelector);
         this.setInitialOptions($bundleSelector);
+        this.setInitialOptions($socketSelector);
 
         $labelVoltageSelector.on('click', (event) => {
             this.resetAttributes($bulbInterface);
@@ -579,6 +583,13 @@ export default class Product {
                     $(`[data-product-attribute-bulb=${bulbType}]`).addClass('hide');
                 }
             });
+            //conditional for socket filter
+            $('[data-product-attribute-label]', $socketSelector).each((i, radio) => {
+                if (radio.checked !== true) {
+                    const socketType = radio.dataset.productAttributeLabel.toLowerCase() === 'medium base' ? 'medium' : 'jc';
+                    $(`[data-product-attribute-socket=${socketType}]`).addClass('hide');
+                }
+            });
         });
 
         // color temp
@@ -600,6 +611,13 @@ export default class Product {
             $('[data-product-attribute-label]', $bundleSelector).each((i, radio) => {
                 if (radio.checked !== true) $(`[data-product-attribute-parameter=${radio.dataset.productAttributeLabel}]`).addClass('hide');
             });
+            //conditional for socket filter
+            $('[data-product-attribute-label]', $socketSelector).each((i, radio) => {
+                if (radio.checked !== true) {
+                    const socketType = radio.dataset.productAttributeLabel.toLowerCase() === 'medium base' ? 'medium' : 'jc';
+                    $(`[data-product-attribute-socket=${socketType}]`).addClass('hide');
+                }
+            });
         });
 
         // bundle fields
@@ -619,6 +637,32 @@ export default class Product {
                 }
             });
         });
+
+        //socket filter
+        $labelSocketSelector.on('click', (event) => {
+            this.resetAttributes($bulbInterface);
+
+            $('.dropdown-button', $bulbInterface).removeClass('active');
+            $('.dropdown-button .dropdown-content-image', $bulbInterface).remove();
+            $('[data-product-attribute-socket]', $bulbInterface).addClass('hide');
+
+            const socketType = event.currentTarget.dataset.productAttributeLabel.toLowerCase() === 'medium base' ? 'medium' : 'jc';
+
+            $(`[data-product-attribute-socket=${socketType}]`, $bulbInterface).removeClass('hide');
+
+            $('[data-product-attribute-label]', $voltageSelector).each((i, radio) => {
+                if (radio.checked !== true) $(`[data-product-attribute-parameter=${radio.dataset.productAttributeLabel}]`).addClass('hide');
+            });
+
+            $('[data-product-attribute-label]', $bulbTemperatureSelector).each((i, radio) => {
+                if (radio.checked !== true) {
+                    const bulbType = radio.dataset.productAttributeLabel.toLowerCase() === 'warm white' ? 'warm' : 'cool';
+                    $(`[data-product-attribute-bulb=${bulbType}]`).addClass('hide');
+                }
+            });
+
+        });
+
     }
 
     initialVariations(productId) {
