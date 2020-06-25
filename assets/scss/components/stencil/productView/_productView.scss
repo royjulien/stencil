@@ -649,16 +649,16 @@ iframe.youtube {
     /*Custom CSS for Burial Cable*/
     .dropdown-icon-burial {
         position: absolute;
-        top: 75%;
-        left: calc(50% - 29px);
-        width: 62px;
+        top: 72%;
+        left: calc(50% - 25px);
+        width: 60px;
         opacity: 0.3;
         transform: translateY(-50%);
 
         @include breakpoint("medium") {
             top: 65%;
-            left: calc(50% - 57px);
-            width: 125px;
+            left: calc(50% - 36px);
+            width: 85px;
         }
     }
     /*Custom CSS for Weathered Slice Dropdown Icons*/
