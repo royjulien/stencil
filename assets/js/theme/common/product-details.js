@@ -549,6 +549,7 @@ export default class Product {
         const $labelVoltageSelector = $('[data-product-attribute-label]', $voltageSelector);
         const $bulbInterface = $('[data-product-attribute-category=bulb], [data-product-attribute-category=bulbs]');
         const $mountingInterface = $('[data-product-attribute-category=mounting]');
+        const $transformerInterface = $('[data-product-attribute-category=transformer]');
         const $bundleSelector = $('[data-product-attribute-name=pack]');
         const $labelBundleSelector = $('[data-product-attribute-label]', $bundleSelector);
         const $bulbTemperatureSelector = $('[data-product-attribute-name="bulb-temperature"]');
@@ -566,15 +567,19 @@ export default class Product {
 
             $('.dropdown-button', $bulbInterface).removeClass('active');
             $('.dropdown-button', $mountingInterface).removeClass('active');
+            $('.dropdown-button', $transformerInterface).removeClass('active');
 
             $('.dropdown-button .dropdown-content-image', $bulbInterface).remove();
-            $('.dropdown-button .dropdown-content-image', $mountingInterface).remove();
+            $('.dropdown-button .dropdown-content-image', $mountingInterface).remove();            
+            $('.dropdown-button .dropdown-content-image', $transformerInterface).remove();
 
             $('[data-product-attribute-parameter]', $bulbInterface).addClass('hide');
             $('[data-product-attribute-parameter]', $mountingInterface).addClass('hide');
+            $('[data-product-attribute-parameter]', $transformerInterface).addClass('hide');
 
             $(`[data-product-attribute-parameter=${event.currentTarget.dataset.productAttributeLabel}]`, $bulbInterface).removeClass('hide');
             $(`[data-product-attribute-parameter=${event.currentTarget.dataset.productAttributeLabel}]`, $mountingInterface).removeClass('hide');
+            $(`[data-product-attribute-parameter=${event.currentTarget.dataset.productAttributeLabel}]`, $transformerInterface).removeClass('hide');
 
             $('[data-product-attribute-label]', $bulbTemperatureSelector).each((i, radio) => {
                 if (radio.checked !== true) {
