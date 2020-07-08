@@ -570,7 +570,7 @@ export default class Product {
             $('.dropdown-button', $transformerInterface).removeClass('active');
 
             $('.dropdown-button .dropdown-content-image', $bulbInterface).remove();
-            $('.dropdown-button .dropdown-content-image', $mountingInterface).remove();            
+            $('.dropdown-button .dropdown-content-image', $mountingInterface).remove();      
             $('.dropdown-button .dropdown-content-image', $transformerInterface).remove();
 
             $('[data-product-attribute-parameter]', $bulbInterface).addClass('hide');
