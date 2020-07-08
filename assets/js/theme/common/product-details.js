@@ -564,6 +564,7 @@ export default class Product {
         $labelVoltageSelector.on('click', (event) => {
             this.resetAttributes($bulbInterface);
             this.resetAttributes($mountingInterface);
+            this.resetAttributes($transformerInterface);
 
             $('.dropdown-button', $bulbInterface).removeClass('active');
             $('.dropdown-button', $mountingInterface).removeClass('active');
