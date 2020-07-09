@@ -549,7 +549,7 @@ export default class Product {
         const $labelVoltageSelector = $('[data-product-attribute-label]', $voltageSelector);
         const $bulbInterface = $('[data-product-attribute-category=bulb], [data-product-attribute-category=bulbs]');
         const $mountingInterface = $('[data-product-attribute-category=mounting]');
-        const $transformerInterface = $('[data-product-attribute-category=transformer]');
+        const $transformerInterface = $('[data-product-attribute-category=transformer], [data-product-attribute-category="transformer-12v-only"]');
         const $bundleSelector = $('[data-product-attribute-name=pack]');
         const $labelBundleSelector = $('[data-product-attribute-label]', $bundleSelector);
         const $bulbTemperatureSelector = $('[data-product-attribute-name="bulb-temperature"]');
