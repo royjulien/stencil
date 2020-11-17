@@ -7,6 +7,7 @@ import ProductDetails from './common/product-details';
 import videoGallery from './product/video-gallery';
 import { classifyForm } from './common/form-utils';
 import altProduct from './product/altProduct';
+import aqlRAS from './product/aql-ras';
 import productTabs from './product/productTabs';
 import ropeMountingRibbon from './product/ropeMountingRibbon';
 import transformerRibbon from './product/transformerRibbon';
@@ -72,6 +73,8 @@ export default class Product extends PageManager {
         videoAQUC();
         // installationTab();
         next();
+
+        $('.ras') ? aqlRAS() : null;
     }
 
     productReviewHandler() {
