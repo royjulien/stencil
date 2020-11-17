@@ -19,9 +19,10 @@
     {{/if}}
   {{/if}}
 
-  {{#contains product.category "Cyber Week Deals"}}
-    <div id="productSalePrice" data-product-price-without-tax data-is-cyber-week-deals class="price price--withoutTax">${{toFixed (multiply price.without_tax.value 0.8) 2}}</div>
+  <!--  This shows the price AFTER promotional discounts on product page ${{toFixed (multiply price.without_tax.value 0.8) 2}} -->
+  {{#contains product.category "Cyber Week Deals"}} 
+    <div id="productSalePrice" data-product-price-without-tax data-is-cyber-week-deals class="price price--withoutTax">{{price.without_tax.formatted}}</div>
   {{else}}
     <div id="productSalePrice" data-product-price-without-tax class="price price--withoutTax">{{price.without_tax.formatted}}</div>
-  {{/contains}}
+  {{/contains}} 
 </div>
