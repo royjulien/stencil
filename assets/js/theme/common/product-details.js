@@ -91,6 +91,8 @@ export default class Product {
 
     getViewModel($scope) {
         return {
+            $cyberWeekDeals: $('[data-is-cyber-week-deals]', $scope),
+            $priceSaved: $('[data-product-price-saved]', $scope),
             $priceWithTax: $('[data-product-price-with-tax]', $scope),
             $rrpWithTax: $('[data-product-rrp-with-tax]', $scope),
             $priceWithoutTax: $('[data-product-price-without-tax]', $scope),
@@ -366,12 +368,15 @@ export default class Product {
     }
 
     updatePriceView(viewModel, price) {
+        let pppp = price.rrp_without_tax ? price.rrp_without_tax.formatted : '$'+(price.without_tax.value + viewModel.$priceSaved.data().productPriceSaved);
+        viewModel.$rrpWithoutTax.html(pppp);
+
         if (price.with_tax) {
             viewModel.$priceWithTax.html(price.with_tax.formatted);
         }
 
         if (price.without_tax) {
-            viewModel.$priceWithoutTax.html(price.without_tax.formatted);
+            viewModel.$cyberWeekDeals[0] ? viewModel.$priceWithoutTax.html('$'+(price.without_tax.value * 0.8).toFixed(2)) : viewModel.$priceWithoutTax.html(price.without_tax.formatted);
         }
 
         if (price.rrp_with_tax) {

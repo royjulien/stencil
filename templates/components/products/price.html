@@ -14,10 +14,14 @@
         <div class="price price-section price--save">${{toFixed (subtract price.saved.value (multiply (divide price.without_tax.value 0.9) 0.1)) 2}} OFF</div>
         <div class="price price-section price--save">PRO DISCOUNT: ${{toFixed (multiply (divide price.without_tax.value 0.9) 0.1) 2}} OFF</div>
       {{else}}
-        <div class="price price-section price--save">{{price.saved.formatted}} OFF</div>
+        <div class="price price-section price--save" data-product-price-saved='{{price.saved.value}}'>{{price.saved.formatted}} OFF</div>
       {{/if}}
     {{/if}}
   {{/if}}
 
-  <div id="productSalePrice" data-product-price-without-tax class="price price--withoutTax">{{price.without_tax.formatted}}</div>
+  {{#contains product.category "Cyber Week Deals"}}
+    <div id="productSalePrice" data-product-price-without-tax data-is-cyber-week-deals class="price price--withoutTax">${{toFixed (multiply price.without_tax.value 0.8) 2}}</div>
+  {{else}}
+    <div id="productSalePrice" data-product-price-without-tax class="price price--withoutTax">{{price.without_tax.formatted}}</div>
+  {{/contains}}
 </div>
