@@ -26,6 +26,21 @@
   <section class="productView-details">
     <div class="productView-product">
       <h1 class="productView-title" {{#if schema}}itemprop="name"{{/if}}>{{product.title}}</h1>
+
+      <div class="productView-rating"{{#if product.num_reviews '>' 0}}{{#if schema}} itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating"{{/if}}{{/if}}>
+        {{#if product.num_reviews '>' 0}}
+          <meta itemprop="ratingValue" content="{{product.rating}}">
+          <meta itemprop="ratingCount" content="{{product.num_reviews}}">
+          <meta itemprop="reviewCount" content="{{product.num_reviews}}">
+          <span class="productView-ratingWrapper" title="{{lang 'products.reviews.rating_aria_label' current_rating=product.rating max_rating=5}}" tabindex="0">
+            {{> components/products/ratings rating=product.rating}}
+          </span>
+          <a href="{{product.url}}#product-reviews" id="productReview_link">
+            {{product.num_reviews}} Reviews
+          </a>
+        {{/if}}
+      </div>
+
       <dl class="productView-info">
         <dt class="productView-info-name" data-product-brand-name>{{lang 'BRAND'}}</dt>
         <dd class="productView-info-value">{{product.brand.name}}</dd>
