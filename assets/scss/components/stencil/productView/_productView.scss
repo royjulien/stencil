@@ -1346,14 +1346,19 @@ span.form-option-variant.form-option-variant--pattern  {
 
 //banner css
 .banner-sale-img {
-    width: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
 }
-@media screen and (min-width: 720px){
+
+@media screen and (max-width: 900px){
     .banner-sale-img {
         display: block;
         margin-left: auto;
         margin-right: auto;
-        width: 60%;
+        width: auto;
+        max-height: 200px;
     }
 }
 
