@@ -342,7 +342,7 @@
         border-color: #81b2ff;
         z-index: 1;
 
-        &.form-option-variant, {
+        &.form-option-variant {
             color: #76aafb;
         }
 
@@ -363,6 +363,12 @@
         padding: 0;
         margin: 0 30px 20px 0;
         border: none;
+
+    }
+    @media screen and (max-width: 496px){
+        .swatch & {
+            margin: 0 24px 38px 0;
+        }
     }
 
     .form-field-item:first-child & {
