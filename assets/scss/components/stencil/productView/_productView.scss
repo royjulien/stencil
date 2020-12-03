@@ -112,6 +112,8 @@
 
     @include breakpoint("medium") {
         font-size: 18px;
+        max-width: 36.5rem;
+        overflow-wrap: break-word;
     }
 }
 
