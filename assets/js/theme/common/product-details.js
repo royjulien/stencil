@@ -368,8 +368,14 @@ export default class Product {
     }
 
     updatePriceView(viewModel, price) {
-        let pppp = price.rrp_without_tax ? price.rrp_without_tax.formatted : '$'+(price.without_tax.value + viewModel.$priceSaved.data().productPriceSaved).toFixed(2);
-        viewModel.$rrpWithoutTax.html(pppp);
+        let discountOff = document.querySelector('.price--save');
+        if (discountOff !== null) {
+            let pppp = price.rrp_without_tax ? price.rrp_without_tax.formatted : '$'+(price.without_tax.value + viewModel.$priceSaved.data().productPriceSaved).toFixed(2);
+            viewModel.$rrpWithoutTax.html(pppp);
+        }
+        //let pppp = price.rrp_without_tax ? price.rrp_without_tax.formatted : '$'+(price.without_tax.value + viewModel.$priceSaved.data().productPriceSaved).toFixed(2);
+        //viewModel.$rrpWithoutTax.html(pppp);
+
 
         if (price.with_tax) {
             viewModel.$priceWithTax.html(price.with_tax.formatted);
