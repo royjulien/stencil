@@ -49,10 +49,14 @@
         <dt class="productView-info-name" data-product-sku>SKU</dt>
         <dd class="productView-info-value">{{product.sku}}</dd>
       </dl>
+
       <div class="productView-price">{{> components/products/price price=product.price schema_org=schema}}</div>
     </div>
 
   <div class="productView-options">
+    {{#if product.call_for_price}}
+      <span class="productView-call-for-price">{{product.call_for_price}}</span>
+    {{/if}}
     {{#if product.release_date }}
     <p>{{product.release_date}}</p>
     {{/if}}
