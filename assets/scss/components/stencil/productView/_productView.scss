@@ -1261,6 +1261,38 @@ span.form-option-variant.form-option-variant--pattern  {
         padding-bottom: 2px;
     }
 }
+// testing pricing display implementations for stupid super pages
+
+.pricetable-row {
+    display: flex;
+    font-size: 16px;
+    font-family: Lora,serif;
+    padding:5px 10px;
+    width:100%;
+    text-align:center;
+}
+
+.pricetable-column {
+    flex: 50%;
+    //padding: 10px;
+}
+
+.aquc-pricetable {
+    border-collapse: collapse;
+    margin-left: auto;
+    margin-right: auto;
+
+    tr:nth-child(2n) {
+        background-color: #f1f1f1;
+    }
+
+    td {
+        display: inline-block;
+        min-width: 128px;
+        padding-top: 2px;
+        padding-bottom: 2px;
+    }
+}
 
 .RLwarning {
     color: rgb(255, 0, 0);
