@@ -477,3 +477,9 @@
     background-color: color("greys", "lighter");
     color: color("greys", "darker");
 }
+
+@media screen and (min-width: 480px){
+    .login-mobile-alt {
+        display: none;
+    }
+}
