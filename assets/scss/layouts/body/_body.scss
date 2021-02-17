@@ -14,6 +14,7 @@
 
 .page-content,
 .page-content--full {
+    padding-top: .75rem;
     @include grid-column(12);
 }
 
