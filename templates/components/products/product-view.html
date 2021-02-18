@@ -67,7 +67,9 @@
 
 
       {{#each product.custom_fields}}
-      <input type="hidden" name="{{name}}" value="{{value}}"/>
+        {{#if name == 'product-top-banner'}}
+          {{value}}
+        {{/if}}
       {{/each}}
 
 
@@ -174,6 +176,14 @@
     -->
     {{{snippet 'product_addtocart'}}}
     {{/if}}
+
+    {{#each product.custom_fields}}
+      {{#if name == 'product-bottom-banner'}}
+        {{value}}
+      {{/if}}
+    {{/each}}
+
+
     <div class="alt-container"></div>
     {{#if product.out_of_stock}}
     {{#if product.out_of_stock_message}}
