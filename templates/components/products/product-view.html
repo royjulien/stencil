@@ -24,6 +24,12 @@
   </section>
 
   <section class="productView-details">
+    {{#each product.custom_fields}}
+      {{#if name '===' 'product-top-banner'}}
+        {{value}}
+      {{/if}}
+    {{/each}}
+
     <div class="productView-product">
       <h1 class="productView-title" {{#if schema}}itemprop="name"{{/if}}>{{product.title}}</h1>
 
@@ -64,14 +70,6 @@
     <form class="form" method="post" action="{{product.cart_url}}" enctype="multipart/form-data" data-cart-item-add>
       <input type="hidden" name="action" value="add">
       <input type="hidden" name="product_id" value="{{product.id}}"/>
-
-
-      {{#each product.custom_fields}}
-        {{#if name == 'product-top-banner'}}
-          {{value}}
-        {{/if}}
-      {{/each}}
-
 
       {{#each product.customizations}}
       {{{dynamicComponent 'components/products/customizations'}}}
@@ -178,7 +176,7 @@
     {{/if}}
 
     {{#each product.custom_fields}}
-      {{#if name == 'product-bottom-banner'}}
+      {{#if name '===' 'product-bottom-banner'}}
         {{value}}
       {{/if}}
     {{/each}}
