@@ -25,7 +25,12 @@
 
   <section class="productView-details">
     {{#each product.custom_fields}}
-      {{#if name '===' 'product-top-banner'}}
+      {{#if name '===' 'ptb-container'}}
+        <div class='ptb-container'>
+          {{#if name '===' 'ptb-image'}}<img src='{{value}}' />{{#if}}
+          {{#if name '===' 'ptb-text'}}<p>{{value}}</p>{{#if}}
+          {{#if name '===' 'ptb-link'}}<a href="{{value}}"></a>{{#if}}
+        </div>
         {{value}}
       {{/if}}
     {{/each}}
@@ -176,7 +181,12 @@
     {{/if}}
 
     {{#each product.custom_fields}}
-      {{#if name '===' 'product-bottom-banner'}}
+      {{#if name '===' 'pbb-container'}}
+        <div class='pbb-container'>
+          {{#if name '===' 'pbb-image'}}<img src='{{value}}' />{{#if}}
+          {{#if name '===' 'pbb-text'}}<p>{{value}}</p>{{#if}}
+          {{#if name '===' 'pbb-link'}}<a href="{{value}}"></a>{{#if}}
+        </div>
         {{value}}
       {{/if}}
     {{/each}}
