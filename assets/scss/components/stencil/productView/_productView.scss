@@ -1565,3 +1565,32 @@ span.form-option-variant.form-option-variant--pattern  {
         }
     }
 }
+
+.ptb-container ,
+.pbb-container {
+    position: relative;
+    display: flex;
+    box-sizing: content-box;
+
+    .ptb-image {
+        width: 80px;
+        height: 80px;
+        padding: 20px;
+        border-radius: 3px;
+        box-sizing: content-box;
+    }
+    .ptb-text {
+        padding: 20px 0 0;
+        margin: 0;
+        font-size: 14px;
+    }
+    .ptb-link {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+    }
+}
