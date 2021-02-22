@@ -189,7 +189,7 @@
         width: grid-calc(5, $total-columns);
     }
 
-    @media all and (min-width: 1156px) { //originally 1000px
+    @media all and (min-width: 1000px) { 
         width: grid-calc(6, $total-columns);
     }
 }
@@ -308,38 +308,3 @@ $font_2: arial;
         color: $white;
     }
 }
-.red-banner {
-    display: -webkit-flex;
-    font-size: 20px;
-    font-family: Lora,serif;
-    color:red;
-    padding: 10px 20px;
-    //text-align: center;
-    border-radius: 2px;
-    border: 1px solid;
-
-    img {
-        display: inline-block;
-        float: left;
-        height: 150px;
-        margin: -5px;
-        border-radius: 15px; 
-    }
-
-    .pbb-para {
-        padding-left: 1rem;
-        padding-top: 1.5rem;
-    }
-  }
-
-  .last-chance-banner {
-    font-size: 15px;
-    color: white;
-    background-color: red;
-    font-weight: bold;
-    padding: 5px;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    text-align: center;
-    text-transform: uppercase;
-  }
