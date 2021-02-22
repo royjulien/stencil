@@ -24,17 +24,6 @@
   </section>
 
   <section class="productView-details">
-    {{#each product.custom_fields}}
-      {{#if name '===' 'ptb-container'}}
-        <div class='ptb-container'>
-          {{#if name '===' 'ptb-image'}}<img src='{{value}}' />{{#if}}
-          {{#if name '===' 'ptb-text'}}<p>{{value}}</p>{{#if}}
-          {{#if name '===' 'ptb-link'}}<a href="{{value}}"></a>{{#if}}
-        </div>
-        {{value}}
-      {{/if}}
-    {{/each}}
-
     <div class="productView-product">
       <h1 class="productView-title" {{#if schema}}itemprop="name"{{/if}}>{{product.title}}</h1>
 
@@ -75,6 +64,12 @@
     <form class="form" method="post" action="{{product.cart_url}}" enctype="multipart/form-data" data-cart-item-add>
       <input type="hidden" name="action" value="add">
       <input type="hidden" name="product_id" value="{{product.id}}"/>
+
+
+      {{#each product.custom_fields}}
+      <input type="hidden" name="{{name}}" value="{{value}}"/>
+      {{/each}}
+
 
       {{#each product.customizations}}
       {{{dynamicComponent 'components/products/customizations'}}}
@@ -179,19 +174,6 @@
     -->
     {{{snippet 'product_addtocart'}}}
     {{/if}}
-
-    {{#each product.custom_fields}}
-      {{#if name '===' 'pbb-container'}}
-        <div class='pbb-container'>
-          {{#if name '===' 'pbb-image'}}<img src='{{value}}' />{{#if}}
-          {{#if name '===' 'pbb-text'}}<p>{{value}}</p>{{#if}}
-          {{#if name '===' 'pbb-link'}}<a href="{{value}}"></a>{{#if}}
-        </div>
-        {{value}}
-      {{/if}}
-    {{/each}}
-
-
     <div class="alt-container"></div>
     {{#if product.out_of_stock}}
     {{#if product.out_of_stock_message}}
