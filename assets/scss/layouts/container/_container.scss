@@ -9,6 +9,7 @@
     padding: 0 1rem;
     position: relative;
     width: layout("fixed");
+    clear: both;
 
     @include breakpoint("large") {
         padding: 0 20px;

@@ -466,11 +466,9 @@
             "phone": "Phone Number",
             "order": "Order Number",
             "rma": "RMA Number",
-            "captcha": "Are you human?",
-            "captcha_desc": "Please copy the characters from the image into the text field below. Doing this helps us prevent automated submissions.",
             "question": "Comments/Questions",
             "submit": "Submit Form",
-            "successful": "We've received your feedback and will respond shortly if required. <a href=\"{shopPath}\">Continue</a>."
+            "successful": "Thank you for submitting your claim form, we will respond shortly."
         },
         "create_account": {
             "submit_value": "Create Account"

@@ -47,15 +47,15 @@
         {{/if}}
     </div>
 
-    <!-- Update to Captcha v2 -->
-    {{{forms.contact.recaptcha.markup}}}
-
     <div class="form-field">
         <label class="form-label" for="contact_question">{{lang 'forms.contact_us.question'}}
             <small>{{lang 'common.required' }}</small>
         </label>
         <textarea name="contact_question" id="contact_question" rows="5" cols="50" class="form-input"></textarea>
     </div>
+
+    <!-- Update to Captcha v2 -->
+    {{{forms.contact.recaptcha.markup}}}
 
     <div class="form-actions">
         <input class="button button--primary" type="submit" value="{{lang 'forms.contact_us.submit' }}">

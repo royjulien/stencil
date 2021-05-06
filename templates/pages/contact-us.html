@@ -18,7 +18,9 @@
 
     <div class="page-content page-content--centered">
         {{#if forms.contact.success}}
-            {{{lang 'forms.contact_us.successful' shopPath=urls.home}}}
+            <div class="thank-you-message">
+                {{{lang 'forms.contact_us.successful' shopPath=urls.home}}}
+            </div
         {{else}}
             <p>{{{page.content}}}</p>
             {{> components/page/contact-us-form}}
