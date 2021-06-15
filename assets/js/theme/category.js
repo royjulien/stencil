@@ -20,59 +20,83 @@ export default class Category extends CatalogPage {
             this.onSortBySubmit = this.onSortBySubmit.bind(this);
             hooks.on('sortBy-submitted', this.onSortBySubmit);
         }
+        // Begin my janky carousel code :D
+        if($('.mySlides').length > 0) {
+            let slideIndex = 1;
+            let timer;
+            let slideshowContainer = $('.slideshow-inner');
 
-        // // AHHHH lame js here
-        // var slideIndex = 1;
-        // var myTimer;
-        // var slideshowContainer;
+            function nextSlide(n) {
+                clearInterval(timer);
+                showSlides(slideIndex += 1);
 
-        // let plusSlides = (n) => {
-        //     clearInterval(myTimer);
-        //     n < 0 ? showSlides(slideIndex -= 1) : showSlides(slideIndex += 1);
-        //     n === -1 ? myTimer = setInterval(plusSlides(n + 2), 4000) : myTimer = setInterval(plusSlides(n + 1), 4000);
-        // }
+                if (n === -1){
+                    timer = setInterval(function(){nextSlide(n + 2)}, 4000);
+                } else {
+                    timer = setInterval(function(){nextSlide(n + 1)}, 4000);
+                }
+            }
 
-        // let currentSlide = (n) => {
-        //     clearInterval(myTimer);
-        //     myTimer = setInterval(plusSlides(n + 1), 4000);
-        //     showSlides(slideIndex = n);
-        // }
+            function prevSlide(n) {
+                clearInterval(timer);
+                showSlides(slideIndex -= 1);
 
-        // let showSlides = (n) => {
-        //     var i;
-        //     var slides = document.getElementsByClassName("mySlides");
-        //     var dots = document.getElementsByClassName("slide-dot");
-        //     if (n > slides.length) {slideIndex = 1}
-        //     if (n < 1) {slideIndex = slides.length}
-        //     for (i = 0; i < slides.length; i++) {
-        //         slides[i].style.display = "none";
-        //     }
-        //     for (i = 0; i < dots.length; i++) {
-        //         dots[i].className = dots[i].className.replace(" active-slide", "");
-        //     }
-        //     slides[slideIndex-1].style.display = "block";
-        //     dots[slideIndex-1].className += " active-slide";
-        // }
+                if (n === -1){
+                    timer = setInterval(function(){nextSlide(n + 2)}, 4000);
+                } else {
+                    timer = setInterval(function(){nextSlide(n + 1)}, 4000);
+                }
+            }
 
-        // let pause = () => {
-        //     clearInterval(myTimer);
-        // }
+            function currentSlide(n) {
+                clearInterval(timer);
+                timer = setInterval(function(){nextSlide(n + 1)}, 4000);
+                showSlides(slideIndex = n);
+            }
 
-        // let resume = () =>{
-        //     clearInterval(myTimer);
-        //     myTimer = setInterval(plusSlides(slideIndex), 4000);
-        // }
+            function showSlides(n) {
+                let slides = $('.mySlides');
+                let dots = $('.slide-dot');
+                if (n > slides.length) { slideIndex = 1}
+                if (n < 1) { slideIndex = slides.length }
+                for (let i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none";
+                }
+                for (let j = 0; j < dots.length; j++) {
+                    dots[j].className = dots[j].className.replace(" active-dot", "");
+                }
+                slides[slideIndex - 1].style.display = "block";
+                dots[slideIndex - 1].className += " active-dot";
+            }
 
-        // var slides = document.getElementsByClassName("mySlides");
+            $(function(){
+               //showSlides(slideIndex);
+               currentSlide(slideIndex);
+               //timer = setInterval(function(){nextSlide(n + 1)}, 4000);
+            });
 
-        // if (slides.length > 0) {
-        //     showSlides(slideIndex);
-        //     myTimer = setInterval(plusSlides(1), 4000);
-        //     slideshowContainer = document.getElementsByClassName('slideshow-inner')[0];
-        //     slideshowContainer.addEventListener('mouseenter', pause)
-        //     slideshowContainer.addEventListener('mouseleave', resume)
-        // }
+            $(".prev-slide").on("click", function() {
+                clearInterval(timer);
+                prevSlide(slideIndex);
+            });
 
+            $(".next-slide").on("click", function() {
+                clearInterval(timer);
+                nextSlide(slideIndex);
+            });
+
+            $(".slide-dot").on("click", function() {
+                let num = $(this).attr('data-dot-number');
+                clearInterval(timer);
+                currentSlide(num);
+            });
+
+            slideshowContainer.on("mouseenter", function(){
+                clearInterval(timer);
+            }).on("mouseleave", function() {
+                currentSlide(slideIndex);
+            })
+        }
         next();
     }
 
