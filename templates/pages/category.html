@@ -12,66 +12,6 @@ category:
     {{#if pagination.category.next}}
         <link rel="next" href="{{pagination.category.next}}">
     {{/if}}
-    <!--Custom Vanilla JS for Category Carousel-->
-    <script defer>
-        var slideIndex = 1;
-        var myTimer;
-        var slideshowContainer;
-
-        window.addEventListener("load",function() {
-            var slides = document.getElementsByClassName("mySlides");
-
-            if (slides.length > 0) {
-                showSlides(slideIndex);
-                myTimer = setInterval(function(){plusSlides(1)}, 4000);
-                slideshowContainer = document.getElementsByClassName('slideshow-inner')[0];
-                slideshowContainer.addEventListener('mouseenter', pause)
-                slideshowContainer.addEventListener('mouseleave', resume)
-            }
-        })
-        function plusSlides(n){
-            clearInterval(myTimer);
-            if (n < 0){
-            showSlides(slideIndex -= 1);
-            } else {
-            showSlides(slideIndex += 1);
-            }
-            if (n === -1){
-            myTimer = setInterval(function(){plusSlides(n + 2)}, 4000);
-            } else {
-            myTimer = setInterval(function(){plusSlides(n + 1)}, 4000);
-            }
-        }
-        function currentSlide(n){
-            clearInterval(myTimer);
-            myTimer = setInterval(function(){plusSlides(n + 1)}, 4000);
-            showSlides(slideIndex = n);
-        }
-        function showSlides(n){
-            var i;
-            var slides = document.getElementsByClassName("mySlides");
-            var dots = document.getElementsByClassName("slide-dot");
-            if (n > slides.length) {slideIndex = 1}
-            if (n < 1) {slideIndex = slides.length}
-            for (i = 0; i < slides.length; i++) {
-                slides[i].style.display = "none";
-            }
-            for (i = 0; i < dots.length; i++) {
-                dots[i].className = dots[i].className.replace(" active-slide", "");
-            }
-            slides[slideIndex-1].style.display = "block";
-            dots[slideIndex-1].className += " active-slide";
-        }
-
-        pause = () => {
-            clearInterval(myTimer);
-        }
-
-        resume = () =>{
-            clearInterval(myTimer);
-            myTimer = setInterval(function(){plusSlides(slideIndex)}, 4000);
-        }
-    </script>
 {{/partial}}
 
 {{#partial "page"}}
