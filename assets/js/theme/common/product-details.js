@@ -113,6 +113,27 @@ export default class Product {
         };
     }
 
+    /**
+     *
+     * Google add to cart tracking
+     *
+     */
+    gtagReportConversion(url) {
+      let priceWithoutTax = this.getViewModel().$priceWithoutTax[0].innerText.substring(1);
+      let callback = function () {
+        if (typeof(url) != 'undefined') window.location = url;
+      };
+
+      gtag('event', 'conversion', {
+          'send_to': 'AW-1069749593/-sNgCMDQlMUCENmqjP4D',
+          'value': priceWithoutTax > 0 ? priceWithoutTax : 1,
+          'currency': 'USD',
+          'event_callback': callback
+      });
+
+      return false;
+    }
+
 
     /**
      *
@@ -253,6 +274,8 @@ export default class Product {
             this.updateCartContent(previewModal, response.data.cart_item.hash);
 
             $('[data-cart-preview]').click();
+
+            this.gtagReportConversion();
         });
     }
 
