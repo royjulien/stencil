@@ -6,7 +6,7 @@ export default function () {
     //  Product Page - Transformers and Cables
     const productVoltageElement = document.querySelector('.form-label--inlineSmall');
     const jsonTransformersURI = "https://www.aqlightinggroup.com/dav/content/json/transformerRibbon.json";
-    const username = "data@aqlighting.com";
+    const usr = "data@aqlighting.com";
     const pwd = "2675106f03d3c3fe3d16236580a05dd6";
 
     if (productVoltageElement) {
@@ -20,13 +20,20 @@ export default function () {
             $.ajax({
                 url: jsonTransformersURI,
                 type: "POST",
-                dataType: 'json',
+                dataType: 'jsonp',
                 contentType: 'application/json',
                 async: false,
                 crossDomain: true,
-                data: `{"username": ${username}, "password": ${pwd}}`,
+                username: usr,
+                password: pwd,
+                xhrFields: {
+                    withCredentials: true
+                },
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader ("Authorization", "Basic " + btoa(usr + ":" + pwd));
+                },
                 success: function(data) {
-                    console.log(data)
+                    console.log('success?')
                 }
             });
             
@@ -50,7 +57,7 @@ export default function () {
             const unorderedList = document.createElement('ul');
             section.appendChild(unorderedList);
 
-
+  
             // start of loop through product array
             for (let i = transformers.length - 1; i >= 0; i--) {
                 const listItem = document.createElement('li');
