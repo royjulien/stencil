@@ -18,16 +18,14 @@ export default function () {
         if (productVoltage.includes('voltage')) {
 
             $.ajax({
-                type: "POST",
-                //the url where you want to sent the userName and password to
                 url: jsonTransformersURI,
+                type: "POST",
                 dataType: 'json',
+                contentType: 'application/json',
                 async: false,
                 crossDomain: true,
-                //json object to sent to the authentication url
                 data: `{"username": ${username}, "password": ${pwd}}`,
                 success: function(data) {
-                    //do any process for successful authentication here
                     console.log(data)
                 }
             });
