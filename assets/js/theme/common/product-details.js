@@ -595,6 +595,7 @@ export default class Product {
         this.setInitialOptions($bundleSelector);
         this.setInitialOptions($socketSelector);
 
+        // Voltage Selector
         $labelVoltageSelector.on('click', (event) => {
             this.resetAttributes($bulbInterface);
             this.resetAttributes($mountingInterface);
@@ -612,21 +613,21 @@ export default class Product {
             $('[data-product-attribute-parameter]', $mountingInterface).addClass('hide');
             $('[data-product-attribute-parameter]', $transformerInterface).addClass('hide');
 
-            $(`[data-product-attribute-parameter=${event.currentTarget.dataset.productAttributeLabel}]`, $bulbInterface).removeClass('hide');
-            $(`[data-product-attribute-parameter=${event.currentTarget.dataset.productAttributeLabel}]`, $mountingInterface).removeClass('hide');
-            $(`[data-product-attribute-parameter=${event.currentTarget.dataset.productAttributeLabel}]`, $transformerInterface).removeClass('hide');
+            $(`[data-product-attribute-parameter="${event.currentTarget.dataset.productAttributeLabel}"]`, $bulbInterface).removeClass('hide');
+            $(`[data-product-attribute-parameter="${event.currentTarget.dataset.productAttributeLabel}"]`, $mountingInterface).removeClass('hide');
+            $(`[data-product-attribute-parameter="${event.currentTarget.dataset.productAttributeLabel}"]`, $transformerInterface).removeClass('hide');
 
             $('[data-product-attribute-label]', $bulbTemperatureSelector).each((i, radio) => {
                 if (radio.checked !== true) {
-                    const bulbType = radio.dataset.productAttributeLabel.toLowerCase() === 'warm white' ? 'warm' : 'cool';
-                    $(`[data-product-attribute-bulb=${bulbType}]`).addClass('hide');
+                    const bulbType = radio.dataset.productAttributeLabel.toLowerCase();
+                    $(`[data-product-attribute-bulb="${bulbType}"]`).addClass('hide');
                 }
             });
             // conditional for socket filter
             $('[data-product-attribute-label]', $socketSelector).each((i, radio) => {
                 if (radio.checked !== true) {
-                    const socketType = radio.dataset.productAttributeLabel.toLowerCase() === 'medium base' ? 'medium' : 'jc';
-                    $(`[data-product-attribute-socket=${socketType}]`).addClass('hide');
+                    const socketType = radio.dataset.productAttributeLabel.toLowerCase();
+                    $(`[data-product-attribute-socket="${socketType}"]`).addClass('hide');
                 }
             });
         });
@@ -639,22 +640,21 @@ export default class Product {
             $('.dropdown-button .dropdown-content-image', $bulbInterface).remove();
             $('[data-product-attribute-bulb]', $bulbInterface).addClass('hide');
 
-            const bulbType = event.currentTarget.dataset.productAttributeLabel.toLowerCase() === 'warm white' ? 'warm' : 'cool';
-
-            $(`[data-product-attribute-bulb=${bulbType}]`, $bulbInterface).removeClass('hide');
+            const bulbColor = event.currentTarget.dataset.productAttributeLabel.toLowerCase();
+            $(`[data-product-attribute-bulb="${bulbColor}"]`, $bulbInterface).removeClass('hide');
 
             $('[data-product-attribute-label]', $voltageSelector).each((i, radio) => {
-                if (radio.checked !== true) $(`[data-product-attribute-parameter=${radio.dataset.productAttributeLabel}]`).addClass('hide');
+                if (radio.checked !== true) $(`[data-product-attribute-parameter="${radio.dataset.productAttributeLabel}"]`).addClass('hide');
             });
 
             $('[data-product-attribute-label]', $bundleSelector).each((i, radio) => {
-                if (radio.checked !== true) $(`[data-product-attribute-parameter=${radio.dataset.productAttributeLabel}]`).addClass('hide');
+                if (radio.checked !== true) $(`[data-product-attribute-parameter="${radio.dataset.productAttributeLabel}"]`).addClass('hide');
             });
             // conditional for socket filter
             $('[data-product-attribute-label]', $socketSelector).each((i, radio) => {
                 if (radio.checked !== true) {
                     const socketType = radio.dataset.productAttributeLabel.toLowerCase() === 'medium base' ? 'medium' : 'jc';
-                    $(`[data-product-attribute-socket=${socketType}]`).addClass('hide');
+                    $(`[data-product-attribute-socket="${socketType}"]`).addClass('hide');
                 }
             });
         });
@@ -667,12 +667,12 @@ export default class Product {
             $('.dropdown-button .dropdown-content-image', $bulbInterface).remove();
             $('[data-product-attribute-parameter]', $bulbInterface).addClass('hide');
 
-            $(`[data-product-attribute-parameter=${event.currentTarget.dataset.productAttributeLabel}]`, $bulbInterface).removeClass('hide');
+            $(`[data-product-attribute-parameter="${event.currentTarget.dataset.productAttributeLabel}"]`, $bulbInterface).removeClass('hide');
 
             $('[data-product-attribute-label]', $bulbTemperatureSelector).each((i, radio) => {
                 if (radio.checked !== true) {
-                    const bulbType = radio.dataset.productAttributeLabel.toLowerCase() === 'warm white' ? 'warm' : 'cool';
-                    $(`[data-product-attribute-bulb=${bulbType}]`).addClass('hide');
+                    const bulbType = radio.dataset.productAttributeLabel.toLowerCase();
+                    $(`[data-product-attribute-bulb="${bulbType}"]`).addClass('hide');
                 }
             });
         });
@@ -687,16 +687,16 @@ export default class Product {
 
             const socketType = event.currentTarget.dataset.productAttributeLabel.toLowerCase() === 'medium base' ? 'medium' : 'jc';
 
-            $(`[data-product-attribute-socket=${socketType}]`, $bulbInterface).removeClass('hide');
+            $(`[data-product-attribute-socket="${socketType}"]`, $bulbInterface).removeClass('hide');
 
             $('[data-product-attribute-label]', $voltageSelector).each((i, radio) => {
-                if (radio.checked !== true) $(`[data-product-attribute-parameter=${radio.dataset.productAttributeLabel}]`).addClass('hide');
+                if (radio.checked !== true) $(`[data-product-attribute-parameter="${radio.dataset.productAttributeLabel}"]`).addClass('hide');
             });
 
             $('[data-product-attribute-label]', $bulbTemperatureSelector).each((i, radio) => {
                 if (radio.checked !== true) {
-                    const bulbType = radio.dataset.productAttributeLabel.toLowerCase() === 'warm white' ? 'warm' : 'cool';
-                    $(`[data-product-attribute-bulb=${bulbType}]`).addClass('hide');
+                    const bulbType = radio.dataset.productAttributeLabel.toLowerCase();
+                    $(`[data-product-attribute-bulb="${bulbType}"]`).addClass('hide');
                 }
             });
         });
