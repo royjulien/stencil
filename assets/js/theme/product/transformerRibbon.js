@@ -9,31 +9,31 @@ export default function () {
 
         if (productVoltage.includes('voltage')) {
             const transformers = [{
-                title: '12V 60W Outdoor Mini Transformer PTX60',
+                title: '12V 60W Outdoor Mini Transformer',
                 anchorLink: '/outdoor-lighting/low-voltage-transformers/12v-60w-outdoor-mini-transformer-ptx60/',
                 imgSource: '/product_images/uploaded_images/PTX60/PTX60-UL-Listed-Outdoor-Rated-Transformer-with-photocell-and-hour-timer.jpg',
-                imgAlt: '12V 60w Mini Outdoor Rated Transformer PTX60',
+                imgAlt: '12V 60w Mini Outdoor Rated Transformer',
                 price: '$87.99',
                 anchorAddToCart: '/cart.php?action=add&product_id=12554',
             }, {
-                title: '150w Dual-Tap Low Voltage OTR-YLS-150',
+                title: '150w Dual-Tap Low Voltage',
                 anchorLink: '/outdoor-lighting/low-voltage-transformers/150w-low-voltage-transformer-outdoor-rated-dual-tap-stainless-steel-body-with-led-or-lcd-timer-otr-yls-150/',
                 imgSource: '/product_images/uploaded_images/OTR-YLS-Thumbnail-500px.jpg',
-                imgAlt: '150w Stainless Steel Encased Low Voltage Transformer OTR-YLS-150',
+                imgAlt: '150w Stainless Steel Encased Low Voltage Transformer',
                 price: '$159.98',
                 anchorAddToCart: '/cart.php?action=add&product_id=15826',
             }, {
-                title: '300w Outdoor Rated Dual-Tap Low Voltage OTR-YLS-300',
+                title: '300w Outdoor Rated Dual-Tap Low Voltage',
                 anchorLink: '/outdoor-lighting/low-voltage-transformers/300w-low-voltage-transformer-outdoor-rated-dual-tap-stainless-steel-body-with-dusk-to-dawn-led-or-lcd-timer-otr-yls-300/',
                 imgSource: '/product_images/uploaded_images/OTR-YLS-Thumbnail-500px.jpg',
-                imgAlt: '300w Outdoor Rated Dual-Tap Transformer OTR-YLS-300',
+                imgAlt: '300w Outdoor Rated Dual-Tap Transformer',
                 price: '$179.98',
                 anchorAddToCart: '/cart.php?action=add&product_id=15827',
             }, {
-                title: '600w Outdoor Rated Dual-Tap Low Voltage FFL-SS-600',
+                title: '600w Outdoor Rated Dual-Tap Low Voltage',
                 anchorLink: '/outdoor-lighting/low-voltage-transformers/low-voltage-600w-stainless-steel-dual-tap-transformer-astronomical-timer-dusk-to-dawn-ffl-ss-600/',
                 imgSource: '/product_images/uploaded_images/FFL-SS-600/FFL-SS-600-Product-View.jpg',
-                imgAlt: '600w Outdoor Rated Dual-Tap Transformer FFL-SS-600',
+                imgAlt: '600w Outdoor Rated Dual-Tap Transformer',
                 price: '$319.98',
                 anchorAddToCart: '/cart.php?action=add&product_id=15395',
             }, {
