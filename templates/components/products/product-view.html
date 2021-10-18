@@ -12,16 +12,23 @@
   {{/each}}
 
   <section class="productView-images" data-image-gallery>
-    <figure class="productView-image" data-image-gallery-main>
-      <img class="productView-image--default" src="{{getImage product.main_image 'product_size' (cdn theme_settings.default_image_product)}}" alt="{{product.main_image.alt}}" title="{{product.main_image.alt}}" data-main-image>
+    <figure class="productView-image" data-image-gallery-main data-zoom-image="{{getImage product.main_image 'zoom_size' (cdn theme_settings.default_image_product)}}">
+      <img class="productView-image--default"
+          src="{{getImage product.main_image 'product_size' (cdn theme_settings.default_image_product)}}"
+          alt="{{product.main_image.alt}}" title="{{product.main_image.alt}}" data-main-image>
     </figure>
     <ul class="productView-thumbnails">
       {{#each product.images}}
-      <li class="productView-thumbnail">
-        <a class="productView-thumbnail-link" href="{{getImage this 'product_size' (cdn ../theme_settings.default_image_product)}}" data-image-gallery-item data-image-gallery-new-image-url="{{getImage this 'product_size' (cdn ../theme_settings.default_image_product)}}">
-          <img src="{{getImage this 'productthumb_size' (cdn ../theme_settings.default_image_product)}}" alt="{{this.alt}}" title="{{this.alt}}">
-        </a>
-      </li>
+        <li class="productView-thumbnail">
+            <a
+                class="productView-thumbnail-link"
+                href="{{getImage this 'product_size' (cdn ../theme_settings.default_image_product)}}"
+                data-image-gallery-item
+                data-image-gallery-new-image-url="{{getImage this 'product_size' (cdn ../theme_settings.default_image_product)}}"
+                data-image-gallery-zoom-image-url="{{getImage this 'zoom_size' (cdn ../theme_settings.default_image_product)}}">
+                <img src="{{getImage this 'productthumb_size' (cdn ../theme_settings.default_image_product)}}" alt="{{this.alt}}" title="{{this.alt}}">
+            </a>
+        </li>
       {{/each}}
     </ul>
   </section>
@@ -79,7 +86,7 @@
       <input type="hidden" name="product_id" value="{{product.id}}"/>
 
       {{#each product.customizations}}
-      {{{dynamicComponent 'components/products/customizations'}}}
+        {{{dynamicComponent 'components/products/customizations'}}}
       {{/each}}
       <div data-product-option-change style="display:none;">
         {{#each product.options}}
@@ -88,30 +95,30 @@
       </div>
 
       {{#if product.event_date}}
-      <div class="form-field">
-        <label class="form-label form-label--alternate form-label--inlineSmall">
-          {{product.event_date.name}}:
-          <small>{{lang 'common.required'}}</small>
-        </label>
-        <select class="form-select form-select--date" name="EventDate[Mth]" required>
-          <option value="">{{lang 'common.month'}}</option>
-          {{#enumerate 1 12}}
-          <option value="{{this}}">{{getShortMonth this}}</option>
-          {{/enumerate}}
-        </select>
-        <select class="form-select form-select--date" name="EventDate[Day]" required>
-          <option value="">{{lang 'common.day'}}</option>
-          {{#enumerate 1 31}}
-          <option value="{{this}}">{{this}}</option>
-          {{/enumerate}}
-        </select>
-        <select class="form-select form-select--date" name="EventDate[Yr]" required>
-          <option value="">{{lang 'common.year'}}</option>
-          {{#enumerate product.event_date.earliest_year product.event_date.latest_year}}
-          <option value="{{this}}" >{{this}}</option>
-          {{/enumerate}}
-        </select>
-      </div>
+        <div class="form-field">
+          <label class="form-label form-label--alternate form-label--inlineSmall">
+            {{product.event_date.name}}:
+            <small>{{lang 'common.required'}}</small>
+          </label>
+          <select class="form-select form-select--date" name="EventDate[Mth]" required>
+            <option value="">{{lang 'common.month'}}</option>
+            {{#enumerate 1 12}}
+            <option value="{{this}}">{{getShortMonth this}}</option>
+            {{/enumerate}}
+          </select>
+          <select class="form-select form-select--date" name="EventDate[Day]" required>
+            <option value="">{{lang 'common.day'}}</option>
+            {{#enumerate 1 31}}
+            <option value="{{this}}">{{this}}</option>
+            {{/enumerate}}
+          </select>
+          <select class="form-select form-select--date" name="EventDate[Yr]" required>
+            <option value="">{{lang 'common.year'}}</option>
+            {{#enumerate product.event_date.earliest_year product.event_date.latest_year}}
+            <option value="{{this}}" >{{this}}</option>
+            {{/enumerate}}
+          </select>
+        </div>
       {{/if}}
 
       <div class="form-field form-field--stock{{#unless product.stock_level}} u-hiddenVisually{{/unless}}">
@@ -119,68 +126,66 @@
           {{lang 'products.current_stock'}}
           <span data-product-stock>{{product.stock_level}}</span>
         </label>
-
       </div>
 
 
+        {{#if product.bulk_discount_rates.length}}
+        <label class="form-label form-label--alternate">Discounts</label>
+        <ul class='bulk-pricing'>
+          {{#each product.bulk_discount_rates}}
+          <li class='bulk-pricing-item'>
+            {{lang 'products.bulk_pricing.range' min=min max=max}}
+            {{#if type '===' 'percent'}}
+              {{lang 'products.bulk_pricing.percent' discount=discount.formatted}}
+            {{/if}}
+            {{#if type '===' 'fixed'}}
+              {{lang 'products.bulk_pricing.fixed' discount=discount.formatted}}
+            {{/if}}
+            {{#if type '===' 'price'}}
+              {{lang 'products.bulk_pricing.price' discount=discount.formatted}}
+            {{/if}}
+          </li>
+          {{/each}}
+        </ul>
+        {{/if}}
 
-      {{#if product.can_purchase}}
-      {{#if product.bulk_discount_rates.length}}
-      <label class="form-label form-label--alternate">Discounts</label>
-      <ul class='bulk-pricing'>
-        {{#each product.bulk_discount_rates}}
-        <li class='bulk-pricing-item'>
-          {{lang 'products.bulk_pricing.range' min=min max=max}}
-          {{#if type '===' 'percent'}}
-          {{lang 'products.bulk_pricing.percent' discount=discount.formatted}}
-          {{/if}}
-          {{#if type '===' 'fixed'}}
-          {{lang 'products.bulk_pricing.fixed' discount=discount.formatted}}
-          {{/if}}
-          {{#if type '===' 'price'}}
-          {{lang 'products.bulk_pricing.price' discount=discount.formatted}}
-          {{/if}}
-        </li>
-        {{/each}}
-      </ul>
-      {{/if}}
-
-      <div class="alertBox productAttributes-message" style="display:none">
-        <div class="alertBox-column alertBox-icon">
-          <icon glyph="ic-success" class="icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"></path></svg></icon>
-        </div>
-        <p class="alertBox-column alertBox-message"></p>
-      </div>
-
-      <div class="form-action">
-        <div class="form-field form-field--increments">
-          <div class="form-increment" data-quantity-change>
-            <button class="button button--icon" data-action="dec">
-              <i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-keyboard-arrow-down"/></svg></i>
-            </button>
-            <input class="form-input form-input--incrementTotal"
-            id="qty[]"
-            name="qty[]"
-            type="tel"
-            value="{{#if product.min_purchase_quantity}}{{product.min_purchase_quantity}}{{else}}1{{/if}}"
-            data-quantity-min="{{product.min_purchase_quantity}}"
-            data-quantity-max="{{product.max_purchase_quantity}}"
-            min="1"
-            pattern="[0-9]*"
-            aria-live="polite">
-            <button class="button button--icon" data-action="inc">
-              <i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-keyboard-arrow-up"/></svg></i>
-            </button>
+        <div class="alertBox productAttributes-message" style="display:none">
+          <div class="alertBox-column alertBox-icon">
+            <icon glyph="ic-success" class="icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"></path></svg></icon>
           </div>
+          <p class="alertBox-column alertBox-message"></p>
         </div>
 
-        <input id="form-action-addToCart" data-wait-message="{{lang 'products.adding_to_cart'}}" class="button button--primary" type="submit" value="{{#if product.pre_order}}{{lang 'products.pre_order'}}{{else}}{{lang 'products.add_to_cart'}}{{/if}}">
-      </div>
-      <!--
-      <div class="free-shipping-container">Qualifies for Free Shipping</div>
-    -->
-    {{{snippet 'product_addtocart'}}}
-    {{/if}}
+        <div class="form-action">
+          <div class="form-field form-field--increments">
+            <div class="form-increment" data-quantity-change>
+              <button class="button button--icon" data-action="dec">
+                <i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-keyboard-arrow-down"/></svg></i>
+              </button>
+              <input class="form-input form-input--incrementTotal"
+              id="qty[]"
+              name="qty[]"
+              type="tel"
+              value="{{#if product.min_purchase_quantity}}{{product.min_purchase_quantity}}{{else}}1{{/if}}"
+              data-quantity-min="{{product.min_purchase_quantity}}"
+              data-quantity-max="{{product.max_purchase_quantity}}"
+              min="1"
+              pattern="[0-9]*"
+              aria-live="polite">
+              <button class="button button--icon" data-action="inc">
+                <i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-keyboard-arrow-up"/></svg></i>
+              </button>
+            </div>
+          </div>
+
+          {{#if product.can_purchase}}
+          <input id="form-action-addToCart" data-wait-message="{{lang 'products.adding_to_cart'}}" class="button button--primary" type="submit" value="{{#if product.pre_order}}{{lang 'products.pre_order'}}{{else}}{{lang 'products.add_to_cart'}}{{/if}}">
+          {{else}}
+          <input id="form-action-addToCart" data-wait-message="{{lang 'products.adding_to_cart'}}" class="button button--primary" type="submit" value="Out of stock">
+          {{/if}}
+        </div>
+        <!-- <div class="free-shipping-container">Qualifies for Free Shipping</div> -->
+      {{{snippet 'product_addtocart'}}}
 
 
     {{#contains product.custom_fields.[4].name 'pbb-container'}}

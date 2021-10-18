@@ -48,14 +48,16 @@
            {{#startsWith "2-Pack" label}}data-product-attribute-parameter="2-Pack"{{/startsWith}}
            {{#startsWith "5-Pack" label}}data-product-attribute-parameter="5-Pack"{{/startsWith}}
            {{#contains label "JC Bi-Pin"}}data-product-attribute-socket="jc"{{/contains}}
-           {{#contains label "A19"}}data-product-attribute-socket="medium"{{/contains}}
-           {{#contains label "A15"}}data-product-attribute-socket="medium"{{/contains}}
-           {{#contains label "S14"}}data-product-attribute-socket="medium"{{/contains}}
-           {{#contains label "Warm White"}}data-product-attribute-bulb="warm"{{/contains}}
+           {{#contains label "A19"}}data-product-attribute-socket="medium base"{{/contains}}
+           {{#contains label "A15"}}data-product-attribute-socket="medium base"{{/contains}}
+           {{#contains label "S14"}}data-product-attribute-socket="medium base"{{/contains}}
+           {{#contains label "Warm White"}}data-product-attribute-bulb="warm white"{{/contains}}
+           {{#contains label "Moon White"}}data-product-attribute-bulb="moon white"{{/contains}}
+           {{#contains label "Cool White"}}data-product-attribute-bulb="cool white"{{/contains}}
            {{#contains label "Halogen"}}data-product-attribute-bulb="warm"{{/contains}}
            {{#contains label "Xelogen"}}data-product-attribute-bulb="warm"{{/contains}}
            {{#contains label "Incandescent"}}data-product-attribute-bulb="warm"{{/contains}}
-           {{#contains label "Cool White"}}data-product-attribute-bulb="cool"{{/contains}}>
+    >
     {{#if image}}
       <img class="dropdown-content-image" src="{{getImage image "gallery_size"}}" />
     {{/if}}
