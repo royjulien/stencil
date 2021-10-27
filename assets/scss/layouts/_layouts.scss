@@ -404,12 +404,8 @@ ul.accessorytab img {
 }
 .home-page-td {
   float: left;
-  width: 100%;
+  width: 50%;
   padding: 20px;
-
-  @include breakpoint('small') {
-    width: 50%;
-  }
 
   @include breakpoint('medium') {
     width: 25%;
@@ -417,8 +413,8 @@ ul.accessorytab img {
 }
 .home-h3 {
   display: block;
-  color: #464646;
-  font-size: 14px;
+  color: black;
+  font-size: 16px;
   text-align: center;
   text-decoration: none;
 }
@@ -426,7 +422,9 @@ ul.accessorytab img {
   display: block;
   height: 40px;
   margin-top: 10px;
-  line-height: 40px;
+  line-height: 1.3;
+  color: black;
+  font-size: 16px;
 }
 .full-banner {
   width: 100%;
