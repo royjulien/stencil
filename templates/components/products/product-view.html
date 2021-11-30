@@ -1,7 +1,4 @@
 <div class="productView">
-  <!-- /* Advanse Remarketing Pixel | PRODUCT PAGE | Demand Local - AQ_Lighting */ -->
-  <img src="https://count.advanseads.com/pixel.php?adv_aud_id=10332&adv_pid={{product.id}}" width='1' height='1' />
-
   {{#each product.reviews.messages}}
   {{#if error}}
   {{>components/common/alert-error error}}
@@ -207,17 +204,20 @@
     {{/if}}
     {{/if}}
 
-  </form>
-  </div>
+      </form>
+    </div>
 
-  {{{snippet 'product_details'}}}
-</section>
+    {{{snippet 'product_details'}}}
+  </section>
 
-<article class="productView-description"{{#if schema}} itemprop="description"{{/if}}>
-  {{{product.description}}}
-</article>
+  <article class="productView-description"{{#if schema}} itemprop="description"{{/if}}>
+    {{{product.description}}}
+  </article>
 
 </div>
+
+<!-- /* Advanse Remarketing Pixel | PRODUCT PAGE | Demand Local - AQ_Lighting */ -->
+<img src="https://count.advanseads.com/pixel.php?adv_aud_id=10332&adv_pid={{product.id}}" width='1' height='1' />
 
 <div id="previewModal" class="modal" data-reveal>
   <a href="#" class="modal-close" aria-label="{{lang 'common.close'}}" role="button">
