@@ -23,7 +23,7 @@
 .productView-image {
     display: flex;
     position: relative;
-    left: -1rem;
+    left: 0;
     min-width: calc(100% + 2rem);
     padding-bottom: calc(100% + 2rem);
     margin: 0;
@@ -41,13 +41,17 @@
         object-fit: contain;
         top: 50%;
         left: 50%;
-        width: 80%;
-        max-height: 80%;
+        width: 100%;
+        max-height: 100%;
         transform: translate(-50%,-50%);
     }
 
     + .productView-thumbnails {
-        margin-top: spacing("half");
+        margin: 10px;
+
+        @include breakpoint("medium") {
+            margin: 10px 0 0;
+        }
     }
 }
 
@@ -55,8 +59,7 @@
     @include u-listBullets("none");
     @include grid-row($behavior: "nest");
 
-    margin-left: -(spacing("quarter"));
-    margin-right: -(spacing("quarter"));
+    margin: 0;
 }
 
 .productView-thumbnail {
@@ -64,6 +67,7 @@
     width: 80px;
     height: 80px;
     margin: 0 10px 10px 0;
+    border-radius: 3px;
 }
 
 .productView-thumbnail-link {
@@ -106,12 +110,12 @@
 }
 
 .productView-title {
-    margin: 0;
-    font-size: 14px;
+    margin: 15px 0 0;
+    font-size: 18px;
     font-weight: bold;
 
     @include breakpoint("medium") {
-        font-size: 18px;
+        margin: 0;
         max-width: 36.5rem;
         overflow-wrap: break-word;
     }
@@ -168,6 +172,13 @@
 
 .productView-rating {
     margin-top: 10px;
+
+    #productReview_link {
+        position: relative;
+        top: 1px;
+        font-size: 12px;
+        text-decoration: none;
+    }
 }
 
 .productView-reviewLink {
@@ -202,7 +213,12 @@
 // -----------------------------------------------------------------------------
 
 .productView-info {
-    margin: -3px 0 0;
+    margin: 10px 0 0;
+
+    @include breakpoint('medium') {
+        max-width: calc(100% - 90px);
+        margin: 30px 0 0;
+    }
 }
 
 .productView-info-name {
@@ -342,6 +358,10 @@
             }
         }
     }
+}
+
+.product-bullets {
+    margin: 20px 0 40px;
 }
 
 
@@ -980,16 +1000,17 @@ span.form-option-variant.form-option-variant--pattern  {
 .product-right {
     float: left;
     display: block;
-    width: calc(100% - 40px);
+    width: 100%;
     height: auto;
     min-height: 265px;
     padding: 0;
-    margin: 20px;
+    margin: 20px 0;
     color: rgba(0,0,0,0.9);
     line-height: 1.6;
 
     @include breakpoint('medium') {
         width: calc(33% - 40px);
+        margin: 20px 20px 20px 0;
     }
 
     @include breakpoint('large') {
@@ -1011,11 +1032,6 @@ span.form-option-variant.form-option-variant--pattern  {
     padding: auto;
     border: none;
     border-radius: 3px;
-
-    @include breakpoint('small') {
-        max-width: 250px;
-        height: auto;
-    }
 }
 
 .product-rowImg {
@@ -1561,25 +1577,26 @@ span.form-option-variant.form-option-variant--pattern  {
     }
 }
 
-.ptb-container ,
-.pbb-container {
-    position: relative;
-    display: flex;
-    box-sizing: content-box;
-
-    .ptb-image {
+.ptb,
+.pbb {
+    &-container {
+        position: relative;
+        display: flex;
+        box-sizing: content-box;
+    }
+    &-image {
         width: 80px;
         height: 80px;
         padding: 20px;
         border-radius: 3px;
         box-sizing: content-box;
     }
-    .ptb-text {
+    &-text {
         padding: 20px 0 0;
         margin: 0;
         font-size: 14px;
     }
-    .ptb-link {
+    &-link {
         position: absolute;
         top: 0;
         left: 0;

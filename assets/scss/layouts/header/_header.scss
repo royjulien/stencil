@@ -14,7 +14,11 @@
 
 .header {
     z-index: zIndex("low");
-    min-height: 40px;
+    min-height: 20px;
+
+    @include breakpoint("medium") {
+        min-height: 40px;
+    }
 
     &.is-open {
         min-height: 100vh;
@@ -192,7 +196,7 @@
 .header-logo-container {
     display: block;
     position: absolute;
-    top: 12px;
+    top: 8px;
     left: 30px;
     width: 24px;
     overflow: hidden;
@@ -206,7 +210,7 @@
         display: block;
         float: left;
         position: relative;
-        top: 14px;
+        top: 8px;
         left: initial;
         width: auto;
         transform: translateX(0);
