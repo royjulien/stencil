@@ -39,7 +39,7 @@
     "karma-verbose-reporter": "0.0.2",
     "karma-webpack": "1.7.0",
     "load-grunt-config": "^0.19.2",
-    "lodash": "^3.5.0",
+    "lodash": "^4.17.19",
     "nod-validate": "^2.0.12",
     "slick-carousel": "1.5.5",
     "time-grunt": "^1.2.2",
