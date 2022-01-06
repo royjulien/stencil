@@ -831,15 +831,20 @@ export default class Product {
 
     showQuantities() {
         const $group = $('[data-option-variant-group]');
-        const $formRadio = $('[data-option-variant-group]').parent().find('.form-radio');
+        const $qty = $group.parent().find('.form-radio');
 
         $group.on('click', function () {
             $(this).next().toggleClass('active');
         });
 
-        $formRadio.on('click', function () {
+        $qty.on('click', function () {
+            let qty = $(this).attr('data-product-attribute-label').split(/[ ]/)[0];
+            let qtySelector = $(this).parents('.form-field-list').prev();
+
+            qty > 0 ? qtySelector.addClass('hasQuantity') : qtySelector.removeClass('hasQuantity');
+
             $(this).parents('.form-field-list').toggleClass('active');
-            $(this).parents('.form-field-list').prev().attr('data-option-variant-group', $(this).next().text());
+            qtySelector.attr('data-option-variant-group', qty);
         });
 
         $group.each(function () {
