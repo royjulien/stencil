@@ -837,6 +837,11 @@ export default class Product {
             $(this).next().toggleClass('active');
         });
 
+        // show quantity bubble onload
+        $qty.each(function () {
+            if ($(this).is(':checked')) if ($(this).attr('data-product-attribute-label') == 1) $(this).parents('.form-field-list').prev().addClass('hasQuantity');
+        });
+
         $qty.on('click', function () {
             let qty = $(this).attr('data-product-attribute-label').split(/[ ]/)[0];
             let qtySelector = $(this).parents('.form-field-list').prev();
