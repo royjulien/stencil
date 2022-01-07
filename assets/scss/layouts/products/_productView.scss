@@ -182,29 +182,27 @@
 
 .productView-images {
     @include grid-column(12);
-    padding-left: 0;
-    padding-right: 2rem;
+    padding-left: spacing("base");
+    padding-right: spacing("base");
 
     @include breakpoint("medium") {
         width: grid-calc(5, $total-columns);
-        padding-left: 1.5rem;
-        padding-right: 1rem;
     }
 
-    @media all and (min-width: 1000px) {
+    @media all and (min-width: 1000px) { 
         width: grid-calc(6, $total-columns);
     }
 }
 
 .productView-details {
     @include grid-column(12);
-    padding: 0 20px;
+    padding-left: spacing("base");
+    padding-right: spacing("base");
 
     @include breakpoint("medium") {
         clear: right;
         float: right;
         width: grid-calc(7, $total-columns);
-        padding: 0 40px;
     }
 
     @media all and (min-width: 1000px) {
