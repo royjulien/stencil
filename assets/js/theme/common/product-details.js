@@ -839,7 +839,7 @@ export default class Product {
 
         // show quantity bubble onload
         $qty.each(function () {
-            if ($(this).is(':checked')) if ($(this).attr('data-product-attribute-label') == 1) $(this).parents('.form-field-list').prev().addClass('hasQuantity');
+            if ($(this).is(':checked')) if ($(this).attr('data-product-attribute-label') !== 0) $(this).parents('.form-field-list').prev().addClass('hasQuantity');
         });
 
         $qty.on('click', function () {
