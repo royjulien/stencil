@@ -191,7 +191,7 @@
         padding-right: 1rem;
     }
 
-    @media all and (min-width: 1000px) { 
+    @media all and (min-width: 1000px) {
         width: grid-calc(6, $total-columns);
     }
 }
