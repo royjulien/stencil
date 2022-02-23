@@ -70,6 +70,10 @@
 
 .card-sku-container {
     display: flex;
+    width: 100%;
+    flex-basis: 100%;
+    padding: 0;
+    margin: 0;
     color: black;
     font-size: 12px;
     text-align: left;
@@ -77,10 +81,11 @@
     text-transform: uppercase;
 
     @include breakpoint('medium') {
-        font-size: 18px;
+        font-size: 16px;
     }
 
     .card-sku {
+        width: 100%;
         border: none;
         outline: none;
         cursor: pointer;
