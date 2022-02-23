@@ -429,11 +429,6 @@
     text-transform: uppercase;
     overflow: visible !important;
 
-    .form-option-variant-group.hasQuantity:before {
-      opacity: 1;
-      visibility: visible;
-    }
-
     &:before {
       content: attr(data-option-variant-group);
       position: absolute;
@@ -453,6 +448,13 @@
       opacity: 0;
       visibility: hidden;
       transition: opacity 333ms, visibility 333ms;
+    }
+
+    &.hasQuantity {
+      &:before {
+        opacity: 1;
+        visibility: visible;
+      }
     }
 
     & + .form-field-list {

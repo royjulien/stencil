@@ -153,6 +153,12 @@
           <p class="alertBox-column alertBox-message"></p>
         </div>
 
+        {{#contains product.description "[[split]]"}}
+          <div class="product-bullets">
+            {{{first (split product.description "[[split]]")}}}
+          </div>
+        {{/contains}}
+
         <div class="form-action">
           <div class="form-field form-field--increments">
             <div class="form-increment" data-quantity-change>
@@ -210,9 +216,17 @@
     {{{snippet 'product_details'}}}
   </section>
 
-  <article class="productView-description"{{#if schema}} itemprop="description"{{/if}}>
-    {{{product.description}}}
-  </article>
+  {{#contains product.description "[[split]]"}}
+    <article class="productView-description"{{#if schema}} itemprop="description"{{/if}}>
+      {{{last (split product.description "[[split]]")}}}
+    </article>
+  {{/contains}}
+
+  {{#unless product.description "[[split]]"}}
+    <article class="productView-description"{{#if schema}} itemprop="description"{{/if}}>
+      {{{product.description}}}
+    </article>
+  {{/unless}}
 
 </div>
 

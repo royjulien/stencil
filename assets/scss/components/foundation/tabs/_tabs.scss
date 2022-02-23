@@ -87,21 +87,21 @@
     margin: 0;
     border-bottom: none;
 
+    @include breakpoint('medium') {
+        flex-wrap: nowrap;
+    }
+
     li {
         display: block;
         width: 50%;
         margin: 0;
         list-style: none;
 
-        @include breakpoint('medium') {
-            width: 20%;
-        }
-
         a {
             display: block;
             height: 50px;
             padding: 0 1px;
-            margin: 0 20px 0 0;
+            margin: 0 2px 0 0;
             border: none;
             border-bottom: 2px solid;
             color: #232323;
@@ -109,6 +109,7 @@
             font-weight: bold;
             letter-spacing: 1px;
             line-height: 50px;
+            text-align: center;
             text-decoration: none;
             text-transform: uppercase;
             white-space: nowrap;

@@ -7,7 +7,7 @@ import 'foundation-sites/js/foundation/foundation';
 import 'foundation-sites/js/foundation/foundation.reveal';
 import ImageGallery from '../product/image-gallery';
 import modalFactory from '../global/modal';
-import _, { split } from 'lodash';
+import _ from 'lodash';
 
 // We want to ensure that the events are bound to a single instance of the product details component
 /*
@@ -44,7 +44,6 @@ export default class Product {
         this.renderBlocks();
         this.renderSets();
         this.showQuantities();
-        this.splitProductDescription();
 
         const $form = $('form[data-cart-item-add]', $scope);
         const $productOptionsElement = $('[data-product-option-change]', $form);
@@ -425,7 +424,6 @@ export default class Product {
      * @param  {Object} data Product attribute data
      */
     updateView(data) {
-        console.log('updateview')
         const viewModel = this.getViewModel(this.$scope);
 
         this.showMessageBox(data.stock_message || data.purchasing_message);
@@ -832,31 +830,26 @@ export default class Product {
     }
 
     showQuantities() {
-        // initialize form list
         const $group = $('[data-option-variant-group]');
-        // initialize individual values // checks parent of $group and finds each element with .form-radio
         const $qty = $group.parent().find('.form-radio');
 
-        // function to show form list and values when clicked
         $group.on('click', function () {
-            //toggles css styling
             $(this).next().toggleClass('active');
         });
-        // function to check if value is equal to zero to hide value
-        $qty.each(function (){
-            if ($(this).is(':checked')) if ($(this).attr('data-product-attribute-label') !== 0) 
-            $(this).parents('.form-field-list').prev().addClass('hasQuantity');
+
+        // show quantity bubble onload
+        $qty.each(function () {
+            if ($(this).is(':checked')) if ($(this).attr('data-product-attribute-label') !== 0) $(this).parents('.form-field-list').prev().addClass('hasQuantity');
         });
 
         $qty.on('click', function () {
             let qty = $(this).attr('data-product-attribute-label').split(/[ ]/)[0];
-            let $qtySelector = $(this).parents('.form-field-list').prev();
+            let qtySelector = $(this).parents('.form-field-list').prev();
 
-            qty > 0 ? $qtySelector.addClass('hasQuantity') : $qtySelector.removeClass('hasQuantity');
+            qty > 0 ? qtySelector.addClass('hasQuantity') : qtySelector.removeClass('hasQuantity');
 
             $(this).parents('.form-field-list').toggleClass('active');
-
-            $qtySelector.attr('data-option-variant-group', qty);
+            qtySelector.attr('data-option-variant-group', qty);
         });
 
         $group.each(function () {
@@ -865,13 +858,4 @@ export default class Product {
             $(this).attr('data-option-variant-group', quantity);
         });
     }
-
-    splitProductDescription() {
-        const splitDescription = $(this.$scope).find('.productView-description');
-        const arrSplit = splitDescription.html().split('[[split]]');
-
-        $('.productView-details').append($.parseHTML(arrSplit[0])).show();
-        $('.productView-description').html($.parseHTML(arrSplit[1])).show();
-    }
 }
-
