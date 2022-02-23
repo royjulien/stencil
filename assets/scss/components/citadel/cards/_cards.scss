@@ -63,6 +63,21 @@
     }
 }
 
+.card-sku-container {
+    display: flex;
+    color: black;
+    font-size: 18px;
+    text-align: left;
+    font-weight: bold;
+    text-transform: uppercase;
+
+    .card-sku {
+        border: none;
+        outline: none;
+        cursor: pointer;
+    }
+}
+
 .card-text {
     margin-bottom: $card-text-marginBottom;
 
