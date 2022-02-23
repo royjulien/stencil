@@ -50,6 +50,11 @@
     margin: $card-title-margin;
     text-align: left;
 
+    @include breakpoint('medium') {
+        height: 80px;
+        overflow: hidden;
+    }
+
     .card-title-link {
         color: $card-title-color;
         text-decoration: $card-title-textDecoration;
@@ -66,10 +71,14 @@
 .card-sku-container {
     display: flex;
     color: black;
-    font-size: 18px;
+    font-size: 12px;
     text-align: left;
     font-weight: bold;
     text-transform: uppercase;
+
+    @include breakpoint('medium') {
+        font-size: 18px;
+    }
 
     .card-sku {
         border: none;
