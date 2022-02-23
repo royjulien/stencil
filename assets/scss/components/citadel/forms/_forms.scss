@@ -2,126 +2,115 @@
 // FORMS (CSS)
 // =============================================================================
 
-
 // Form variants
 // -----------------------------------------------------------------------------
 
 .form--hiddenLabels {
-
-    .form-label {
-        @include u-hidden("visually");
-    }
+  .form-label {
+    @include u-hidden("visually");
+  }
 }
-
 
 // Citadel inline messages
 // -----------------------------------------------------------------------------
 
 .form-inlineMessage {
-    display: block;
+  display: block;
 }
-
 
 // Citadel field states
 // -----------------------------------------------------------------------------
 
 .form-field--error {
+  .form-input {
+    float: none;
+  }
 
-    .form-input {
-        float: none;
+  .form-inlineMessage {
+    // scss-lint:disable NestingDepth
+    &:before {
+      background: $form-error-icon no-repeat;
+      background-size: $form-inlineMessage-backgroundSize;
+      content: "";
+      display: inline-block;
+      height: $form-error-icon-height;
+      left: $form-error-icon-left;
+      margin-right: $form-error-icon-marginRight;
+      position: relative;
+      top: $form-error-icon-top;
+      width: $form-error-icon-width;
     }
-
-    .form-inlineMessage {
-
-        // scss-lint:disable NestingDepth
-        &:before {
-            background: $form-error-icon no-repeat;
-            background-size: $form-inlineMessage-backgroundSize;
-            content: "";
-            display: inline-block;
-            height: $form-error-icon-height;
-            left: $form-error-icon-left;
-            margin-right: $form-error-icon-marginRight;
-            position: relative;
-            top: $form-error-icon-top;
-            width: $form-error-icon-width;
-        }
-    }
+  }
 }
 
 .form-field--success {
-
-    .form-input[type="text"] {
-        background: {
-            image: $form-success-icon;
-            position: right $form-success-icon-right center;
-            repeat: no-repeat;
-        }
-        padding-right: $form-success-input-paddingRight;
+  .form-input[type="text"] {
+    background: {
+      image: $form-success-icon;
+      position: right $form-success-icon-right center;
+      repeat: no-repeat;
     }
+    padding-right: $form-success-input-paddingRight;
+  }
 }
-
 
 // Citadel checkbox/radio positioning
 // -----------------------------------------------------------------------------
 
 .form-checkbox,
 .form-radio {
-
-    + .form-label {
-
-        // scss-lint:disable NestingDepth
-        &:last-child {
-            display: block;
-            margin-bottom: $form-checkRadio-label-last-marginBottom;
-        }
-
-        &::after {
-            top: $form-checkRadio-labelAfter-top;
-        }
-
-        &::before {
-            top: $form-checkRadio-labelBefore-top;
-        }
+  + .form-label {
+    // scss-lint:disable NestingDepth
+    &:last-child {
+      display: block;
+      margin-bottom: $form-checkRadio-label-last-marginBottom;
     }
-}
 
+    &::after {
+      top: $form-checkRadio-labelAfter-top;
+    }
+
+    &::before {
+      top: $form-checkRadio-labelBefore-top;
+    }
+  }
+}
 
 // Citadel form-actions
 // -----------------------------------------------------------------------------
 
 .form-actions {
-    @include grid-row();
-    display: block;
-    text-align: center;
+  @include grid-row();
+  display: block;
+  text-align: center;
+
+  @include breakpoint("small") {
+    margin-top: spacing("single");
+  }
+
+  .button,
+  input,
+  a {
+    vertical-align: top;
+    width: 100%;
 
     @include breakpoint("small") {
-        margin-top: spacing("single");
+      margin-bottom: 0;
+      width: auto;
     }
 
-    .button,
-    input,
-    a {
-        vertical-align: top;
-        width: 100%;
+    // scss-lint:disable NestingDepth
+    + .button,
+    + input,
+    + a {
+      margin-top: spacing("half");
 
-        @include breakpoint("small") {
-            margin-bottom: 0;
-            width: auto;
-        }
-
-        // scss-lint:disable NestingDepth
-        + .button,
-        + input,
-        + a {
-            margin-top: spacing("half");
-
-            @include breakpoint("small") {
-                margin: 0 0 0 spacing("half");
-            }
-        }
-        // scss-lint:enable NestingDepth
+      @include breakpoint("small") {
+        margin: 0 0 0 spacing("half");
+      }
     }
+    // scss-lint:enable NestingDepth
+  }
 }
 
 // Stencil form additions
@@ -133,186 +122,183 @@
 // -----------------------------------------------------------------------------
 
 .form-label--alternate {
-    display: block;
-    padding: 0 0 10px;
-    margin-bottom: 0;
-    font-size: fontSize("small");
-    font-family: fontFamily("headingSans");
+  display: block;
+  padding: 0 0 10px;
+  margin-bottom: 0;
+  font-size: fontSize("small");
+  font-family: fontFamily("headingSans");
 }
 
 .productView-options {
-    .form-field {
-        &.form-field--increments {
-            height: 65px;
-            margin: 0 5px 0 0;
-            border-radius: 3px;
-            border: 1px solid #2c7cfa;
-        }
-
-        .form-input--incrementTotal {
-            width: 50px;
-            border-radius: 0;
-            background-color: transparent;
-            color: #2c7cfa;
-        }
-
-        .button--icon {
-            border: none;
-            background-color: transparent;
-
-            &[data-action="dec"] {
-                border-right: 1px solid #2c7cfa;
-                border-radius: 3px 0 0 3px;
-                background-color: rgba(44, 124, 250, 0.05);
-
-                @include breakpoint("medium") {
-                    width: 50px;
-                }
-            }
-
-            &[data-action="inc"] {
-                border-left: 1px solid #2c7cfa;
-                border-radius: 0 3px 3px 0;
-                background-color: rgba(44, 124, 250, 0.05);
-
-                @include breakpoint("medium") {
-                    width: 50px;
-                }
-            }
-
-            svg {
-                fill: #2c7cfa;
-            }
-        }
+  .form-field {
+    &.form-field--increments {
+      height: 65px;
+      margin: 0 5px 0 0;
+      border-radius: 3px;
+      border: 1px solid #2c7cfa;
     }
 
-    [data-quantity-change] {
-        display: flex;
-        position: relative;
-        top: 0;
-        left: 0;
-        height: 64px;
+    .form-input--incrementTotal {
+      width: 50px;
+      border-radius: 0;
+      background-color: transparent;
+      color: #2c7cfa;
+    }
+
+    .button--icon {
+      border: none;
+      background-color: transparent;
+
+      &[data-action="dec"] {
+        border-right: 1px solid #2c7cfa;
+        border-radius: 3px 0 0 3px;
+        background-color: rgba(44, 124, 250, 0.05);
 
         @include breakpoint("medium") {
-            width: 150px;
+          width: 50px;
         }
+      }
+
+      &[data-action="inc"] {
+        border-left: 1px solid #2c7cfa;
+        border-radius: 0 3px 3px 0;
+        background-color: rgba(44, 124, 250, 0.05);
+
+        @include breakpoint("medium") {
+          width: 50px;
+        }
+      }
+
+      svg {
+        fill: #2c7cfa;
+      }
     }
+  }
+
+  [data-quantity-change] {
+    display: flex;
+    position: relative;
+    top: 0;
+    left: 0;
+    height: 64px;
+
+    @include breakpoint("medium") {
+      width: 150px;
+    }
+  }
 }
 
 .form-select--date {
-    width: initial;
+  width: initial;
 
-    + .form-select--date {
-        margin-left: spacing("quarter");
-    }
+  + .form-select--date {
+    margin-left: spacing("quarter");
+  }
 }
 
 .form-select--small,
 .form-select--date {
-    height: 51px;
-    font-size: 14px;
-    font-weight: 600;
-    letter-spacing: 1px;
-    padding: 0 20px;
-    border: 2px solid #e8e8e8;
+  height: 51px;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  padding: 0 20px;
+  border: 2px solid #e8e8e8;
 
-    &:hover,
-    &:active,
-    &:focus {
-        border-color: #2d7cfa;
-        color: #2d7cfa;
-    }
+  &:hover,
+  &:active,
+  &:focus {
+    border-color: #2d7cfa;
+    color: #2d7cfa;
+  }
 }
 
 .form-select--short {
-    max-width: 6rem;
-    width: 4.5rem;
+  max-width: 6rem;
+  width: 4.5rem;
 }
 
 .form-file {
-    margin-bottom: spacing("third");
+  margin-bottom: spacing("third");
 }
 
 .form-fileDescription {
-    color: color("greys", "light");
-    font-size: fontSize("smallest");
+  color: color("greys", "light");
+  font-size: fontSize("smallest");
 }
 
 .form-field-group {
-    border: $input-border-width $input-border-style $input-border-color;
-    border-radius: $input-border-radius;
-    padding: spacing("single");
+  border: $input-border-width $input-border-style $input-border-color;
+  border-radius: $input-border-radius;
+  padding: spacing("single");
 }
 
 // This component should live inside a .form-row
 .form-column {
-    @include grid-column(12);
+  @include grid-column(12);
 
-    @include breakpoint("small") {
-        @include grid-column(6);
-    }
+  @include breakpoint("small") {
+    @include grid-column(6);
+  }
 }
 
 .form-prefixPostfix {
+  &.wrap {
+    flex-wrap: wrap;
+  }
 
-    &.wrap {
-        flex-wrap: wrap;
+  .form-input,
+  .button {
+    display: block;
+    width: 100%;
+  }
+
+  .button {
+    @include breakpoint("medium") {
+      width: auto;
     }
+  }
 
-    .form-input,
-    .button {
-        display: block;
-        width: 100%;
+  .form-inlineMessage {
+    margin-bottom: spacing("quarter");
+
+    @include breakpoint("large") {
+      margin-bottom: 0;
     }
-
-    .button {
-        @include breakpoint("medium") {
-            width: auto;
-        }
-    }
-
-    .form-inlineMessage {
-        margin-bottom: spacing("quarter");
-
-        @include breakpoint("large") {
-            margin-bottom: 0;
-        }
-    }
+  }
 }
 
 .form-prefixPostfix-button--postfix {
-    order: 1; // 1
+  order: 1; // 1
 
-    @include breakpoint("large") {
-        margin: 0 0 0 spacing("half");
-        order: 0; // 1
-    }
+  @include breakpoint("large") {
+    margin: 0 0 0 spacing("half");
+    order: 0; // 1
+  }
 }
-
 
 // Increment field
 // -----------------------------------------------------------------------------
 
 .form-increment {
-    .button {
-        margin: 0;
-        padding: remCalc(3px) remCalc(5px);
-        background-color: white;
-    }
+  .button {
+    margin: 0;
+    padding: remCalc(3px) remCalc(5px);
+    background-color: white;
+  }
 }
 
 .form-input--incrementTotal {
-    border: 0;
-    display: inline-block;
-    font-size: fontSize("smaller");
-    font-weight: fontWeight("bold");
-    height: auto;
-    padding: 0;
-    text-align: center;
-    vertical-align: middle;
-    width: remCalc(35px);
+  border: 0;
+  display: inline-block;
+  font-size: fontSize("smaller");
+  font-weight: fontWeight("bold");
+  height: auto;
+  padding: 0;
+  text-align: center;
+  vertical-align: middle;
+  width: remCalc(35px);
 }
-
 
 // Stencil form options
 // -----------------------------------------------------------------------------
@@ -321,232 +307,237 @@
 // 2. Resetting font due to inline-block whitespace issue.
 //
 .form-label {
-    color: #232323;
-    font-size: 11px;
-    font-weight: bold;
-    letter-spacing: 1px;
-    text-transform: uppercase;
+  color: #232323;
+  font-size: 11px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: uppercase;
 }
 
 .form-option {
-    display: flex;
-    position: relative;
-    padding: 7px 14px;
-    margin: 0;
-    border: 2px solid #e8e8e8;
-    background-color: white;
-    color: stencilColor("form-label-font-color");
-    cursor: pointer;
+  display: flex;
+  position: relative;
+  padding: 7px 14px;
+  margin: 0;
+  border: 2px solid #e8e8e8;
+  background-color: white;
+  color: stencilColor("form-label-font-color");
+  cursor: pointer;
 
-    &:hover {
-        border-color: #81b2ff;
-        z-index: 1;
-
-        &.form-option-variant {
-            color: #76aafb;
-        }
-
-        &.form-option-variant-group {
-            color: #76aafb;
-        }
-    }
-
-    .form-option-variant--label {
-        position: absolute;
-        left: -15px;
-        width: calc(100% + 30px);
-        text-align: center;
-        letter-spacing: 0;
-    }
-
-    .swatch & {
-        padding: 0;
-        margin: 0 30px 20px 0;
-        border: none;
-
-    }
-    @media screen and (max-width: 496px){
-        .swatch & {
-            margin: 0 24px 38px 0;
-        }
-    }
-
-    .form-field-item:first-child & {
-        border-radius: 5px 0 0 5px;
-    }
-
-    .form-field-item:last-child & {
-        border-radius: 0 5px 5px 0;
-    }
-
-    .form-radio:checked + & {
-        border-color: stencilColor("color-aql");
-        z-index: 2;
-
-        &.form-option-variant {
-            color: #0863f1;
-        }
-
-        &.form-option-variant-group {
-            color: #0863f1;
-        }
-
-        .form-option-variant--color {
-            .swatch & {
-                box-shadow: 0 0 0 2px #2c7cfa;
-            }
-        }
-    }
+  &:hover {
+    border-color: #81b2ff;
+    z-index: 1;
 
     &.form-option-variant {
-        display: inline-block;
-        font-size: 13px;
-        font-weight: bold;
-        text-align: center;
-        letter-spacing: -0.5px;
-        color: #9c9c9c;
-
-        .swatch & {
-            color: #232323;
-            font-size: 9px;
-            text-transform: uppercase;
-        }
-
-        &:after {
-            content: attr(data-discount);
-            position: absolute;
-            top: -10px;
-            right: -10px;
-            width: 50px;
-            border-radius: 3px;
-            background-color: #c51d22;
-            color: white;
-            font-size: 9px;
-            font-weight: bold;
-            letter-spacing: 1px;
-            line-height: 20px;
-            text-transform: uppercase;
-        }
+      color: #76aafb;
     }
 
     &.form-option-variant-group {
-        display: inline-block;
-        width: 60px;
-        height: 60px;
-        padding: 8px 0;
-        border-radius: 3px;
-        color: #454545;
-        font-size: 13px;
-        font-weight: 600;
-        line-height: 38px;
-        letter-spacing: 1px;
-        text-align: center;
-        text-transform: uppercase;
-        overflow: visible !important;
-
-        &:before {
-            content: attr(data-option-variant-group);
-            position: absolute;
-            overflow: hidden;
-            top: -10px;
-            right: -14px;
-            width: 25px;
-            height: 25px;
-            border-radius: 50%;
-            background-color: #0063ff;
-            color: white;
-            line-height: 25px;
-            letter-spacing: 1px;
-            font-size: 12px;
-            font-weight: bold;
-            text-align: center;
-        }
-
-        & + .form-field-list {
-            display: none;
-
-            &.active {
-                display: block;
-                position: absolute;
-                width: 128px;
-                margin-top: -2px;
-                border-radius: 3px;
-                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.16), 0 12px 16px rgba(0, 0, 0, 0.32);
-                background-color: white;
-                overflow: hidden;
-                z-index: 3;
-            }
-
-            .form-field-item {
-                width: 100%;
-
-                .form-option-variant {
-                    width: 100%;
-                    padding: 0 10px;
-                    line-height: 45px;
-                    border-radius: 0;
-                    border: none;
-                }
-            }
-        }
+      color: #76aafb;
     }
+  }
+
+  .form-option-variant--label {
+    position: absolute;
+    left: -15px;
+    width: calc(100% + 30px);
+    text-align: center;
+    letter-spacing: 0;
+  }
+
+  .swatch & {
+    padding: 0;
+    margin: 0 30px 20px 0;
+    border: none;
+  }
+  @media screen and (max-width: 496px) {
+    .swatch & {
+      margin: 0 24px 38px 0;
+    }
+  }
+
+  .form-field-item:first-child & {
+    border-radius: 5px 0 0 5px;
+  }
+
+  .form-field-item:last-child & {
+    border-radius: 0 5px 5px 0;
+  }
+
+  .form-radio:checked + & {
+    border-color: stencilColor("color-aql");
+    z-index: 2;
+
+    &.form-option-variant {
+      color: #0863f1;
+    }
+
+    &.form-option-variant-group {
+      color: #0863f1;
+    }
+
+    .form-option-variant--color {
+      .swatch & {
+        box-shadow: 0 0 0 2px #2c7cfa;
+      }
+    }
+  }
+
+  &.form-option-variant {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: bold;
+    text-align: center;
+    letter-spacing: -0.5px;
+    color: #9c9c9c;
+
+    .swatch & {
+      color: #232323;
+      font-size: 9px;
+      text-transform: uppercase;
+    }
+
+    &:after {
+      content: attr(data-discount);
+      position: absolute;
+      top: -10px;
+      right: -10px;
+      width: 50px;
+      border-radius: 3px;
+      background-color: #c51d22;
+      color: white;
+      font-size: 9px;
+      font-weight: bold;
+      letter-spacing: 1px;
+      line-height: 20px;
+      text-transform: uppercase;
+    }
+  }
+
+  &.form-option-variant-group {
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    padding: 8px 0;
+    border-radius: 3px;
+    color: #454545;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 38px;
+    letter-spacing: 1px;
+    text-align: center;
+    text-transform: uppercase;
+    overflow: visible !important;
+
+    .form-option-variant-group.hasQuantity:before {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    &:before {
+      content: attr(data-option-variant-group);
+      position: absolute;
+      overflow: hidden;
+      top: -10px;
+      right: -14px;
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      background-color: #000000;
+      color: white;
+      line-height: 25px;
+      letter-spacing: 1px;
+      font-size: 12px;
+      font-weight: bold;
+      text-align: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 333ms, visibility 333ms;
+    }
+
+    & + .form-field-list {
+      display: none;
+
+      &.active {
+        display: block;
+        position: absolute;
+        width: 128px;
+        margin-top: -2px;
+        border-radius: 3px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.16),
+          0 12px 16px rgba(0, 0, 0, 0.32);
+        background-color: white;
+        overflow: hidden;
+        z-index: 3;
+      }
+
+      .form-field-item {
+        width: 100%;
+
+        .form-option-variant {
+          width: 100%;
+          padding: 0 10px;
+          line-height: 45px;
+          border-radius: 0;
+          border: none;
+        }
+      }
+    }
+  }
 }
 
 .form-option-variant--color,
 .form-option-variant--pattern {
-    display: block;
-    height: 45px;
-    width: 90px;
-    padding: 0;
-    margin: 0 0 7px;
-    border-radius: 1px;
-    box-shadow: 0 0 0 2px white, 0 0 0 3px #adacaa;
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-    pointer-events: none;
+  display: block;
+  height: 45px;
+  width: 90px;
+  padding: 0;
+  margin: 0 0 7px;
+  border-radius: 1px;
+  box-shadow: 0 0 0 2px white, 0 0 0 3px #adacaa;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  pointer-events: none;
 }
 
 .form-option-variant--pattern {
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 100%;
-    background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-size: contain;
 }
-
 
 // Form input (small)
 // -----------------------------------------------------------------------------
 .form-input--small {
-    font-size: $input-small-fontSize;
-    height: $input-small-height;
-    line-height: 1rem;
-    padding: $input-small-padding;
+  font-size: $input-small-fontSize;
+  height: $input-small-height;
+  line-height: 1rem;
+  padding: $input-small-padding;
 }
-
 
 // Form min/max input row
 // -----------------------------------------------------------------------------
 .form-minMaxRow {
-    @include clearfix();
-    margin-left: -$form-minMaxRow-column-gutter;
-    margin-right: -$form-minMaxRow-column-gutter;
+  @include clearfix();
+  margin-left: -$form-minMaxRow-column-gutter;
+  margin-right: -$form-minMaxRow-column-gutter;
 
-    .form-field {
-        @include grid-column(3);
-        margin-bottom: 0;
-        padding-left: $form-minMaxRow-column-gutter;
-        padding-right: $form-minMaxRow-column-gutter;
-    }
+  .form-field {
+    @include grid-column(3);
+    margin-bottom: 0;
+    padding-left: $form-minMaxRow-column-gutter;
+    padding-right: $form-minMaxRow-column-gutter;
+  }
 
-    .button {
-        margin-bottom: 0;
-        padding-left: 0;
-        padding-right: 0;
-        width: 100%;
-    }
+  .button {
+    margin-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+    width: 100%;
+  }
 }
-
 
 // Form row modifications
 // -----------------------------------------------------------------------------
@@ -557,39 +548,39 @@
 // -----------------------------------------------------------------------------
 
 .form-row--half > .form-field:nth-child(odd) {
-    @include breakpoint("small") {
-        clear: left;
-    }
+  @include breakpoint("small") {
+    clear: left;
+  }
 }
 
 // Out of stock product attributes
 [data-product-attribute] {
-    .form-option {
-        position: relative;
+  .form-option {
+    position: relative;
 
-        // scss-lint:disable NestingDepth
-        &.unavailable {
-            background-color: $productOptions-disable-background-color;
-            opacity: $productOptions-disable-opacity;
+    // scss-lint:disable NestingDepth
+    &.unavailable {
+      background-color: $productOptions-disable-background-color;
+      opacity: $productOptions-disable-opacity;
 
-            &:before {
-                background-color: $productOptions-strikethrough-color;
-                content: "";
-                height: 2px;
-                left: -5px;
-                position: absolute;
-                top: 11px;
-                transform: rotate(-45deg);
-                width: 141%;
-            }
-        }
+      &:before {
+        background-color: $productOptions-strikethrough-color;
+        content: "";
+        height: 2px;
+        left: -5px;
+        position: absolute;
+        top: 11px;
+        transform: rotate(-45deg);
+        width: 141%;
+      }
     }
+  }
 }
 
 [data-product-attribute="set-radio"],
 [data-product-attribute="product-list"] {
-    .unavailable {
-        opacity: $productOptions-disable-opacity * 2;
-        text-decoration: line-through;
-    }
+  .unavailable {
+    opacity: $productOptions-disable-opacity * 2;
+    text-decoration: line-through;
+  }
 }

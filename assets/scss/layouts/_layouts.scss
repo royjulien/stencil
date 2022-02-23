@@ -2,7 +2,6 @@
 // LAYOUTS
 // =============================================================================
 
-
 // Global layouts
 // -----------------------------------------------------------------------------
 
@@ -17,7 +16,6 @@
 
 // Container
 @import "container/container";
-
 
 // Page content layouts
 // -----------------------------------------------------------------------------
@@ -47,15 +45,15 @@
 @import "account/account";
 
 //colors
-$black_20: rgba(0, 0, 0, .2);
+$black_20: rgba(0, 0, 0, 0.2);
 $white: rgba(255, 255, 255, 1);
-$black_50: rgba(0, 0, 0, .5);
+$black_50: rgba(0, 0, 0, 0.5);
 $black: rgba(0, 0, 0, 1);
 $color_geyser_approx: rgba(211, 220, 235, 1);
 $color_dodger_blue_approx: rgba(45, 124, 250, 1);
 
 //urls
-$url_0: url('https://cdn1.bigcommerce.com/server1000/tc515/product_images/uploaded_images/aql-american-lighting.jpg?t=1415586819');
+$url_0: url("https://cdn1.bigcommerce.com/server1000/tc515/product_images/uploaded_images/aql-american-lighting.jpg?t=1415586819");
 
 body {
   &.no-scroll {
@@ -79,11 +77,11 @@ body {
 }
 .w-row {
   &:before {
-    content: ' ';
+    content: " ";
     display: table;
   }
   &:after {
-    content: ' ';
+    content: " ";
     display: table;
     clear: both;
   }
@@ -113,9 +111,9 @@ body {
 .w-col-6 {
   width: 100%;
   text-align: center;
-  border-bottom: 1px solid rgba(0,0,0,0.2);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 
-  @include breakpoint('medium') {
+  @include breakpoint("medium") {
     width: 50%;
     border-bottom: none;
   }
@@ -123,8 +121,8 @@ body {
   &.double {
     border: none;
 
-    @include breakpoint('medium') {
-      border-left: 1px solid rgba(0,0,0,0.2);
+    @include breakpoint("medium") {
+      border-left: 1px solid rgba(0, 0, 0, 0.2);
     }
   }
 }
@@ -135,7 +133,7 @@ body {
   line-height: 1.3;
   text-shadow: $black 0 0 6px;
 
-  @include breakpoint('medium') {
+  @include breakpoint("medium") {
     font-size: 36px;
   }
 }
@@ -151,8 +149,8 @@ body {
   text-align: center;
 }
 .america {
-  @include breakpoint('medium') {
-    border-right: 1px solid rgba(0,0,0,0.2);
+  @include breakpoint("medium") {
+    border-right: 1px solid rgba(0, 0, 0, 0.2);
   }
 }
 .p-hero-sub {
@@ -161,7 +159,7 @@ body {
   color: $color_dodger_blue_approx;
   font-size: 16px;
   font-weight: 400;
-  letter-spacing: .5px;
+  letter-spacing: 0.5px;
 }
 .p-hero-caption {
   font-size: 12px;
@@ -169,7 +167,7 @@ body {
 }
 .w-clearfix {
   &:before {
-    content: ' ';
+    content: " ";
     display: table;
   }
   &:after {
@@ -177,7 +175,7 @@ body {
   }
 }
 .w-clearfix:after {
-  content: ' ';
+  content: " ";
   display: table;
 }
 
@@ -189,7 +187,7 @@ body {
   display: inline-block;
   padding: 10px 0;
   margin: 0;
-  color: rgba(0,0,0,0.8);
+  color: rgba(0, 0, 0, 0.8);
   font-size: 22px;
   font-weight: bold;
   text-transform: uppercase;
@@ -212,7 +210,7 @@ body {
   width: 250px;
   margin: 10px auto;
   border: 1px solid #1f68de;
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .09);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.09);
   background-color: #2d7cfa;
   color: white;
   font-size: 12px;
@@ -220,13 +218,13 @@ body {
   letter-spacing: 4px;
   text-transform: uppercase;
 
-  @include breakpoint('medium') {
+  @include breakpoint("medium") {
     display: inline-block;
   }
 }
 
 .home-row {
-  border-top: 1px solid rgba(0,0,0,0.2);
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
 }
 
 .h2-categories.single {
@@ -361,7 +359,7 @@ ul.accessorytab img {
   border-top-color: #d3dceb;
   line-height: 28px;
   text-align: center;
-  letter-spacing: .3px;
+  letter-spacing: 0.3px;
 
   a {
     color: #2169db;
@@ -399,7 +397,7 @@ ul.accessorytab img {
   color: #5c6778;
   font-size: 10px;
   line-height: 16px;
-  letter-spacing: .2px;
+  letter-spacing: 0.2px;
   text-transform: none;
 }
 .home-page-td {
@@ -407,7 +405,7 @@ ul.accessorytab img {
   width: 50%;
   padding: 20px;
 
-  @include breakpoint('medium') {
+  @include breakpoint("medium") {
     width: 25%;
   }
 }
@@ -481,7 +479,9 @@ ul.accessorytab img {
   margin: auto;
   padding: auto;
 }
-.cat-containerLeft, .cat-containerCenter, .cat-containerRight {
+.cat-containerLeft,
+.cat-containerCenter,
+.cat-containerRight {
   float: left;
   display: block;
   width: 33.3%;
@@ -498,7 +498,9 @@ ul.accessorytab img {
   margin: auto;
   padding: auto;
 }
-.subCat-containerLeft, .subCat-containerCenter, .subCat-containerRight {
+.subCat-containerLeft,
+.subCat-containerCenter,
+.subCat-containerRight {
   float: left;
   display: block;
   width: 33.3%;
@@ -532,29 +534,27 @@ ul.accessorytab img {
   position: fixed;
   bottom: 0;
   right: 0;
-
 }
 
 #google-badge iframe {
-  position: static!important;
-  top: 0px!important;
-  width: 165px!important;
-  margin: 0px!important;
-  border-style: none!important;
-  display: block!important;
-  left: 0px!important;
-  visibility: visible!important;
-  height: 54px!important;
+  position: static !important;
+  top: 0px !important;
+  width: 165px !important;
+  margin: 0px !important;
+  border-style: none !important;
+  display: block !important;
+  left: 0px !important;
+  visibility: visible !important;
+  height: 54px !important;
 }
 
 /*Custom CSS for Category Carousel*/
 .slideshow-container {
   position: relative;
-  height: 11rem;
   max-width: 100%;
   margin: auto;
 
-  @include breakpoint('medium') {
+  @include breakpoint("medium") {
     height: auto;
   }
 }
@@ -574,87 +574,98 @@ ul.accessorytab img {
   color: #222428;
   font-weight: bold;
   font-size: 30px;
-  transition: .6s ease;
-  border-radius: 0 3px 3px 0
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
 }
 .next-slide {
   right: -50px;
-  border-radius: 3px 3px 3px 3px
+  border-radius: 3px 3px 3px 3px;
 }
 .prev-slide {
   left: -50px;
-  border-radius: 3px 3px 3px 3px
+  border-radius: 3px 3px 3px 3px;
 }
 .prev-slide:hover,
 .next-slide:hover {
   color: white;
-  background-color: rgba(202, 203, 211, 0.8)
+  background-color: rgba(202, 203, 211, 0.8);
 }
 .slide-dot {
   cursor: pointer;
-  height: 15px;
-  width: 15px;
+  height: 5px;
+  width: 5px;
   margin: 0 2px;
   background-color: #bbb;
   border-radius: 50%;
   display: inline-block;
-  transition: background-color .6s ease
+  transition: background-color 0.6s ease;
+}
+.slide-dot-container {
+  display: none;
 }
 .active-dot,
 .slide-dot:hover {
   background-color: #717171;
 }
 .btn-container {
-  position: absolute;
-  top: 73%;
   width: 100%;
-  background-color: transparent;
-  left: 0;
-  right: 0;
-  max-height: 50%;
   padding: 12px;
   margin: auto;
-  border-radius: 5px;
-  color: #f2f2f2;
   font-size: 24px;
   text-align: center;
   transform: none;
 
-  @include breakpoint('medium') {
-    top: 35%;
+  @include breakpoint("medium") {
+    position: absolute;
+    top: 50%;
     width: 50%;
-    background-color: rgba(255, 255, 255, 0.6);
+    left: 50%;
+    max-width: 450px;
+    margin-top: -100px;
+    margin-left: -225px;
+    background: white;
+    border-radius: 4px;
+    box-shadow: 0 8px 16px rgb(0 0 0 / 16%), 0 21px 34px rgb(0 0 0 / 16%);
   }
 }
 .slide-btn {
-  background-color: #2d7cfa;
-  border: none;
-  border-radius: 4px;
-  color: white;
-  padding: 10px 28px;
-  text-align: center;
-  text-decoration: none;
   display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  cursor: pointer;
   position: relative;
   width: 100%;
+  max-width: 350px;
+  padding: 7px;
+  margin: 4px 2px;
+  border: none;
+  border-radius: 4px;
+  background-color: #2d7cfa;
+  color: white;
+  font-size: 16px;
+  text-decoration: none;
+  cursor: pointer;
+
+  @include breakpoint("medium") {
+    text-align: center;
+  }
 }
 .btn:hover {
-  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
+    0 17px 50px 0 rgba(0, 0, 0, 0.2);
 }
 .slide-img {
   max-height: 350px;
 }
 .slide-title {
   width: 100%;
-  margin-top: 0;
+  margin: 10px 0;
   font-size: 18px;
   color: black;
 
-  @include breakpoint('medium') {
+  @include breakpoint("medium") {
     margin-top: 35px;
     font-size: inherit;
+  }
+
+  & + br {
+    display: none;
   }
 }
