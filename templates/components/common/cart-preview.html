@@ -20,8 +20,8 @@
             <div class="cart-total-label">Shipping</div>
 
             <div class="cart-total-value">
-                {{#if cart.sub_total.value "<" "150"}}
-                    <span class="cart-total-gfs"><a href="/" class="cart-total-gfs-anchor">Add <strong>${{toFixed (subtract 150 cart.sub_total.value) 2}}</strong> to get Free Shipping</a></span>
+                {{#if cart.sub_total.value "<" "250"}}
+                    <span class="cart-total-gfs"><a href="/" class="cart-total-gfs-anchor">Add <strong>${{toFixed (subtract 250 cart.sub_total.value) 2}}</strong> to get Free Shipping</a></span>
                 {{else}}
                     <strong>FREE</strong>
                 {{/if}}
