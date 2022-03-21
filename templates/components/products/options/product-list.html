@@ -42,22 +42,7 @@
             {{#if selected}}checked{{/if}}
             {{#if ../required}}required{{/if}}>
     <label class="form-option drop-down--swatch" for="attribute_{{id}}" data-product-attribute-value="{{id}}"
-           {{#startsWith "12V" label}}data-product-attribute-parameter="12V"{{/startsWith}}
-           {{#startsWith "120V" label}}data-product-attribute-parameter="120V"{{/startsWith}}
-           {{#startsWith "Single" label}}data-product-attribute-parameter="Single"{{/startsWith}}
-           {{#startsWith "2-Pack" label}}data-product-attribute-parameter="2-Pack"{{/startsWith}}
-           {{#startsWith "5-Pack" label}}data-product-attribute-parameter="5-Pack"{{/startsWith}}
-           {{#contains label "JC Bi-Pin"}}data-product-attribute-socket="jc"{{/contains}}
-           {{#contains label "A19"}}data-product-attribute-socket="medium base"{{/contains}}
-           {{#contains label "A15"}}data-product-attribute-socket="medium base"{{/contains}}
-           {{#contains label "S14"}}data-product-attribute-socket="medium base"{{/contains}}
-           {{#contains label "Warm White"}}data-product-attribute-bulb="warm white"{{/contains}}
-           {{#contains label "Moon White"}}data-product-attribute-bulb="moon white"{{/contains}}
-           {{#contains label "Cool White"}}data-product-attribute-bulb="cool white"{{/contains}}
-           {{#contains label "Halogen"}}data-product-attribute-bulb="warm"{{/contains}}
-           {{#contains label "Xelogen"}}data-product-attribute-bulb="warm"{{/contains}}
-           {{#contains label "Incandescent"}}data-product-attribute-bulb="warm"{{/contains}}
-    >
+           data-product-attribute-parameter='[{{#startsWith "12V" label}}12V,{{/startsWith}}{{#startsWith "120V" label}}120V,{{/startsWith}}{{#startsWith "Single" label}}Single,{{/startsWith}}{{#startsWith "2-Pack" label}}2-Pack,{{/startsWith}}{{#startsWith "5-Pack" label}}5-Pack,{{/startsWith}}{{#contains label "JC Bi-Pin"}}JC Bi-Pin,{{/contains}}{{#contains label "A19"}}Medium Base,{{/contains}}{{#contains label "A15"}}Medium Base,{{/contains}}{{#contains label "S14"}}Medium Base,{{/contains}}{{#contains label "Warm White"}}Warm White,{{/contains}}{{#contains label "Moon White"}}Moon White,{{/contains}}{{#contains label "Cool White"}}Cool White,{{/contains}}{{#contains label "Halogen"}}Warm White,{{/contains}}{{#contains label "Xelogen"}}Warm White,{{/contains}}{{#contains label "Incandescent"}}Warm White,{{/contains}}]'>
     {{#if image}}
       <img class="dropdown-content-image" src="{{getImage image "gallery_size"}}" />
     {{/if}}
@@ -86,20 +71,7 @@
             {{#if selected}}checked{{/if}}
             {{#if ../required}}required{{/if}}>
         <label class="form-option drop-down--swatch" for="attribute_{{id}}" data-product-attribute-value="{{id}}"
-               {{#startsWith "12V" label}}data-product-attribute-parameter="12V"{{/startsWith}}
-               {{#startsWith "120V" label}}data-product-attribute-parameter="120V"{{/startsWith}}
-               {{#startsWith "Single" label}}data-product-attribute-parameter="Single"{{/startsWith}}
-               {{#startsWith "2-Pack" label}}data-product-attribute-parameter="2-Pack"{{/startsWith}}
-               {{#startsWith "5-Pack" label}}data-product-attribute-parameter="5-Pack"{{/startsWith}}
-               {{#contains label "JC Bi-Pin"}}data-product-attribute-socket="jc"{{/contains}}
-               {{#contains label "A19"}}data-product-attribute-socket="medium"{{/contains}}
-               {{#contains label "A15"}}data-product-attribute-socket="medium"{{/contains}}
-               {{#contains label "S14"}}data-product-attribute-socket="medium"{{/contains}}
-               {{#contains label "Warm White"}}data-product-attribute-bulb="warm"{{/contains}}
-               {{#contains label "Halogen"}}data-product-attribute-bulb="warm"{{/contains}}
-               {{#contains label "Xelogen"}}data-product-attribute-bulb="warm"{{/contains}}
-               {{#contains label "Incandescent"}}data-product-attribute-bulb="warm"{{/contains}}
-               {{#contains label "Cool White"}}data-product-attribute-bulb="cool"{{/contains}}>
+               data-product-attribute-parameter='[{{#startsWith "12V" label}}12V,{{/startsWith}}{{#startsWith "120V" label}}120V,{{/startsWith}}{{#startsWith "Single" label}}Single,{{/startsWith}}{{#startsWith "2-Pack" label}}2-Pack,{{/startsWith}}{{#startsWith "5-Pack" label}}5-Pack,{{/startsWith}}{{#contains label "JC Bi-Pin"}}JC Bi-Pin,{{/contains}}{{#contains label "A19"}}Medium Base,{{/contains}}{{#contains label "A15"}}Medium Base,{{/contains}}{{#contains label "S14"}}Medium Base,{{/contains}}{{#contains label "Warm White"}}Warm White,{{/contains}}{{#contains label "Halogen"}}Warm White,{{/contains}}{{#contains label "Xelogen"}}Warm White,{{/contains}}{{#contains label "Incandescent"}}Warm White,{{/contains}}{{#contains label "Cool White"}}Cool White,{{/contains}}]'>
         {{#if image}}
           <img class="dropdown-content-image" src="{{getImage image "gallery_size"}}" />
         {{/if}}

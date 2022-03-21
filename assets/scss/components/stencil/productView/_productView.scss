@@ -24,8 +24,8 @@
     display: flex;
     position: relative;
     left: 0;
-    min-width: calc(100% + 2rem);
-    padding-bottom: calc(100% + 2rem);
+    min-width: calc(100% + 1rem);
+    padding-bottom: calc(100% + 1rem);
     margin: 0;
     border-radius: 3px;
     background-color: white;
@@ -41,8 +41,8 @@
         object-fit: contain;
         top: 50%;
         left: 50%;
-        width: 100%;
-        max-height: 100%;
+        width: 95%;
+        max-height: 95%;
         transform: translate(-50%,-50%);
     }
 
@@ -326,7 +326,11 @@
             @media all and (min-width: 600px) {
                 //width: calc(33% - 32px);
                 width: 20%;
-                margin-right: 30px;
+                margin-right: 25px;
+
+                &:last-child {
+                    margin-right: 0;
+                }
             }
         }
     }
