@@ -567,25 +567,25 @@ export default class Product {
         });
     }
 
-    resetAttributes(selectorArray) {
-        $(selectorArray).each((i) => {
-            $('.dropdown-content input', selectorArray[i]).attr('checked', false);
-        })
+    resetAttributes(option) {
+        $('.dropdown-content input', option).attr('checked', false);
     }
 
-    resetProductOptionConfiguration(b, m, t) {
-        this.resetAttributes([b, m, t]);
-
+    resetProductOptionConfiguration(option) {
+        this.resetAttributes(option);
+        // console.log('reset?', m, $('.dropdown-button', m).removeClass('active'))
         // remove the blue active border for all interfaces & the image inside the all interfaces
-        $('.dropdown-button', b, m, t).removeClass('active');
-        $('.dropdown-button .dropdown-content-image', b, m, t).remove();
+
+        $('.dropdown-button', option).removeClass('active');
+        $('.dropdown-button .dropdown-content-image', option).remove();
 
         // reset all items in modal
-        $('[data-product-attribute-parameter]', b, m, t).addClass('hide');
-        $(`[data-product-attribute-parameter="${event.currentTarget.dataset.productAttributeLabel}"]`, b, m, t).removeClass('hide');
+        $('[data-product-attribute-parameter]', option).addClass('hide');
+        $(`[data-product-attribute-parameter="${event.currentTarget.dataset.productAttributeLabel}"]`, option).removeClass('hide');
+
     }
 
-    showHideProductOptions(optionsSelected, products) {
+    showHideProductOptions(optionsSelected, products, name) {
         products.each((i, element) => {
             let optionAttributes = $(element).data().productAttributeParameter;
 
@@ -609,10 +609,19 @@ export default class Product {
             if (name !== 'voltage' && name !== 'socket' && name !== 'bulb-temperature') return;
 
             let data = event.currentTarget.dataset.productAttributeLabel;
+
             optionsSelected[name] = data;
 
-            this.resetProductOptionConfiguration($bulbInterface, $mountingInterface, $transformerInterface);
-            this.showHideProductOptions(optionsSelected, $('[data-product-attribute-parameter]'));
+            if (name == 'voltage') {
+                this.resetProductOptionConfiguration($bulbInterface);
+                this.resetProductOptionConfiguration($mountingInterface);
+                this.resetProductOptionConfiguration($transformerInterface);
+
+                this.showHideProductOptions(optionsSelected, $('[data-product-attribute-parameter]'), name);
+            } else if (name !== 'voltate') {
+                this.resetProductOptionConfiguration($bulbInterface);
+                this.showHideProductOptions(optionsSelected, $('[data-product-attribute-parameter]'), name);
+            };
         });
     }
 
