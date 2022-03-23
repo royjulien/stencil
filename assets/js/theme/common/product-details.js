@@ -588,10 +588,14 @@ export default class Product {
     showHideProductOptions(optionsSelected, products, name) {
         products.each((i, element) => {
             let optionAttributes = $(element).data().productAttributeParameter;
-
+            console.log(optionAttributes)
             if (optionAttributes.length == 0) return;
 
+            // let theFuckingParsedData = optionAttributes.replace(/\s+/g, '');
+            // console.log(optionAttributes, name, optionAttributes.indexOf(name), optionAttributes.indexOf(name) > 0)
+            if (optionAttributes.indexOf(name) < 0) return;
             let matchingItems = Object.values(optionsSelected).every(results => optionAttributes.includes(results));
+            // console.log(matchingItems)
             matchingItems ? $(element).removeClass('hide') : $(element).addClass('hide');
         });
     }
