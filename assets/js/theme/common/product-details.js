@@ -571,11 +571,15 @@ export default class Product {
         $('.dropdown-content input', option).attr('checked', false);
     }
 
+    resetOtherProductOptions(...props) {
+        for(var i = 0, length1 = props.length; i < length1; i++){
+            $(`[data-product-attribute-name="${props[i]}"] input`).prop( "checked", false );
+        }
+    }
+
     resetProductOptionConfiguration(option) {
         this.resetAttributes(option);
-        // console.log('reset?', m, $('.dropdown-button', m).removeClass('active'))
         // remove the blue active border for all interfaces & the image inside the all interfaces
-
         $('.dropdown-button', option).removeClass('active');
         $('.dropdown-button .dropdown-content-image', option).remove();
 
@@ -587,16 +591,25 @@ export default class Product {
 
     showHideProductOptions(optionsSelected, products, name) {
         products.each((i, element) => {
-            let optionAttributes = $(element).data().productAttributeParameter;
-            console.log(optionAttributes)
-            if (optionAttributes.length == 0) return;
+            const productAttribute = $(element).data().productAttributeParameter;
+            const productTitle = $(element).children('.drop-down-form-option-title').first().text();
+            // console.log(productTitle)
 
-            // let theFuckingParsedData = optionAttributes.replace(/\s+/g, '');
-            // console.log(optionAttributes, name, optionAttributes.indexOf(name), optionAttributes.indexOf(name) > 0)
-            if (optionAttributes.indexOf(name) < 0) return;
-            let matchingItems = Object.values(optionsSelected).every(results => optionAttributes.includes(results));
-            // console.log(matchingItems)
+            // dont bother doing the rest of the code if the attribute selected isnt found within the product's attribute because we dont give a fuckkkkk
+            if (productAttribute.length == 0 || productAttribute.indexOf(name) < 0) return;
+
+            // console.log("option selected: ", optionsSelected)
+            // console.log("productAttribute: ", productAttribute.replace(/\s/g,''))
+            // console.log("option selected name: ", name)
+
+            if (name === 'voltage') $(element).removeClass('hide');
+
+            // Find all matching attributes within the products to show them
+            let matchingItems = Object.values(optionsSelected).every(results => productAttribute.includes(results));
+
+            // console.log('matching items', matchingItems)
             matchingItems ? $(element).removeClass('hide') : $(element).addClass('hide');
+            // console.log("   ")
         });
     }
 
@@ -608,23 +621,25 @@ export default class Product {
         // Storing options selected
         let optionsSelected = {};
         $('[data-product-attribute-label]').on('click', (event) => {
-            let name = $(event.currentTarget).parents('[data-product-attribute-name]').data().productAttributeName;
+            const name = $(event.currentTarget).parents('[data-product-attribute-name]').data().productAttributeName;
+            const products = $('[data-product-attribute-parameter]');
 
             if (name !== 'voltage' && name !== 'socket' && name !== 'bulb-temperature') return;
-
-            let data = event.currentTarget.dataset.productAttributeLabel;
-
-            optionsSelected[name] = data;
+            const data = event.currentTarget.dataset.productAttributeLabel;
 
             if (name == 'voltage') {
+                optionsSelected = {};
+                optionsSelected[name] = data;
+                this.resetOtherProductOptions('bulb-temperature', 'socket');
                 this.resetProductOptionConfiguration($bulbInterface);
-                this.resetProductOptionConfiguration($mountingInterface);
                 this.resetProductOptionConfiguration($transformerInterface);
+                this.resetProductOptionConfiguration($mountingInterface);
 
-                this.showHideProductOptions(optionsSelected, $('[data-product-attribute-parameter]'), name);
+                this.showHideProductOptions(optionsSelected, products, name);
             } else if (name !== 'voltate') {
+                optionsSelected[name] = data;
                 this.resetProductOptionConfiguration($bulbInterface);
-                this.showHideProductOptions(optionsSelected, $('[data-product-attribute-parameter]'), name);
+                this.showHideProductOptions(optionsSelected, products, name);
             };
         });
     }
