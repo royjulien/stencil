@@ -14,12 +14,7 @@ import compareProducts from './global/compare-products';
 import privacyCookieNotification from './global/cookieNotification';
 import maintenanceMode from './global/maintenanceMode';
 import carousel from './common/carousel';
-import FastClick from 'fastclick';
 // import swiperConfig from './global/swiperConfig';
-
-function fastClick(element) {
-    return new FastClick(element);
-}
 
 export default class Global extends PageManager {
     /**
@@ -28,7 +23,6 @@ export default class Global extends PageManager {
      * @param next
      */
     loaded(next) {
-        fastClick(document.body);
         quickSearch();
         currencySelector();
         foundation($(document));

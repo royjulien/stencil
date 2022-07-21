@@ -593,10 +593,17 @@ export default class Product {
         products.each((i, element) => {
             const productAttribute = $(element).data().productAttributeParameter;
             const productTitle = $(element).children('.drop-down-form-option-title').first().text();
-            // console.log(productTitle)
+            // console.log(productTitle, productTitle.toLowerCase() === 'none', productAttribute.length == 0, productAttribute.indexOf(name) < 0)
+            // override all none product options
+            if (productTitle.toLowerCase() === 'none') console.log('element:', $(element));
+            //$(element).removeClass('hide');
 
             // dont bother doing the rest of the code if the attribute selected isnt found within the product's attribute because we dont give a fuckkkkk
-            if (productAttribute.length == 0 || productAttribute.indexOf(name) < 0) return;
+            if (productAttribute.length == 0 || productAttribute.indexOf(name) < 0) {
+                // console.log('do nothing');
+                // console.log('   ');
+                return;
+            } 
 
             // console.log("option selected: ", optionsSelected)
             // console.log("productAttribute: ", productAttribute.replace(/\s/g,''))
@@ -610,6 +617,7 @@ export default class Product {
             // console.log('matching items', matchingItems)
             matchingItems ? $(element).removeClass('hide') : $(element).addClass('hide');
             // console.log("   ")
+
         });
     }
 
