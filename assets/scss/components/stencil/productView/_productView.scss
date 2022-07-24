@@ -1610,3 +1610,45 @@ span.form-option-variant.form-option-variant--pattern  {
         border-radius: 3px;
     }
 }
+
+.related {
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+    width: 100%;
+    img {
+        width: 250px;
+        height: auto;
+    }
+}
+.product-card {
+    min-width: 12rem;
+    width: 20%;
+    height: auto;
+    margin-right: .75rem;
+}
+@media only screen and (max-width: 1024px) {
+    .related {
+        overflow-x: scroll;
+    }
+    .product-card {
+        margin-right: 2rem;
+        min-width: 14rem;
+    }
+}
+@media only screen and (max-width: 414px) {
+    .product-card {
+        min-width: 10rem;
+    }
+}
+@media only screen and (max-width: 375px) {
+    .product-card {
+        margin-right: 1rem;
+        min-width: 10rem;
+    }
+}
+@media only screen and (max-width: 320px) {
+    .product-card {
+        min-width: 16rem;
+    }
+}

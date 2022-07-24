@@ -18,6 +18,12 @@ product:
 
     <div itemscope itemtype="http://schema.org/Product">
         {{> components/products/product-view schema=true}}
+
+        {{#if product.related_products }}
+            {{> components/products/related product.related_products}}
+        {{/if}}
+
+
         {{#if product.videos.list.length}}
             {{> components/products/videos product.videos}}
         {{/if}}
